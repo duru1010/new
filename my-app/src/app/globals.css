@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-brand-blue: #2563eb;
+  --color-brand-cyan: #06b6d4;
+}
+
+/* Base resets and transitions */
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    /* We use tailwind classes in layout.tsx, but these are safe fallbacks */
+    @apply transition-colors duration-500 antialiased;
+  }
+
+  /* Ensures all elements transition colors together */
+  * {
+    @apply transition-colors duration-300;
+  }
+}
+
+/* Custom selection color */
+::selection {
+  background: #2563eb;
+  color: white;
+}
