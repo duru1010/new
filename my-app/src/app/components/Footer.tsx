@@ -2,23 +2,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import * as Lucide from 'lucide-react';
-import {
- 
-  Globe,
-  Phone,
-} from "lucide-react";
-
-const socialLinks = [
-  
-  {
-    icon: <Globe size={18} />,
-    href: "https://yourwebsite.com",
-  },
-  {
-    icon: <Phone size={18} />,
-    href: "tel:+919999999999",
-  },
-];
 
 
 
