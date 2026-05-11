@@ -1,3 +1,5 @@
+
+
 // "use client";
 // import React from 'react';
 // import { motion } from 'framer-motion';
@@ -5,20 +7,20 @@
 
 // const Hero = () => {
 //   return (
-//     <section className="relative h-[800px] w-full flex items-center justify-center overflow-hidden bg-white dark:bg-[#020617] transition-colors duration-700">
+//     <section className="relative h-[800px] w-full flex items-center justify-center overflow-hidden bg-white dark:bg-[#333333] transition-colors duration-700">
       
-//       {/* --- SMOOTH ANIMATED BACKGROUND --- */}
+//       {/* --- BRANDED ANIMATED BACKGROUND --- */}
 //       <div className="absolute inset-0 z-0 pointer-events-none">
 //         {/* Base Static Grid */}
 //         <div 
 //           className="absolute inset-0 h-full w-full 
 //           [background-image:radial-gradient(#e2e8f0_1px,transparent_1px)] 
-//           dark:[background-image:radial-gradient(#1e293b_1px,transparent_1px)] 
+//           dark:[background-image:radial-gradient(#4a4a4a_1px,transparent_1px)] 
 //           [background-size:40px_40px] 
 //           [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_60%,transparent_100%)]" 
 //         />
         
-//         {/* Smooth Drifting Layer (Primary) */}
+//         {/* Softlink Teal Drifting Layer */}
 //         <motion.div 
 //           animate={{ 
 //             backgroundPosition: ["0px 0px", "40px 40px"] 
@@ -28,18 +30,18 @@
 //             repeat: Infinity, 
 //             ease: "linear" 
 //           }}
-//           className="absolute inset-0 opacity-40 dark:opacity-60"
+//           className="absolute inset-0 opacity-30 dark:opacity-40"
 //           style={{
-//             backgroundImage: 'radial-gradient(circle, #3b82f6 1px, transparent 1px)',
+//             backgroundImage: 'radial-gradient(circle, #25C1C5 1px, transparent 1px)',
 //             backgroundSize: '40px 40px',
 //           }}
 //         />
 
-//         {/* Subtle Glow Pulse (Dark Mode Only) */}
+//         {/* Brand Glow Pulse (Dark Mode Only) */}
 //         <motion.div 
-//           animate={{ opacity: [0.05, 0.15, 0.05] }}
+//           animate={{ opacity: [0.05, 0.12, 0.05] }}
 //           transition={{ duration: 10, repeat: Infinity }}
-//           className="absolute inset-0 hidden dark:block bg-[radial-gradient(circle_at_50%_50%,#1d4ed8_0%,transparent_50%)]"
+//           className="absolute inset-0 hidden dark:block bg-[radial-gradient(circle_at_50%_50%,#25C1C5_0%,transparent_55%)]"
 //         />
 //       </div>
 
@@ -50,9 +52,9 @@
 //           <motion.div 
 //             initial={{ opacity: 0, y: 20 }} 
 //             animate={{ opacity: 1, y: 0 }}
-//             className="px-4 py-1.5 rounded-full bg-slate-100/50 dark:bg-slate-900/50 border border-slate-200 dark:border-blue-500/20 mb-8 backdrop-blur-sm"
+//             className="px-4 py-1.5 rounded-full bg-slate-100/50 dark:bg-[#25C1C5]/10 border border-slate-200 dark:border-[#25C1C5]/30 mb-8 backdrop-blur-sm"
 //           >
-//             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-blue-600 dark:text-cyan-400">
+//             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#25C1C5]">
 //               Softlink v2.0
 //             </span>
 //           </motion.div>
@@ -62,10 +64,10 @@
 //             initial={{ opacity: 0, scale: 0.95 }} 
 //             animate={{ opacity: 1, scale: 1 }} 
 //             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-//             className="text-6xl md:text-8xl font-black tracking-tighter text-slate-900 dark:text-white mb-8 leading-[0.85]"
+//             className="text-6xl md:text-8xl font-black tracking-tighter text-[#333333] dark:text-white mb-8 leading-[0.85]"
 //           >
 //             Infrastructure <br />
-//             <span className="text-transparent bg-clip-text bg-gradient-to-b from-blue-500 to-blue-800 dark:from-cyan-300 dark:to-blue-600">
+//             <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#25C1C5] to-[#1a8a8d] dark:from-[#25C1C5] dark:to-[#49D1D5]">
 //               Perfected.
 //             </span>
 //           </motion.h1>
@@ -74,7 +76,7 @@
 //             initial={{ opacity: 0 }} 
 //             animate={{ opacity: 1 }} 
 //             transition={{ delay: 0.4 }}
-//             className="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-10 max-w-2xl leading-relaxed"
+//             className="text-lg md:text-xl text-slate-600 dark:text-slate-300 mb-10 max-w-2xl leading-relaxed"
 //           >
 //             High-end IT hardware and networking solutions designed for 
 //             performance, security, and the future of business.
@@ -87,31 +89,31 @@
 //             transition={{ delay: 0.6 }} 
 //             className="flex flex-col sm:flex-row gap-4"
 //           >
-//            <button 
-//   onClick={() => window.location.hash = 'get-started'}
-//   className="group px-10 py-4 bg-slate-900 dark:bg-white text-white dark:text-black rounded-full font-bold transition-all hover:scale-105 active:scale-95 flex items-center gap-2 shadow-2xl shadow-blue-500/20"
-// >
-//   Get Started 
-//   <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-// </button>
 //             <button 
-//   onClick={() => {
-//     const element = document.getElementById('products');
-//     if (element) {
-//       element.scrollIntoView({ behavior: 'smooth' });
-//     } else {
-//       // Fallback: if section doesn't exist, just go to top
-//       window.scrollTo({ top: 0, behavior: 'smooth' });
-//     }
-//   }}
-//   className="px-10 py-4 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white rounded-full font-bold hover:bg-slate-100 dark:hover:bg-white/5 transition-all"
+//               onClick={() => window.location.hash = 'get-started'}
+//               className="group px-10 py-4 bg-[#25C1C5] text-white rounded-full font-bold transition-all hover:scale-105 active:scale-95 flex items-center gap-2 shadow-xl shadow-[#25C1C5]/20 hover:bg-[#1eb0b4]"
+//             >
+//               Get Started 
+//               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+//             </button>
+//             <motion.a
+//   href="/dashboard/quotations" // Replace with your WhatsApp link or mailto:info@softlink.com
+//   target="_blank"
+//   rel="noopener noreferrer"
+//   whileHover={{ scale: 1.05 }}
+//   whileTap={{ scale: 0.95 }}
+//   className="inline-block"
 // >
-//   Our Products
-// </button>
+//   <button 
+//     className="px-10 py-4 border border-slate-200 dark:border-white/20 text-[#333333] dark:text-white rounded-full font-bold hover:bg-[#25C1C5] hover:text-white hover:border-[#25C1C5] transition-all duration-300"
+//   >
+//     Get Quotation
+//   </button>
+// </motion.a>
 //           </motion.div>
 //         </div>
 
-//         {/* Floating Interactive Elements */}
+//         {/* Floating Branded Tags */}
 //         <div className="hidden lg:block">
 //            <FloatingTag icon={<ShieldCheck size={16}/>} text="Security" top="15%" left="10%" delay={1} />
 //            <FloatingTag icon={<Zap size={16}/>} text="Networking" top="70%" left="5%" delay={1.4} />
@@ -134,134 +136,163 @@
 //       y: { repeat: Infinity, duration: 6, ease: "easeInOut" } 
 //     }}
 //     style={{ top, left, right }} 
-//     className="absolute flex items-center gap-3 px-6 py-3 bg-white/70 dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200 dark:border-white/10 rounded-2xl shadow-2xl shadow-blue-500/5"
+//     className="absolute flex items-center gap-3 px-6 py-3 bg-white/80 dark:bg-[#333333]/80 backdrop-blur-xl border border-slate-200 dark:border-[#25C1C5]/30 rounded-2xl shadow-2xl shadow-[#25C1C5]/5"
 //   >
-//     <div className="text-blue-600 dark:text-cyan-400">{icon}</div>
-//     <span className="text-[10px] font-bold dark:text-slate-100 text-slate-800 uppercase tracking-[0.2em]">{text}</span>
+//     <div className="text-[#25C1C5]">{icon}</div>
+//     <span className="text-[10px] font-bold dark:text-slate-100 text-[#333333] uppercase tracking-[0.2em]">{text}</span>
 //   </motion.div>
 // );
 
 // export default Hero;
 
-
 "use client";
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight, Laptop, ShieldCheck, Zap } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight, ShieldCheck, Zap, Cpu, RefreshCw, CheckCircle, MousePointerClick } from 'lucide-react';
+import Link from 'next/link';
 
 const Hero = () => {
-  return (
-    <section className="relative h-[800px] w-full flex items-center justify-center overflow-hidden bg-white dark:bg-[#333333] transition-colors duration-700">
-      
-      {/* --- BRANDED ANIMATED BACKGROUND --- */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        {/* Base Static Grid */}
-        <div 
-          className="absolute inset-0 h-full w-full 
-          [background-image:radial-gradient(#e2e8f0_1px,transparent_1px)] 
-          dark:[background-image:radial-gradient(#4a4a4a_1px,transparent_1px)] 
-          [background-size:40px_40px] 
-          [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_60%,transparent_100%)]" 
-        />
-        
-        {/* Softlink Teal Drifting Layer */}
-        <motion.div 
-          animate={{ 
-            backgroundPosition: ["0px 0px", "40px 40px"] 
-          }}
-          transition={{ 
-            duration: 8, 
-            repeat: Infinity, 
-            ease: "linear" 
-          }}
-          className="absolute inset-0 opacity-30 dark:opacity-40"
-          style={{
-            backgroundImage: 'radial-gradient(circle, #25C1C5 1px, transparent 1px)',
-            backgroundSize: '40px 40px',
-          }}
-        />
+  const [imageIndex, setImageIndex] = useState(0);
 
-        {/* Brand Glow Pulse (Dark Mode Only) */}
-        <motion.div 
-          animate={{ opacity: [0.05, 0.12, 0.05] }}
-          transition={{ duration: 10, repeat: Infinity }}
-          className="absolute inset-0 hidden dark:block bg-[radial-gradient(circle_at_50%_50%,#25C1C5_0%,transparent_55%)]"
-        />
+  const images = [
+    "/b058c545a8c24bd9ec1fbb9d2193ade7.jpg", 
+    "/b5429ffaffaf5dd621a36843ac85c782.jpg", 
+    "/e0b48f31b03a5057a71bf13e5790f771.jpg",
+  ];
+
+  const handleImageClick = () => {
+    setImageIndex((prev) => (prev === 0 ? 1 : 0));
+  };
+
+  return (
+    <section className="relative min-h-[900px] lg:h-[850px] w-full flex items-center justify-center overflow-hidden bg-white pt-24 pb-12 lg:py-0">
+      
+      {/* --- BACKGROUND NODES --- */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute inset-0 h-full w-full [background-image:radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:40px_40px] [mask-image:linear-gradient(to_bottom,white,transparent,white)] opacity-40" />
+        
+        <div className="absolute top-[10%] right-[5%] lg:top-[15%] lg:right-[15%] w-[250px] h-[250px] lg:w-[350px] lg:h-[350px]">
+          <div className="absolute inset-0 bg-blue-500/30 blur-[60px] lg:blur-[80px] rounded-full animate-pulse" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 lg:w-4 lg:h-4 bg-blue-400 rounded-full shadow-[0_0_30px_#60a5fa]" />
+        </div>
+
+        <div className="absolute bottom-[10%] left-[5%] lg:bottom-[15%] lg:left-[10%] w-[200px] h-[200px] lg:w-[300px] lg:h-[300px]">
+          <div className="absolute inset-0 bg-indigo-500/20 blur-[70px] lg:blur-[90px] rounded-full" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 lg:w-3 lg:h-3 bg-indigo-400 rounded-full shadow-[0_0_25px_#818cf8]" />
+        </div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           
-          {/* Version Badge */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }} 
-            animate={{ opacity: 1, y: 0 }}
-            className="px-4 py-1.5 rounded-full bg-slate-100/50 dark:bg-[#25C1C5]/10 border border-slate-200 dark:border-[#25C1C5]/30 mb-8 backdrop-blur-sm"
-          >
-            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#25C1C5]">
-              Softlink v2.0
-            </span>
-          </motion.div>
-
-          {/* Headline */}
-          <motion.h1 
-            initial={{ opacity: 0, scale: 0.95 }} 
-            animate={{ opacity: 1, scale: 1 }} 
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-6xl md:text-8xl font-black tracking-tighter text-[#333333] dark:text-white mb-8 leading-[0.85]"
-          >
-            Infrastructure <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#25C1C5] to-[#1a8a8d] dark:from-[#25C1C5] dark:to-[#49D1D5]">
-              Perfected.
-            </span>
-          </motion.h1>
-
-          <motion.p 
-            initial={{ opacity: 0 }} 
-            animate={{ opacity: 1 }} 
-            transition={{ delay: 0.4 }}
-            className="text-lg md:text-xl text-slate-600 dark:text-slate-300 mb-10 max-w-2xl leading-relaxed"
-          >
-            High-end IT hardware and networking solutions designed for 
-            performance, security, and the future of business.
-          </motion.p>
-
-          {/* Action Buttons */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            transition={{ delay: 0.6 }} 
-            className="flex flex-col sm:flex-row gap-4"
-          >
-            <button 
-              onClick={() => window.location.hash = 'get-started'}
-              className="group px-10 py-4 bg-[#25C1C5] text-white rounded-full font-bold transition-all hover:scale-105 active:scale-95 flex items-center gap-2 shadow-xl shadow-[#25C1C5]/20 hover:bg-[#1eb0b4]"
+          {/* --- CONTENT BLOCK --- */}
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left max-w-2xl mx-auto lg:mx-0 order-2 lg:order-1">
+            <motion.div 
+              initial={{ opacity: 0, y: -10 }} 
+              animate={{ opacity: 1, y: 0 }} 
+              className="flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-600/5 border border-indigo-100 mb-6 lg:mb-8"
             >
-              Get Started 
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </button>
-            <motion.a
-  href="/dashboard/quotations" // Replace with your WhatsApp link or mailto:info@softlink.com
-  target="_blank"
-  rel="noopener noreferrer"
-  whileHover={{ scale: 1.05 }}
-  whileTap={{ scale: 0.95 }}
-  className="inline-block"
->
-  <button 
-    className="px-10 py-4 border border-slate-200 dark:border-white/20 text-[#333333] dark:text-white rounded-full font-bold hover:bg-[#25C1C5] hover:text-white hover:border-[#25C1C5] transition-all duration-300"
-  >
-    Get Quotation
-  </button>
-</motion.a>
-          </motion.div>
-        </div>
+              <CheckCircle size={14} className="text-indigo-600" />
+              <span className="text-[10px] lg:text-[11px] font-bold uppercase tracking-[0.3em] text-indigo-600">
+                Trusted by 1,000+ Businesses
+              </span>
+            </motion.div>
 
-        {/* Floating Branded Tags */}
-        <div className="hidden lg:block">
-           <FloatingTag icon={<ShieldCheck size={16}/>} text="Security" top="15%" left="10%" delay={1} />
-           <FloatingTag icon={<Zap size={16}/>} text="Networking" top="70%" left="5%" delay={1.4} />
-           <FloatingTag icon={<Laptop size={16}/>} text="IT Sales" top="30%" right="8%" delay={1.8} />
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }} 
+              animate={{ opacity: 1, y: 0 }} 
+              className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight text-slate-900 mb-6 lg:mb-8 leading-[1.1]"
+            >
+              Online Solutions <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-violet-600 to-indigo-500">
+                To Boost Business.
+              </span>
+            </motion.h1>
+
+            <motion.p className="text-base lg:text-lg text-slate-500 mb-8 lg:mb-10 max-w-lg leading-relaxed font-medium">
+              From high-performance WFH Setups and Software Licenses to 
+              advanced Surveillance Systems, we provide the tech core for your growth.
+            </motion.p>
+
+            <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+              {/* Primary Action */}
+               <Link href="/dashboard/quotations" className="w-full sm:w-auto">
+              <button className="group w-full sm:w-auto px-8 lg:px-10 py-4 lg:py-5 bg-indigo-600 text-white rounded-2xl font-bold transition-all hover:bg-indigo-700 hover:shadow-2xl hover:shadow-indigo-200 active:scale-95 flex items-center justify-center gap-3">
+                Get Quotation <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              </button>
+              </Link>
+
+              {/* Secondary Action: Redirects to Quotation Page */}
+             
+              
+              {/* Client Stats */}
+              <div className="hidden sm:flex flex-col items-center lg:items-start px-4 border-l border-slate-100">
+                <p className="text-slate-900 font-bold text-sm">Satisfied Clients</p>
+                <p className="text-slate-500 text-xs font-medium">Active since 2012</p>
+              </div>
+            </div>
+          </div>
+
+          {/* --- IMAGE BLOCK WITH INTERACTIVE INDICATORS --- */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="relative flex items-center justify-center order-1 lg:order-2"
+          >
+            <div 
+              onClick={handleImageClick}
+              className="relative z-20 group w-full max-w-[320px] sm:max-w-[400px] lg:max-w-[520px] cursor-pointer"
+            >
+              <div className="absolute -inset-8 pointer-events-none">
+                <div className="absolute inset-0 bg-indigo-400/20 rounded-full blur-3xl animate-pulse scale-75" />
+              </div>
+              
+              <div className="absolute -inset-4 bg-gradient-to-tr from-indigo-200 to-blue-200 rounded-[3rem] blur-2xl opacity-60 group-hover:opacity-90 transition-opacity" />
+              
+              <div className="relative aspect-square rounded-[2rem] lg:rounded-[3rem] bg-white border border-slate-100 shadow-2xl overflow-hidden p-2 lg:p-3">
+                <div className="w-full h-full rounded-[1.5rem] lg:rounded-[2.5rem] overflow-hidden bg-slate-100 relative">
+                  
+                  <AnimatePresence mode="wait">
+                    <motion.img 
+                      key={imageIndex}
+                      initial={{ opacity: 0, scale: 1.1, filter: "blur(10px)" }}
+                      animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                      exit={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
+                      transition={{ duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] }}
+                      src={images[imageIndex]} 
+                      alt="Business Infrastructure" 
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  </AnimatePresence>
+
+                  <div className="absolute inset-0 bg-indigo-900/0 group-hover:bg-indigo-950/40 transition-all duration-500 flex flex-col items-center justify-center gap-4">
+                    <div className="relative">
+                       <div className="absolute inset-0 rounded-full border-2 border-white/50 scale-150 animate-ping opacity-0 group-hover:opacity-100" />
+                       <RefreshCw className="text-white opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:rotate-180" size={48} />
+                    </div>
+                    <span className="text-white font-bold text-sm tracking-widest opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                        CLICK TO SWITCH VIEW
+                    </span>
+                  </div>
+                </div>
+
+                <motion.div 
+                    animate={{ scale: [1, 1.1, 1] }}
+                    transition={{ repeat: Infinity, duration: 2 }}
+                    className="absolute top-6 left-6 z-30 bg-indigo-600 text-white px-3 py-1.5 rounded-full flex items-center gap-2 shadow-lg lg:hidden"
+                >
+                    <MousePointerClick size={14} />
+                    <span className="text-[10px] font-bold">Tap to interact</span>
+                </motion.div>
+              </div>
+            </div>
+
+            <div className="hidden sm:block">
+               <FloatingTag icon={<ShieldCheck size={16}/>} text="Licenses" top="5%" right="-5%" delay={1.2} />
+               <FloatingTag icon={<Zap size={16}/>} text="WFH Ready" bottom="15%" left="-10%" delay={1.5} />
+            </div>
+          </motion.div>
+
         </div>
       </div>
     </section>
@@ -270,20 +301,13 @@ const Hero = () => {
 
 const FloatingTag = ({ icon, text, top, left, right, delay }: any) => (
   <motion.div 
-    initial={{ opacity: 0, y: 20 }} 
-    animate={{ 
-      opacity: 1, 
-      y: [0, -15, 0],
-    }} 
-    transition={{ 
-      opacity: { delay, duration: 1 },
-      y: { repeat: Infinity, duration: 6, ease: "easeInOut" } 
-    }}
+    animate={{ y: [0, -10, 0] }} 
+    transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: delay * 0.3 }}
     style={{ top, left, right }} 
-    className="absolute flex items-center gap-3 px-6 py-3 bg-white/80 dark:bg-[#333333]/80 backdrop-blur-xl border border-slate-200 dark:border-[#25C1C5]/30 rounded-2xl shadow-2xl shadow-[#25C1C5]/5"
+    className="absolute z-30 flex items-center gap-2 px-4 py-3 lg:px-6 lg:py-4 bg-white/90 backdrop-blur-md border border-slate-100 rounded-xl lg:rounded-2xl shadow-xl"
   >
-    <div className="text-[#25C1C5]">{icon}</div>
-    <span className="text-[10px] font-bold dark:text-slate-100 text-[#333333] uppercase tracking-[0.2em]">{text}</span>
+    <div className="text-indigo-600">{icon}</div>
+    <span className="text-[8px] lg:text-[10px] font-bold text-slate-700 uppercase tracking-[0.2em]">{text}</span>
   </motion.div>
 );
 
