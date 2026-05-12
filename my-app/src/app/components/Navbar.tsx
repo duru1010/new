@@ -424,6 +424,7 @@ import {
   MessageSquare,
   Loader2,
   Phone,
+  Mail,
 } from "lucide-react";
 
 const Navbar = () => {
@@ -446,6 +447,7 @@ const Navbar = () => {
   const [formData, setFormData] = useState({
     fullName: "",
     mobile: "",
+    email: "",
     service: "CCTV & Security",
     message: "",
   });
@@ -523,31 +525,27 @@ const Navbar = () => {
       window.removeEventListener("hashchange", handleHashCheck);
   }, []);
 
-  // SEND OTP
   const sendOtp = async () => {
-    if (!formData.mobile || formData.mobile.length < 10) {
-      alert("Enter valid mobile number");
+    // 1. Validate Email instead of Mobile
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email || !emailRegex.test(formData.email)) {
+      alert("Please enter a valid email address");
       return;
     }
 
     setIsSendingOtp(true);
 
     try {
-      const newOtp = Math.floor(
-        100000 + Math.random() * 900000
-      ).toString();
-
+      const newOtp = Math.floor(100000 + Math.random() * 900000).toString();
       setGeneratedOtp(newOtp);
 
       const response = await fetch("/api/send-otp", {
         method: "POST",
-
         headers: {
           "Content-Type": "application/json",
         },
-
         body: JSON.stringify({
-          mobile: formData.mobile,
+          email: formData.email, // Passing email to backend
           otp: newOtp,
         }),
       });
@@ -556,14 +554,14 @@ const Navbar = () => {
 
       if (response.ok) {
         setOtpSent(true);
-        alert("OTP Sent Successfully");
-        console.log("OTP:", newOtp);
+        alert("OTP Sent to your email successfully");
+        console.log("OTP Debug:", newOtp);
       } else {
-        alert(data.message || "Failed to send OTP");
+        alert(data.error || "Failed to send OTP");
       }
     } catch (error) {
-      console.log(error);
-      alert("Something went wrong");
+      console.error(error);
+      alert("Something went wrong with the email service");
     } finally {
       setIsSendingOtp(false);
     }
@@ -592,42 +590,46 @@ const Navbar = () => {
 
     setIsSubmitting(true);
 
-    try {
-      const response = await fetch("/api/project-request", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+   try {
+  setIsSubmitting(true);
 
-      const data = await response.json();
+  const response = await fetch("/api/project-request", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formData), // formData now includes 'email'
+  });
 
-      if (response.ok) {
-        alert("Request sent successfully!");
+  const data = await response.json();
 
-        setShowForm(false);
+  if (response.ok) {
+    alert("Request sent successfully!");
+    setShowForm(false);
+    
+    // Reset form including the new email field
+    setFormData({
+      fullName: "",
+      email: "", 
+      mobile: "",
+      service: "CCTV & Security",
+      message: "",
+    });
 
-        setFormData({
-          fullName: "",
-          mobile: "",
-          service: "CCTV & Security",
-          message: "",
-        });
-
-        setOtp("");
-        setGeneratedOtp("");
-        setOtpSent(false);
-        setOtpVerified(false);
-      } else {
-        alert(data.message || "Failed to send request");
-      }
-    } catch (err) {
-      console.log(err);
-      alert("Failed to send request. Please try again.");
-    } finally {
-      setIsSubmitting(false);
-    }
+    setOtp("");
+    setGeneratedOtp("");
+    setOtpSent(false);
+    setOtpVerified(false);
+  } else {
+    // This will now show the actual error from the backend (like "Auth failed")
+    alert(data.error || "Failed to send request");
+  }
+} catch (err) {
+  console.error("Frontend Error:", err);
+  alert("Network error. Please try again.");
+} finally {
+  setIsSubmitting(false);
+}
   };
 
   return (
@@ -842,196 +844,161 @@ const Navbar = () => {
       </AnimatePresence>
 
       {/* FORM MODAL */}
-      <AnimatePresence>
-        {showForm && (
-          <div className="fixed inset-0 z-[200] flex items-center justify-center p-4">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setShowForm(false)}
-              className="absolute inset-0 bg-slate-900/60 backdrop-blur-md"
+      
+        <AnimatePresence>
+  {showForm && (
+    <div className="fixed inset-0 z-[200] flex items-center justify-center p-4">
+      {/* Backdrop */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        onClick={() => setShowForm(false)}
+        className="absolute inset-0 bg-slate-900/60 backdrop-blur-md"
+      />
+
+      {/* Modal Container */}
+      <motion.div
+        initial={{ scale: 0.9, opacity: 0, y: 20 }}
+        animate={{ scale: 1, opacity: 1, y: 0 }}
+        exit={{ scale: 0.9, opacity: 0, y: 20 }}
+        className="relative w-full max-w-md bg-white dark:bg-slate-900 rounded-[2.5rem] p-8 shadow-2xl border border-slate-200 dark:border-white/10"
+      >
+        <button
+          onClick={() => setShowForm(false)}
+          className="absolute top-6 right-6 text-slate-400 hover:text-slate-600 dark:hover:text-white transition-colors"
+        >
+          <X size={24} />
+        </button>
+
+        <h3 className="text-2xl font-black dark:text-white text-slate-900 mb-6">
+          Start Your Project
+        </h3>
+
+        <form className="space-y-4" onSubmit={handleFormSubmit}>
+          
+          {/* FULL NAME */}
+          <div className="relative">
+            <User className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+            <input
+              required
+              type="text"
+              placeholder="Full Name"
+              value={formData.fullName}
+              onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+              className="w-full pl-12 pr-4 py-3 rounded-2xl bg-slate-50 dark:bg-white/5 border dark:border-white/10 dark:text-white outline-none focus:ring-2 ring-indigo-600"
             />
-
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0, y: 20 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.9, opacity: 0, y: 20 }}
-              className="relative w-full max-w-md bg-white dark:bg-slate-900 rounded-[2.5rem] p-8 shadow-2xl border border-slate-200 dark:border-white/10"
-            >
-              <button
-                onClick={() => setShowForm(false)}
-                className="absolute top-6 right-6 text-slate-400"
-              >
-                <X size={24} />
-              </button>
-
-              <h3 className="text-2xl font-black dark:text-white text-slate-900 mb-6">
-                Start Your Project
-              </h3>
-
-              <form
-                className="space-y-4"
-                onSubmit={handleFormSubmit}
-              >
-                {/* FULL NAME */}
-                <div className="relative">
-                  <User
-                    className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"
-                    size={18}
-                  />
-
-                  <input
-                    required
-                    type="text"
-                    placeholder="Full Name"
-                    value={formData.fullName}
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        fullName: e.target.value,
-                      })
-                    }
-                    className="w-full pl-12 pr-4 py-3 rounded-2xl bg-slate-50 dark:bg-white/5 border dark:border-white/10 dark:text-white outline-none focus:ring-2 ring-indigo-600"
-                  />
-                </div>
-
-                {/* MOBILE + OTP */}
-                <div className="space-y-3">
-                  <div className="relative">
-                    <Phone
-                      className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"
-                      size={18}
-                    />
-
-                    <input
-                      required
-                      type="tel"
-                      placeholder="Mobile Number"
-                      value={formData.mobile}
-                      onChange={(e) =>
-                        setFormData({
-                          ...formData,
-                          mobile: e.target.value,
-                        })
-                      }
-                      className="w-full pl-12 pr-32 py-3 rounded-2xl bg-slate-50 dark:bg-white/5 border dark:border-white/10 dark:text-white outline-none focus:ring-2 ring-indigo-600"
-                    />
-
-                    <button
-                      type="button"
-                      onClick={sendOtp}
-                      disabled={
-                        isSendingOtp ||
-                        otpVerified ||
-                        !formData.mobile
-                      }
-                      className="absolute right-2 top-1/2 -translate-y-1/2 px-4 py-2 rounded-xl bg-indigo-600 text-white text-sm font-bold disabled:opacity-50"
-                    >
-                      {otpVerified
-                        ? "Verified"
-                        : isSendingOtp
-                        ? "Sending..."
-                        : "Send OTP"}
-                    </button>
-                  </div>
-
-                  {otpSent && !otpVerified && (
-                    <div className="flex gap-2">
-                      <input
-                        type="text"
-                        placeholder="Enter OTP"
-                        value={otp}
-                        onChange={(e) => setOtp(e.target.value)}
-                        className="flex-1 px-4 py-3 rounded-2xl bg-slate-50 dark:bg-white/5 border dark:border-white/10 dark:text-white outline-none focus:ring-2 ring-indigo-600"
-                      />
-
-                      <button
-                        type="button"
-                        onClick={verifyOtp}
-                        className="px-5 py-3 rounded-2xl bg-green-600 text-white font-bold"
-                      >
-                        Verify
-                      </button>
-                    </div>
-                  )}
-
-                  {otpVerified && (
-                    <p className="text-green-500 text-sm font-semibold">
-                      Mobile Number Verified Successfully
-                    </p>
-                  )}
-                </div>
-
-                {/* SERVICE */}
-                <select
-                  className="w-full px-4 py-3 rounded-2xl bg-slate-50 dark:bg-white/5 border dark:border-white/10 dark:text-white outline-none focus:ring-2 ring-indigo-600"
-                  value={formData.service}
-                  onChange={(e) =>
-                    setFormData({
-                      ...formData,
-                      service: e.target.value,
-                    })
-                  }
-                >
-                  {services.map((s) => (
-                    <option
-                      key={s.name}
-                      value={s.name}
-                      className="dark:bg-slate-900"
-                    >
-                      {s.name}
-                    </option>
-                  ))}
-                </select>
-
-                {/* MESSAGE */}
-                <div className="relative">
-                  <MessageSquare
-                    className="absolute left-4 top-4 text-slate-400"
-                    size={18}
-                  />
-
-                  <textarea
-                    required
-                    rows={3}
-                    placeholder="Message"
-                    value={formData.message}
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        message: e.target.value,
-                      })
-                    }
-                    className="w-full pl-12 pr-4 py-3 rounded-2xl bg-slate-50 dark:bg-white/5 border dark:border-white/10 dark:text-white outline-none focus:ring-2 ring-indigo-600"
-                  />
-                </div>
-
-                {/* SUBMIT BUTTON */}
-                <button
-  type="submit"
-  disabled={isSubmitting || !otpVerified}
-  className={`w-full py-4 rounded-2xl font-bold flex items-center justify-center gap-2 transition-all ${
-    otpVerified
-      ? "bg-indigo-600 hover:bg-indigo-700 text-white"
-      : "bg-gray-400 cursor-not-allowed text-white"
-  }`}
->
-  {isSubmitting ? (
-    <>
-      Processing <Loader2 className="animate-spin" size={18} />
-    </>
-  ) : (
-    <>
-      Send Request <Send size={18} />
-    </>
-  )}
-</button>
-              </form>
-            </motion.div>
           </div>
-        )}
-      </AnimatePresence>
+
+          {/* EMAIL ADDRESS + OTP TRIGGER */}
+          <div className="space-y-3">
+            <div className="relative">
+              <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+              <input
+                required
+                type="email"
+                placeholder="Email Address"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                className="w-full pl-12 pr-32 py-3 rounded-2xl bg-slate-50 dark:bg-white/5 border dark:border-white/10 dark:text-white outline-none focus:ring-2 ring-indigo-600"
+              />
+              <button
+                type="button"
+                onClick={sendOtp}
+                disabled={isSendingOtp || otpVerified || !formData.email}
+                className="absolute right-2 top-1/2 -translate-y-1/2 px-4 py-2 rounded-xl bg-indigo-600 text-white text-sm font-bold disabled:opacity-50 disabled:bg-slate-400"
+              >
+                {otpVerified ? "Verified" : isSendingOtp ? "Sending..." : "Send OTP"}
+              </button>
+            </div>
+
+            {/* OTP VERIFICATION INPUT */}
+            {otpSent && !otpVerified && (
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  placeholder="Enter 6-digit OTP"
+                  value={otp}
+                  onChange={(e) => setOtp(e.target.value)}
+                  className="flex-1 px-4 py-3 rounded-2xl bg-slate-50 dark:bg-white/5 border dark:border-white/10 dark:text-white outline-none focus:ring-2 ring-indigo-600"
+                />
+                <button
+                  type="button"
+                  onClick={verifyOtp}
+                  className="px-5 py-3 rounded-2xl bg-green-600 hover:bg-green-700 text-white font-bold transition-colors"
+                >
+                  Verify
+                </button>
+              </div>
+            )}
+
+            {otpVerified && (
+              <p className="text-green-500 text-xs font-semibold px-2">
+                ✓ Email Address Verified Successfully
+              </p>
+            )}
+          </div>
+
+          {/* MOBILE NUMBER */}
+          <div className="relative">
+            <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+            <input
+              required
+              type="tel"
+              placeholder="Mobile Number"
+              value={formData.mobile}
+              onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}
+              className="w-full pl-12 pr-4 py-3 rounded-2xl bg-slate-50 dark:bg-white/5 border dark:border-white/10 dark:text-white outline-none focus:ring-2 ring-indigo-600"
+            />
+          </div>
+
+          {/* SERVICE SELECT */}
+          <select
+            className="w-full px-4 py-3 rounded-2xl bg-slate-50 dark:bg-white/5 border dark:border-white/10 dark:text-white outline-none focus:ring-2 ring-indigo-600 appearance-none"
+            value={formData.service}
+            onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+          >
+            {services.map((s) => (
+              <option key={s.name} value={s.name} className="dark:bg-slate-900">
+                {s.name}
+              </option>
+            ))}
+          </select>
+
+          {/* MESSAGE */}
+          <div className="relative">
+            <MessageSquare className="absolute left-4 top-4 text-slate-400" size={18} />
+            <textarea
+              required
+              rows={3}
+              placeholder="Message"
+              value={formData.message}
+              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+              className="w-full pl-12 pr-4 py-3 rounded-2xl bg-slate-50 dark:bg-white/5 border dark:border-white/10 dark:text-white outline-none focus:ring-2 ring-indigo-600"
+            />
+          </div>
+
+          {/* FINAL SUBMIT BUTTON */}
+          <button
+            type="submit"
+            disabled={isSubmitting || !otpVerified}
+            className={`w-full py-4 rounded-2xl font-bold flex items-center justify-center gap-2 transition-all ${
+              otpVerified
+                ? "bg-indigo-600 hover:bg-indigo-700 text-white shadow-lg shadow-indigo-200 dark:shadow-none"
+                : "bg-slate-300 dark:bg-slate-700 cursor-not-allowed text-slate-500"
+            }`}
+          >
+            {isSubmitting ? (
+              <>Processing <Loader2 className="animate-spin" size={18} /></>
+            ) : (
+              <>Send Request <Send size={18} /></>
+            )}
+          </button>
+        </form>
+      </motion.div>
+    </div>
+  )}
+</AnimatePresence>
     </>
   );
 };
