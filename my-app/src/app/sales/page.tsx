@@ -550,10 +550,10 @@ const GetStartedModal: React.FC<GetStartedModalProps> = ({
   // return (
   //   <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
   //      {/* Modal Content Here */}
-  //      {/* <div className="bg-white dark:bg-slate-900 p-8 rounded-3xl max-w-md w-full">
+  //      <div className="bg-white dark:bg-slate-900 p-8 rounded-3xl max-w-md w-full">
   //         <button onClick={onClose} className="text-slate-500 mb-4">Close</button>
   //         <h2 className="text-2xl font-bold dark:text-white">Get Started</h2>
-  //      </div> */}
+  //      </div>
   //   </div>
   // );
 }; // Added closing brace for Modal
