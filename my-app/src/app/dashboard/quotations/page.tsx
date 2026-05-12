@@ -33,40 +33,32 @@ const QuotationGenerator = () => {
   const [showSuccess, setShowSuccess] = useState(false);
 
  const preDefinedServices = [
-  {
-    type: "AMC Services",
+ {
+    type: "Work From Home Setup",
     services: [
-      { name: "IT Support AMC (Standard)", rate: 15000 },
-      { name: "IT Support AMC (Comprehensive)", rate: 25000 },
+      { name: "Ergonomic Desk & Chair Assembly", rate: 1500 },
+      { name: "VPN & Secure Remote Access", rate: 3500 },
+      { name: "Dual-Monitor Configuration", rate: 800 },
+      { name: "Home Wi-Fi Range Extension", rate: 1200 },
+    ],
+  },
+  {
+    type: "Repair & Maintenance",
+    services: [
+      { name: "Laptop/Desktop Component Repair", rate: 2500 },
+      { name: "Motherboard Chip-level Repair", rate: 4500 },
+      { name: "RAM/SSD Upgrade Installation", rate: 1200 },
+      { name: "OS Troubleshooting & Debugging", rate: 1500 },
     ],
   },
 
   {
-    type: "Networking",
+    type: "Networking Infrastructure",
     services: [
-      { name: "Structured Cabling (Per Node)", rate: 850 },
-      { name: "Firewall Configuration", rate: 5000 },
-    ],
-  },
-
-  {
-    type: "Security",
-    services: [
-      { name: "CCTV Camera Installation", rate: 18000 },
-    ],
-  },
-
-  {
-    type: "Remote Office",
-    services: [
-      { name: "Work From Home Setup", rate: 12000 },
-    ],
-  },
-
-  {
-    type: "Software",
-    services: [
-      { name: "Licensed Software Installation", rate: 7500 },
+      { name: "Router & Access Point Sync", rate: 2500 },
+      { name: "Network Security Audit", rate: 10000 },
+      { name: "Switch & Patch Panel Dressing", rate: 5000 },
+      { name: "Fiber Optic Splicing (Per Core)", rate: 1500 },
     ],
   },
 ];

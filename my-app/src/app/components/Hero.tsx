@@ -169,14 +169,14 @@ const Hero = () => {
       
       {/* --- BACKGROUND NODES --- */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute inset-0 h-full w-full [background-image:radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:40px_40px] [mask-image:linear-gradient(to_bottom,white,transparent,white)] opacity-40" />
+        <div className="absolute inset-0 h-full w-full [background-image:radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:40px_40px] [mask-image:linear-gradient(to_bottom,white,transparent,white)] opacity-1000" />
         
-        <div className="absolute top-[10%] right-[5%] lg:top-[15%] lg:right-[15%] w-[250px] h-[250px] lg:w-[350px] lg:h-[350px]">
+        <div className="absolute top-[3%] right-[5%] lg:top-[5%] lg:right-[5%] w-[250px] h-[250px] lg:w-[350px] lg:h-[350px]">
           <div className="absolute inset-0 bg-blue-500/30 blur-[60px] lg:blur-[80px] rounded-full animate-pulse" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 lg:w-4 lg:h-4 bg-blue-400 rounded-full shadow-[0_0_30px_#60a5fa]" />
         </div>
 
-        <div className="absolute bottom-[10%] left-[5%] lg:bottom-[15%] lg:left-[10%] w-[200px] h-[200px] lg:w-[300px] lg:h-[300px]">
+        <div className="absolute bottom-[3%] left-[5%] lg:bottom-[5%] lg:left-[3%] w-[200px] h-[200px] lg:w-[300px] lg:h-[300px]">
           <div className="absolute inset-0 bg-indigo-500/20 blur-[70px] lg:blur-[90px] rounded-full" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 lg:w-3 lg:h-3 bg-indigo-400 rounded-full shadow-[0_0_25px_#818cf8]" />
         </div>
