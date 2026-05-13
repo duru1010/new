@@ -2010,111 +2010,90 @@ const Navbar = () => {
       >
         <div className="max-w-7xl mx-auto">
           <motion.div
-            className={`relative flex items-center justify-between py-3 px-4 sm:px-6 transition-all duration-500 ${
-              isScrolled
-                ? "rounded-2xl sm:rounded-full bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-slate-200 dark:border-white/10 shadow-xl"
-                : "bg-transparent border-b border-slate-200 dark:border-white/5"
-            }`}
-          >
-            {/* LOGO */}
-            <div className="flex items-center gap-2 sm:gap-3">
-              <div className="bg-slate-900 dark:bg-slate-800 p-1.5 rounded-xl shadow-lg flex items-center justify-center border border-white/10">
-                <img
-                  src="/softlink_logowht01-1024x293 (1).png"
-                  alt="Softlink Logo"
-                  className="h-8 w-8 sm:h-10 sm:w-10 object-contain"
-                />
+  className={`relative flex items-center justify-between py-3 px-4 sm:px-6 transition-all duration-500 ${
+    isScrolled
+      ? "rounded-2xl sm:rounded-full bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-slate-200 dark:border-white/10 shadow-xl"
+      : "bg-transparent border-b border-slate-200 dark:border-white/5"
+  }`}
+>
+  {/* LOGO SECTION */}
+  <div className="flex items-center gap-2 sm:gap-3">
+    {/* Logo Container: Updated to fit the full Softlink Logo-01.png */}
+    <div className="bg-slate-900 dark:bg-slate-800 px-3 py-1.5 shadow-lg flex items-center justify-center border border-white/10 rounded-lg">
+      <img
+        src="/SoftLink Logo-01.png"
+        alt="Softlink Logo"
+        className="h-8 sm:h-10 w-auto object-contain"
+      />
+    </div>
+
+    
+  </div>
+
+  {/* DESKTOP NAV */}
+  <div className="hidden md:flex items-center space-x-1">
+    {navLinks.map((link) => (
+      <a
+        key={link.name}
+        href={link.href}
+        // Hover state: Updated to Electric Blue
+        className="px-4 py-2 text-sm font-bold dark:text-slate-300 text-slate-600 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+      >
+        {link.name}
+      </a>
+    ))}
+
+    {/* SERVICES DROPDOWN */}
+    <div className="relative group">
+      <button className="flex items-center gap-1 px-4 py-2 text-sm font-bold dark:text-slate-300 text-slate-600 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+        Services
+        <ChevronDown
+          size={14}
+          className="group-hover:rotate-180 transition-transform"
+        />
+      </button>
+
+      <div className="absolute top-full left-0 w-64 pt-4 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-white/10 shadow-2xl p-2">
+          {services.map((s) => (
+            <a
+              key={s.name}
+              href={s.href}
+              className="flex items-center gap-3 p-3 rounded-xl hover:bg-sky-50 dark:hover:bg-white/5 text-sm font-medium dark:text-slate-300 text-slate-600 transition-all"
+            >
+              {/* Icon color: Updated to Electric Blue */}
+              <div className="text-blue-600 dark:text-blue-400">
+                {s.icon}
               </div>
+              {s.name}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
 
-              <div className="flex flex-col leading-none">
-                <span className="text-sm sm:text-lg font-black dark:text-white text-slate-900">
-                  SOFTLINK
-                </span>
+  {/* RIGHT SECTION */}
+  <div className="flex items-center gap-2 sm:gap-4">
+    {/* THEME TOGGLE */}
+    
+    {/* GET STARTED BUTTON: Updated to Electric Blue */}
+    <button
+      onClick={() => setShowForm(true)}
+      className="hidden md:block px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-full text-sm font-bold transition-all shadow-lg shadow-blue-500/20 active:scale-95"
+    >
+      Get Started
+    </button>
 
-                <span className="text-[7px] sm:text-[8px] font-bold text-indigo-600 dark:text-indigo-400 tracking-[0.3em] uppercase">
-                  Computers
-                </span>
-              </div>
-            </div>
-
-            {/* DESKTOP NAV */}
-            <div className="hidden md:flex items-center space-x-1">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="px-4 py-2 text-sm font-bold dark:text-slate-300 text-slate-600 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-                >
-                  {link.name}
-                </a>
-              ))}
-
-              {/* SERVICES */}
-              <div className="relative group">
-                <button className="flex items-center gap-1 px-4 py-2 text-sm font-bold dark:text-slate-300 text-slate-600 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
-                  Services
-                  <ChevronDown
-                    size={14}
-                    className="group-hover:rotate-180 transition-transform"
-                  />
-                </button>
-
-                <div className="absolute top-full left-0 w-64 pt-4 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
-                  <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-white/10 shadow-2xl p-2">
-                    {services.map((s) => (
-                      <a
-                        key={s.name}
-                        href={s.href}
-                        className="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-white/5 text-sm font-medium dark:text-slate-300 text-slate-600 transition-all"
-                      >
-                        <div className="text-indigo-600 dark:text-indigo-400">
-                          {s.icon}
-                        </div>
-
-                        {s.name}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* RIGHT */}
-            <div className="flex items-center gap-2 sm:gap-4">
-              {/* THEME */}
-              <button
-                onClick={toggleTheme}
-                className="relative w-11 h-6 bg-slate-200 dark:bg-white/10 rounded-full p-1 transition-colors hidden sm:block"
-              >
-                <motion.div
-                  animate={{ x: isDarkMode ? 18 : 0 }}
-                  className="w-4 h-4 bg-white dark:bg-indigo-600 rounded-full flex items-center justify-center shadow-md"
-                >
-                  {isDarkMode ? (
-                    <Moon size={9} className="text-white" />
-                  ) : (
-                    <Sun size={9} className="text-orange-500" />
-                  )}
-                </motion.div>
-              </button>
-
-              {/* GET STARTED */}
-              <button
-                onClick={() => setShowForm(true)}
-                className="hidden md:block px-6 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full text-sm font-bold transition-all shadow-lg active:scale-95"
-              >
-                Get Started
-              </button>
-
-              {/* MOBILE BUTTON */}
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="md:hidden p-2 rounded-xl dark:text-white text-slate-900 bg-slate-100 dark:bg-white/10"
-              >
-                {isOpen ? <X size={22} /> : <Menu size={22} />}
-              </button>
-            </div>
-          </motion.div>
+    {/* MOBILE MENU BUTTON */}
+    <button
+      onClick={() => setIsOpen(!isOpen)}
+      className="md:hidden p-2 rounded-xl dark:text-white text-slate-900 bg-slate-100 dark:bg-white/10"
+    >
+      {isOpen ? <X size={22} /> : <Menu size={22} />}
+    </button>
+  </div>
+</motion.div>
 
           {/* MOBILE MENU */}
           <AnimatePresence>

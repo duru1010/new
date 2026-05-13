@@ -1189,10 +1189,9 @@
 
 
 
-
 "use client";
 
-import React, { useState , useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ShieldCheck,
@@ -1227,9 +1226,7 @@ const GetStartedModal: React.FC<GetStartedModalProps> = ({
   onClose,
 }) => {
   const [step, setStep] = useState<number>(1);
-  const [selectedType, setSelectedType] =
-    useState<string>("");
-
+  const [selectedType, setSelectedType] = useState<string>("");
 
   const categories = [
     { id: "laptop", label: "Laptops", icon: <Laptop size={20} /> },
@@ -1237,7 +1234,6 @@ const GetStartedModal: React.FC<GetStartedModalProps> = ({
     { id: "network", label: "Networking", icon: <Router size={20} /> },
     { id: "cctv", label: "CCTV Systems", icon: <Camera size={20} /> },
   ];
-  
 
   return (
     <AnimatePresence>
@@ -1286,7 +1282,7 @@ const GetStartedModal: React.FC<GetStartedModalProps> = ({
                       onClick={() => setSelectedType(cat.id)}
                       className={`p-6 rounded-3xl border-2 transition-all flex flex-col items-center gap-3 ${
                         selectedType === cat.id
-                          ? "border-purple-600 bg-purple-50 dark:bg-purple-500/10 text-purple-600"
+                          ? "border-[#0057FF] bg-[#0057FF]/5 dark:bg-[#0057FF]/10 text-[#0057FF]"
                           : "border-slate-100 dark:border-slate-800 dark:text-slate-400"
                       }`}
                     >
@@ -1302,7 +1298,8 @@ const GetStartedModal: React.FC<GetStartedModalProps> = ({
                 <button
                   disabled={!selectedType}
                   onClick={() => setStep(2)}
-                  className="w-full py-4 bg-purple-600 disabled:opacity-50 text-white rounded-2xl font-bold mt-8 shadow-lg shadow-purple-200"
+                  style={{ backgroundColor: "#0057FF" }}
+                  className="w-full py-4 disabled:opacity-50 text-white rounded-2xl font-bold mt-8 shadow-lg shadow-blue-200"
                 >
                   Continue
                 </button>
@@ -1312,12 +1309,12 @@ const GetStartedModal: React.FC<GetStartedModalProps> = ({
                 <input
                   type="text"
                   placeholder="Enter your name"
-                  className="w-full bg-slate-50 dark:bg-slate-800 rounded-2xl px-4 py-4 dark:text-white outline-none border border-transparent focus:border-purple-500 transition-all"
+                  className="w-full bg-slate-50 dark:bg-slate-800 rounded-2xl px-4 py-4 dark:text-white outline-none border border-transparent focus:border-[#0057FF] transition-all"
                 />
 
                 <button
                   onClick={() => setStep(1)}
-                  className="w-full text-slate-500 font-bold hover:text-purple-600 transition-colors"
+                  className="w-full text-slate-500 font-bold hover:text-[#0057FF] transition-colors"
                 >
                   Go Back
                 </button>
@@ -1335,7 +1332,7 @@ const detailedServices = [
   {
     title: "Desktop & Laptop Repair Services",
     desc: "Professional repair and maintenance services for all desktop computers and laptops using genuine hardware components.",
-    color: "bg-purple-600",
+    color: "bg-[#0057FF]",
     subItems: [
       {
         name: "Desktop Repair",
@@ -1362,7 +1359,7 @@ const detailedServices = [
   {
     title: "Computer & Laptop Rental",
     desc: "Affordable computer and laptop rental solutions for offices, businesses, training centers and temporary projects.",
-    color: "bg-indigo-600",
+    color: "bg-[#4DA6FF]",
     subItems: [
       {
         name: "Gaming PC Rental",
@@ -1389,7 +1386,7 @@ const detailedServices = [
   {
     title: "Networking Repair & Installation",
     desc: "Complete networking setup, troubleshooting and repair services for homes, offices and enterprises.",
-    color: "bg-blue-600",
+    color: "bg-[#0057FF]",
     subItems: [
       {
         name: "WiFi Installation",
@@ -1416,7 +1413,7 @@ const detailedServices = [
   {
     title: "CCTV Repair & Rental Solutions",
     desc: "Advanced CCTV installation, repair and rental solutions with 24/7 security monitoring support.",
-    color: "bg-violet-600",
+    color: "bg-[#4DA6FF]",
     subItems: [
       {
         name: "CCTV Installation",
@@ -1456,7 +1453,7 @@ const ServiceCatalog: React.FC<ServiceCatalogProps> = ({
             className="text-4xl md:text-6xl font-black tracking-tighter text-slate-900 dark:text-white mb-6"
           >
             Explore Our{" "}
-            <span className="text-purple-600">
+            <span className="text-[#0057FF]">
               Tech Universe.
             </span>
           </motion.h2>
@@ -1487,7 +1484,7 @@ const ServiceCatalog: React.FC<ServiceCatalogProps> = ({
 
                 <div className="hidden md:block h-px flex-grow mx-10 bg-slate-100 dark:bg-white/5 mb-4" />
 
-                <button className="flex items-center gap-2 font-bold text-purple-600 whitespace-nowrap mb-2 group">
+                <button className="flex items-center gap-2 font-bold text-[#0057FF] whitespace-nowrap mb-2 group">
                   View Full Specs{" "}
                   <ArrowRight
                     size={18}
@@ -1513,11 +1510,11 @@ const ServiceCatalog: React.FC<ServiceCatalogProps> = ({
 
                     <div className="absolute bottom-0 left-0 right-0 p-6">
                       <div className="flex items-center gap-2 mb-2">
-                        <span className="p-2 bg-purple-600 rounded-lg text-white">
+                        <span className="p-2 bg-[#0057FF] rounded-lg text-white">
                           {item.icon}
                         </span>
 
-                        <span className="text-[10px] font-black uppercase tracking-widest text-purple-300">
+                        <span className="text-[10px] font-black uppercase tracking-widest text-blue-200">
                           Verified Service
                         </span>
                       </div>
@@ -1526,13 +1523,10 @@ const ServiceCatalog: React.FC<ServiceCatalogProps> = ({
                         {item.name}
                       </h4>
 
-                        <button
+                      <button
                         onClick={() => {
-                          window.location.hash =
-                            "get-started";
-
+                          window.location.hash = "get-started";
                           openModal();
-
                           window.scrollTo({
                             top: 0,
                             behavior: "smooth",
@@ -1540,8 +1534,7 @@ const ServiceCatalog: React.FC<ServiceCatalogProps> = ({
                         }}
                         className="w-full py-3 bg-white/10 hover:bg-white text-white hover:text-slate-900 backdrop-blur-md border border-white/20 rounded-xl font-bold text-sm transition-all duration-300 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0"
                       >
-                        Hire Now{" "}
-                        <ArrowRight size={16} />
+                        Hire Now <ArrowRight size={16} />
                       </button>
                     </div>
                   </motion.div>
@@ -1554,13 +1547,12 @@ const ServiceCatalog: React.FC<ServiceCatalogProps> = ({
     </section>
   );
 };
+
 const RepairRentalPage = () => {
-  const [isModalOpen, setIsModalOpen] =
-    useState<boolean>(false);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const openNavbarModal = () => {
     setIsModalOpen(true);
-
     window.scrollTo({
       top: 0,
       behavior: "smooth",
@@ -1569,31 +1561,16 @@ const RepairRentalPage = () => {
 
   useEffect(() => {
     const handleHashChange = () => {
-      if (
-        window.location.hash === "#get-started"
-      ) {
+      if (window.location.hash === "#get-started") {
         setIsModalOpen(true);
-
-        window.history.replaceState(
-          null,
-          "",
-          window.location.pathname
-        );
+        window.history.replaceState(null, "", window.location.pathname);
       }
     };
 
     handleHashChange();
-
-    window.addEventListener(
-      "hashchange",
-      handleHashChange
-    );
-
+    window.addEventListener("hashchange", handleHashChange);
     return () => {
-      window.removeEventListener(
-        "hashchange",
-        handleHashChange
-      );
+      window.removeEventListener("hashchange", handleHashChange);
     };
   }, []);
 
@@ -1608,7 +1585,7 @@ const RepairRentalPage = () => {
               opacity: [0.05, 0.15, 0.05],
             }}
             transition={{ duration: 10, repeat: Infinity }}
-            className="absolute -top-1/2 -right-1/4 w-[1000px] h-[1000px] bg-purple-500/20 rounded-full blur-[120px]"
+            className="absolute -top-1/2 -right-1/4 w-[1000px] h-[1000px] bg-[#0057FF]/20 rounded-full blur-[120px]"
           />
         </div>
 
@@ -1618,7 +1595,7 @@ const RepairRentalPage = () => {
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 text-xs font-bold uppercase tracking-widest mb-6 border border-purple-500/20"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0057FF]/10 text-[#0057FF] dark:text-[#4DA6FF] text-xs font-bold uppercase tracking-widest mb-6 border border-[#0057FF]/20"
               >
                 <Zap size={14} />
                 Full IT Support Solutions
@@ -1631,7 +1608,7 @@ const RepairRentalPage = () => {
                 className="text-5xl md:text-7xl font-black text-slate-900 dark:text-white leading-[1.1] tracking-tighter mb-8"
               >
                 Tech Repair & <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-indigo-500">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0057FF] to-[#4DA6FF]">
                   Rental Hub.
                 </span>
               </motion.h1>
@@ -1645,10 +1622,10 @@ const RepairRentalPage = () => {
               <div className="flex flex-wrap gap-4">
                 <button
                   onClick={openNavbarModal}
-                  className="px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white rounded-2xl font-bold shadow-xl shadow-purple-500/30 transition-all flex items-center gap-2"
+                  style={{ backgroundColor: "#0057FF" }}
+                  className="px-8 py-4 hover:bg-[#0046CC] text-white rounded-2xl font-bold shadow-xl shadow-blue-500/30 transition-all flex items-center gap-2"
                 >
-                  Check Availability{" "}
-                  <ArrowRight size={18} />
+                  Check Availability <ArrowRight size={18} />
                 </button>
 
                 <button className="px-8 py-4 border border-slate-200 dark:border-white/10 dark:text-white rounded-2xl font-bold hover:bg-slate-50 dark:hover:bg-white/5 transition-all">
@@ -1677,7 +1654,7 @@ const RepairRentalPage = () => {
                 className="absolute -bottom-6 -left-6 bg-white dark:bg-slate-800 p-6 rounded-3xl shadow-2xl border border-slate-100 dark:border-white/10 z-20"
               >
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-purple-500/10 text-purple-600 rounded-full flex items-center justify-center">
+                  <div className="w-12 h-12 bg-[#0057FF]/10 text-[#0057FF] rounded-full flex items-center justify-center">
                     <ShieldCheck size={24} />
                   </div>
 
@@ -1698,16 +1675,12 @@ const RepairRentalPage = () => {
       </section>
 
       {/* SERVICE CATALOG */}
-      <ServiceCatalog
-        openModal={openNavbarModal}
-      />
+      <ServiceCatalog openModal={openNavbarModal} />
 
       {/* MODAL */}
       <GetStartedModal
         isOpen={isModalOpen}
-        onClose={() =>
-          setIsModalOpen(false)
-        }
+        onClose={() => setIsModalOpen(false)}
       />
     </div>
   );

@@ -890,58 +890,121 @@ const NetworkingPage = () => {
       
       {/* HERO SECTION */}
       <section className="relative pt-40 pb-20 overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-[0.05] dark:opacity-[0.1]" style={{ backgroundImage: `radial-gradient(#6366f1 1px, transparent 1px)`, backgroundSize: "40px 40px" }} />
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center gap-16">
-            <div className="lg:w-3/5 text-center lg:text-left">
-              <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-black uppercase tracking-[0.2em] mb-6 border border-indigo-500/20">
-                <Network size={16} /> Elite IT & Networking Partner
-              </motion.div>
-              <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-5xl md:text-8xl font-black text-slate-900 dark:text-white leading-[0.95] tracking-tighter mb-8">
-                Smart Tech for <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-violet-500 to-purple-400">Modern SMEs.</span>
-              </motion.h1>
-              <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }} className="text-lg text-slate-500 dark:text-slate-300 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                We set up Wired, Wireless networks and NAS solutions for Offices, Companies, Institutes, Shops and Clinics.
-              </motion.p>
-              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }} className="flex flex-wrap justify-center lg:justify-start gap-4">
-                <button onClick={openModal} className="px-10 py-5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-2xl font-black shadow-2xl shadow-indigo-500/30 transition-all flex items-center gap-3">
-                  Get a Setup Quote <ArrowRight size={20} />
-                </button>
-              </motion.div>
-            </div>
-            <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="lg:w-2/5 relative">
-              <div className="relative p-8 bg-indigo-50 dark:bg-slate-900/50 rounded-[3rem] border border-indigo-100 dark:border-white/10 backdrop-blur-3xl overflow-hidden">
-                <div className="flex flex-col gap-6">
-                  {[1, 2, 3].map((i) => (
-                    <div key={i} className="flex items-center gap-4 p-4 bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-100 dark:border-white/5">
-                      <div className="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-600 flex items-center justify-center"><Server size={24} /></div>
-                      <div className="flex-1 h-2 bg-slate-100 dark:bg-white/5 rounded-full overflow-hidden">
-                        <motion.div animate={{ x: ["-100%", "100%"] }} transition={{ duration: 2.5, repeat: Infinity, ease: "linear", delay: i * 0.4 }} className="w-1/3 h-full bg-indigo-500" />
-                      </div>
-                    </div>
-                  ))}
+  {/* Updated radial gradient to Electric Blue (#0070f3) */}
+  <div 
+    className="absolute inset-0 z-0 opacity-[0.05] dark:opacity-[0.1]" 
+    style={{ backgroundImage: `radial-gradient(#0070f3 1px, transparent 1px)`, backgroundSize: "40px 40px" }} 
+  />
+  
+  <div className="container mx-auto px-6 relative z-10">
+    <div className="flex flex-col lg:flex-row items-center gap-16">
+      <div className="lg:w-3/5 text-center lg:text-left">
+        {/* Badge: Electric Blue theme */}
+        <motion.div 
+          initial={{ opacity: 0, y: -10 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-500/10 text-blue-600 dark:text-sky-400 text-xs font-black uppercase tracking-[0.2em] mb-6 border border-blue-500/20"
+        >
+          <Network size={16} /> Elite IT & Networking Partner
+        </motion.div>
+
+        {/* Heading: Electric Blue to Sky Blue gradient */}
+        <motion.h1 
+          initial={{ opacity: 0, y: 20 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ delay: 0.2 }} 
+          className="text-5xl md:text-8xl font-black text-slate-900 dark:text-white leading-[0.95] tracking-tighter mb-8"
+        >
+          Smart Tech for <br /> 
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-500 to-sky-400">
+            Modern SMEs.
+          </span>
+        </motion.h1>
+
+        <motion.p 
+          initial={{ opacity: 0 }} 
+          animate={{ opacity: 1 }} 
+          transition={{ delay: 0.4 }} 
+          className="text-lg text-slate-500 dark:text-slate-300 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0"
+        >
+          We set up Wired, Wireless networks and NAS solutions for Offices, Companies, Institutes, Shops and Clinics.
+        </motion.p>
+
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ delay: 0.6 }} 
+          className="flex flex-wrap justify-center lg:justify-start gap-4"
+        >
+          {/* Button: Electric Blue with Sky Blue glow */}
+          <button 
+            onClick={openModal} 
+            className="px-10 py-5 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-black shadow-2xl shadow-blue-500/30 transition-all flex items-center gap-3"
+          >
+            Get a Setup Quote <ArrowRight size={20} />
+          </button>
+        </motion.div>
+      </div>
+
+      {/* Decorative Side Card */}
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.9 }} 
+        animate={{ opacity: 1, scale: 1 }} 
+        className="lg:w-2/5 relative"
+      >
+        <div className="relative p-8 bg-sky-50 dark:bg-slate-900/50 rounded-[3rem] border border-sky-100 dark:border-white/10 backdrop-blur-3xl overflow-hidden">
+          <div className="flex flex-col gap-6">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="flex items-center gap-4 p-4 bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-100 dark:border-white/5">
+                <div className="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-600 flex items-center justify-center">
+                  <Server size={24} />
+                </div>
+                <div className="flex-1 h-2 bg-slate-100 dark:bg-white/5 rounded-full overflow-hidden">
+                  <motion.div 
+                    animate={{ x: ["-100%", "100%"] }} 
+                    transition={{ duration: 2.5, repeat: Infinity, ease: "linear", delay: i * 0.4 }} 
+                    className="w-1/3 h-full bg-blue-500" 
+                  />
                 </div>
               </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* CORE SERVICES */}
-      <section className="py-24 relative">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-4">Network Solutions</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16 text-left">
-            {coreServices.map((service, index) => (
-              <motion.div key={index} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="group relative bg-white dark:bg-slate-900 p-8 rounded-[2rem] border border-slate-100 dark:border-white/10 shadow-sm hover:shadow-xl transition-all">
-                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.gradient} text-white flex items-center justify-center mb-6`}>{service.icon}</div>
-                <h3 className="text-xl font-black text-slate-900 dark:text-white mb-3">{service.title}</h3>
-                <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">{service.desc}</p>
-              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.div>
+    </div>
+  </div>
+</section>
+
+      {/* CORE SERVICES */}
+      <section className="py-24 relative">
+  <div className="container mx-auto px-6 text-center">
+    <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-4">
+      Network Solutions
+    </h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16 text-left">
+      {coreServices.map((service, index) => (
+        <motion.div 
+          key={index} 
+          initial={{ opacity: 0, y: 20 }} 
+          whileInView={{ opacity: 1, y: 0 }} 
+          viewport={{ once: true }} 
+          className="group relative bg-white dark:bg-slate-900 p-8 rounded-[2rem] border border-slate-100 dark:border-white/10 shadow-sm hover:shadow-xl transition-all"
+        >
+          {/* Updated gradient to use Electric Blue and Sky Blue scales */}
+          <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.gradient} text-white flex items-center justify-center mb-6`}>
+            {service.icon}
+          </div>
+          <h3 className="text-xl font-black text-slate-900 dark:text-white mb-3">
+            {service.title}
+          </h3>
+          <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+            {service.desc}
+          </p>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* SERVICE CATALOG */}
       <section className="py-24 bg-slate-50 dark:bg-slate-900/30">
@@ -960,9 +1023,12 @@ const NetworkingPage = () => {
                       <img src={item.img} alt={item.name} className="absolute inset-0 w-full h-full object-cover grayscale-[40%] group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110" />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent" />
                       <div className="absolute bottom-0 left-0 right-0 p-6">
-                        <div className="flex items-center gap-2 mb-2">
-                          <span className="p-2 bg-purple-600 rounded-lg text-white">{item.icon}</span>
-                        </div>
+                       <div className="flex items-center gap-2 mb-2">
+  {/* Changed bg-purple-600 to bg-blue-600 for the Electric Blue look */}
+  <span className="p-2 bg-blue-600 rounded-lg text-white">
+    {item.icon}
+  </span>
+</div>
                         <h4 className="text-xl font-bold text-white mb-4">{item.name}</h4>
                         {/* Find this section in your "SERVICE CATALOG" map */}
 <button

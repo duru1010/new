@@ -145,6 +145,8 @@
 
 // export default Hero;
 
+
+
 "use client";
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -165,20 +167,20 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-[900px] lg:h-[850px] w-full flex items-center justify-center overflow-hidden bg-white pt-24 pb-12 lg:py-0">
+    <section className="relative min-h-[900px] lg:h-[850px] w-full flex items-center justify-center overflow-hidden bg-[#F0F4FF] pt-24 pb-12 lg:py-0">
       
       {/* --- BACKGROUND NODES --- */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 h-full w-full [background-image:radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:40px_40px] [mask-image:linear-gradient(to_bottom,white,transparent,white)] opacity-1000" />
         
         <div className="absolute top-[3%] right-[5%] lg:top-[5%] lg:right-[5%] w-[250px] h-[250px] lg:w-[350px] lg:h-[350px]">
-          <div className="absolute inset-0 bg-blue-500/30 blur-[60px] lg:blur-[80px] rounded-full animate-pulse" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 lg:w-4 lg:h-4 bg-blue-400 rounded-full shadow-[0_0_30px_#60a5fa]" />
+          <div className="absolute inset-0 bg-[#0057FF]/20 blur-[60px] lg:blur-[80px] rounded-full animate-pulse" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 lg:w-4 lg:h-4 bg-[#4DA6FF] rounded-full shadow-[0_0_30px_#4DA6FF]" />
         </div>
 
         <div className="absolute bottom-[3%] left-[5%] lg:bottom-[5%] lg:left-[3%] w-[200px] h-[200px] lg:w-[300px] lg:h-[300px]">
-          <div className="absolute inset-0 bg-indigo-500/20 blur-[70px] lg:blur-[90px] rounded-full" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 lg:w-3 lg:h-3 bg-indigo-400 rounded-full shadow-[0_0_25px_#818cf8]" />
+          <div className="absolute inset-0 bg-[#0057FF]/10 blur-[70px] lg:blur-[90px] rounded-full" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 lg:w-3 lg:h-3 bg-[#0057FF] rounded-full shadow-[0_0_25px_#0057FF]" />
         </div>
       </div>
 
@@ -190,10 +192,10 @@ const Hero = () => {
             <motion.div 
               initial={{ opacity: 0, y: -10 }} 
               animate={{ opacity: 1, y: 0 }} 
-              className="flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-600/5 border border-indigo-100 mb-6 lg:mb-8"
+              className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#0057FF]/5 border border-[#4DA6FF]/20 mb-6 lg:mb-8"
             >
-              <CheckCircle size={14} className="text-indigo-600" />
-              <span className="text-[10px] lg:text-[11px] font-bold uppercase tracking-[0.3em] text-indigo-600">
+              <CheckCircle size={14} className="text-[#0057FF]" />
+              <span className="text-[10px] lg:text-[11px] font-bold uppercase tracking-[0.3em] text-[#0057FF]">
                 Trusted by 1,000+ Businesses
               </span>
             </motion.div>
@@ -201,15 +203,15 @@ const Hero = () => {
             <motion.h1 
               initial={{ opacity: 0, y: 30 }} 
               animate={{ opacity: 1, y: 0 }} 
-              className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight text-slate-900 mb-6 lg:mb-8 leading-[1.1]"
+              className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight text-[#0A1628] mb-6 lg:mb-8 leading-[1.1]"
             >
               Online Solutions <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-violet-600 to-indigo-500">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0057FF] via-[#4DA6FF] to-[#0057FF]">
                 To Boost Business.
               </span>
             </motion.h1>
 
-            <motion.p className="text-base lg:text-lg text-slate-500 mb-8 lg:mb-10 max-w-lg leading-relaxed font-medium">
+            <motion.p className="text-base lg:text-lg text-slate-600 mb-8 lg:mb-10 max-w-lg leading-relaxed font-medium">
               From high-performance WFH Setups and Software Licenses to 
               advanced Surveillance Systems, we provide the tech core for your growth.
             </motion.p>
@@ -217,17 +219,14 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
               {/* Primary Action */}
                <Link href="/dashboard/quotations" className="w-full sm:w-auto">
-              <button className="group w-full sm:w-auto px-8 lg:px-10 py-4 lg:py-5 bg-indigo-600 text-white rounded-2xl font-bold transition-all hover:bg-indigo-700 hover:shadow-2xl hover:shadow-indigo-200 active:scale-95 flex items-center justify-center gap-3">
+              <button className="group w-full sm:w-auto px-8 lg:px-10 py-4 lg:py-5 bg-[#0057FF] text-white rounded-2xl font-bold transition-all hover:bg-[#0046CC] hover:shadow-2xl hover:shadow-blue-200 active:scale-95 flex items-center justify-center gap-3">
                 Get Quotation <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </button>
               </Link>
-
-              {/* Secondary Action: Redirects to Quotation Page */}
-             
               
               {/* Client Stats */}
-              <div className="hidden sm:flex flex-col items-center lg:items-start px-4 border-l border-slate-100">
-                <p className="text-slate-900 font-bold text-sm">Satisfied Clients</p>
+              <div className="hidden sm:flex flex-col items-center lg:items-start px-4 border-l border-slate-200">
+                <p className="text-[#0A1628] font-bold text-sm">Satisfied Clients</p>
                 <p className="text-slate-500 text-xs font-medium">Active since 2012</p>
               </div>
             </div>
@@ -244,10 +243,10 @@ const Hero = () => {
               className="relative z-20 group w-full max-w-[320px] sm:max-w-[400px] lg:max-w-[520px] cursor-pointer"
             >
               <div className="absolute -inset-8 pointer-events-none">
-                <div className="absolute inset-0 bg-indigo-400/20 rounded-full blur-3xl animate-pulse scale-75" />
+                <div className="absolute inset-0 bg-[#4DA6FF]/20 rounded-full blur-3xl animate-pulse scale-75" />
               </div>
               
-              <div className="absolute -inset-4 bg-gradient-to-tr from-indigo-200 to-blue-200 rounded-[3rem] blur-2xl opacity-60 group-hover:opacity-90 transition-opacity" />
+              <div className="absolute -inset-4 bg-gradient-to-tr from-[#4DA6FF]/30 to-[#0057FF]/30 rounded-[3rem] blur-2xl opacity-60 group-hover:opacity-90 transition-opacity" />
               
               <div className="relative aspect-square rounded-[2rem] lg:rounded-[3rem] bg-white border border-slate-100 shadow-2xl overflow-hidden p-2 lg:p-3">
                 <div className="w-full h-full rounded-[1.5rem] lg:rounded-[2.5rem] overflow-hidden bg-slate-100 relative">
@@ -265,7 +264,7 @@ const Hero = () => {
                     />
                   </AnimatePresence>
 
-                  <div className="absolute inset-0 bg-indigo-900/0 group-hover:bg-indigo-950/40 transition-all duration-500 flex flex-col items-center justify-center gap-4">
+                  <div className="absolute inset-0 bg-[#0A1628]/0 group-hover:bg-[#0A1628]/40 transition-all duration-500 flex flex-col items-center justify-center gap-4">
                     <div className="relative">
                        <div className="absolute inset-0 rounded-full border-2 border-white/50 scale-150 animate-ping opacity-0 group-hover:opacity-100" />
                        <RefreshCw className="text-white opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:rotate-180" size={48} />
@@ -279,7 +278,7 @@ const Hero = () => {
                 <motion.div 
                     animate={{ scale: [1, 1.1, 1] }}
                     transition={{ repeat: Infinity, duration: 2 }}
-                    className="absolute top-6 left-6 z-30 bg-indigo-600 text-white px-3 py-1.5 rounded-full flex items-center gap-2 shadow-lg lg:hidden"
+                    className="absolute top-6 left-6 z-30 bg-[#0057FF] text-white px-3 py-1.5 rounded-full flex items-center gap-2 shadow-lg lg:hidden"
                 >
                     <MousePointerClick size={14} />
                     <span className="text-[10px] font-bold">Tap to interact</span>
@@ -304,10 +303,10 @@ const FloatingTag = ({ icon, text, top, left, right, delay }: any) => (
     animate={{ y: [0, -10, 0] }} 
     transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: delay * 0.3 }}
     style={{ top, left, right }} 
-    className="absolute z-30 flex items-center gap-2 px-4 py-3 lg:px-6 lg:py-4 bg-white/90 backdrop-blur-md border border-slate-100 rounded-xl lg:rounded-2xl shadow-xl"
+    className="absolute z-30 flex items-center gap-2 px-4 py-3 lg:px-6 lg:py-4 bg-white/90 backdrop-blur-md border border-[#4DA6FF]/20 rounded-xl lg:rounded-2xl shadow-xl"
   >
-    <div className="text-indigo-600">{icon}</div>
-    <span className="text-[8px] lg:text-[10px] font-bold text-slate-700 uppercase tracking-[0.2em]">{text}</span>
+    <div className="text-[#0057FF]">{icon}</div>
+    <span className="text-[8px] lg:text-[10px] font-bold text-[#0A1628] uppercase tracking-[0.2em]">{text}</span>
   </motion.div>
 );
 

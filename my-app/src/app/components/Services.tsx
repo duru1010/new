@@ -137,7 +137,6 @@
 
 
 
-
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -155,7 +154,7 @@ const services = [
     title: "Repair & Rental",
     description: "Expert maintenance for desktops and laptops. High-performance workstations available for flexible rental.",
     icon: <Wrench className="w-6 h-6" />,
-    image: "https://images.unsplash.com/photo-1597852074816-d933c4d2b988?q=80&w=1000&auto=format&fit=crop",
+    image: "/1c568e7a37d7969b9ec210f09872e17e.jpg",
     href: "/security",
     tags: ["Hardware", "Support"]
   },
@@ -163,7 +162,7 @@ const services = [
     title: "Networking",
     description: "Wired and Wireless setups with secure NAS configurations for offices, clinics, and institutes.",
     icon: <Network className="w-6 h-6" />,
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc51?q=80&w=1000&auto=format&fit=crop",
+    image: "/a17e926721d214ed38986aa592f425ca.jpg",
     href: "/networking",
     tags: ["Infrastructure", "Security"]
   },
@@ -179,20 +178,20 @@ const services = [
 
 const Services = () => {
   return (
-    <section className="py-24 bg-slate-50 dark:bg-slate-950 transition-colors duration-700">
+    <section className="py-24 bg-[#F0F4FF] dark:bg-[#0A1628] transition-colors duration-700">
       <div className="container mx-auto px-6">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
           <div className="max-w-xl">
-            <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-slate-900 dark:text-white leading-none mb-4">
-              Our Core <span className="text-purple-600">Expertise.</span>
+            <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-[#0A1628] dark:text-white leading-none mb-4">
+              Our Core <span className="text-[#0057FF]">Expertise.</span>
             </h2>
             <p className="text-slate-500 dark:text-slate-400 font-medium">
               Comprehensive IT infrastructure and support services designed for growth.
             </p>
           </div>
-          <Link href="/all-services" className="text-purple-600 font-bold flex items-center gap-2 hover:underline">
+          <Link href="/all-services" className="text-[#0057FF] font-bold flex items-center gap-2 hover:underline">
             View All Services <ArrowUpRight size={20} />
           </Link>
         </div>
@@ -208,7 +207,7 @@ const Services = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <Link href={service.href} className="group block h-full">
-                <div className="relative h-full flex flex-col bg-white dark:bg-slate-900 rounded-[2.5rem] overflow-hidden border border-slate-200 dark:border-white/5 shadow-sm transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-purple-500/10 group-hover:-translate-y-2">
+                <div className="relative h-full flex flex-col bg-white dark:bg-[#1A3A6B] rounded-[2.5rem] overflow-hidden border border-slate-200 dark:border-white/5 shadow-sm transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-[#0057FF]/10 group-hover:-translate-y-2">
                   
                   {/* Image Header */}
                   <div className="h-52 overflow-hidden relative">
@@ -217,7 +216,7 @@ const Services = () => {
                       alt={service.title} 
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
-                    <div className="absolute top-4 right-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md p-2 rounded-xl text-purple-600 shadow-sm">
+                    <div className="absolute top-4 right-4 bg-white/90 dark:bg-[#0A1628]/90 backdrop-blur-md p-2 rounded-xl text-[#0057FF] shadow-sm">
                       {service.icon}
                     </div>
                   </div>
@@ -226,13 +225,13 @@ const Services = () => {
                   <div className="p-8 flex flex-col flex-grow">
                     <div className="flex gap-2 mb-4">
                       {service.tags.map(tag => (
-                        <span key={tag} className="text-[10px] font-black uppercase tracking-widest px-2 py-1 bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 rounded-lg">
+                        <span key={tag} className="text-[10px] font-black uppercase tracking-widest px-2 py-1 bg-[#0057FF]/5 dark:bg-[#4DA6FF]/10 text-[#0057FF] dark:text-[#4DA6FF] rounded-lg">
                           {tag}
                         </span>
                       ))}
                     </div>
 
-                    <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-3 tracking-tight">
+                    <h3 className="text-2xl font-black text-[#0A1628] dark:text-white mb-3 tracking-tight">
                       {service.title}
                     </h3>
                     
@@ -241,10 +240,10 @@ const Services = () => {
                     </p>
 
                     <div className="pt-6 border-t border-slate-100 dark:border-white/5 flex items-center justify-between">
-                      <span className="text-xs font-bold text-slate-400 group-hover:text-purple-600 transition-colors">
+                      <span className="text-xs font-bold text-slate-400 group-hover:text-[#0057FF] transition-colors">
                         Discover Service
                       </span>
-                      <CheckCircle2 size={18} className="text-purple-200 group-hover:text-purple-600 transition-colors" />
+                      <CheckCircle2 size={18} className="text-[#4DA6FF]/40 group-hover:text-[#0057FF] transition-colors" />
                     </div>
                   </div>
                 </div>

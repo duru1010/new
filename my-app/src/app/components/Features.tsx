@@ -132,17 +132,16 @@
 
 // export default Features;
 
-
 "use client";
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Award, Users, CheckCircle, Shield, Zap } from 'lucide-react';
 
 const stats = [
-  { label: "Satisfied Clients", value: 1000, suffix: "+", icon: <Users size={20}/>, color: "from-indigo-500 to-violet-400" },
-  { label: "Expert Engineers", value: 25, suffix: "+", icon: <Award size={20}/>, color: "from-slate-800 to-indigo-900" },
-  { label: "Successful Projects", value: 1200, suffix: "+", icon: <CheckCircle size={20}/>, color: "from-indigo-600 to-purple-500" },
-  { label: "Uptime Support", value: 99, suffix: "%", icon: <Zap size={20}/>, color: "from-violet-500 to-indigo-500" },
+  { label: "Satisfied Clients", value: 1000, suffix: "+", icon: <Users size={20}/>, color: "from-[#0057FF] to-[#4DA6FF]" },
+  { label: "Expert Engineers", value: 25, suffix: "+", icon: <Award size={20}/>, color: "from-[#0A1628] to-[#1A3A6B]" },
+  { label: "Successful Projects", value: 1200, suffix: "+", icon: <CheckCircle size={20}/>, color: "from-[#0057FF] to-[#1A3A6B]" },
+  { label: "Uptime Support", value: 99, suffix: "%", icon: <Zap size={20}/>, color: "from-[#4DA6FF] to-[#0057FF]" },
 ];
 
 const Features = () => {
@@ -158,9 +157,9 @@ const Features = () => {
             className="w-full lg:w-1/2 relative"
           >
             {/* Branded Background Glow */}
-            <div className="absolute -top-10 -left-10 w-64 h-64 bg-indigo-500/10 blur-[100px] rounded-full" />
+            <div className="absolute -top-10 -left-10 w-64 h-64 bg-[#0057FF]/10 blur-[100px] rounded-full" />
             
-            <div className="relative group overflow-hidden rounded-[3rem] border border-slate-200 dark:border-indigo-500/20 shadow-2xl">
+            <div className="relative group overflow-hidden rounded-[3rem] border border-slate-200 dark:border-[#0057FF]/20 shadow-2xl">
               <motion.img 
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.6 }}
@@ -169,7 +168,7 @@ const Features = () => {
                 className="w-full h-[500px] object-cover transition duration-700 group-hover:rotate-1"
               />
               {/* Branded Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-transparent to-transparent opacity-70" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628]/90 via-transparent to-transparent opacity-70" />
               
               <div className="absolute bottom-10 left-10 right-10">
                 <motion.div 
@@ -177,7 +176,7 @@ const Features = () => {
                   whileInView={{ y: 0, opacity: 1 }}
                   className="p-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl"
                 >
-                  <p className="text-indigo-400 text-xs font-bold uppercase tracking-widest mb-1">Current Focus</p>
+                  <p className="text-[#4DA6FF] text-xs font-bold uppercase tracking-widest mb-1">Current Focus</p>
                   <h4 className="text-white text-xl font-bold">Enterprise Cloud & Security Hosting</h4>
                 </motion.div>
               </div>
@@ -187,9 +186,9 @@ const Features = () => {
             <motion.div 
               animate={{ y: [0, -15, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -top-6 -right-6 p-5 bg-white dark:bg-slate-900 shadow-2xl rounded-2xl border border-slate-100 dark:border-indigo-500/30 hidden md:flex items-center gap-4"
+              className="absolute -top-6 -right-6 p-5 bg-white dark:bg-[#0A1628] shadow-2xl rounded-2xl border border-[#F0F4FF] dark:border-[#0057FF]/30 hidden md:flex items-center gap-4"
             >
-              <div className="w-12 h-12 bg-indigo-500/10 text-indigo-600 rounded-xl flex items-center justify-center">
+              <div className="w-12 h-12 bg-[#0057FF]/10 text-[#0057FF] rounded-xl flex items-center justify-center">
                 <Shield size={24} />
               </div>
               <div>
@@ -206,10 +205,10 @@ const Features = () => {
               whileInView={{ opacity: 1, y: 0 }}
               className="mb-12"
             >
-              <h3 className="text-indigo-600 dark:text-indigo-400 font-bold uppercase tracking-[0.2em] text-xs mb-4">Why Choose Softlink?</h3>
-              <h2 className="text-4xl md:text-5xl font-black tracking-tighter text-slate-900 dark:text-white leading-tight">
+              <h3 className="text-[#0057FF] dark:text-[#4DA6FF] font-bold uppercase tracking-[0.2em] text-xs mb-4">Why Choose Softlink?</h3>
+              <h2 className="text-4xl md:text-5xl font-black tracking-tighter text-[#0A1628] dark:text-white leading-tight">
                 Empowering businesses with <br /> 
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-violet-500 to-purple-400">reliable tech stacks.</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0057FF] via-[#4DA6FF] to-[#0057FF]">reliable tech stacks.</span>
               </h2>
             </motion.div>
 
@@ -236,16 +235,16 @@ const StatCard = ({ label, value, suffix, icon, color, delay }: any) => {
       initial={{ opacity: 0, scale: 0.9 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ delay }}
-      className="p-6 rounded-3xl bg-slate-50/50 dark:bg-slate-900/40 border border-slate-200 dark:border-indigo-500/10 group hover:border-indigo-500/40 transition-colors"
+      className="p-6 rounded-3xl bg-[#F0F4FF]/50 dark:bg-[#1A3A6B]/20 border border-slate-200 dark:border-[#0057FF]/10 group hover:border-[#0057FF]/40 transition-colors"
     >
-      <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${color} flex items-center justify-center text-white mb-4 shadow-lg shadow-indigo-500/10`}>
+      <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${color} flex items-center justify-center text-white mb-4 shadow-lg shadow-[#0057FF]/20`}>
         {icon}
       </div>
       <div className="flex items-baseline gap-1">
-        <span className="text-3xl font-black dark:text-white text-slate-900 tracking-tighter">
+        <span className="text-3xl font-black dark:text-white text-[#0A1628] tracking-tighter">
           {isInView ? <Counter from={0} to={value} /> : 0}
         </span>
-        <span className="text-xl font-bold text-indigo-600">{suffix}</span>
+        <span className="text-xl font-bold text-[#0057FF]">{suffix}</span>
       </div>
       <p className="text-slate-500 dark:text-slate-400 font-bold text-[10px] uppercase tracking-widest mt-1">
         {label}
