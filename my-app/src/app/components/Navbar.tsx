@@ -2017,15 +2017,21 @@ const Navbar = () => {
   }`}
 >
   {/* LOGO SECTION */}
-  <div className="flex items-center gap-2 sm:gap-3">
+  
     {/* Logo Container: Updated to fit the full Softlink Logo-01.png */}
-    <div className="bg-slate-900 dark:bg-slate-800 px-3 py-1.5 shadow-lg flex items-center justify-center border border-white/10 rounded-lg">
-      <img
-        src="/SoftLink Logo-01.png"
-        alt="Softlink Logo"
-        className="h-8 sm:h-10 w-auto object-contain"
-      />
-    </div>
+    <div className="lg:col-span-4 space-y-6">
+  <div className="flex items-center gap-2 sm:gap-3">
+    
+    {/* LOGO */}
+    <img
+      src="/SoftLink Logo Black-01.png"
+      
+      className="w-30 h-15 object-contain"
+    />
+
+   
+  </div>
+
 
     
   </div>
@@ -2234,7 +2240,7 @@ const Navbar = () => {
 
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-[10px] sm:text-xs font-black uppercase tracking-[0.2em] mb-3 border border-indigo-500/20">
                   <ShoppingBag size={15} />
-                  Rental Quote Request
+                   Quote Request
                 </div>
 
                 <h3 className="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white mb-2">

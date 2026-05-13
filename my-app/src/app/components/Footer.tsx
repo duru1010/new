@@ -45,14 +45,18 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-16">
           
           <div className="lg:col-span-4 space-y-6">
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-[#0057FF] rounded-xl flex items-center justify-center text-white shadow-lg shadow-[#0057FF]/20">
-                {getIcon('Cpu', { size: 24 })}
-              </div>
-              <span className="text-2xl font-black tracking-tighter text-[#0A1628] dark:text-white">
-                SOFTLINK
-              </span>
-            </div>
+  <div className="flex items-center gap-2">
+    
+    {/* LOGO */}
+    <img
+      src="/SoftLink Logo Black-01.png"
+      
+      className="w-20 h-20 object-contain"
+    />
+
+   
+  </div>
+
             
             <p className="text-slate-500 dark:text-slate-300 leading-relaxed max-w-sm">
               Empowering businesses with cutting-edge IT infrastructure and professional security solutions since 2012.
