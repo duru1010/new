@@ -171,7 +171,7 @@ const Hero = () => {
       
       {/* --- BACKGROUND NODES --- */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute inset-0 h-full w-full [background-image:radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:40px_40px] [mask-image:linear-gradient(to_bottom,white,transparent,white)] opacity-1000" />
+        <div className="absolute inset-0 h-full w-full [background-image:radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:40px_40px] [mask-image:linear-gradient(to_bottom,white,transparent,white)] opacity-100%" />
         
         <div className="absolute top-[3%] right-[5%] lg:top-[5%] lg:right-[5%] w-[250px] h-[250px] lg:w-[350px] lg:h-[350px]">
           <div className="absolute inset-0 bg-[#0057FF]/20 blur-[60px] lg:blur-[80px] rounded-full animate-pulse" />
