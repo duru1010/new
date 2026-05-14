@@ -609,21 +609,25 @@ const HardwarePage = () => {
   // --- SOFTWARE LICENSE BRANDS ---
   const licenseBrands = [
     {
+     
       name: "Microsoft 365",
       desc: "Office, Windows & Azure",
       icon: <Terminal className="text-blue-500" />,
     },
     {
+     
       name: "Tally Prime",
       desc: "Business & Accounting",
       icon: <Zap className="text-yellow-500" />,
     },
     {
+     
       name: "Quick Heal",
       desc: "Total Security & Antivirus",
       icon: <ShieldCheck className="text-red-500" />,
     },
     {
+      
       name: "Adobe CC",
       desc: "Creative Cloud Licenses",
       icon: <Star className="text-purple-500" />,
@@ -638,21 +642,25 @@ const HardwarePage = () => {
       color: "from-blue-600 to-indigo-500",
       items: [
         {
+          id : "m365-business",
           name: "Microsoft 365",
           icon: <Briefcase size={18} />,
           tag: "Business Productivity",
         },
         {
+          id: "windows-11-pro",
           name: "Windows 11 Pro",
           icon: <Monitor size={18} />,
           tag: "Professional OS",
         },
         {
+            id: "windows-server",
           name: "Windows Server",
           icon: <Server size={18} />,
           tag: "Enterprise Server",
         },
         {
+          id: "azure-cloud",
           name: "Azure Cloud",
           icon: <Cloud size={18} />,
           tag: "Cloud Services",
@@ -666,21 +674,25 @@ const HardwarePage = () => {
       color: "from-yellow-500 to-orange-500",
       items: [
         {
+          id: "tally-prime",
           name: "Tally Prime",
           icon: <Database size={18} />,
           tag: "Accounting Software",
         },
         {
+            id: "tally-erp-upgrade",
           name: "Tally ERP Upgrade",
           icon: <FileCode2 size={18} />,
           tag: "Business Upgrade",
         },
         {
+            id: "gst-billing",
           name: "GST Billing Solutions",
           icon: <Briefcase size={18} />,
           tag: "SME Ready",
         },
         {
+            id: "multi-user-licenses",
           name: "Multi-User Licenses",
           icon: <Globe size={18} />,
           tag: "Enterprise Access",
@@ -694,21 +706,25 @@ const HardwarePage = () => {
       color: "from-red-500 to-pink-500",
       items: [
         {
+          id: "quick-heal-total-security",
           name: "Quick Heal Total Security",
           icon: <ShieldCheck size={18} />,
           tag: "Virus Protection",
         },
         {
+          id: "endpoint-security",
           name: "Endpoint Security",
           icon: <Lock size={18} />,
           tag: "Business Security",
         },
         {
+          id: "internet-security",
           name: "Internet Security",
           icon: <Globe size={18} />,
           tag: "Safe Browsing",
         },
         {
+          id: "network-protection",
           name: "Network Protection",
           icon: <Server size={18} />,
           tag: "Office Network",
@@ -722,11 +738,13 @@ const HardwarePage = () => {
       color: "from-violet-600 to-purple-500",
       items: [
         {
+            id: "adobe-photoshop",
           name: "Adobe Photoshop",
           icon: <Star size={18} />,
           tag: "Photo Editing",
         },
         {
+            id: "adobe-premiere-pro",
           name: "Adobe Premiere Pro",
           icon: <Cpu size={18} />,
           tag: "Video Production",

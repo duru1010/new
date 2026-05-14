@@ -1,0 +1,388 @@
+"use client";
+
+import React, { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Network,
+  Cable,
+  Server,
+  ShieldCheck,
+  Wifi,
+  ArrowRight,
+  CheckCircle2,
+  Wrench,
+  Router,
+  Cpu,
+  HardDrive,
+} from "lucide-react";
+
+export default function StructuredCablingPage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const services = [
+    {
+      title: "Office Structured Cabling",
+      desc: "Professional Cat6/Cat6A cabling for offices, institutes, and enterprises.",
+      image:
+        "https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&w=1200",
+      features: [
+        "Cat6 / Cat6A Installation",
+        "LAN Setup for Offices",
+        "Neat Cable Management",
+        "High-Speed Network Design",
+      ],
+    },
+    {
+      title: "Fiber Optic Cabling",
+      desc: "High-speed fiber backbone setup for large networks and buildings.",
+      image:
+        "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=1200",
+      features: [
+        "Single Mode / Multi Mode Fiber",
+        "Long Distance Connectivity",
+        "High Bandwidth Setup",
+        "Low Latency Network",
+      ],
+    },
+    {
+      title: "Server Rack Setup",
+      desc: "Professional rack installation with proper airflow and cable routing.",
+      image:
+        "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200",
+      features: [
+        "Rack Installation",
+        "Patch Panel Setup",
+        "Switch Configuration",
+        "Server Organization",
+      ],
+    },
+    {
+      title: "Network Design & Planning",
+      desc: "End-to-end network planning for performance and scalability.",
+      image:
+        "https://images.unsplash.com/photo-1551703599-6b3e8379aa8c?auto=format&fit=crop&w=1200",
+      features: [
+        "Network Architecture",
+        "IP Planning",
+        "Scalable Design",
+        "Security Planning",
+      ],
+    },
+  ];
+
+  const whyChoose = [
+    {
+      icon: <ShieldCheck size={20} />,
+      title: "Secure Installation",
+      desc: "We ensure safe and reliable network setup.",
+    },
+    {
+      icon: <Network size={20} />,
+      title: "High Performance",
+      desc: "Optimized cabling for maximum speed.",
+    },
+    {
+      icon: <Wrench size={20} />,
+      title: "Expert Engineers",
+      desc: "Skilled professionals for installation.",
+    },
+    {
+      icon: <Wifi size={20} />,
+      title: "Future Ready",
+      desc: "Scalable infrastructure for growth.",
+    },
+  ];
+
+  return (
+    <div className="min-h-screen bg-white dark:bg-slate-950">
+
+      {/* HERO */}
+      <section className="relative pt-28 pb-20 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-cyan-500/10 blur-3xl" />
+
+        <div className="container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+
+          {/* LEFT */}
+          <div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 text-indigo-600 text-xs font-black uppercase tracking-widest mb-6"
+            >
+              <Cable size={16} />
+              Structured Cabling Solutions
+            </motion.div>
+
+            <h1 className="text-5xl md:text-6xl font-black text-slate-900 dark:text-white leading-tight">
+              Smart & Reliable{" "}
+              <span className="text-indigo-600">Network Cabling</span>
+            </h1>
+
+            <p className="mt-6 text-slate-600 dark:text-slate-300 leading-relaxed">
+  Structured cabling is a standardized system for designing and installing a building’s network wiring so all data, voice, and video communication runs smoothly, efficiently, and in an organized way.
+
+  <br /><br />
+
+  Instead of random or messy cables, it uses a planned layout of cables, connectors, patch panels, and switches to create a reliable network infrastructure.
+
+  <br /><br />
+
+  It includes Ethernet (Cat6/Cat6A) cables, fiber optic lines for high-speed backbone connections, patch panels for organized connections, and network racks to manage all equipment.
+
+  <br /><br />
+
+  It works like the “road system of your IT network” — connecting computers, servers, CCTV cameras, routers, and Wi-Fi systems in a clean and scalable way.
+
+  <br /><br />
+
+  It improves performance, reduces downtime, supports future expansion, and keeps your network organized and scalable.
+</p>
+
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="mt-8 px-8 py-4 bg-indigo-600 text-white font-bold rounded-2xl flex items-center gap-2 hover:bg-indigo-700 transition"
+            >
+              Get Quote <ArrowRight size={18} />
+            </button>
+          </div>
+
+          {/* RIGHT IMAGE */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="relative h-[420px] rounded-[2.5rem] overflow-hidden shadow-2xl"
+          >
+            <Image
+              src="/1089623ffc67381c6a6ed573c3b72f90.jpg"
+              alt="Cabling"
+              fill
+              className="object-cover"
+            />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* SERVICES */}
+      <section className="py-24">
+        <div className="container mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+          {services.map((item, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ y: -10 }}
+              className="rounded-3xl overflow-hidden bg-white dark:bg-slate-900 shadow-lg border border-slate-200 dark:border-white/10"
+            >
+              <div className="relative h-[200px]">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              <div className="p-6">
+                <h3 className="text-xl font-black text-slate-900 dark:text-white">
+                  {item.title}
+                </h3>
+
+                <p className="text-sm text-slate-500 mt-2">
+                  {item.desc}
+                </p>
+
+                <div className="mt-4 space-y-2">
+                  {item.features.map((f, i) => (
+                    <div key={i} className="flex items-center gap-2 text-sm">
+                      <CheckCircle2 size={16} className="text-indigo-600" />
+                      {f}
+                    </div>
+                  ))}
+                </div>
+
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className="mt-6 w-full py-3 bg-indigo-600 text-white rounded-xl font-bold"
+                >
+                  Request Service
+                </button>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* WHY CHOOSE */}
+      <section className="py-24 bg-slate-50 dark:bg-slate-900/30">
+        <div className="container mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          {whyChoose.map((item, i) => (
+            <div
+              key={i}
+              className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10"
+            >
+              <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-indigo-600 text-white mb-4">
+                {item.icon}
+              </div>
+
+              <h4 className="font-black text-slate-900 dark:text-white">
+                {item.title}
+              </h4>
+
+              <p className="text-sm text-slate-500 mt-2">
+                {item.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* MODAL */}
+     <AnimatePresence>
+  {isModalOpen && (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-[999] bg-black/70 backdrop-blur-md overflow-y-auto py-10 px-4"
+    >
+      <motion.div
+        initial={{ scale: 0.9, opacity: 0, y: 50 }}
+        animate={{ scale: 1, opacity: 1, y: 0 }}
+        exit={{ scale: 0.9, opacity: 0, y: 50 }}
+        transition={{ duration: 0.4 }}
+        className="max-w-5xl mx-auto bg-white dark:bg-slate-950 rounded-[3rem] overflow-hidden border border-slate-200 dark:border-white/10 shadow-2xl"
+      >
+        {/* HEADER */}
+        <div className="relative overflow-hidden bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-600 px-10 py-12">
+          <button
+            onClick={() => setIsModalOpen(false)}
+            className="absolute top-6 right-6 w-12 h-12 rounded-2xl bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-all"
+          >
+            ✕
+          </button>
+
+          <div className="relative z-10">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 text-white text-xs font-black uppercase tracking-[0.25em] mb-6">
+              Laptop Rental Form
+            </div>
+
+            <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight leading-tight mb-4">
+              Request a
+              <br />
+              Quick Quotation.
+            </h2>
+
+            <p className="text-blue-100 text-lg max-w-2xl leading-relaxed">
+              Fill your rental requirement details and our team will contact
+              you.
+            </p>
+          </div>
+        </div>
+
+        {/* FORM */}
+        <div className="p-8 md:p-12">
+          <div className="mb-10">
+            <h3 className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white mb-3">
+              ABOUT YOUR RENTAL REQUIREMENTS?
+            </h3>
+
+            <p className="text-slate-500 dark:text-slate-400 leading-relaxed">
+              Be sure to tell us any other need or specifications required!
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8">
+            
+            {/* LEFT */}
+            <div className="space-y-6">
+              <input
+                type="text"
+                placeholder="First Name"
+                className="w-full h-14 px-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border"
+              />
+
+              <input
+                type="text"
+                placeholder="Last Name"
+                className="w-full h-14 px-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border"
+              />
+
+              <select className="w-full h-14 px-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border">
+                <option>Select Company Type</option>
+                <option>Individual</option>
+                <option>Startup</option>
+                <option>Corporate Company</option>
+                <option>Institute</option>
+              </select>
+
+              <input
+                type="tel"
+                placeholder="Mobile Number"
+                className="w-full h-14 px-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border"
+              />
+
+              <input
+                type="email"
+                placeholder="Email ID"
+                className="w-full h-14 px-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border"
+              />
+            </div>
+
+            {/* RIGHT */}
+            <div className="space-y-6">
+
+              {/* 🔥 DROPDOWN ADDED HERE */}
+              <select className="w-full h-14 px-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border">
+                <option>Select Product / Service</option>
+                <option>Cat6 Cabling</option>
+                <option>Cat6A Setup</option>
+                <option>Fiber Optic Setup</option>
+                <option>Server Rack Setup</option>
+                <option>Enterprise Networking</option>
+                <option>WiFi & NAS Setup</option>
+              </select>
+
+              <select className="w-full h-14 px-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border">
+                <option>Select Duration</option>
+                <option>1 Day</option>
+                <option>1 Week</option>
+                <option>1 Month</option>
+                <option>1 Year</option>
+              </select>
+
+              <input
+                type="text"
+                placeholder="City"
+                className="w-full h-14 px-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border"
+              />
+
+              <select className="w-full h-14 px-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border">
+                <option>Select Requirement Type</option>
+                <option>Installation</option>
+                <option>Maintenance</option>
+                <option>Upgrade</option>
+              </select>
+            </div>
+          </div>
+
+          <textarea
+            rows={6}
+            placeholder="Describe your requirement..."
+            className="w-full mt-8 p-5 rounded-[2rem] bg-slate-100 dark:bg-slate-900 border"
+          />
+
+          <div className="mt-10">
+            <button className="px-10 py-5 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-black">
+              Submit Quotation
+            </button>
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  )}
+</AnimatePresence>
+    </div>
+  );
+}

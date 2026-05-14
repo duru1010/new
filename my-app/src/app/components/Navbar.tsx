@@ -1862,6 +1862,12 @@ const Navbar = () => {
       icon: <ShoppingBag size={16} />,
       href: "/sales",
     },
+   
+    {
+      name: "CCTV & Security",
+      icon: <Shield size={16} />,
+      href: "/amc",
+    }
   ];
 
   const navLinks = [

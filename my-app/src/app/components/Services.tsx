@@ -173,7 +173,15 @@ const services = [
     image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop",
     href: "/sales",
     tags: ["Compliance", "Software"]
-  }
+  },
+ {
+    title: "CCTV & Security Solutions",
+    description: "End-to-end surveillance setup with remote monitoring, DVR/NVR configuration, and AI-enabled motion detection for homes and offices.",
+    icon: <Key className="w-6 h-6" />,
+    image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=1471&auto=format&fit=crop",
+    href: "/amc",
+    tags: ["Security", "Infrastructure"]
+  },
 ];
 
 const Services = () => {
