@@ -431,11 +431,11 @@ const Hero = () => {
           </AnimatePresence>
 
           {/* BUTTON */}
-          <Link href="/dashboard/quotations">
+          {/* <Link href="/dashboard/quotations">
             <button className="px-8 py-4 bg-blue-600 text-white rounded-2xl font-bold flex items-center gap-3 hover:bg-blue-700 transition">
               Get Quotation <ArrowRight />
             </button>
-          </Link>
+          </Link> */}
 
           {/* DOTS (UNCHANGED ANIMATION) */}
           <div className="flex gap-2 mt-6">
