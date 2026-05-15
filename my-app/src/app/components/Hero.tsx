@@ -147,167 +147,349 @@
 
 
 
+// "use client";
+// import React, { useState } from 'react';
+// import { motion, AnimatePresence } from 'framer-motion';
+// import { ArrowRight, ShieldCheck, Zap, Cpu, RefreshCw, CheckCircle, MousePointerClick } from 'lucide-react';
+// import Link from 'next/link';
+
+// const Hero = () => {
+//   const [imageIndex, setImageIndex] = useState(0);
+
+//   const images = [
+//     "/b058c545a8c24bd9ec1fbb9d2193ade7.jpg", 
+//     "/b5429ffaffaf5dd621a36843ac85c782.jpg", 
+//     "/e0b48f31b03a5057a71bf13e5790f771.jpg",
+//   ];
+
+//   const handleImageClick = () => {
+//     setImageIndex((prev) => (prev === 0 ? 1 : 0));
+//   };
+
+//   return (
+//     <section className="relative min-h-[900px] lg:h-[850px] w-full flex items-center justify-center overflow-hidden bg-[#F0F4FF] pt-24 pb-12 lg:py-0">
+      
+//       {/* --- BACKGROUND NODES --- */}
+//       <div className="absolute inset-0 z-0 pointer-events-none">
+//         <div className="absolute inset-0 h-full w-full [background-image:radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:40px_40px] [mask-image:linear-gradient(to_bottom,white,transparent,white)] opacity-100%" />
+        
+//         <div className="absolute top-[3%] right-[5%] lg:top-[5%] lg:right-[5%] w-[250px] h-[250px] lg:w-[350px] lg:h-[350px]">
+//           <div className="absolute inset-0 bg-[#0057FF]/20 blur-[60px] lg:blur-[80px] rounded-full animate-pulse" />
+//           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 lg:w-4 lg:h-4 bg-[#4DA6FF] rounded-full shadow-[0_0_30px_#4DA6FF]" />
+//         </div>
+
+//         <div className="absolute bottom-[3%] left-[5%] lg:bottom-[5%] lg:left-[3%] w-[200px] h-[200px] lg:w-[300px] lg:h-[300px]">
+//           <div className="absolute inset-0 bg-[#0057FF]/10 blur-[70px] lg:blur-[90px] rounded-full" />
+//           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 lg:w-3 lg:h-3 bg-[#0057FF] rounded-full shadow-[0_0_25px_#0057FF]" />
+//         </div>
+//       </div>
+
+//       <div className="container mx-auto px-6 relative z-10">
+//         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          
+//           {/* --- CONTENT BLOCK --- */}
+//           <div className="flex flex-col items-center lg:items-start text-center lg:text-left max-w-2xl mx-auto lg:mx-0 order-2 lg:order-1">
+//             <motion.div 
+//               initial={{ opacity: 0, y: -10 }} 
+//               animate={{ opacity: 1, y: 0 }} 
+//               className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#0057FF]/5 border border-[#4DA6FF]/20 mb-6 lg:mb-8"
+//             >
+//               <CheckCircle size={14} className="text-[#0057FF]" />
+//               <span className="text-[10px] lg:text-[11px] font-bold uppercase tracking-[0.3em] text-[#0057FF]">
+//                 Trusted by 1,000+ Businesses
+//               </span>
+//             </motion.div>
+
+//             <motion.h1 
+//               initial={{ opacity: 0, y: 30 }} 
+//               animate={{ opacity: 1, y: 0 }} 
+//               className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight text-[#0A1628] mb-6 lg:mb-8 leading-[1.1]"
+//             >
+//               Online Solutions <br />
+//               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0057FF] via-[#4DA6FF] to-[#0057FF]">
+//                 To Boost Business.
+//               </span>
+//             </motion.h1>
+
+//             <motion.p className="text-base lg:text-lg text-slate-600 mb-8 lg:mb-10 max-w-lg leading-relaxed font-medium">
+//               From high-performance WFH Setups and Software Licenses to 
+//               advanced Surveillance Systems, we provide the tech core for your growth.
+//             </motion.p>
+
+//             <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+//               {/* Primary Action */}
+//                <Link href="/dashboard/quotations" className="w-full sm:w-auto">
+//               <button className="group w-full sm:w-auto px-8 lg:px-10 py-4 lg:py-5 bg-[#0057FF] text-white rounded-2xl font-bold transition-all hover:bg-[#0046CC] hover:shadow-2xl hover:shadow-blue-200 active:scale-95 flex items-center justify-center gap-3">
+//                 Get Quotation <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+//               </button>
+//               </Link>
+              
+//               {/* Client Stats */}
+//               <div className="hidden sm:flex flex-col items-center lg:items-start px-4 border-l border-slate-200">
+//                 <p className="text-[#0A1628] font-bold text-sm">Satisfied Clients</p>
+//                 <p className="text-slate-500 text-xs font-medium">Active since 2012</p>
+//               </div>
+//             </div>
+//           </div>
+
+//           {/* --- IMAGE BLOCK WITH INTERACTIVE INDICATORS --- */}
+//           <motion.div 
+//             initial={{ opacity: 0, scale: 0.9 }}
+//             animate={{ opacity: 1, scale: 1 }}
+//             className="relative flex items-center justify-center order-1 lg:order-2"
+//           >
+//             <div 
+//               onClick={handleImageClick}
+//               className="relative z-20 group w-full max-w-[320px] sm:max-w-[400px] lg:max-w-[520px] cursor-pointer"
+//             >
+//               <div className="absolute -inset-8 pointer-events-none">
+//                 <div className="absolute inset-0 bg-[#4DA6FF]/20 rounded-full blur-3xl animate-pulse scale-75" />
+//               </div>
+              
+//               <div className="absolute -inset-4 bg-gradient-to-tr from-[#4DA6FF]/30 to-[#0057FF]/30 rounded-[3rem] blur-2xl opacity-60 group-hover:opacity-90 transition-opacity" />
+              
+//               <div className="relative aspect-square rounded-[2rem] lg:rounded-[3rem] bg-white border border-slate-100 shadow-2xl overflow-hidden p-2 lg:p-3">
+//                 <div className="w-full h-full rounded-[1.5rem] lg:rounded-[2.5rem] overflow-hidden bg-slate-100 relative">
+                  
+//                   <AnimatePresence mode="wait">
+//                     <motion.img 
+//                       key={imageIndex}
+//                       initial={{ opacity: 0, scale: 1.1, filter: "blur(10px)" }}
+//                       animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+//                       exit={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
+//                       transition={{ duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] }}
+//                       src={images[imageIndex]} 
+//                       alt="Business Infrastructure" 
+//                       className="absolute inset-0 w-full h-full object-cover"
+//                     />
+//                   </AnimatePresence>
+
+//                   <div className="absolute inset-0 bg-[#0A1628]/0 group-hover:bg-[#0A1628]/40 transition-all duration-500 flex flex-col items-center justify-center gap-4">
+//                     <div className="relative">
+//                        <div className="absolute inset-0 rounded-full border-2 border-white/50 scale-150 animate-ping opacity-0 group-hover:opacity-100" />
+//                        <RefreshCw className="text-white opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:rotate-180" size={48} />
+//                     </div>
+//                     <span className="text-white font-bold text-sm tracking-widest opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+//                         CLICK TO SWITCH VIEW
+//                     </span>
+//                   </div>
+//                 </div>
+
+//                 <motion.div 
+//                     animate={{ scale: [1, 1.1, 1] }}
+//                     transition={{ repeat: Infinity, duration: 2 }}
+//                     className="absolute top-6 left-6 z-30 bg-[#0057FF] text-white px-3 py-1.5 rounded-full flex items-center gap-2 shadow-lg lg:hidden"
+//                 >
+//                     <MousePointerClick size={14} />
+//                     <span className="text-[10px] font-bold">Tap to interact</span>
+//                 </motion.div>
+//               </div>
+//             </div>
+
+//             <div className="hidden sm:block">
+//                <FloatingTag icon={<ShieldCheck size={16}/>} text="Licenses" top="5%" right="-5%" delay={1.2} />
+//                <FloatingTag icon={<Zap size={16}/>} text="WFH Ready" bottom="15%" left="-10%" delay={1.5} />
+//             </div>
+//           </motion.div>
+
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+
+// const FloatingTag = ({ icon, text, top, left, right, delay }: any) => (
+//   <motion.div 
+//     animate={{ y: [0, -10, 0] }} 
+//     transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: delay * 0.3 }}
+//     style={{ top, left, right }} 
+//     className="absolute z-30 flex items-center gap-2 px-4 py-3 lg:px-6 lg:py-4 bg-white/90 backdrop-blur-md border border-[#4DA6FF]/20 rounded-xl lg:rounded-2xl shadow-xl"
+//   >
+//     <div className="text-[#0057FF]">{icon}</div>
+//     <span className="text-[8px] lg:text-[10px] font-bold text-[#0A1628] uppercase tracking-[0.2em]">{text}</span>
+//   </motion.div>
+// );
+
+// export default Hero;
+
 "use client";
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, ShieldCheck, Zap, Cpu, RefreshCw, CheckCircle, MousePointerClick } from 'lucide-react';
-import Link from 'next/link';
+
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, CheckCircle } from "lucide-react";
+import Link from "next/link";
 
 const Hero = () => {
-  const [imageIndex, setImageIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  const images = [
-    "/b058c545a8c24bd9ec1fbb9d2193ade7.jpg", 
-    "/b5429ffaffaf5dd621a36843ac85c782.jpg", 
-    "/e0b48f31b03a5057a71bf13e5790f771.jpg",
-  ];
 
-  const handleImageClick = () => {
-    setImageIndex((prev) => (prev === 0 ? 1 : 0));
-  };
+ const heroSlides = [
+  {
+    category: "Business Solutions",
+    title: "Online Solutions To Boost Business.",
+    subtitle:
+      "From high-performance WFH setups and software licenses to advanced surveillance systems, we provide the tech core for your growth.",
+    image: "/b058c545a8c24bd9ec1fbb9d2193ade7.jpg",
+  },
+  {
+    category: "Networking",
+    title: "Smart Networking Infrastructure.",
+    subtitle:
+      "We build secure, scalable, and high-speed networking systems for modern enterprises.",
+    image: "/b5429ffaffaf5dd621a36843ac85c782.jpg",
+  },
+  {
+    category: "Security",
+    title: "Advanced CCTV & Security Systems.",
+    subtitle:
+      "AI-powered surveillance and real-time monitoring for complete business protection.",
+    image: "/e0b48f31b03a5057a71bf13e5790f771.jpg",
+  },
+];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % heroSlides.length);
+    }, 4500);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <section className="relative min-h-[900px] lg:h-[850px] w-full flex items-center justify-center overflow-hidden bg-[#F0F4FF] pt-24 pb-12 lg:py-0">
-      
-      {/* --- BACKGROUND NODES --- */}
+    <section className="relative min-h-[900px] w-full flex items-center justify-center overflow-hidden bg-[#F0F4FF] pt-24 pb-12">
+
+      {/* YOUR BACKGROUND (UNCHANGED) */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 h-full w-full [background-image:radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:40px_40px] [mask-image:linear-gradient(to_bottom,white,transparent,white)] opacity-100%" />
-        
-        <div className="absolute top-[3%] right-[5%] lg:top-[5%] lg:right-[5%] w-[250px] h-[250px] lg:w-[350px] lg:h-[350px]">
-          <div className="absolute inset-0 bg-[#0057FF]/20 blur-[60px] lg:blur-[80px] rounded-full animate-pulse" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 lg:w-4 lg:h-4 bg-[#4DA6FF] rounded-full shadow-[0_0_30px_#4DA6FF]" />
+
+        <div className="absolute top-[3%] right-[5%] w-[250px] h-[250px] lg:w-[350px] lg:h-[350px]">
+          <div className="absolute inset-0 bg-[#0057FF]/20 blur-[60px] rounded-full animate-pulse" />
         </div>
 
-        <div className="absolute bottom-[3%] left-[5%] lg:bottom-[5%] lg:left-[3%] w-[200px] h-[200px] lg:w-[300px] lg:h-[300px]">
-          <div className="absolute inset-0 bg-[#0057FF]/10 blur-[70px] lg:blur-[90px] rounded-full" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 lg:w-3 lg:h-3 bg-[#0057FF] rounded-full shadow-[0_0_25px_#0057FF]" />
+        <div className="absolute bottom-[3%] left-[5%] w-[200px] h-[200px] lg:w-[300px] lg:h-[300px]">
+          <div className="absolute inset-0 bg-[#0057FF]/10 blur-[70px] rounded-full" />
         </div>
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          
-          {/* --- CONTENT BLOCK --- */}
-          <div className="flex flex-col items-center lg:items-start text-center lg:text-left max-w-2xl mx-auto lg:mx-0 order-2 lg:order-1">
-            <motion.div 
-              initial={{ opacity: 0, y: -10 }} 
-              animate={{ opacity: 1, y: 0 }} 
-              className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#0057FF]/5 border border-[#4DA6FF]/20 mb-6 lg:mb-8"
-            >
-              <CheckCircle size={14} className="text-[#0057FF]" />
-              <span className="text-[10px] lg:text-[11px] font-bold uppercase tracking-[0.3em] text-[#0057FF]">
-                Trusted by 1,000+ Businesses
-              </span>
-            </motion.div>
+      <div className="container mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-            <motion.h1 
-              initial={{ opacity: 0, y: 30 }} 
-              animate={{ opacity: 1, y: 0 }} 
-              className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight text-[#0A1628] mb-6 lg:mb-8 leading-[1.1]"
-            >
-              Online Solutions <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0057FF] via-[#4DA6FF] to-[#0057FF]">
-                To Boost Business.
-              </span>
-            </motion.h1>
+        {/* TEXT */}
+        <div className="max-w-2xl">
 
-            <motion.p className="text-base lg:text-lg text-slate-600 mb-8 lg:mb-10 max-w-lg leading-relaxed font-medium">
-              From high-performance WFH Setups and Software Licenses to 
-              advanced Surveillance Systems, we provide the tech core for your growth.
-            </motion.p>
-
-            <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-              {/* Primary Action */}
-               <Link href="/dashboard/quotations" className="w-full sm:w-auto">
-              <button className="group w-full sm:w-auto px-8 lg:px-10 py-4 lg:py-5 bg-[#0057FF] text-white rounded-2xl font-bold transition-all hover:bg-[#0046CC] hover:shadow-2xl hover:shadow-blue-200 active:scale-95 flex items-center justify-center gap-3">
-                Get Quotation <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-              </button>
-              </Link>
-              
-              {/* Client Stats */}
-              <div className="hidden sm:flex flex-col items-center lg:items-start px-4 border-l border-slate-200">
-                <p className="text-[#0A1628] font-bold text-sm">Satisfied Clients</p>
-                <p className="text-slate-500 text-xs font-medium">Active since 2012</p>
-              </div>
-            </div>
+          <div className="flex items-center gap-2 mb-6">
+            <CheckCircle className="text-blue-600" size={16} />
+            <span className="text-xs font-bold tracking-widest text-blue-600">
+              Trusted by 1,000+ Businesses
+            </span>
           </div>
 
-          {/* --- IMAGE BLOCK WITH INTERACTIVE INDICATORS --- */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="relative flex items-center justify-center order-1 lg:order-2"
-          >
-            <div 
-              onClick={handleImageClick}
-              className="relative z-20 group w-full max-w-[320px] sm:max-w-[400px] lg:max-w-[520px] cursor-pointer"
+          {/* TITLE (FIXED — NO VARIANTS ERROR) */}
+          <AnimatePresence mode="wait">
+            <motion.h1
+              key={activeIndex}
+              initial={{
+                opacity: 0,
+                rotateX: -30,
+                y: 40,
+                scale: 0.95,
+                filter: "blur(10px)",
+              }}
+              animate={{
+                opacity: 1,
+                rotateX: 0,
+                y: 0,
+                scale: 1,
+                filter: "blur(0px)",
+              }}
+              exit={{
+                opacity: 0,
+                rotateX: 30,
+                y: -30,
+                scale: 1.05,
+                filter: "blur(10px)",
+              }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="text-4xl md:text-6xl lg:text-7xl font-black text-[#0A1628] mb-6 leading-[1.1]"
+              style={{ perspective: 1000 }}
             >
-              <div className="absolute -inset-8 pointer-events-none">
-                <div className="absolute inset-0 bg-[#4DA6FF]/20 rounded-full blur-3xl animate-pulse scale-75" />
-              </div>
-              
-              <div className="absolute -inset-4 bg-gradient-to-tr from-[#4DA6FF]/30 to-[#0057FF]/30 rounded-[3rem] blur-2xl opacity-60 group-hover:opacity-90 transition-opacity" />
-              
-              <div className="relative aspect-square rounded-[2rem] lg:rounded-[3rem] bg-white border border-slate-100 shadow-2xl overflow-hidden p-2 lg:p-3">
-                <div className="w-full h-full rounded-[1.5rem] lg:rounded-[2.5rem] overflow-hidden bg-slate-100 relative">
-                  
-                  <AnimatePresence mode="wait">
-                    <motion.img 
-                      key={imageIndex}
-                      initial={{ opacity: 0, scale: 1.1, filter: "blur(10px)" }}
-                      animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                      exit={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
-                      transition={{ duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] }}
-                      src={images[imageIndex]} 
-                      alt="Business Infrastructure" 
-                      className="absolute inset-0 w-full h-full object-cover"
-                    />
-                  </AnimatePresence>
+              {heroSlides[activeIndex].title}
+            </motion.h1>
+          </AnimatePresence>
 
-                  <div className="absolute inset-0 bg-[#0A1628]/0 group-hover:bg-[#0A1628]/40 transition-all duration-500 flex flex-col items-center justify-center gap-4">
-                    <div className="relative">
-                       <div className="absolute inset-0 rounded-full border-2 border-white/50 scale-150 animate-ping opacity-0 group-hover:opacity-100" />
-                       <RefreshCw className="text-white opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:rotate-180" size={48} />
-                    </div>
-                    <span className="text-white font-bold text-sm tracking-widest opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                        CLICK TO SWITCH VIEW
-                    </span>
-                  </div>
-                </div>
+          {/* SUBTITLE */}
+          <AnimatePresence mode="wait">
+            <motion.p
+              key={activeIndex}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+              className="text-lg text-slate-600 mb-8 max-w-lg"
+            >
+              {heroSlides[activeIndex].subtitle}
+            </motion.p>
+          </AnimatePresence>
 
-                <motion.div 
-                    animate={{ scale: [1, 1.1, 1] }}
-                    transition={{ repeat: Infinity, duration: 2 }}
-                    className="absolute top-6 left-6 z-30 bg-[#0057FF] text-white px-3 py-1.5 rounded-full flex items-center gap-2 shadow-lg lg:hidden"
-                >
-                    <MousePointerClick size={14} />
-                    <span className="text-[10px] font-bold">Tap to interact</span>
-                </motion.div>
-              </div>
-            </div>
+          {/* BUTTON */}
+          <Link href="/dashboard/quotations">
+            <button className="px-8 py-4 bg-blue-600 text-white rounded-2xl font-bold flex items-center gap-3 hover:bg-blue-700 transition">
+              Get Quotation <ArrowRight />
+            </button>
+          </Link>
 
-            <div className="hidden sm:block">
-               <FloatingTag icon={<ShieldCheck size={16}/>} text="Licenses" top="5%" right="-5%" delay={1.2} />
-               <FloatingTag icon={<Zap size={16}/>} text="WFH Ready" bottom="15%" left="-10%" delay={1.5} />
-            </div>
-          </motion.div>
+          {/* DOTS (UNCHANGED ANIMATION) */}
+          <div className="flex gap-2 mt-6">
+            {heroSlides.map((_, i) => (
+              <motion.button
+                key={i}
+                onClick={() => setActiveIndex(i)}
+                animate={{
+                  width: i === activeIndex ? 24 : 10,
+                  backgroundColor: i === activeIndex ? "#2563eb" : "#cbd5e1",
+                  scale: i === activeIndex ? 1.2 : 1,
+                }}
+                transition={{ duration: 0.3 }}
+                className="h-2.5 rounded-full"
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* IMAGE (3D SAFE) */}
+        <div className="relative flex justify-center">
+
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={heroSlides[activeIndex].image}
+              src={heroSlides[activeIndex].image}
+              initial={{
+                opacity: 0,
+                scale: 1.15,
+                rotateY: -20,
+                filter: "blur(10px)",
+              }}
+              animate={{
+                opacity: 1,
+                scale: 1,
+                rotateY: 0,
+                filter: "blur(0px)",
+              }}
+              exit={{
+                opacity: 0,
+                scale: 0.95,
+                rotateY: 20,
+                filter: "blur(10px)",
+              }}
+              transition={{ duration: 0.8 }}
+              className="w-full max-w-[520px] aspect-square object-cover rounded-[3rem] shadow-2xl"
+              style={{ perspective: 1200 }}
+            />
+          </AnimatePresence>
 
         </div>
       </div>
     </section>
   );
 };
-
-const FloatingTag = ({ icon, text, top, left, right, delay }: any) => (
-  <motion.div 
-    animate={{ y: [0, -10, 0] }} 
-    transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: delay * 0.3 }}
-    style={{ top, left, right }} 
-    className="absolute z-30 flex items-center gap-2 px-4 py-3 lg:px-6 lg:py-4 bg-white/90 backdrop-blur-md border border-[#4DA6FF]/20 rounded-xl lg:rounded-2xl shadow-xl"
-  >
-    <div className="text-[#0057FF]">{icon}</div>
-    <span className="text-[8px] lg:text-[10px] font-bold text-[#0A1628] uppercase tracking-[0.2em]">{text}</span>
-  </motion.div>
-);
 
 export default Hero;

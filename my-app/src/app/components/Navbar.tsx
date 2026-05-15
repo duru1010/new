@@ -1791,6 +1791,9 @@ const Navbar = () => {
   const [showForm, setShowForm] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
+
+const [isCategoryOpen, setIsCategoryOpen] = useState(false);
+
   // OTP STATES
   const [otp, setOtp] = useState("");
   const [generatedOtp, setGeneratedOtp] = useState("");
@@ -1800,7 +1803,7 @@ const Navbar = () => {
 
   // FORM STATE
   const [isSubmitting, setIsSubmitting] = useState(false);
-
+  
   const [formData, setFormData] = useState({
     category: [] as string[],
     duration: "",
@@ -2204,13 +2207,16 @@ const Navbar = () => {
         {showForm && (
           <div className="fixed inset-0 z-[200] flex items-center justify-center p-2 sm:p-4">
             {/* BACKDROP */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setShowForm(false)}
-              className="absolute inset-0 bg-slate-950/70 backdrop-blur-md"
-            />
+             <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        onClick={() => {
+          setShowForm(false);
+          setIsCategoryOpen(false); // ✅ close dropdown also
+        }}
+        className="absolute inset-0 bg-slate-950/70 backdrop-blur-md"
+      />
 
             {/* MODAL */}
             <motion.div
@@ -2221,7 +2227,7 @@ const Navbar = () => {
               className="
                 relative
                 w-full
-                max-w-7xl
+                max-w-4xl
                 h-[95vh]
                 bg-white
                 dark:bg-slate-900
@@ -2261,324 +2267,270 @@ const Navbar = () => {
               {/* SCROLL AREA */}
               <div className="flex-1 overflow-y-auto px-4 sm:px-8 py-6">
                 <form
-                  className="grid grid-cols-1 lg:grid-cols-2 gap-5"
-                  onSubmit={handleFormSubmit}
-                >
-                  {/* LEFT */}
-                  <div className="space-y-5">
+  className="flex flex-col gap-6"
+  onSubmit={handleFormSubmit}
+>
+  {/* CATEGORY - LINKEDIN STYLE MULTI SELECT */}
+   <div>
+              <label className="text-sm font-bold text-slate-700 dark:text-slate-300 mb-3 block">
+                Select Categories *
+              </label>
 
-                    {/* CATEGORY */}
-                    <div>
-                      <label className="text-sm font-bold text-slate-700 dark:text-slate-300 mb-3 block">
-                        Select Categories *
-                      </label>
+              {/* SELECT BUTTON */}
+              <button
+                type="button"
+                onClick={() => setIsCategoryOpen((prev) => !prev)}
+                className="w-full px-4 py-3 rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 text-left text-sm font-medium text-slate-700 dark:text-slate-300"
+              >
+                {formData.category.length > 0
+                  ? `${formData.category.length} category selected`
+                  : "Click to select categories"}
+              </button>
 
-                      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 max-h-[280px] overflow-y-auto pr-2">
-                        {[
-                          "Desktop Repair",
-                          "Laptop Repair",
-                          "Computer Hardware",
-                          "Laptop Sales",
-                          "Networking",
-                          "Networking Hardware",
-                          "Accessories",
-                          "CCTV Cameras",
-                          "Wired Networking",
-                          "Wireless Networking",
-                          "NAS Storage",
-                          "Office Networking",
-                          "Routers",
-                          "Projectors",
-                          "IP PBX Systems",
-                          "Attendance Machines",
-                          "Microsoft Licenses",
-                          "Tally Licenses",
-                          "Quick-Heal Licenses",
-                          "Software Licenses",
-                        ].map((category) => (
-                          <label
-                            key={category}
-                            className="flex items-start gap-3 p-3 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 cursor-pointer hover:border-indigo-500 transition-all"
-                          >
-                            <input
-                              type="checkbox"
-                              checked={formData.category.includes(category)}
-                              onChange={(e) => {
-                                if (e.target.checked) {
-                                  setFormData({
-                                    ...formData,
-                                    category: [...formData.category, category],
-                                  });
-                                } else {
-                                  setFormData({
-                                    ...formData,
-                                    category: formData.category.filter(
-                                      (item) => item !== category
-                                    ),
-                                  });
-                                }
-                              }}
-                              className="mt-1 h-4 w-4 accent-indigo-600"
-                            />
-
-                            <span className="text-sm font-medium text-slate-700 dark:text-slate-300 leading-snug">
-                              {category}
-                            </span>
-                          </label>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* DURATION */}
-                    <div>
-                      <label className="text-sm font-bold text-slate-700 dark:text-slate-300 mb-2 block">
-                        Rental Duration *
-                      </label>
-
-                      <select
-                        required
-                        value={formData.duration}
-                        onChange={(e) =>
-                          setFormData({
-                            ...formData,
-                            duration: e.target.value,
-                          })
-                        }
-                        className="w-full px-4 py-3 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 dark:text-white"
-                      >
-                        <option value="">Select Duration</option>
-                        <option value="1 Day">1 Day</option>
-                        <option value="3 Days">3 Days</option>
-                        <option value="1 Week">1 Week</option>
-                        <option value="15 Days">15 Days</option>
-                        <option value="1 Month">1 Month</option>
-                        <option value="3 Months">3 Months</option>
-                        <option value="6 Months">6 Months</option>
-                        <option value="1 Year">1 Year</option>
-                      </select>
-                    </div>
-
-                    {/* COMPANY */}
-                    <div className="relative">
-                      <Building2
-                        className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"
-                        size={18}
-                      />
-
-                      <input
-                        required
-                        type="text"
-                        placeholder="Company Name"
-                        value={formData.company}
-                        onChange={(e) =>
-                          setFormData({
-                            ...formData,
-                            company: e.target.value,
-                          })
-                        }
-                        className="w-full pl-12 pr-4 py-3 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 dark:text-white"
-                      />
-                    </div>
-
-                    {/* CONTACT */}
-                    <div className="relative">
-                      <User
-                        className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"
-                        size={18}
-                      />
-
-                      <input
-                        required
-                        type="text"
-                        placeholder="Contact Person"
-                        value={formData.contactPerson}
-                        onChange={(e) =>
-                          setFormData({
-                            ...formData,
-                            contactPerson: e.target.value,
-                          })
-                        }
-                        className="w-full pl-12 pr-4 py-3 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 dark:text-white"
-                      />
-                    </div>
-                  </div>
-
-                  {/* RIGHT */}
-                  <div className="space-y-5">
-
-                    {/* MOBILE */}
-                    <div className="relative">
-                      <Phone
-                        className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"
-                        size={18}
-                      />
-
-                      <input
-                        required
-                        type="tel"
-                        placeholder="Tel / Mobile Number"
-                        value={formData.mobile}
-                        onChange={(e) =>
-                          setFormData({
-                            ...formData,
-                            mobile: e.target.value,
-                          })
-                        }
-                        className="w-full pl-12 pr-4 py-3 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 dark:text-white"
-                      />
-                    </div>
-
-                    {/* EMAIL */}
-                    <div className="space-y-3">
-                      <div className="relative">
-                        <Mail
-                          className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"
-                          size={18}
-                        />
-
-                        <input
-                          required
-                          type="email"
-                          placeholder="Email Address"
-                          value={formData.email}
-                          onChange={(e) =>
-                            setFormData({
-                              ...formData,
-                              email: e.target.value,
-                            })
-                          }
-                          className="w-full pl-12 pr-28 sm:pr-32 py-3 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 dark:text-white"
-                        />
-
-                        <button
-                          type="button"
-                          onClick={sendOtp}
-                          disabled={
-                            isSendingOtp ||
-                            otpVerified ||
-                            !formData.email
-                          }
-                          className="absolute right-2 top-1/2 -translate-y-1/2 px-3 sm:px-4 py-2 rounded-xl bg-indigo-600 text-white text-[10px] sm:text-xs font-bold"
-                        >
-                          {otpVerified
-                            ? "Verified"
-                            : isSendingOtp
-                            ? "Sending..."
-                            : "Send OTP"}
-                        </button>
-                      </div>
-
-                      {/* OTP */}
-                      {otpSent && !otpVerified && (
-                        <div className="flex flex-col sm:flex-row gap-2">
-                          <input
-                            type="text"
-                            placeholder="Enter OTP"
-                            value={otp}
-                            onChange={(e) => setOtp(e.target.value)}
-                            className="flex-1 px-4 py-3 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 dark:text-white"
-                          />
-
-                          <button
-                            type="button"
-                            onClick={verifyOtp}
-                            className="px-5 py-3 rounded-2xl bg-green-600 text-white font-bold"
-                          >
-                            Verify
-                          </button>
-                        </div>
-                      )}
-                    </div>
-
-                    {/* CITY */}
-                    <select
-                      required
-                      value={formData.city}
-                      onChange={(e) =>
-                        setFormData({
-                          ...formData,
-                          city: e.target.value,
-                        })
-                      }
-                      className="w-full px-4 py-3 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 dark:text-white"
-                    >
-                      <option value="">Select City</option>
-                      <option value="Mumbai">Mumbai</option>
-                      <option value="Pune">Pune</option>
-                      <option value="Nashik">Nashik</option>
-                      <option value="Nagpur">Nagpur</option>
-                      <option value="Delhi">Delhi</option>
-                      <option value="Bangalore">Bangalore</option>
-                    </select>
-
-                    {/* MESSAGE */}
-                    <div className="relative">
-                      <MessageSquare
-                        className="absolute left-4 top-4 text-slate-400"
-                        size={18}
-                      />
-
-                      <textarea
-                        required
-                        rows={5}
-                        placeholder="Message"
-                        value={formData.message}
-                        onChange={(e) =>
-                          setFormData({
-                            ...formData,
-                            message: e.target.value,
-                          })
-                        }
-                        className="w-full pl-12 pr-4 py-3 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 dark:text-white"
-                      />
-                    </div>
-
-                    {/* CAPTCHA */}
-                    <div className="p-4 rounded-2xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5">
-                      <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">
-                        Please enter the characters displayed:
-                      </p>
-
-                      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
-                        <div className="px-5 py-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-white/10 text-lg font-black tracking-[0.3em] text-indigo-600">
-                          X7P2Q
-                        </div>
-
-                        <input
-                          type="text"
-                          placeholder="Enter Captcha"
-                          value={formData.captcha}
-                          onChange={(e) =>
-                            setFormData({
-                              ...formData,
-                              captcha: e.target.value,
-                            })
-                          }
-                          className="flex-1 w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-white/10 dark:text-white"
-                        />
-                      </div>
-                    </div>
-
-                    {/* SUBMIT */}
+              {/* SELECTED CHIPS */}
+              <div className="flex flex-wrap gap-2 mt-3">
+                {formData.category.map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-600 text-white text-xs font-bold"
+                  >
+                    {item}
                     <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full py-4 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-black flex items-center justify-center gap-3 shadow-xl shadow-indigo-500/20 transition-all"
+                      type="button"
+                      onClick={() =>
+                        setFormData((prev) => ({
+                          ...prev,
+                          category: prev.category.filter((c) => c !== item),
+                        }))
+                      }
                     >
-                      {isSubmitting ? (
-                        <>
-                          Processing...
-                          <Loader2 className="animate-spin" size={18} />
-                        </>
-                      ) : (
-                        <>
-                          Submit Rental Request
-                          <Send size={18} />
-                        </>
-                      )}
+                      ✕
                     </button>
                   </div>
-                </form>
+                ))}
+              </div>
+
+              {/* DROPDOWN */}
+              {isCategoryOpen && (
+                <div className="relative z-50 mt-3 border border-slate-200 dark:border-white/10 rounded-2xl bg-slate-50 dark:bg-white/5 max-h-[220px] overflow-y-auto">
+
+                  {[
+                    "Desktop Repair",
+                    "Laptop Repair",
+                    "Computer Hardware",
+                    "Laptop Sales",
+                    "Networking",
+                    "Networking Hardware",
+                    "Accessories",
+                    "CCTV Cameras",
+                    "Wired Networking",
+                    "Wireless Networking",
+                    "NAS Storage",
+                    "Office Networking",
+                    "Routers",
+                    "Projectors",
+                    "IP PBX Systems",
+                    "Attendance Machines",
+                    "Microsoft Licenses",
+                    "Tally Licenses",
+                    "Quick-Heal Licenses",
+                    "Software Licenses",
+                  ].map((category) => {
+                    const selected = formData.category.includes(category);
+
+                    return (
+                      <button
+                        key={category}
+                        type="button"
+                        onClick={() => {
+                          setFormData((prev) => ({
+                            ...prev,
+                            category: selected
+                              ? prev.category.filter((c) => c !== category)
+                              : [...prev.category, category],
+                          }));
+                        }}
+                        className={`w-full text-left px-4 py-3 text-sm border-b border-slate-200/50 dark:border-white/5 transition-all ${
+                          selected
+                            ? "bg-indigo-600 text-white font-bold"
+                            : "text-slate-700 dark:text-slate-300 hover:bg-indigo-50 dark:hover:bg-white/5"
+                        }`}
+                      >
+                        {category}
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+
+  {/* DURATION */}
+  <div>
+    <label className="text-sm font-bold mb-2 block">
+      Rental Duration *
+    </label>
+
+    <select
+      required
+      value={formData.duration}
+      onChange={(e) =>
+        setFormData({ ...formData, duration: e.target.value })
+      }
+      className="w-full px-4 py-3 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10"
+    >
+      <option value="">Select Duration</option>
+      <option value="1 Day">1 Day</option>
+      <option value="3 Days">3 Days</option>
+      <option value="1 Week">1 Week</option>
+      <option value="15 Days">15 Days</option>
+      <option value="1 Month">1 Month</option>
+      <option value="3 Months">3 Months</option>
+      <option value="6 Months">6 Months</option>
+      <option value="1 Year">1 Year</option>
+    </select>
+  </div>
+
+  {/* COMPANY */}
+  <div className="relative">
+    <Building2 className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+    <input
+      required
+      placeholder="Company Name"
+      value={formData.company}
+      onChange={(e) =>
+        setFormData({ ...formData, company: e.target.value })
+      }
+      className="w-full pl-12 pr-4 py-3 rounded-2xl bg-slate-50 dark:bg-white/5 border"
+    />
+  </div>
+
+  {/* CONTACT PERSON */}
+  <div className="relative">
+    <User className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+    <input
+      required
+      placeholder="Contact Person"
+      value={formData.contactPerson}
+      onChange={(e) =>
+        setFormData({ ...formData, contactPerson: e.target.value })
+      }
+      className="w-full pl-12 pr-4 py-3 rounded-2xl bg-slate-50 dark:bg-white/5 border"
+    />
+  </div>
+
+  {/* MOBILE */}
+  <div className="relative">
+    <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+    <input
+      required
+      placeholder="Mobile Number"
+      value={formData.mobile}
+      onChange={(e) =>
+        setFormData({ ...formData, mobile: e.target.value })
+      }
+      className="w-full pl-12 pr-4 py-3 rounded-2xl bg-slate-50 dark:bg-white/5 border"
+    />
+  </div>
+
+  {/* EMAIL + OTP */}
+  <div className="relative">
+    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+
+    <input
+      required
+      type="email"
+      placeholder="Email Address"
+      value={formData.email}
+      onChange={(e) =>
+        setFormData({ ...formData, email: e.target.value })
+      }
+      className="w-full pl-12 pr-28 py-3 rounded-2xl bg-slate-50 dark:bg-white/5 border"
+    />
+
+    <button
+      type="button"
+      onClick={sendOtp}
+      className="absolute right-2 top-1/2 -translate-y-1/2 px-3 py-2 bg-indigo-600 text-white text-xs rounded-xl"
+    >
+      Send OTP
+    </button>
+  </div>
+
+  {/* OTP INPUT */}
+  {otpSent && !otpVerified && (
+    <div className="flex gap-2">
+      <input
+        placeholder="Enter OTP"
+        value={otp}
+        onChange={(e) => setOtp(e.target.value)}
+        className="flex-1 px-4 py-3 rounded-2xl border"
+      />
+      <button
+        type="button"
+        onClick={verifyOtp}
+        className="px-5 py-3 bg-green-600 text-white rounded-2xl"
+      >
+        Verify
+      </button>
+    </div>
+  )}
+
+  {/* CITY */}
+  <select
+    required
+    value={formData.city}
+    onChange={(e) =>
+      setFormData({ ...formData, city: e.target.value })
+    }
+    className="w-full px-4 py-3 rounded-2xl border"
+  >
+    <option value="">Select City</option>
+    <option>Mumbai</option>
+    <option>Pune</option>
+    <option>Nashik</option>
+    <option>Nagpur</option>
+    <option>Delhi</option>
+    <option>Bangalore</option>
+  </select>
+
+  {/* MESSAGE */}
+  <textarea
+    rows={5}
+    placeholder="Message"
+    value={formData.message}
+    onChange={(e) =>
+      setFormData({ ...formData, message: e.target.value })
+    }
+    className="w-full px-4 py-3 rounded-2xl border"
+  />
+
+  {/* CAPTCHA */}
+  <div className="p-4 border rounded-2xl">
+    <p className="text-sm mb-2">Enter Captcha</p>
+
+    <div className="flex gap-3 items-center">
+      <div className="px-4 py-2 bg-white dark:bg-slate-800 font-bold">
+        X7P2Q
+      </div>
+
+      <input
+        value={formData.captcha}
+        onChange={(e) =>
+          setFormData({ ...formData, captcha: e.target.value })
+        }
+        className="flex-1 px-4 py-2 border rounded-xl"
+      />
+    </div>
+  </div>
+
+  {/* SUBMIT */}
+  <button
+    type="submit"
+    className="w-full py-4 bg-indigo-600 text-white font-bold rounded-2xl"
+  >
+    Submit Rental Request
+  </button>
+</form>
               </div>
             </motion.div>
           </div>

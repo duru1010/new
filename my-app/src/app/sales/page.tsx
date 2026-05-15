@@ -505,22 +505,22 @@
 // export default HardwarePage;
 
 
-
 "use client";
 
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import Image from "next/image";
+
 import {
   ShoppingBag,
   Cpu,
   Monitor,
   HardDrive,
   Server,
-  ArrowUpRight,
-  ArrowRight, // Added this import
+  ArrowRight,
   Star,
   Check,
-  Key,
   ShieldCheck,
   Terminal,
   Zap,
@@ -530,6 +530,7 @@ import {
   FileCode2,
   Lock,
   Briefcase,
+  X,
 } from "lucide-react";
 
 interface GetStartedModalProps {
@@ -537,7 +538,7 @@ interface GetStartedModalProps {
   onClose: () => void;
 }
 
-// --- MODAL ---
+// ---------------- MODAL ----------------
 const GetStartedModal: React.FC<GetStartedModalProps> = ({
   isOpen,
   onClose,
@@ -547,17 +548,78 @@ const GetStartedModal: React.FC<GetStartedModalProps> = ({
 
   if (!isOpen) return null;
 
-  // return (
-  //   <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-  //      {/* Modal Content Here */}
-  //      <div className="bg-white dark:bg-slate-900 p-8 rounded-3xl max-w-md w-full">
-  //         <button onClick={onClose} className="text-slate-500 mb-4">Close</button>
-  //         <h2 className="text-2xl font-bold dark:text-white">Get Started</h2>
-  //      </div>
-  //   </div>
-  // );
-}; // Added closing brace for Modal
+  return (
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/70 backdrop-blur-md">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.92 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.92 }}
+        className="relative bg-white dark:bg-slate-900 w-full max-w-xl rounded-[2rem] border border-slate-200 dark:border-white/10 shadow-2xl p-8"
+      >
+        <button
+          onClick={onClose}
+          className="absolute top-5 right-5 w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-red-500 hover:text-white transition-all"
+        >
+          <X size={18} />
+        </button>
 
+        <div className="mb-6">
+          <p className="text-xs font-black uppercase tracking-[0.3em] text-indigo-600 mb-3">
+            Get Started
+          </p>
+
+          <h2 className="text-3xl font-black text-slate-900 dark:text-white">
+            Enterprise IT Solutions
+          </h2>
+
+          <p className="mt-3 text-slate-500 dark:text-slate-300">
+            Tell us what solution you need and our team will contact you.
+          </p>
+        </div>
+
+        <div className="space-y-4">
+          {[
+            "Hardware Purchase",
+            "Software Licensing",
+            "Networking Setup",
+            "Cloud Solutions",
+          ].map((type, idx) => (
+            <button
+              key={idx}
+              onClick={() => {
+                setSelectedType(type);
+                setStep(2);
+              }}
+              className={`w-full p-4 rounded-2xl border text-left transition-all ${
+                selectedType === type
+                  ? "border-indigo-500 bg-indigo-50 dark:bg-indigo-500/10"
+                  : "border-slate-200 dark:border-white/10 hover:border-indigo-400"
+              }`}
+            >
+              <h4 className="font-bold text-slate-900 dark:text-white">
+                {type}
+              </h4>
+            </button>
+          ))}
+        </div>
+
+        {step === 2 && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="mt-8"
+          >
+            <button className="w-full py-4 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold transition-all">
+              Continue
+            </button>
+          </motion.div>
+        )}
+      </motion.div>
+    </div>
+  );
+};
+
+// ---------------- PAGE ----------------
 const HardwarePage = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
@@ -573,12 +635,16 @@ const HardwarePage = () => {
         window.history.replaceState(null, "", window.location.pathname);
       }
     };
+
     handleHashChange();
+
     window.addEventListener("hashchange", handleHashChange);
-    return () => window.removeEventListener("hashchange", handleHashChange);
+
+    return () =>
+      window.removeEventListener("hashchange", handleHashChange);
   }, []);
 
-  // --- HARDWARE PRODUCTS ---
+  // ---------------- HARDWARE PRODUCTS ----------------
   const products = [
     {
       name: "Business Laptops",
@@ -606,167 +672,70 @@ const HardwarePage = () => {
     },
   ];
 
-  // --- SOFTWARE LICENSE BRANDS ---
+  // ---------------- SOFTWARE BRANDS ----------------
   const licenseBrands = [
     {
-     
       name: "Microsoft 365",
       desc: "Office, Windows & Azure",
       icon: <Terminal className="text-blue-500" />,
     },
     {
-     
       name: "Tally Prime",
       desc: "Business & Accounting",
       icon: <Zap className="text-yellow-500" />,
     },
     {
-     
       name: "Quick Heal",
       desc: "Total Security & Antivirus",
       icon: <ShieldCheck className="text-red-500" />,
     },
     {
-      
       name: "Adobe CC",
       desc: "Creative Cloud Licenses",
       icon: <Star className="text-purple-500" />,
     },
   ];
 
-  // --- LICENSE CATALOG ---
-  const softwareCatalog = [
+  // ---------------- DETAILED SERVICES ----------------
+  const detailedServices = [
     {
-      title: "Microsoft Solutions",
-      desc: "Official Microsoft licenses for business productivity and security.",
-      color: "from-blue-600 to-indigo-500",
-      items: [
+      id: "software-licenses",
+      title: "Software Licensing Solutions",
+      subItems: [
         {
-          id : "m365-business",
+          id: "microsoft-365",
           name: "Microsoft 365",
-          icon: <Briefcase size={18} />,
-          tag: "Business Productivity",
+          desc: "Official Microsoft productivity suite.",
+          img: "/9f65e0094e0172fd3bccd9fc3306d514.jpg",
         },
-        {
-          id: "windows-11-pro",
-          name: "Windows 11 Pro",
-          icon: <Monitor size={18} />,
-          tag: "Professional OS",
-        },
-        {
-            id: "windows-server",
-          name: "Windows Server",
-          icon: <Server size={18} />,
-          tag: "Enterprise Server",
-        },
-        {
-          id: "azure-cloud",
-          name: "Azure Cloud",
-          icon: <Cloud size={18} />,
-          tag: "Cloud Services",
-        },
-      ],
-    },
-
-    {
-      title: "Business & Accounting",
-      desc: "Accounting and GST billing solutions for SMEs and enterprises.",
-      color: "from-yellow-500 to-orange-500",
-      items: [
         {
           id: "tally-prime",
           name: "Tally Prime",
-          icon: <Database size={18} />,
-          tag: "Accounting Software",
+          desc: "GST billing & accounting solutions.",
+          img: "/236f93c5ddd54154df210333050523bd.jpg",
         },
         {
-            id: "tally-erp-upgrade",
-          name: "Tally ERP Upgrade",
-          icon: <FileCode2 size={18} />,
-          tag: "Business Upgrade",
+          id: "quick-heal",
+          name: "Quick Heal",
+          desc: "Business antivirus protection.",
+          img: "/1c1914f4c03275e69d4d81e45a5cb480.jpg",
         },
         {
-            id: "gst-billing",
-          name: "GST Billing Solutions",
-          icon: <Briefcase size={18} />,
-          tag: "SME Ready",
+          id: "adobe-cc",
+          name: "Adobe Creative Cloud",
+          desc: "Creative suite for professionals.",
+          img: "/3b68ecaac42370efe5a73a830219f9a5.jpg",
         },
-        {
-            id: "multi-user-licenses",
-          name: "Multi-User Licenses",
-          icon: <Globe size={18} />,
-          tag: "Enterprise Access",
-        },
-      ],
-    },
-
-    {
-      title: "Security & Protection",
-      desc: "Advanced antivirus and endpoint protection software licenses.",
-      color: "from-red-500 to-pink-500",
-      items: [
-        {
-          id: "quick-heal-total-security",
-          name: "Quick Heal Total Security",
-          icon: <ShieldCheck size={18} />,
-          tag: "Virus Protection",
-        },
-        {
-          id: "endpoint-security",
-          name: "Endpoint Security",
-          icon: <Lock size={18} />,
-          tag: "Business Security",
-        },
-        {
-          id: "internet-security",
-          name: "Internet Security",
-          icon: <Globe size={18} />,
-          tag: "Safe Browsing",
-        },
-        {
-          id: "network-protection",
-          name: "Network Protection",
-          icon: <Server size={18} />,
-          tag: "Office Network",
-        },
-      ],
-    },
-
-    {
-      title: "Creative & Professional",
-      desc: "Creative tools and premium software for professionals and studios.",
-      color: "from-violet-600 to-purple-500",
-      items: [
-        {
-            id: "adobe-photoshop",
-          name: "Adobe Photoshop",
-          icon: <Star size={18} />,
-          tag: "Photo Editing",
-        },
-        {
-            id: "adobe-premiere-pro",
-          name: "Adobe Premiere Pro",
-          icon: <Cpu size={18} />,
-          tag: "Video Production",
-        },
-        {
-          name: "Adobe Illustrator",
-          icon: <FileCode2 size={18} />,
-          tag: "Vector Design",
-        },
-        {
-          name: "Creative Cloud Suite",
-          icon: <Cloud size={18} />,
-          tag: "All-in-One",
-        },
+       
       ],
     },
   ];
+  
 
   return (
     <div className="min-h-screen bg-white dark:bg-slate-950 pt-40 pb-20 transition-colors duration-500">
       <div className="container mx-auto px-6">
-        
+
         {/* HERO */}
         <div className="max-w-4xl mb-20">
           <motion.div
@@ -774,7 +743,8 @@ const HardwarePage = () => {
             animate={{ opacity: 1, y: 0 }}
             className="flex items-center gap-2 text-indigo-600 dark:text-indigo-400 font-black uppercase tracking-[0.3em] text-xs mb-4"
           >
-            <ShoppingBag size={16} /> Enterprise IT Solutions
+            <ShoppingBag size={16} />
+            Enterprise IT Solutions
           </motion.div>
 
           <motion.h1
@@ -832,122 +802,96 @@ const HardwarePage = () => {
           ))}
         </div>
 
+        {/* LICENSE BRANDS */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
+          {licenseBrands.map((brand, idx) => (
+            <motion.div
+              key={idx}
+              whileHover={{ y: -8 }}
+              className="p-6 rounded-3xl border border-slate-200 dark:border-white/10 bg-white dark:bg-slate-900 shadow-sm hover:shadow-xl transition-all"
+            >
+              <div className="w-14 h-14 rounded-2xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-5">
+                {brand.icon}
+              </div>
+
+              <h4 className="text-xl font-black text-slate-900 dark:text-white">
+                {brand.name}
+              </h4>
+
+              <p className="mt-2 text-sm text-slate-500 dark:text-slate-300">
+                {brand.desc}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+
         {/* SOFTWARE LICENSE SECTION */}
-        <section className="mb-24">
-          <div className="bg-indigo-50 dark:bg-slate-900 rounded-[3.5rem] p-8 md:p-16 border border-indigo-100 dark:border-white/5 relative overflow-hidden">
-            
-            {/* Background Decoration */}
-            <div className="absolute top-0 right-0 p-20 opacity-5 dark:opacity-10 pointer-events-none">
-              <Key size={400} className="text-indigo-600 rotate-12" />
-            </div>
+        <section className="py-20">
+          <div className="container mx-auto px-0">
+            {detailedServices.map((service) => (
+              <div key={service.id} className="space-y-10">
+                <div>
+                  <h3 className="text-3xl font-black text-slate-900 dark:text-white">
+                    {service.title}
+                  </h3>
+                </div>
 
-            <div className="relative z-10">
-              <div className="max-w-2xl mb-12">
-                <h2 className="text-4xl font-black text-slate-900 dark:text-white mb-4">
-                  Official Software Licenses
-                </h2>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {service.subItems.map((item) => (
+                    <motion.div
+                      key={item.id}
+                      whileHover={{ y: -12, scale: 1.03 }}
+                      className="relative h-[380px] rounded-3xl overflow-hidden group shadow-lg"
+                    >
+                      <Image
+                        src={item.img}
+                        alt={item.name}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
 
-                <p className="text-lg text-slate-600 dark:text-slate-400">
-                  We provide{" "}
-                  <span className="font-bold text-indigo-600">
-                    Microsoft, Tally, Quick-Heal & other
-                  </span>{" "}
-                  software licenses at reasonable prices for businesses,
-                  institutes and professionals.
-                </p>
-              </div>
+                      {/* DARK OVERLAY */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
 
-              {/* LICENSE BRANDS */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
-                {licenseBrands.map((brand, idx) => (
-                  <motion.div
-                    key={idx}
-                    whileHover={{ scale: 1.05 }}
-                    className="p-6 bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-indigo-50 dark:border-white/5 flex flex-col items-center text-center"
-                  >
-                    <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-slate-900 flex items-center justify-center mb-4 text-2xl">
-                      {brand.icon}
-                    </div>
+                      {/* CONTENT */}
+                      <div className="absolute bottom-0 left-0 w-full p-5 z-10">
 
-                    <h4 className="font-bold text-slate-900 dark:text-white">
-                      {brand.name}
-                    </h4>
+                        {/* TITLE */}
+                        <h4 className="text-xl font-black text-white drop-shadow-md">
+                          {item.name}
+                        </h4>
 
-                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                      {brand.desc}
-                    </p>
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* LICENSE CATALOG */}
-              <div className="grid grid-cols-1 gap-16">
-                {softwareCatalog.map((service, sIndex) => (
-                  <div key={sIndex}>
-                    <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
-                      <div className="max-w-2xl">
-                        <div
-                          className={`w-16 h-1.5 bg-gradient-to-r ${service.color} rounded-full mb-6`}
-                        />
-
-                        <h3 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white mb-4">
-                          {service.title}
-                        </h3>
-
-                        <p className="text-slate-500 dark:text-slate-400">
-                          {service.desc}
+                        {/* DESCRIPTION */}
+                        <p className="text-xs text-white/70 mt-1">
+                          {item.desc}
                         </p>
+
+                        {/* BUTTONS */}
+                        <div className="mt-4 space-y-2 opacity-0 translate-y-6 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                          <button
+                            onClick={() => {
+                              openModal();
+                              window.location.hash = "get-started";
+                            }}
+                            className="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold flex items-center justify-center gap-2 transition-all"
+                          >
+                            Hire Now
+                            <ArrowRight size={16} />
+                          </button>
+
+                          <Link
+                            href={`/sales/${item.id}`}
+                            className="w-full py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl font-bold text-white flex items-center justify-center hover:bg-white/20 transition-all"
+                          >
+                            Know More
+                          </Link>
+                        </div>
                       </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                      {service.items.map((item, iIndex) => (
-                        <motion.div
-                          key={iIndex}
-                          whileHover={{ y: -8 }}
-                          className="group relative p-8 rounded-[2rem] bg-white dark:bg-slate-800 border border-slate-100 dark:border-white/5 shadow-sm hover:shadow-2xl transition-all overflow-hidden"
-                        >
-                          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-br from-indigo-500/5 to-purple-500/10" />
-
-                          <div className="relative z-10">
-                            <div className="w-14 h-14 rounded-2xl bg-indigo-100 dark:bg-slate-900 text-indigo-600 flex items-center justify-center mb-6">
-                              {item.icon}
-                            </div>
-
-                            <span className="text-[10px] uppercase tracking-widest font-black text-indigo-500">
-                              {item.tag}
-                            </span>
-
-                            <h4 className="text-xl font-black text-slate-900 dark:text-white mt-3 mb-6">
-                              {item.name}
-                            </h4>
-
-                            <button
-                              onClick={() => {
-                                openModal();
-                                window.location.hash = "get-started";
-                              }}
-                              className="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold text-sm transition-all duration-300 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0"
-                            >
-                              Hire Now <ArrowRight size={16} />
-                            </button>
-                          </div>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </div>
-                ))}
+                    </motion.div>
+                  ))}
+                </div>
               </div>
-
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={openModal}
-                className="mt-16 px-10 py-5 bg-indigo-600 text-white rounded-2xl font-black flex items-center gap-3 shadow-xl shadow-indigo-500/30"
-              >
-                Contact For Bulk Licensing <ArrowUpRight size={20} />
-              </motion.button>
-            </div>
+            ))}
           </div>
         </section>
 
@@ -1010,10 +954,12 @@ const HardwarePage = () => {
 
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-slate-200 dark:bg-slate-700" />
+
                 <div>
                   <p className="font-bold dark:text-white text-slate-900">
                     Rahul Mehta
                   </p>
+
                   <p className="text-xs text-slate-500 dark:text-slate-400 uppercase font-bold">
                     Creative Director, Pune
                   </p>
@@ -1022,10 +968,14 @@ const HardwarePage = () => {
             </div>
           </div>
         </div>
+
       </div>
-      
-      {/* ADDED MODAL COMPONENT RENDER */}
-      <GetStartedModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+
+      {/* MODAL */}
+      <GetStartedModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 };

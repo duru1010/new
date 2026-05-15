@@ -1,234 +1,340 @@
 "use client";
-import React from 'react';
-import { motion } from 'framer-motion';
-import { 
-  ShieldCheck, 
-  CheckCircle2,
-  Sparkles,
-  Camera,
-  HardDrive,
-  ShoppingBag,
+
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+
+import {
+  ShieldCheck,
+  ArrowRight,
   ArrowUpRight,
-  Video,
-  MonitorPlay,
-  Activity
-} from 'lucide-react';
+  Camera,
+  Monitor,
+  BellRing,
+  Wifi,
+  Zap,
+} from "lucide-react";
 
-const AMCPage = () => {
-  const plans = [
-    { 
-      name: "Residential", 
-      desc: "Perfect for home security maintenance, including semi-annual physical cleaning.",
-      features: ["Bi-Annual Maintenance", "App Config Support", "24hr Response"]
-    },
-    { 
-      name: "Business Pro", 
-      desc: "Comprehensive coverage for retail and offices with zero-downtime parts replacement.",
-      features: ["Parts Included", "Backup HDD Support", "4hr Response", "Remote Access Setup"],
-      highlight: true
-    },
-    { 
-      name: "Industrial", 
-      desc: "Maximum security for large warehouses with dedicated on-call site engineers.",
-      features: ["Priority 1 Support", "Network Audit", "Full System Overhaul"]
-    }
-  ];
+// =========================
+// DATA
+// =========================
 
-  const products = [
-    {
-      title: "4K AI PTZ Camera",
-      desc: "Full 360° pan-tilt-zoom with AI human tracking and 100m night vision.",
-      img: "https://images.unsplash.com/photo-1557597774-9d2739f85a76?q=80&w=800&auto=format&fit=crop",
-      icon: <Video className="w-5 h-5" />,
-      tags: ["4K Resolution", "AI Tracking"]
-    },
-    {
-      title: "Smart Dome IP Cam",
-      desc: "Vandal-proof dome cameras with built-in microphone and SD card slot.",
-      img: "https://images.unsplash.com/photo-1524143878510-e3b8d6312402?q=80&w=800&auto=format&fit=crop",
-      icon: <Camera className="w-5 h-5" />,
-      tags: ["PoE", "Two-way Audio"]
-    },
-    {
-      title: "Enterprise NVR",
-      desc: "32-Channel network video recorder with H.265+ compression technology.",
-      img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800&auto=format&fit=crop",
-      icon: <MonitorPlay className="w-5 h-5" />,
-      tags: ["Remote Live", "8-SATA Bays"]
-    },
-    {
-      title: "Surveillance Storage",
-      desc: "Optimized 24/7 read/write drives for continuous HD recording cycles.",
-      img: "https://images.unsplash.com/photo-1597733153203-a54d0fbc47de?q=80&w=800&auto=format&fit=crop",
-      icon: <HardDrive className="w-5 h-5" />,
-      tags: ["WD Purple", "Skyhawk"]
-    }
-  ];
+const detailedServices = [
+  {
+    id: "cctv",
+    title: "Advanced CCTV & Surveillance Solutions",
+    desc: "Smart CCTV camera systems with AI monitoring, remote access, and enterprise-grade security solutions.",
+    subItems: [
+      {
+        id: "dome-camera",
+        name: "Dome CCTV Camera",
+        desc: "Indoor HD surveillance cameras with night vision and wide-angle coverage.",
+        img: "/0812c27cd0a6d93af2b56d53c156fb96.jpg",
+        icon: <Camera size={16} />,
+      },
+      {
+        id: "bullet-camera",
+        name: "Bullet CCTV Camera",
+        desc: "Weatherproof outdoor CCTV cameras with long-distance monitoring.",
+        img: "/6dcbe28f5d2072dae73bda1bf300242c.jpg",
+        icon: <ShieldCheck size={16} />,
+      },
+      {
+        id: "wireless-cctv",
+        name: "Wireless CCTV",
+        desc: "WiFi-enabled smart cameras with mobile app access.",
+        img: "/35b5f7cc65424ed0eec9ca5d6f6a5a86.jpg",
+        icon: <Wifi size={16} />,
+      },
+     
+    ],
+  },
+];
+
+// =========================
+// PAGE
+// =========================
+
+const CCTVPage = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      if (window.location.hash === "#get-started") {
+        setIsModalOpen(true);
+        window.history.replaceState(null, "", window.location.pathname);
+      }
+    };
+
+    handleHashChange();
+
+    window.addEventListener("hashchange", handleHashChange);
+
+    return () =>
+      window.removeEventListener("hashchange", handleHashChange);
+  }, []);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#020617] pt-40 pb-20 transition-colors duration-500 overflow-x-hidden">
-      <div className="container mx-auto px-6">
-        
-        {/* --- HERO SECTION --- */}
-        <div className="flex flex-col lg:flex-row items-center gap-16 mb-32">
-          <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="lg:w-1/2"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600/10 text-blue-600 text-xs font-black uppercase tracking-[0.2em] mb-6 border border-blue-600/20">
-              <Sparkles size={14} className="animate-pulse" /> Surveillance Elite 2026
+    <div className="min-h-screen bg-white overflow-hidden">
+      {/* HERO */}
+      <section className="relative pt-32 pb-24">
+        <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+          {/* LEFT */}
+          <div>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600/10 text-blue-600 text-xs font-bold mb-6">
+              <Zap size={14} />
+              Smart CCTV Surveillance
             </div>
-            
-            <h1 className="text-5xl md:text-8xl font-black text-slate-900 dark:text-white leading-[0.95] tracking-tighter mb-8">
-              Watch. <span className="text-blue-600">Protect.</span> <br />
-              <span className="text-sky-400">Secure.</span>
+
+            <h1 className="text-5xl md:text-6xl font-black text-slate-900 leading-tight">
+              Secure Your <br />
+              Business With <br />
+              <span className="text-blue-600">Smart CCTV</span>
             </h1>
-            
-            <p className="text-lg text-slate-600 dark:text-slate-300 mb-10 leading-relaxed max-w-xl">
-              Professional CCTV installation and zero-worry maintenance contracts. We keep your eyes on the business so you can focus on the growth.
+
+            <p className="mt-6 text-slate-600 text-lg leading-relaxed max-w-xl">
+              Professional CCTV camera installation with AI monitoring,
+              remote mobile access, cloud backup, and enterprise-grade
+              security systems.
             </p>
+
+            <p className="mt-4 text-slate-500">
+              ✔ HD Night Vision | ✔ Remote Access | ✔ Motion Detection |
+              ✔ 24/7 Monitoring
+            </p>
+
             
-            <div className="flex flex-wrap gap-4">
-              <button className="px-10 py-5 bg-blue-600 text-white rounded-2xl font-black shadow-2xl shadow-blue-600/40 flex items-center gap-3 group transition-transform hover:scale-105 active:scale-95">
-                Browse Cameras <ShoppingBag size={20} />
-              </button>
-              <button className="px-10 py-5 bg-white dark:bg-slate-900/50 text-blue-600 dark:text-sky-400 border border-blue-100 dark:border-sky-900/30 rounded-2xl font-black shadow-xl transition-transform hover:scale-105 active:scale-95">
-                AMC Quotation
-              </button>
-            </div>
-          </motion.div>
+          </div>
 
-          {/* Visual Engagement Image with Overlay Cards */}
-          <div className="lg:w-1/2 relative group">
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1 }}
-              className="relative rounded-[3rem] overflow-hidden shadow-[0_0_50px_rgba(37,99,235,0.2)]"
-            >
-              <img 
-                src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200&auto=format&fit=crop" 
-                alt="Security Hub"
-                className="w-full h-[520px] object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700"
+          {/* RIGHT IMAGE */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="relative"
+          >
+            <div className="rounded-[2.5rem] overflow-hidden border-8 border-white shadow-2xl relative">
+              <Image
+                src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=1471&auto=format&fit=crop"
+                width={1000}
+                height={700}
+                className="w-full h-[560px] object-cover"
+                alt="CCTV Security"
+                priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 via-transparent to-transparent" />
-            </motion.div>
 
-            {/* Floating Info Card 1 */}
-            <motion.div 
-              animate={{ y: [0, -10, 0] }}
-              transition={{ repeat: Infinity, duration: 4 }}
-              className="absolute -top-6 -right-6 md:right-0 p-6 bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-100 dark:border-blue-900/30 z-20"
-            >
-              <div className="flex items-center gap-3 mb-2">
-                <div className="p-2 bg-blue-500/20 text-blue-500 rounded-lg"><Activity size={20}/></div>
-                <span className="text-xs font-black dark:text-white">Live Status</span>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+
+              {/* TOP BADGE */}
+              <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-xl px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3">
+                <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />
+
+                <div>
+                  <p className="text-xs font-semibold text-slate-500 uppercase">
+                    Live Monitoring
+                  </p>
+
+                  <h4 className="text-sm font-black text-slate-900">
+                    24/7 Active Surveillance
+                  </h4>
+                </div>
               </div>
-              <p className="text-[10px] text-slate-500 font-bold">512 Cameras Online</p>
-            </motion.div>
 
-            {/* Floating Info Card 2 */}
-            <motion.div 
-              animate={{ y: [0, 10, 0] }}
-              transition={{ repeat: Infinity, duration: 5, delay: 1 }}
-              className="absolute -bottom-6 -left-6 p-6 bg-gradient-to-br from-blue-600 to-sky-400 text-white rounded-3xl shadow-2xl z-20"
-            >
-              <h4 className="text-2xl font-black">24/7</h4>
-              <p className="text-[10px] uppercase tracking-widest font-bold opacity-90">Recording Guaranteed</p>
-            </motion.div>
-          </div>
-        </div>
+              {/* BOTTOM CARD */}
+              <div className="absolute bottom-6 left-6 right-6 bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-5">
+                <div className="flex items-center justify-between gap-4 flex-wrap">
+                  <div>
+                    <p className="text-white/70 text-sm">
+                      AI Powered Security System
+                    </p>
 
-        {/* --- EXCLUSIVE CCTV CATALOG --- */}
-        <section className="mb-32">
-          <div className="mb-16">
-            <h2 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white tracking-tighter mb-4">
-              Camera <span className="text-blue-600">Solutions</span>
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {products.map((product, i) => (
-              <motion.div
-                key={i}
-                whileHover={{ y: -15 }}
-                className="group relative bg-slate-50 dark:bg-slate-900/50 rounded-[2.5rem] overflow-hidden border border-slate-100 dark:border-blue-900/10 transition-all hover:shadow-2xl hover:shadow-blue-500/10"
-              >
-                <div className="h-52 overflow-hidden relative">
-                  <img src={product.img} alt={product.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                  <div className="absolute top-4 left-4 p-3 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl text-blue-600 shadow-xl">
-                    {product.icon}
+                    <h3 className="text-white text-2xl font-black mt-1">
+                      Smart CCTV Protection
+                    </h3>
                   </div>
-                </div>
-                <div className="p-8">
-                  <h3 className="text-xl font-black text-slate-900 dark:text-white mb-2">{product.title}</h3>
-                  <p className="text-sm text-slate-500 dark:text-slate-400 mb-6 line-clamp-2">{product.desc}</p>
-                  <div className="flex items-center justify-between">
-                    <div className="flex gap-1">
-                      {product.tags.map(tag => (
-                        <span key={tag} className="text-[9px] font-black uppercase px-2 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-sky-400 rounded-md">
-                          {tag}
-                        </span>
-                      ))}
+
+                  <div className="flex gap-3">
+                    <div className="bg-white/10 border border-white/20 px-4 py-3 rounded-2xl">
+                      <p className="text-white text-lg font-black">4K</p>
+                      <span className="text-white/60 text-xs">
+                        Ultra HD
+                      </span>
                     </div>
-                    <button className="p-2 bg-blue-600 text-white rounded-full hover:rotate-45 transition-transform">
-                      <ArrowUpRight size={18} />
-                    </button>
+
+                    <div className="bg-white/10 border border-white/20 px-4 py-3 rounded-2xl">
+                      <p className="text-white text-lg font-black">365</p>
+                      <span className="text-white/60 text-xs">
+                        Days Backup
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        </section>
+              </div>
+            </div>
 
-        {/* --- PRICING SECTION --- */}
-        <section className="mb-32">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white tracking-tighter">Support <span className="text-blue-600">Packages</span></h2>
+            {/* FLOATING IMAGE */}
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="hidden lg:block absolute -bottom-10 -left-10 w-52 rounded-3xl overflow-hidden border-4 border-white shadow-2xl"
+            >
+              <Image
+                src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=1471&auto=format&fit=crop"
+                width={300}
+                height={300}
+                alt="Security Camera"
+                className="w-full h-52 object-cover"
+              />
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* SERVICES */}
+      <section className="py-20">
+        <div className="container mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-4xl font-black text-slate-900">
+              CCTV Product Catalog
+            </h2>
+
+            <p className="text-slate-500 mt-4">
+              Explore our advanced CCTV surveillance systems designed for
+              offices, homes, industries, retail stores, and enterprises.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {plans.map((plan, i) => (
-              <motion.div
-                key={plan.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className={`p-1 rounded-[3rem] ${plan.highlight ? 'bg-gradient-to-b from-blue-600 to-sky-400 shadow-2xl shadow-blue-500/20' : 'bg-slate-200 dark:bg-slate-800'}`}
-              >
-                <div className="bg-white dark:bg-slate-950 rounded-[2.9rem] p-10 h-full flex flex-col">
-                  {plan.highlight && (
-                    <span className="bg-blue-600 text-white text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-widest w-fit mb-6">
-                      Popular Choice
-                    </span>
-                  )}
-                  <h4 className="text-2xl font-black text-slate-900 dark:text-white mb-4">{plan.name}</h4>
-                  <p className="text-sm text-slate-500 dark:text-slate-400 mb-8 flex-grow">{plan.desc}</p>
-                  
-                  <div className="space-y-4 mb-10">
-                    {plan.features.map(f => (
-                      <div key={f} className="flex items-center gap-3">
-                        <CheckCircle2 size={18} className="text-blue-500 shrink-0" />
-                        <span className="text-sm font-bold text-slate-700 dark:text-slate-300">{f}</span>
+          {detailedServices.map((service) => (
+            <div key={service.id} className="space-y-10">
+              <div>
+                <h3 className="text-3xl font-black text-slate-900">
+                  {service.title}
+                </h3>
+
+                <p className="text-slate-500 mt-3 max-w-2xl">
+                  {service.desc}
+                </p>
+              </div>
+
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-7">
+                {service.subItems.map((item) => (
+                  <motion.div
+                    key={item.id}
+                    whileHover={{ y: -12 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 260,
+                      damping: 18,
+                    }}
+                    className="relative h-[420px] rounded-[2rem] overflow-hidden group shadow-xl"
+                  >
+                    <Image
+                      src={item.img}
+                      alt={item.name}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+
+                    <div className="absolute bottom-0 left-0 w-full p-6">
+                      <div className="flex items-center gap-2 text-blue-300 mb-3">
+                        {item.icon}
+
+                        <span className="text-[10px] uppercase tracking-[0.3em] font-bold">
+                          Security Solution
+                        </span>
                       </div>
-                    ))}
-                  </div>
 
-                  <button className={`w-full py-4 rounded-2xl font-black transition-all ${plan.highlight ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg' : 'bg-slate-100 dark:bg-white/5 text-slate-900 dark:text-white hover:bg-blue-600 hover:text-white'}`}>
-                    Choose Plan
-                  </button>
+                      <h4 className="text-2xl font-black text-white">
+                        {item.name}
+                      </h4>
+
+                      <p className="text-sm text-white/70 mt-2 leading-relaxed">
+                        {item.desc}
+                      </p>
+
+                      <div className="mt-5 flex flex-col gap-3 opacity-100 md:opacity-0 md:translate-y-5 md:group-hover:opacity-100 md:group-hover:translate-y-0 transition-all duration-300">
+                        <button
+                          onClick={() => {
+                            openModal();
+                            window.location.hash = "get-started";
+                          }}
+                          className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-sm transition-all duration-300 flex items-center justify-center gap-2"
+                        >
+                          Hire Now <ArrowRight size={16} />
+                        </button>
+
+                        <Link
+                          href={`/amc/${item.id}`}
+                          className="w-full py-3 bg-white/10 border border-white/20 rounded-xl font-bold text-white flex items-center justify-center hover:bg-white/20 transition-all duration-300"
+                        >
+                         Know More
+                        </Link>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* FEATURES */}
+              <div className="grid md:grid-cols-3 gap-6 pt-8">
+                <div className="rounded-3xl border border-slate-200 p-6">
+                  <BellRing className="text-blue-600 mb-4" size={34} />
+
+                  <h4 className="text-xl font-black text-slate-900">
+                    Motion Detection Alerts
+                  </h4>
+
+                  <p className="text-slate-500 mt-2">
+                    Instant security notifications directly on your mobile app.
+                  </p>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        </section>
 
-      </div>
+                <div className="rounded-3xl border border-slate-200 p-6">
+                  <Wifi className="text-blue-600 mb-4" size={34} />
+
+                  <h4 className="text-xl font-black text-slate-900">
+                    Remote Access
+                  </h4>
+
+                  <p className="text-slate-500 mt-2">
+                    Access your CCTV footage anytime from anywhere securely.
+                  </p>
+                </div>
+
+                <div className="rounded-3xl border border-slate-200 p-6">
+                  <ShieldCheck className="text-blue-600 mb-4" size={34} />
+
+                  <h4 className="text-xl font-black text-slate-900">
+                    Enterprise Security
+                  </h4>
+
+                  <p className="text-slate-500 mt-2">
+                    Advanced AI surveillance for commercial and industrial
+                    use.
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* MODAL */}
+      
     </div>
   );
 };
 
-export default AMCPage;
+export default CCTVPage;
