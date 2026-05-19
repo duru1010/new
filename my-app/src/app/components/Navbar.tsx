@@ -2097,7 +2097,7 @@ const [isCategoryOpen, setIsCategoryOpen] = useState(false);
       onClick={() => setShowForm(true)}
       className="hidden md:block px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-full text-sm font-bold transition-all shadow-lg shadow-blue-500/20 active:scale-95"
     >
-      Get Started
+      Get Quotation
     </button>
 
     {/* MOBILE MENU BUTTON */}

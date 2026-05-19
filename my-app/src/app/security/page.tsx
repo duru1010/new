@@ -861,6 +861,283 @@
 
 
 
+// "use client";
+
+// import React, { useState, useEffect } from "react";
+// import Link from "next/link";
+// import Image from "next/image";
+// import { motion } from "framer-motion";
+
+// import {
+//   Zap,
+//   ArrowRight,
+//   ArrowUpRight,
+//   Monitor,
+//   Laptop,
+//   Cpu,
+//   HardDrive,
+// } from "lucide-react";
+
+// // =========================
+// // MODAL
+// // =========================
+
+// interface GetStartedModalProps {
+//   isOpen: boolean;
+//   onClose: () => void;
+// }
+
+// const GetStartedModal: React.FC<GetStartedModalProps> = ({
+//   isOpen,
+//   onClose,
+// }) => {
+//   if (!isOpen) return null;
+
+//   return (
+//     <></>
+//   );
+// };
+
+// // =========================
+// // DATA
+// // =========================
+
+// const detailedServices = [
+//   {
+//     id: "computing",
+//     title: "Device Repair & Rental Solutions",
+//     desc: "Professional laptop and desktop repair services along with flexible device rental solutions for businesses, students, and enterprises.",
+//     subItems: [
+//       {
+//         id: "desktop-repair",
+//         name: "Desktop Repair",
+//         desc: "Hardware fixing, OS issues, upgrades & performance tuning.",
+//         img: "/867ff681b4d51e76a0e5a3b9b13b9c17.jpg",
+//         icon: <Monitor size={16} />,
+//       },
+//       {
+//         id: "laptop-repair",
+//         name: "Laptop Repair",
+//         desc: "Screen, battery, motherboard and software repair solutions.",
+//         img: "/5ffe989386ff0cae1e3339805ba81431.jpg",
+//         icon: <Laptop size={16} />,
+//       },
+//       {
+//         id: "hardware-upgrades",
+//         name: "Hardware Upgrades",
+//         desc: "RAM, SSD, GPU upgrades for better performance & speed.",
+//         img: "https://images.unsplash.com/photo-1587202372634-32705e3bf49c",
+//         icon: <Cpu size={16} />,
+//       },
+//       {
+//         id: "data-recovery",
+//         name: "Data Recovery",
+//         desc: "Recover lost, deleted or corrupted data securely.",
+//         img: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8",
+//         icon: <HardDrive size={16} />,
+//       },
+//     ],
+//   },
+// ];
+
+// // =========================
+// // PAGE (FIXED)
+// // =========================
+
+// const HardwarePage = () => {
+//   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+//   const openModal = () => {
+//     setIsModalOpen(true);
+//     window.scrollTo({ top: 0, behavior: "smooth" });
+//   };
+
+//   useEffect(() => {
+//     const handleHashChange = () => {
+//       if (window.location.hash === "#get-started") {
+//         setIsModalOpen(true);
+//         window.history.replaceState(null, "", window.location.pathname);
+//       }
+//     };
+//     handleHashChange();
+//     window.addEventListener("hashchange", handleHashChange);
+//     return () => window.removeEventListener("hashchange", handleHashChange);
+//   }, []);
+
+//   return (
+//     <div className="min-h-screen bg-white dark:bg-slate-950">
+
+//       {/* HERO */}
+//       <section className="relative pt-32 pb-20">
+//         <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+
+//           <div>
+//             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600/10 text-blue-600 text-xs font-bold mb-6">
+//               <Zap size={14} />
+//               Repair & Rental Services
+//             </div>
+
+//             <h1 className="text-5xl md:text-6xl font-black text-slate-900 dark:text-white leading-tight">
+//               Smart Device <br />
+//               <span className="text-blue-600">Repair & Rental</span>
+//               <br />
+//               Solutions
+//             </h1>
+
+//             <p className="mt-6 text-slate-600 dark:text-slate-300 text-lg leading-relaxed max-w-xl">
+//               We provide professional laptop & desktop repair services along
+//               with flexible rental solutions for short-term and long-term use.
+//             </p>
+
+//             <p className="mt-4 text-slate-500">
+//               ✔ Fast Repair Service | ✔ Affordable Rentals | ✔ On-site Support | ✔ Quality Guaranteed
+//             </p>
+
+//             <button
+//   onClick={() => {
+//     openModal();
+//     window.location.hash = "get-started";
+//   }}
+//   className="px-7 py-4 bg-blue-600 text-white rounded-2xl font-bold flex items-center gap-2"
+// >
+//   Get Service <ArrowRight size={18} />
+// </button>
+//           </div>
+
+//           <div className="rounded-[2.5rem] overflow-hidden border-8 border-white dark:border-slate-800 shadow-2xl">
+//             <Image
+//               src="/668c0b235856c81c1d06148db126f2b0.jpg"
+//               width={1000}
+//               height={700}
+//               className="w-full h-[520px] object-cover"
+//               alt="repair"
+//               priority
+//             />
+//           </div>
+
+//         </div>
+//       </section>
+
+//       {/* SERVICES */}
+//       <section className="py-20">
+//         <div className="container mx-auto px-6">
+
+//           <div className="text-center max-w-2xl mx-auto mb-16">
+//             <h2 className="text-4xl font-black text-slate-900 dark:text-white">
+//               Repair & Rental Services
+//             </h2>
+//             <p className="text-slate-500 mt-4">
+//               Choose from our professional device repair and rental solutions
+//             </p>
+//           </div>
+
+//           {detailedServices.map((service) => (
+//             <div key={service.id} className="space-y-10">
+
+//               <div>
+//                 <h3 className="text-3xl font-black text-slate-900 dark:text-white">
+//                   {service.title}
+//                 </h3>
+//                 <p className="text-slate-500 mt-3 max-w-2xl">
+//                   {service.desc}
+//                 </p>
+//               </div>
+
+//               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+//                 {service.subItems.map((item) => (
+//                   <motion.div
+//                     key={item.id}
+//                     whileHover={{ y: -12, scale: 1.03 }}
+//                     transition={{ type: "spring", stiffness: 260, damping: 18 }}
+//                     className="relative h-[380px] rounded-3xl overflow-hidden group shadow-lg"
+//                   >
+
+//                     <Image
+//                       src={item.img}
+//                       alt={item.name}
+//                       fill
+//                       loading="lazy"
+//                       className="object-cover transition-transform duration-700 group-hover:scale-110"
+//                     />
+
+//                     <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent pointer-events-none z-0" />
+
+//                     <div className="absolute bottom-0 left-0 w-full p-5">
+
+//                       <div className="flex items-center gap-2 text-blue-300 mb-2">
+//                         {item.icon}
+//                         <span className="text-[10px] font-bold uppercase tracking-widest">
+//                           Premium Service
+//                         </span>
+//                       </div>
+
+//                       <h4 className="text-xl font-black text-white">
+//                         {item.name}
+//                       </h4>
+
+//                       <p className="text-xs text-white/70 mt-1 line-clamp-2">
+//                         {item.desc}
+//                       </p>
+
+//                       <div className="mt-4 opacity-100 md:opacity-0 md:translate-y-4 md:group-hover:opacity-100 md:group-hover:translate-y-0 transition-all duration-300 space-y-2">
+
+//                        <button
+//                                                      onClick={() => {
+//                                                        openModal();
+//                                                        window.location.hash = "get-started";
+//                                                      }}
+//                                                      className="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold text-sm transition-all duration-300 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0"
+//                                                    >
+//                                                      Hire Now <ArrowRight size={16} />
+//                                                    </button>
+
+//                         <Link
+//                           href={`/security/${item.id}`}
+//                           className="w-full py-3 bg-white/10 border border-white/20 rounded-xl font-bold text-white flex items-center justify-center"
+//                         >
+//                           Know More
+//                         </Link>
+
+//                       </div>
+
+//                     </div>
+//                   </motion.div>
+//                 ))}
+
+//               </div>
+
+//           <motion.div whileHover={{ scale: 1.02 }}>
+//   <a
+//     href="/#contact"
+//     className="mt-10 inline-flex px-8 py-4 bg-blue-600 text-white rounded-2xl font-bold items-center gap-2"
+//   >
+//     Contact For Bulk Rental / Repair <ArrowUpRight size={18} />
+//   </a>
+// </motion.div>
+
+//             </div>
+//           ))}
+
+//         </div>
+//       </section>
+
+//       <GetStartedModal
+//         isOpen={isModalOpen}
+//         onClose={() => setIsModalOpen(false)}
+//       />
+//     </div>
+//   );
+// }
+// export default HardwarePage;
+
+
+
+
+
+
+
+
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -876,6 +1153,12 @@ import {
   Laptop,
   Cpu,
   HardDrive,
+  ShieldCheck,
+  Star,
+  Sparkles,
+  CheckCircle2,
+  ChevronRight,
+  Home,
 } from "lucide-react";
 
 // =========================
@@ -893,9 +1176,7 @@ const GetStartedModal: React.FC<GetStartedModalProps> = ({
 }) => {
   if (!isOpen) return null;
 
-  return (
-    <></>
-  );
+
 };
 
 // =========================
@@ -941,7 +1222,7 @@ const detailedServices = [
 ];
 
 // =========================
-// PAGE (FIXED)
+// PAGE
 // =========================
 
 const HardwarePage = () => {
@@ -959,79 +1240,202 @@ const HardwarePage = () => {
         window.history.replaceState(null, "", window.location.pathname);
       }
     };
+
     handleHashChange();
+
     window.addEventListener("hashchange", handleHashChange);
-    return () => window.removeEventListener("hashchange", handleHashChange);
+
+    return () =>
+      window.removeEventListener("hashchange", handleHashChange);
   }, []);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-950">
-
+    <div className="min-h-screen bg-[#F8FBFF] dark:bg-slate-950 overflow-hidden">
+     
       {/* HERO */}
-      <section className="relative pt-32 pb-20">
-        <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+      <section className="relative pt-32 pb-24 overflow-hidden">
 
-          <div>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600/10 text-blue-600 text-xs font-bold mb-6">
-              <Zap size={14} />
-              Repair & Rental Services
+        {/* BACKGROUND */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-indigo-500/10 rounded-full blur-3xl" />
+
+          <div className="absolute inset-0 [background-image:radial-gradient(#dbeafe_1px,transparent_1px)] [background-size:32px_32px] opacity-50" />
+        </div>
+
+        <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center relative z-10">
+
+          {/* LEFT */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+
+            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-blue-600/10 border border-blue-200 text-blue-600 text-xs font-bold mb-6">
+              <Sparkles size={14} />
+              Trusted Repair & Rental Services
             </div>
 
-            <h1 className="text-5xl md:text-6xl font-black text-slate-900 dark:text-white leading-tight">
+            <h1 className="text-5xl md:text-7xl font-black text-slate-900 dark:text-white leading-[1] tracking-tight">
               Smart Device <br />
-              <span className="text-blue-600">Repair & Rental</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-500 to-cyan-500">
+                Repair & Rental
+              </span>
               <br />
               Solutions
             </h1>
 
-            <p className="mt-6 text-slate-600 dark:text-slate-300 text-lg leading-relaxed max-w-xl">
+            <p className="mt-7 text-slate-600 dark:text-slate-300 text-lg leading-relaxed max-w-xl">
               We provide professional laptop & desktop repair services along
               with flexible rental solutions for short-term and long-term use.
             </p>
 
-            <p className="mt-4 text-slate-500">
-              ✔ Fast Repair Service | ✔ Affordable Rentals | ✔ On-site Support | ✔ Quality Guaranteed
-            </p>
+            {/* FEATURES */}
+            <div className="grid grid-cols-2 gap-4 mt-8 max-w-xl">
 
-            <div className="flex gap-4 mt-8">
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className="px-7 py-4 bg-blue-600 text-white rounded-2xl font-bold flex items-center gap-2"
+              <div className="flex items-center gap-3 p-4 rounded-2xl bg-white dark:bg-slate-900 shadow-md border border-slate-100">
+                <ShieldCheck className="text-blue-600" size={20} />
+                <span className="font-semibold text-sm">
+                  Trusted Support
+                </span>
+              </div>
+
+              <div className="flex items-center gap-3 p-4 rounded-2xl bg-white dark:bg-slate-900 shadow-md border border-slate-100">
+                <Zap className="text-yellow-500" size={20} />
+                <span className="font-semibold text-sm">
+                  Fast Delivery
+                </span>
+              </div>
+
+              <div className="flex items-center gap-3 p-4 rounded-2xl bg-white dark:bg-slate-900 shadow-md border border-slate-100">
+                <Star className="text-indigo-500" size={20} />
+                <span className="font-semibold text-sm">
+                  Premium Quality
+                </span>
+              </div>
+
+              <div className="flex items-center gap-3 p-4 rounded-2xl bg-white dark:bg-slate-900 shadow-md border border-slate-100">
+                <Cpu className="text-cyan-500" size={20} />
+                <span className="font-semibold text-sm">
+                  Latest Hardware
+                </span>
+              </div>
+
+            </div>
+
+            {/* POINTS */}
+            <div className="mt-8 space-y-3">
+              {[
+                "Fast Repair Service",
+                "Affordable Rentals",
+                "On-site Support",
+                "Quality Guaranteed",
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-3 text-slate-700 dark:text-slate-300"
+                >
+                  <CheckCircle2
+                    className="text-blue-600"
+                    size={18}
+                  />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* BUTTONS */}
+            <div className="flex flex-wrap gap-4 mt-10">
+
+              <motion.button
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.96 }}
+                onClick={() => {
+                  openModal();
+                  window.location.hash = "get-started";
+                }}
+                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-2xl font-bold flex items-center gap-2 shadow-xl shadow-blue-500/20"
               >
                 Get Service <ArrowRight size={18} />
-              </button>
+              </motion.button>
 
-              <button className="px-7 py-4 border rounded-2xl font-bold dark:text-white">
-                View Pricing
-              </button>
+              <motion.a
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.96 }}
+                href="/#contact"
+                className="px-8 py-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl font-bold flex items-center gap-2 shadow-lg"
+              >
+                Contact Us <ArrowUpRight size={18} />
+              </motion.a>
+
             </div>
-          </div>
 
-          <div className="rounded-[2.5rem] overflow-hidden border-8 border-white dark:border-slate-800 shadow-2xl">
-            <Image
-              src="/668c0b235856c81c1d06148db126f2b0.jpg"
-              width={1000}
-              height={700}
-              className="w-full h-[520px] object-cover"
-              alt="repair"
-              priority
-            />
-          </div>
+          </motion.div>
+
+          {/* RIGHT IMAGE */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            className="relative"
+          >
+
+            <div className="absolute -inset-8 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 blur-3xl rounded-full" />
+
+            <div className="relative rounded-[2.5rem] overflow-hidden border-[10px] border-white dark:border-slate-800 shadow-[0_20px_80px_rgba(37,99,235,0.25)]">
+              <Image
+                src="/668c0b235856c81c1d06148db126f2b0.jpg"
+                width={1000}
+                height={700}
+                className="w-full h-[560px] object-cover hover:scale-105 transition-transform duration-700"
+                alt="repair"
+                priority
+              />
+            </div>
+
+            {/* FLOATING CARD */}
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{ repeat: Infinity, duration: 4 }}
+              className="absolute -bottom-6 -left-6 bg-white dark:bg-slate-900 p-5 rounded-3xl shadow-2xl border border-slate-100 dark:border-slate-700"
+            >
+              <p className="text-sm text-slate-500 font-medium">
+                Active Clients
+              </p>
+
+              <h4 className="text-3xl font-black text-blue-600">
+                1,000+
+              </h4>
+            </motion.div>
+
+          </motion.div>
 
         </div>
       </section>
+      
 
       {/* SERVICES */}
-      <section className="py-20">
+      <section className="py-24 relative">
+
         <div className="container mx-auto px-6">
 
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-4xl font-black text-slate-900 dark:text-white">
+          <div className="text-center max-w-2xl mx-auto mb-20">
+
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600/10 text-blue-600 text-xs font-bold mb-5">
+              <Zap size={14} />
+              Our Services
+            </div>
+
+            <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white">
               Repair & Rental Services
             </h2>
-            <p className="text-slate-500 mt-4">
-              Choose from our professional device repair and rental solutions
+
+            <p className="text-slate-500 mt-5 text-lg">
+              Choose from our professional device repair and rental
+              solutions
             </p>
+
           </div>
 
           {detailedServices.map((service) => (
@@ -1041,82 +1445,145 @@ const HardwarePage = () => {
                 <h3 className="text-3xl font-black text-slate-900 dark:text-white">
                   {service.title}
                 </h3>
+
                 <p className="text-slate-500 mt-3 max-w-2xl">
                   {service.desc}
                 </p>
               </div>
 
-              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-7">
 
-                {service.subItems.map((item) => (
-                  <motion.div
-                    key={item.id}
-                    whileHover={{ y: -12, scale: 1.03 }}
-                    transition={{ type: "spring", stiffness: 260, damping: 18 }}
-                    className="relative h-[380px] rounded-3xl overflow-hidden group shadow-lg"
-                  >
+           {service.subItems.map((item, index) => (
+  <motion.div
+    key={item.id}
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    whileHover={{ y: -10 }}
+    transition={{
+      duration: 0.5,
+      delay: index * 0.1,
+      type: "spring",
+    }}
+    className="group relative overflow-hidden rounded-[2.5rem] bg-white border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-500"
+  >
+    {/* Image Section */}
+    <div className="relative h-[260px] overflow-hidden">
 
-                    <Image
-                      src={item.img}
-                      alt={item.name}
-                      fill
-                      loading="lazy"
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
+      <Image
+        src={item.img}
+        alt={item.name}
+        fill
+        loading="lazy"
+        className="object-cover group-hover:scale-105 transition-transform duration-700"
+      />
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent pointer-events-none z-0" />
+      {/* Top Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
 
-                    <div className="absolute bottom-0 left-0 w-full p-5">
+      {/* Floating Badge */}
+      <div className="absolute top-5 left-5">
+        <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 backdrop-blur-md shadow-lg">
+          <div className="text-blue-600">
+            {React.cloneElement(item.icon, { size: 16 })}
+          </div>
 
-                      <div className="flex items-center gap-2 text-blue-300 mb-2">
-                        {item.icon}
-                        <span className="text-[10px] font-bold uppercase tracking-widest">
-                          Premium Service
-                        </span>
-                      </div>
+          <span className="text-[11px] font-bold uppercase tracking-widest text-slate-700">
+            Premium Service
+          </span>
+        </div>
+      </div>
 
-                      <h4 className="text-xl font-black text-white">
-                        {item.name}
-                      </h4>
+      {/* Number */}
+      <div className="absolute top-5 right-5">
+        <span className="text-5xl font-black text-white/70">
+          0{index + 1}
+        </span>
+      </div>
+    </div>
 
-                      <p className="text-xs text-white/70 mt-1 line-clamp-2">
-                        {item.desc}
-                      </p>
+    {/* Content */}
+    <div className="p-6">
 
-                      <div className="mt-4 opacity-100 md:opacity-0 md:translate-y-4 md:group-hover:opacity-100 md:group-hover:translate-y-0 transition-all duration-300 space-y-2">
+      {/* Small Label */}
+      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 mb-4">
+        <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
 
-                       <button
-                                                     onClick={() => {
-                                                       openModal();
-                                                       window.location.hash = "get-started";
-                                                     }}
-                                                     className="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold text-sm transition-all duration-300 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0"
-                                                   >
-                                                     Hire Now <ArrowRight size={16} />
-                                                   </button>
+        <span className="text-[11px] uppercase tracking-[0.2em] font-bold text-blue-600">
+          Smart Solution
+        </span>
+      </div>
 
-                        <Link
-                          href={`/security/${item.id}`}
-                          className="w-full py-3 bg-white/10 border border-white/20 rounded-xl font-bold text-white flex items-center justify-center"
-                        >
-                          Know More
-                        </Link>
+      {/* Title */}
+      <h4 className="text-2xl font-black text-slate-900 leading-tight">
+        {item.name}
+      </h4>
 
-                      </div>
+      {/* Description */}
+      <p className="text-sm text-slate-600 mt-3 leading-relaxed">
+        {item.desc}
+      </p>
 
-                    </div>
-                  </motion.div>
-                ))}
+      {/* Features */}
+      <div className="flex flex-wrap gap-2 mt-5">
+
+        <span className="px-3 py-1 rounded-full bg-slate-100 text-xs font-medium text-slate-700">
+          Fast Service
+        </span>
+
+        <span className="px-3 py-1 rounded-full bg-slate-100 text-xs font-medium text-slate-700">
+          Expert Team
+        </span>
+
+        <span className="px-3 py-1 rounded-full bg-slate-100 text-xs font-medium text-slate-700">
+          Trusted Support
+        </span>
+
+      </div>
+
+      {/* Buttons */}
+      <div className="mt-6 flex gap-3">
+
+        <button
+          onClick={() => {
+            openModal();
+            window.location.hash = "get-started";
+          }}
+          className="flex-1 py-3 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold flex items-center justify-center gap-2 transition-all duration-300"
+        >
+          Hire Now
+          <ArrowRight size={16} />
+        </button>
+
+        <Link
+          href={`/security/${item.id}`}
+          className="flex-1 py-3 rounded-2xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-900 font-bold flex items-center justify-center transition-all duration-300"
+        >
+          Know More
+        </Link>
+
+      </div>
+    </div>
+
+    {/* Hover Border Glow */}
+    <div className="absolute inset-0 rounded-[2.5rem] border-2 border-transparent group-hover:border-blue-200 transition-all duration-500 pointer-events-none" />
+  </motion.div>
+))}
 
               </div>
 
-              <motion.button
+              {/* CONTACT CTA */}
+              <motion.div
                 whileHover={{ scale: 1.02 }}
-                onClick={() => setIsModalOpen(true)}
-                className="mt-10 px-8 py-4 bg-blue-600 text-white rounded-2xl font-bold flex items-center gap-2"
+                className="pt-6"
               >
-                Contact For Bulk Rental / Repair <ArrowUpRight size={18} />
-              </motion.button>
+                <a
+                  href="/#contact"
+                  className="inline-flex px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-2xl font-bold items-center gap-2 shadow-xl shadow-blue-500/20"
+                >
+                  Contact For Bulk Rental / Repair
+                  <ArrowUpRight size={18} />
+                </a>
+              </motion.div>
 
             </div>
           ))}
@@ -1124,11 +1591,14 @@ const HardwarePage = () => {
         </div>
       </section>
 
+      {/* MODAL */}
       <GetStartedModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
       />
+
     </div>
   );
-}
+};
+
 export default HardwarePage;

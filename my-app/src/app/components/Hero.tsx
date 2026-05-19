@@ -311,56 +311,60 @@
 // );
 
 // export default Hero;
-
 "use client";
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, CheckCircle } from "lucide-react";
-import Link from "next/link";
+import { CheckCircle } from "lucide-react";
 
 const Hero = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-
- const heroSlides = [
-  {
-    category: "Business Solutions",
-    title: "Online Solutions To Boost Business.",
-    subtitle:
-      "From high-performance WFH setups and software licenses to advanced surveillance systems, we provide the tech core for your growth.",
-    image: "/b058c545a8c24bd9ec1fbb9d2193ade7.jpg",
-  },
-  {
-    category: "Networking",
-    title: "Smart Networking Infrastructure.",
-    subtitle:
-      "We build secure, scalable, and high-speed networking systems for modern enterprises.",
-    image: "/b5429ffaffaf5dd621a36843ac85c782.jpg",
-  },
-  {
-    category: "Security",
-    title: "Advanced CCTV & Security Systems.",
-    subtitle:
-      "AI-powered surveillance and real-time monitoring for complete business protection.",
-    image: "/e0b48f31b03a5057a71bf13e5790f771.jpg",
-  },
-];
+  const heroSlides = [
+    {
+      category: "Work From Home",
+      title: "Work From Home Setups.",
+      subtitle:
+        "From high-performance WFH setups and software licenses to advanced surveillance systems, we provide the tech core for your growth.",
+      image: "/42b545243714fe4e5a9f43a83e18c144.jpg",
+    },
+    {
+      category: "Networking",
+      title: "Smart Networking Infrastructure.",
+      subtitle:
+        "We build secure, scalable, and high-speed networking systems for modern enterprises.",
+      image: "/b058c545a8c24bd9ec1fbb9d2193ade7.jpg",
+    },
+    {
+      category: "Security",
+      title: "Advanced CCTV & Security Systems.",
+      subtitle:
+        "AI-powered surveillance and real-time monitoring for complete business protection.",
+      image: "/e0b48f31b03a5057a71bf13e5790f771.jpg",
+    },
+    {
+      category: "Security",
+      title: "Rental & Repair Services.",
+      subtitle:
+        "Affordable rental, installation, maintenance, and expert repair services for homes, offices, and businesses.",
+      image: "/6722c2663ef71d90babca72b399f5498.jpg",
+    },
+  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % heroSlides.length);
-    }, 4500);
+    }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [heroSlides.length]);
 
   return (
     <section className="relative min-h-[900px] w-full flex items-center justify-center overflow-hidden bg-[#F0F4FF] pt-24 pb-12">
-
-      {/* YOUR BACKGROUND (UNCHANGED) */}
+      
+      {/* Background */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute inset-0 h-full w-full [background-image:radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:40px_40px] [mask-image:linear-gradient(to_bottom,white,transparent,white)] opacity-100%" />
+        <div className="absolute inset-0 h-full w-full [background-image:radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:40px_40px] [mask-image:linear-gradient(to_bottom,white,transparent,white)]" />
 
         <div className="absolute top-[3%] right-[5%] w-[250px] h-[250px] lg:w-[350px] lg:h-[350px]">
           <div className="absolute inset-0 bg-[#0057FF]/20 blur-[60px] rounded-full animate-pulse" />
@@ -372,21 +376,21 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-
-        {/* TEXT */}
+        
+        {/* Left Content */}
         <div className="max-w-2xl">
-
+          
           <div className="flex items-center gap-2 mb-6">
             <CheckCircle className="text-blue-600" size={16} />
-            <span className="text-xs font-bold tracking-widest text-blue-600">
+            <span className="text-xs font-bold tracking-widest text-blue-600 uppercase">
               Trusted by 1,000+ Businesses
             </span>
           </div>
 
-          {/* TITLE (FIXED — NO VARIANTS ERROR) */}
+          {/* Animated Title */}
           <AnimatePresence mode="wait">
             <motion.h1
-              key={activeIndex}
+              key={`title-${activeIndex}`}
               initial={{
                 opacity: 0,
                 rotateX: -30,
@@ -408,7 +412,10 @@ const Hero = () => {
                 scale: 1.05,
                 filter: "blur(10px)",
               }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              transition={{
+                duration: 0.7,
+                ease: [0.16, 1, 0.3, 1],
+              }}
               className="text-4xl md:text-6xl lg:text-7xl font-black text-[#0A1628] mb-6 leading-[1.1]"
               style={{ perspective: 1000 }}
             >
@@ -416,37 +423,31 @@ const Hero = () => {
             </motion.h1>
           </AnimatePresence>
 
-          {/* SUBTITLE */}
+          {/* Animated Subtitle */}
           <AnimatePresence mode="wait">
             <motion.p
-              key={activeIndex}
+              key={`subtitle-${activeIndex}`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="text-lg text-slate-600 mb-8 max-w-lg"
+              className="text-lg text-slate-600 mb-8 max-w-lg leading-relaxed"
             >
               {heroSlides[activeIndex].subtitle}
             </motion.p>
           </AnimatePresence>
 
-          {/* BUTTON */}
-          {/* <Link href="/dashboard/quotations">
-            <button className="px-8 py-4 bg-blue-600 text-white rounded-2xl font-bold flex items-center gap-3 hover:bg-blue-700 transition">
-              Get Quotation <ArrowRight />
-            </button>
-          </Link> */}
-
-          {/* DOTS (UNCHANGED ANIMATION) */}
-          <div className="flex gap-2 mt-6">
+          {/* Dots */}
+          <div className="flex gap-3 mt-6">
             {heroSlides.map((_, i) => (
               <motion.button
                 key={i}
                 onClick={() => setActiveIndex(i)}
                 animate={{
-                  width: i === activeIndex ? 24 : 10,
-                  backgroundColor: i === activeIndex ? "#2563eb" : "#cbd5e1",
-                  scale: i === activeIndex ? 1.2 : 1,
+                  width: i === activeIndex ? 28 : 10,
+                  backgroundColor:
+                    i === activeIndex ? "#2563eb" : "#cbd5e1",
+                  scale: i === activeIndex ? 1.1 : 1,
                 }}
                 transition={{ duration: 0.3 }}
                 className="h-2.5 rounded-full"
@@ -455,13 +456,14 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* IMAGE (3D SAFE) */}
+        {/* Right Image */}
         <div className="relative flex justify-center">
-
+          
           <AnimatePresence mode="wait">
             <motion.img
-              key={heroSlides[activeIndex].image}
+              key={`image-${activeIndex}`}
               src={heroSlides[activeIndex].image}
+              alt={heroSlides[activeIndex].title}
               initial={{
                 opacity: 0,
                 scale: 1.15,

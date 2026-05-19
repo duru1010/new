@@ -162,7 +162,7 @@ const services = [
     title: "Networking",
     description: "Wired and Wireless setups with secure NAS configurations for offices, clinics, and institutes.",
     icon: <Network className="w-6 h-6" />,
-    image: "/a17e926721d214ed38986aa592f425ca.jpg",
+    image: "/b058c545a8c24bd9ec1fbb9d2193ade7.jpg",
     href: "/networking",
     tags: ["Infrastructure", "Security"]
   },

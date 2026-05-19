@@ -42,9 +42,9 @@ const ContactUs = () => {
               transition={{ delay: 0.1 }}
               className="text-4xl md:text-6xl font-black text-[#0A1628] dark:text-white mb-6 tracking-tighter leading-tight"
             >
-              Ready to Secure Your <br />
+              Connect With Experts <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0057FF] to-[#4DA6FF]">
-                Digital Future?
+                For Your IT Needs.
               </span>
             </motion.h2>
           </div>
@@ -133,22 +133,7 @@ const ContactUs = () => {
               ))}
 
               {/* Branded CTA */}
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                className="md:col-span-2 p-8 rounded-[2.5rem] bg-gradient-to-br from-[#0057FF] to-[#4DA6FF] text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl shadow-[#0057FF]/20"
-              >
-                <div className="text-center md:text-left">
-                  <h4 className="text-2xl font-bold mb-2">Need a custom IT audit?</h4>
-                  <p className="text-blue-50">Our experts are ready to provide a professional assessment.</p>
-                </div>
-                <motion.button 
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-white text-[#0057FF] font-bold rounded-2xl shadow-xl hover:bg-slate-50 transition-colors"
-                >
-                  Schedule a Visit
-                </motion.button>
-              </motion.div>
+              
             </div>
 
           </div>

@@ -1001,55 +1001,121 @@ const NetworkingPage = () => {
               </div>
 
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                {service.subItems.map((item) => (
-                  <motion.div
-  key={item.id}
-  whileHover={{ y: -12, scale: 1.03 }}
-  className="relative h-[380px] rounded-3xl overflow-hidden group shadow-lg"
->
-  <Image
-    src={item.img}
-    alt={item.name}
-    fill
-    className="object-cover"
-  />
+                {service.subItems.map((item, index) => (
+  <motion.div
+    key={item.id}
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    whileHover={{ y: -10 }}
+    transition={{
+      duration: 0.5,
+      delay: index * 0.1,
+      type: "spring",
+    }}
+    className="group relative overflow-hidden rounded-[2.5rem] bg-white border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-500"
+  >
+    {/* Image Section */}
+    <div className="relative h-[260px] overflow-hidden">
 
-  <div className="absolute bottom-0 left-0 w-full p-5">
-  
-  {/* TITLE ALWAYS VISIBLE */}
-  <h4 className="text-xl font-black text-white drop-shadow-md">
-    {item.name}
-  </h4>
+      <Image
+        src={item.img}
+        alt={item.name}
+        fill
+        loading="lazy"
+        className="object-cover group-hover:scale-105 transition-transform duration-700"
+      />
 
-  {/* OPTIONAL DESCRIPTION (if you want clarity) */}
-  <p className="text-xs text-white/70 mt-1">
-    {item.desc}
-  </p>
+      {/* Top Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
 
-  {/* BUTTONS ONLY ANIMATE */}
-  <div className="mt-4 space-y-2 opacity-0 translate-y-6 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+      {/* Floating Badge */}
+      <div className="absolute top-5 left-5">
+        <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 backdrop-blur-md shadow-lg">
+          <div className="text-blue-600">
+            {React.cloneElement(item.icon, { size: 16 })}
+          </div>
 
-    <button
-      onClick={() => {
-        openModal();
-        window.location.hash = "get-started";
-      }}
-      className="w-full py-3 bg-indigo-600 text-white rounded-xl font-bold flex items-center justify-center gap-2"
-    >
-      Hire Now <ArrowRight size={16} />
-    </button>
+          <span className="text-[11px] font-bold uppercase tracking-widest text-slate-700">
+            Premium Service
+          </span>
+        </div>
+      </div>
 
-    <Link
-      href={`/networking/${item.id}`}
-      className="w-full py-3 bg-white/10 border border-white/20 rounded-xl font-bold text-white flex items-center justify-center"
-    >
-      Know More
-    </Link>
+      {/* Number */}
+      <div className="absolute top-5 right-5">
+        <span className="text-5xl font-black text-white/70">
+          0{index + 1}
+        </span>
+      </div>
+    </div>
 
-  </div>
-</div>
-</motion.div>
-                ))}
+    {/* Content */}
+    <div className="p-6">
+
+      {/* Small Label */}
+      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 mb-4">
+        <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+
+        <span className="text-[11px] uppercase tracking-[0.2em] font-bold text-blue-600">
+          Smart Solution
+        </span>
+      </div>
+
+      {/* Title */}
+      <h4 className="text-2xl font-black text-slate-900 leading-tight">
+        {item.name}
+      </h4>
+
+      {/* Description */}
+      <p className="text-sm text-slate-600 mt-3 leading-relaxed">
+        {item.desc}
+      </p>
+
+      {/* Features */}
+      <div className="flex flex-wrap gap-2 mt-5">
+
+        <span className="px-3 py-1 rounded-full bg-slate-100 text-xs font-medium text-slate-700">
+          Fast Service
+        </span>
+
+        <span className="px-3 py-1 rounded-full bg-slate-100 text-xs font-medium text-slate-700">
+          Expert Team
+        </span>
+
+        <span className="px-3 py-1 rounded-full bg-slate-100 text-xs font-medium text-slate-700">
+          Trusted Support
+        </span>
+
+      </div>
+
+      {/* Buttons */}
+      <div className="mt-6 flex gap-3">
+
+        <button
+          onClick={() => {
+            openModal();
+            window.location.hash = "get-started";
+          }}
+          className="flex-1 py-3 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold flex items-center justify-center gap-2 transition-all duration-300"
+        >
+          Hire Now
+          <ArrowRight size={16} />
+        </button>
+
+        <Link
+          href={`/networking/${item.id}`}
+          className="flex-1 py-3 rounded-2xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-900 font-bold flex items-center justify-center transition-all duration-300"
+        >
+          Know More
+        </Link>
+
+      </div>
+    </div>
+
+    {/* Hover Border Glow */}
+    <div className="absolute inset-0 rounded-[2.5rem] border-2 border-transparent group-hover:border-blue-200 transition-all duration-500 pointer-events-none" />
+  </motion.div>
+))}
               </div>
             </div>
           ))}

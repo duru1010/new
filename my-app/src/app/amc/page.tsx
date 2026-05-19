@@ -47,6 +47,13 @@ const detailedServices = [
         img: "/35b5f7cc65424ed0eec9ca5d6f6a5a86.jpg",
         icon: <Wifi size={16} />,
       },
+       {
+        id: "wireless-cctv",
+        name: "Wireless CCTV",
+        desc: "WiFi-enabled smart cameras with mobile app access.",
+        img: "/35b5f7cc65424ed0eec9ca5d6f6a5a86.jpg",
+        icon: <Wifi size={16} />,
+      },
      
     ],
   },
@@ -227,64 +234,121 @@ const CCTVPage = () => {
               </div>
 
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-7">
-                {service.subItems.map((item) => (
-                  <motion.div
-                    key={item.id}
-                    whileHover={{ y: -12 }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 260,
-                      damping: 18,
-                    }}
-                    className="relative h-[420px] rounded-[2rem] overflow-hidden group shadow-xl"
-                  >
-                    <Image
-                      src={item.img}
-                      alt={item.name}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
+               {service.subItems.map((item, index) => (
+  <motion.div
+    key={item.id}
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    whileHover={{ y: -10 }}
+    transition={{
+      duration: 0.5,
+      delay: index * 0.1,
+      type: "spring",
+    }}
+    className="group relative overflow-hidden rounded-[2.5rem] bg-white border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-500"
+  >
+    {/* Image Section */}
+    <div className="relative h-[260px] overflow-hidden">
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+      <Image
+        src={item.img}
+        alt={item.name}
+        fill
+        loading="lazy"
+        className="object-cover group-hover:scale-105 transition-transform duration-700"
+      />
 
-                    <div className="absolute bottom-0 left-0 w-full p-6">
-                      <div className="flex items-center gap-2 text-blue-300 mb-3">
-                        {item.icon}
+      {/* Top Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
 
-                        <span className="text-[10px] uppercase tracking-[0.3em] font-bold">
-                          Security Solution
-                        </span>
-                      </div>
+      {/* Floating Badge */}
+      <div className="absolute top-5 left-5">
+        <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 backdrop-blur-md shadow-lg">
+          <div className="text-blue-600">
+            {React.cloneElement(item.icon, { size: 16 })}
+          </div>
 
-                      <h4 className="text-2xl font-black text-white">
-                        {item.name}
-                      </h4>
+          <span className="text-[11px] font-bold uppercase tracking-widest text-slate-700">
+            Premium Service
+          </span>
+        </div>
+      </div>
 
-                      <p className="text-sm text-white/70 mt-2 leading-relaxed">
-                        {item.desc}
-                      </p>
+      {/* Number */}
+      <div className="absolute top-5 right-5">
+        <span className="text-5xl font-black text-white/70">
+          0{index + 1}
+        </span>
+      </div>
+    </div>
 
-                      <div className="mt-5 flex flex-col gap-3 opacity-100 md:opacity-0 md:translate-y-5 md:group-hover:opacity-100 md:group-hover:translate-y-0 transition-all duration-300">
-                        <button
-                          onClick={() => {
-                            openModal();
-                            window.location.hash = "get-started";
-                          }}
-                          className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-sm transition-all duration-300 flex items-center justify-center gap-2"
-                        >
-                          Hire Now <ArrowRight size={16} />
-                        </button>
+    {/* Content */}
+    <div className="p-6">
 
-                        <Link
-                          href={`/amc/${item.id}`}
-                          className="w-full py-3 bg-white/10 border border-white/20 rounded-xl font-bold text-white flex items-center justify-center hover:bg-white/20 transition-all duration-300"
-                        >
-                         Know More
-                        </Link>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
+      {/* Small Label */}
+      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 mb-4">
+        <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+
+        <span className="text-[11px] uppercase tracking-[0.2em] font-bold text-blue-600">
+          Smart Solution
+        </span>
+      </div>
+
+      {/* Title */}
+      <h4 className="text-2xl font-black text-slate-900 leading-tight">
+        {item.name}
+      </h4>
+
+      {/* Description */}
+      <p className="text-sm text-slate-600 mt-3 leading-relaxed">
+        {item.desc}
+      </p>
+
+      {/* Features */}
+      <div className="flex flex-wrap gap-2 mt-5">
+
+        <span className="px-3 py-1 rounded-full bg-slate-100 text-xs font-medium text-slate-700">
+          Fast Service
+        </span>
+
+        <span className="px-3 py-1 rounded-full bg-slate-100 text-xs font-medium text-slate-700">
+          Expert Team
+        </span>
+
+        <span className="px-3 py-1 rounded-full bg-slate-100 text-xs font-medium text-slate-700">
+          Trusted Support
+        </span>
+
+      </div>
+
+      {/* Buttons */}
+      <div className="mt-6 flex gap-3">
+
+        <button
+          onClick={() => {
+            openModal();
+            window.location.hash = "get-started";
+          }}
+          className="flex-1 py-3 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold flex items-center justify-center gap-2 transition-all duration-300"
+        >
+          Hire Now
+          <ArrowRight size={16} />
+        </button>
+
+        <Link
+          href={`/amc/${item.id}`}
+          className="flex-1 py-3 rounded-2xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-900 font-bold flex items-center justify-center transition-all duration-300"
+        >
+          Know More
+        </Link>
+
+      </div>
+    </div>
+
+    {/* Hover Border Glow */}
+    <div className="absolute inset-0 rounded-[2.5rem] border-2 border-transparent group-hover:border-blue-200 transition-all duration-500 pointer-events-none" />
+  </motion.div>
+))}
               </div>
 
               {/* FEATURES */}
