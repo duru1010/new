@@ -156,6 +156,34 @@ export default function Microsoft365Page() {
     },
   ];
 
+  // Additional overview items requested in the ecosystem description
+  const ecosystemOverview = [
+    {
+      name: "Azure",
+      desc: "Microsoft Azure is an ever-expanding set of cloud services to help your organization meet your business challenges."
+    },
+    {
+      name: "Dynamics 365",
+      desc: "Dynamics 365 is a set of intelligent cloud-based business applications combining CRM, ERP, and Mixed Reality with Microsoft Power Platform."
+    },
+    {
+      name: "Microsoft 365",
+      desc: "The productivity cloud that brings together best-in-class Office apps, intelligent cloud services, and advanced security to help you achieve more."
+    },
+    {
+      name: "Office & Office 365",
+      desc: "Get the latest Office desktop and mobile apps, plus integrated collaboration services, coupled with advanced compliance features and full IT power."
+    },
+    {
+      name: "Power Platform",
+      desc: "Accelerate innovation and deploy impactful solutions faster with Microsoft Power Platform."
+    },
+    {
+      name: "SQL Server",
+      desc: "Build intelligent, mission-critical applications using a scalable, hybrid database platform."
+    }
+  ];
+
   return (
     <>
       <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-white overflow-hidden">
@@ -193,11 +221,9 @@ export default function Microsoft365Page() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.2 }}
-                  className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl"
+                  className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mb-6"
                 >
-                  Empower your business with Microsoft 365 productivity tools,
-                  cloud collaboration, enterprise-grade security and professional
-                  business email solutions.
+                  The productivity cloud that brings together best-in-class Office apps, intelligent cloud services, and advanced security to help you achieve more. Empower your business with Microsoft 365 productivity tools, cloud collaboration, enterprise-grade security and professional business email solutions.
                 </motion.p>
 
                 <div className="flex flex-wrap gap-4 mt-10">
@@ -240,6 +266,27 @@ export default function Microsoft365Page() {
           </div>
         </section>
 
+        {/* ECOSYSTEM INTEGRATION OVERVIEW */}
+        <section className="py-16 bg-slate-50/50 dark:bg-slate-900/20 border-y border-slate-100 dark:border-white/5">
+          <div className="container mx-auto px-6">
+            <div className="mb-12">
+              <span className="text-xs font-bold tracking-widest text-indigo-600 dark:text-indigo-400 uppercase block mb-2">Connected Ecosystem</span>
+              <h2 className="text-3xl font-black tracking-tight">The Microsoft Enterprise Platform</h2>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {ecosystemOverview.map((item, idx) => (
+                <div key={idx} className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-white/5 shadow-sm">
+                  <h4 className="font-black text-xl mb-2 text-slate-900 dark:text-white">{item.name}</h4>
+                  <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">{item.desc}</p>
+                  <button onClick={() => setIsModalOpen(true)} className="text-xs font-bold text-indigo-600 dark:text-indigo-400 inline-flex items-center gap-1 hover:underline">
+                    Learn more <ArrowRight size={12} />
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* FEATURES */}
         <section className="py-20">
           <div className="container mx-auto px-6">
@@ -250,7 +297,7 @@ export default function Microsoft365Page() {
 
               <p className="text-slate-600 dark:text-slate-300 text-lg leading-relaxed">
                 Secure cloud productivity, communication and collaboration tools
-                designed for modern organizations.
+                designed for modern organizations. Get the latest Office desktop and mobile apps, plus integrated collaboration services, coupled with advanced compliance features and full IT power.
               </p>
             </div>
 
@@ -289,7 +336,7 @@ export default function Microsoft365Page() {
 
               <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
                 Explore productivity apps, collaboration platforms and enterprise
-                cloud solutions included in Microsoft 365.
+                cloud solutions included in Microsoft 365. Accelerate innovation and deploy impactful solutions faster with Microsoft Power Platform and hybrid data architectures.
               </p>
             </div>
 
@@ -344,7 +391,7 @@ export default function Microsoft365Page() {
 
                 <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl">
                   Flexible Microsoft 365 plans designed for startups, SMEs and
-                  enterprise organizations.
+                  enterprise organizations to build intelligent, mission-critical operations.
                 </p>
               </div>
 
@@ -476,18 +523,17 @@ export default function Microsoft365Page() {
 
                 <div className="relative z-10">
                   <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 text-white text-xs font-black uppercase tracking-[0.25em] mb-6">
-                    Microsoft 365 Inquiry
+                    Microsoft Ecosystem Inquiry
                   </div>
 
                   <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight leading-tight mb-4">
                     Request a
                     <br />
-                    Microsoft 365 Quote.
+                    Custom Cloud Quote.
                   </h2>
 
                   <p className="text-blue-100 text-lg max-w-2xl leading-relaxed">
-                    Fill your Microsoft 365 requirement details and our team
-                    will contact you shortly.
+                    Fill your cloud requirement details regarding Microsoft 365, Azure, Dynamics 365, Power Platform or SQL Server, and our team will contact you shortly.
                   </p>
                 </div>
               </div>
@@ -520,10 +566,12 @@ export default function Microsoft365Page() {
                   {/* RIGHT */}
                   <div className="space-y-6">
                     <select className="w-full h-14 px-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                      <option>Select Microsoft Plan</option>
-                      <option>Business Basic</option>
-                      <option>Business Standard</option>
-                      <option>Business Premium</option>
+                      <option>Select Core Platform</option>
+                      <option>Microsoft 365 (Basic/Standard/Premium)</option>
+                      <option>Microsoft Azure Cloud Services</option>
+                      <option>Dynamics 365 (CRM/ERP)</option>
+                      <option>Power Platform Innovation</option>
+                      <option>SQL Server Hybrid Databases</option>
                     </select>
 
                     <input
@@ -534,9 +582,10 @@ export default function Microsoft365Page() {
 
                     <select className="w-full h-14 px-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500">
                       <option>Select Requirement</option>
-                      <option>New Microsoft 365 Setup</option>
-                        <option>Microsoft 365 Migration</option>
-                      <option>Teams Deployment</option>
+                      <option>New Setup & Licensing Deployment</option>
+                      <option>Ecosystem Cloud Migration</option>
+                      <option>Teams & Cross-App Integration</option>
+                      <option>Custom Database & Analytics Architecture</option>
                     </select>
                   </div>
                 </div>
@@ -545,7 +594,7 @@ export default function Microsoft365Page() {
                 <div className="mt-8">
                   <textarea
                     rows={6}
-                    placeholder="Describe your business requirement..."
+                    placeholder="Describe your enterprise or small business requirement across the Microsoft Cloud suite..."
                     className="w-full p-5 rounded-[2rem] bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
                   />
                 </div>

@@ -348,7 +348,7 @@ const Hero = () => {
       title: "Rental & Repair Services.",
       subtitle:
         "Affordable rental, installation, maintenance, and expert repair services for homes, offices, and businesses.",
-      image: "/6722c2663ef71d90babca72b399f5498.jpg",
+      image: "/668c0b235856c81c1d06148db126f2b0.jpg",
     },
   ];
 

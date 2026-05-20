@@ -691,7 +691,7 @@ const HardwarePage = () => {
         },
         {
           id: "quick-heal",
-          name: "Quick Heal",
+          name: "Antivirus",
           desc: "Business antivirus protection.",
           img: "/1c1914f4c03275e69d4d81e45a5cb480.jpg",
         },

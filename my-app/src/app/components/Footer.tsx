@@ -43,40 +43,44 @@ const Footer = () => {
       <div className="container mx-auto px-6">
 
         {/* TOP SECTION */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-2 mb-6">
 
           {/* LEFT */}
-          <div className="lg:col-span-4 space-y-6">
+          <div className="lg:col-span-4 space-y-6"> {/* Increased block-level spacing for the main items */}
+  
+  {/* Grouping Logo and Paragraph tightly together */}
+  <div className="space-y-1"> 
+    <div className="flex items-center gap-3">
+      <img
+        src="/softlink_logowht01-1024x293 (1).png"
+        alt="Softlink Logo"
+        className="w-50 h-14 object-contain"
+      />
+    </div>
 
-            <div className="flex items-center gap-3">
-              <img
-                src="/softlink_logowht01-1024x293 (1).png"
-                alt="Softlink Logo"
-                className="w-24 h-24 object-contain"
-              />
-            </div>
+    <p className="text-white/80 leading-relaxed max-w-sm text-[15px]">
+      Empowering businesses with cutting-edge IT infrastructure,
+      networking, security systems, cloud solutions, and professional
+      technology services since 2012.
+    </p>
+  </div>
 
-            <p className="text-white/80 leading-relaxed max-w-sm text-[15px]">
-              Empowering businesses with cutting-edge IT infrastructure,
-              networking, security systems, cloud solutions, and professional
-              technology services since 2012.
-            </p>
-
-            {/* SOCIAL ICONS */}
-            <div className="flex gap-4 pt-2">
-              {socialLinks.map((social, index) => (
-                <motion.a
-                  key={index}
-                  href={social.href}
-                  target="_blank"
-                  whileHover={{ y: -4, scale: 1.1 }}
-                  className="w-11 h-11 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-[#0057FF] transition-all"
-                >
-                  {social.icon}
-                </motion.a>
-              ))}
-            </div>
-          </div>
+  {/* SOCIAL ICONS */}
+  <div className="flex gap-4 pt-2">
+    {socialLinks.map((social, index) => (
+      <motion.a
+        key={index}
+        href={social.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        whileHover={{ y: -4, scale: 1.1 }}
+        className="w-11 h-11 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-[#0057FF] transition-all"
+      >
+        {social.icon}
+      </motion.a>
+    ))}
+  </div>
+</div>
 
           {/* RIGHT LINKS */}
           <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-10">
