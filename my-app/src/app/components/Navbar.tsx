@@ -1761,24 +1761,19 @@
 
 
 
-
 "use client";
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 import {
   Menu,
   X,
-  Sun,
-  Moon,
   ChevronDown,
   Shield,
   Network,
   ShoppingBag,
-  Send,
   User,
-  MessageSquare,
-  Loader2,
   Phone,
   Mail,
   Building2,
@@ -1790,9 +1785,7 @@ const Navbar = () => {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
-
-
-const [isCategoryOpen, setIsCategoryOpen] = useState(false);
+  const [isCategoryOpen, setIsCategoryOpen] = useState(false);
 
   // OTP STATES
   const [otp, setOtp] = useState("");
@@ -1803,7 +1796,7 @@ const [isCategoryOpen, setIsCategoryOpen] = useState(false);
 
   // FORM STATE
   const [isSubmitting, setIsSubmitting] = useState(false);
-  
+
   const [formData, setFormData] = useState({
     category: [] as string[],
     duration: "",
@@ -1865,18 +1858,11 @@ const [isCategoryOpen, setIsCategoryOpen] = useState(false);
       icon: <ShoppingBag size={16} />,
       href: "/sales",
     },
-   
     {
       name: "CCTV & Security",
       icon: <Shield size={16} />,
       href: "/amc",
-    }
-  ];
-
-  const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "About", href: "#about" },
-    { name: "Contact", href: "#contact" },
+    },
   ];
 
   useEffect(() => {
@@ -2013,192 +1999,208 @@ const [isCategoryOpen, setIsCategoryOpen] = useState(false);
     <>
       {/* NAVBAR */}
       <nav
-        className={`fixed w-full z-[100] transition-all duration-500 ${
-          isScrolled ? "top-3 px-2 sm:px-4" : "top-0 px-0"
-        }`}
+       className="fixed w-full z-[100] top-3 px-2 sm:px-4"
       >
         <div className="max-w-7xl mx-auto">
           <motion.div
-  className={`relative flex items-center justify-between py-3 px-4 sm:px-6 transition-all duration-500 ${
-    isScrolled
-      ? "rounded-2xl sm:rounded-full bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-slate-200 dark:border-white/10 shadow-xl"
-      : "bg-transparent border-b border-slate-200 dark:border-white/5"
-  }`}
->
-  {/* LOGO SECTION */}
-  
-    {/* Logo Container: Updated to fit the full Softlink Logo-01.png */}
-    <div className="lg:col-span-4 space-y-6">
+            className={`relative flex items-center justify-between py-3 px-4 sm:px-6 ${
+             "rounded-full bg-blue-600 backdrop-blur-xl border border-blue-500 shadow-xl"
+            }`}
+          >
+            {/* LOGO */}
+            <div className="lg:col-span-4 space-y-6">
   <div className="flex items-center gap-2 sm:gap-3">
-    
-    {/* LOGO */}
-    <img
-      src="/SoftLink Logo Black-01.png"
-      
-      className="w-30 h-15 object-contain"
-    />
 
-   
+    <Link href="/" className="inline-block">
+      <img
+        src="/softlink_logowht01-1024x293 (1).png"
+        alt="Softlink Logo"
+        className="w-30 h-15 object-contain cursor-pointer"
+      />
+    </Link>
+
   </div>
+</div>
 
+            {/* DESKTOP NAV */}
+            <div className="hidden md:flex items-center space-x-1">
+              
 
-    
-  </div>
+              {/* SERVICES DROPDOWN */}
+              {/* DESKTOP NAV */}
+<div className="hidden md:flex items-center space-x-1">
+  <a
+    href="/"
+    className="px-4 py-2 text-sm font-bold text-white hover:text-blue-100 transition-colors"
+  >
+    Home
+  </a>
 
-  {/* DESKTOP NAV */}
-  <div className="hidden md:flex items-center space-x-1">
-    {navLinks.map((link) => (
-      <a
-        key={link.name}
-        href={link.href}
-        // Hover state: Updated to Electric Blue
-        className="px-4 py-2 text-sm font-bold dark:text-slate-300 text-slate-600 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-      >
-        {link.name}
-      </a>
-    ))}
+  <a
+    href="/aboutus"
+    className="px-4 py-2 text-sm font-bold text-white hover:text-blue-100 transition-colors"
+  >
+    AboutUs
+  </a>
 
-    {/* SERVICES DROPDOWN */}
-    <div className="relative group">
-      <button className="flex items-center gap-1 px-4 py-2 text-sm font-bold dark:text-slate-300 text-slate-600 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-        Services
-        <ChevronDown
-          size={14}
-          className="group-hover:rotate-180 transition-transform"
-        />
-      </button>
+  {/* SERVICES DROPDOWN */}
+  <div className="relative group">
+    <a
+      href="/services"
+      className="flex items-center gap-1 px-4 py-2 text-sm font-bold text-white hover:text-blue-100 transition-colors"
+    >
+      Services
+      <ChevronDown
+        size={14}
+        className="group-hover:rotate-180 transition-transform"
+      />
+    </a>
 
-      <div className="absolute top-full left-0 w-64 pt-4 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
-        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-white/10 shadow-2xl p-2">
-          {services.map((s) => (
-            <a
-              key={s.name}
-              href={s.href}
-              className="flex items-center gap-3 p-3 rounded-xl hover:bg-sky-50 dark:hover:bg-white/5 text-sm font-medium dark:text-slate-300 text-slate-600 transition-all"
-            >
-              {/* Icon color: Updated to Electric Blue */}
-              <div className="text-blue-600 dark:text-blue-400">
-                {s.icon}
-              </div>
-              {s.name}
-            </a>
-          ))}
-        </div>
+    <div className="absolute top-full left-0 w-64 pt-4 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-white/10 shadow-2xl p-2">
+        {services.map((s) => (
+          <a
+            key={s.name}
+            href={s.href}
+            className="flex items-center justify-between gap-3 p-3 rounded-xl hover:bg-sky-50 dark:hover:bg-white/5 text-sm font-medium dark:text-slate-300 text-slate-600 transition-all"
+          >
+            <span>{s.name}</span>
+
+            <div className="text-blue-600 dark:text-blue-400">
+              {s.icon}
+            </div>
+          </a>
+        ))}
       </div>
     </div>
   </div>
 
-  {/* RIGHT SECTION */}
-  <div className="flex items-center gap-2 sm:gap-4">
-    {/* THEME TOGGLE */}
-    
-    {/* GET STARTED BUTTON: Updated to Electric Blue */}
-    <button
-      onClick={() => setShowForm(true)}
-      className="hidden md:block px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-full text-sm font-bold transition-all shadow-lg shadow-blue-500/20 active:scale-95"
-    >
-      Get Quotation
-    </button>
+  <a
+    href="/contact"
+    className="px-4 py-2 text-sm font-bold text-white hover:text-blue-100 transition-colors"
+  >
+    Contact
+  </a>
+</div>
+            </div>
 
-    {/* MOBILE MENU BUTTON */}
-    <button
-      onClick={() => setIsOpen(!isOpen)}
-      className="md:hidden p-2 rounded-xl dark:text-white text-slate-900 bg-slate-100 dark:bg-white/10"
-    >
-      {isOpen ? <X size={22} /> : <Menu size={22} />}
-    </button>
-  </div>
-</motion.div>
+            {/* RIGHT SECTION */}
+            <div className="flex items-center gap-2 sm:gap-4">
+              {/* GET QUOTATION */}
+              <button
+                onClick={() => setShowForm(true)}
+                className="hidden md:block px-6 py-2.5 bg-white hover:bg-blue-50 text-blue-600 rounded-full text-sm font-bold transition-all shadow-lg active:scale-95"
+              >
+                Get Quotation
+              </button>
+
+              {/* MOBILE MENU BUTTON */}
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="md:hidden p-2 rounded-xl text-white bg-blue-500"
+              >
+                {isOpen ? <X size={22} /> : <Menu size={22} />}
+              </button>
+            </div>
+          </motion.div>
 
           {/* MOBILE MENU */}
-          <AnimatePresence>
-            {isOpen && (
-              <motion.div
-                initial={{ opacity: 0, y: -15 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -15 }}
-                transition={{ duration: 0.25 }}
-                className="md:hidden mt-3 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-white/10 shadow-2xl overflow-hidden"
-              >
-                <div className="p-4 space-y-2">
-                  {navLinks.map((link) => (
-                    <a
-                      key={link.name}
-                      href={link.href}
-                      onClick={() => setIsOpen(false)}
-                      className="block px-4 py-3 rounded-2xl text-sm font-bold dark:text-slate-300 text-slate-700 hover:bg-slate-100 dark:hover:bg-white/5"
-                    >
-                      {link.name}
-                    </a>
-                  ))}
+         <AnimatePresence>
+  {isOpen && (
+    <motion.div
+      initial={{ opacity: 0, y: -15 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -15 }}
+      transition={{ duration: 0.25 }}
+      className="md:hidden mt-3 bg-blue-600 rounded-3xl border border-blue-500 shadow-2xl overflow-hidden"
+    >
+      <div className="p-4 space-y-2">
 
-                  {/* MOBILE SERVICES */}
-                  <button
-                    onClick={() =>
-                      setMobileServicesOpen(!mobileServicesOpen)
-                    }
-                    className="w-full flex items-center justify-between px-4 py-3 rounded-2xl text-sm font-bold dark:text-slate-300 text-slate-700 hover:bg-slate-100 dark:hover:bg-white/5"
+        {/* HOME */}
+        <a
+          href="/"
+          onClick={() => setIsOpen(false)}
+          className="block px-4 py-3 rounded-2xl text-sm font-bold text-white hover:bg-white/10"
+        >
+          Home
+        </a>
+
+        {/* ABOUT */}
+        <a
+          href="#about"
+          onClick={() => setIsOpen(false)}
+          className="block px-4 py-3 rounded-2xl text-sm font-bold text-white hover:bg-white/10"
+        >
+          About Us
+        </a>
+
+        {/* SERVICES */}
+        <button
+          onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+          className="w-full flex items-center justify-between px-4 py-3 rounded-2xl text-sm font-bold text-white hover:bg-white/10"
+        >
+          Services
+          <ChevronDown
+            size={16}
+            className={`transition-transform ${
+              mobileServicesOpen ? "rotate-180" : ""
+            }`}
+          />
+        </button>
+
+        {/* SERVICES DROPDOWN */}
+        <AnimatePresence>
+          {mobileServicesOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              className="overflow-hidden"
+            >
+              <div className="space-y-2 pl-2 pt-2">
+                {services.map((service) => (
+                  <a
+                    key={service.name}
+                    href={service.href}
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center justify-between gap-3 px-4 py-3 rounded-2xl bg-white/10 text-sm font-medium text-white"
                   >
-                    Services
-                    <ChevronDown
-                      size={16}
-                      className={`transition-transform ${
-                        mobileServicesOpen ? "rotate-180" : ""
-                      }`}
-                    />
-                  </button>
+                    <span>{service.name}</span>
+                    <div className="text-white">{service.icon}</div>
+                  </a>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
-                  <AnimatePresence>
-                    {mobileServicesOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        className="overflow-hidden"
-                      >
-                        <div className="space-y-2 pl-2 pt-2">
-                          {services.map((service) => (
-                            <a
-                              key={service.name}
-                              href={service.href}
-                              onClick={() => setIsOpen(false)}
-                              className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-slate-50 dark:bg-white/5 text-sm font-medium dark:text-slate-300 text-slate-700"
-                            >
-                              <div className="text-indigo-600 dark:text-indigo-400">
-                                {service.icon}
-                              </div>
+        {/* CONTACT */}
+        <a
+          href="/contact"
+          onClick={() => setIsOpen(false)}
+          className="block px-4 py-3 rounded-2xl text-sm font-bold text-white hover:bg-white/10"
+        >
+          Contact
+        </a>
 
-                              {service.name}
-                            </a>
-                          ))}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+        {/* GET QUOTATION (NEW ADDED ITEM) */}
+        <button
+          onClick={() => {
+            setShowForm(true);
+            setIsOpen(false);
+          }}
+          className="w-full px-4 py-3 rounded-2xl bg-white text-blue-600 font-bold hover:bg-blue-50 transition"
+        >
+          Get Quotation
+        </button>
 
-                  {/* MOBILE BUTTONS */}
-                  <div className="flex flex-col gap-3 pt-4">
-                    <button
-                      onClick={() => {
-                        setShowForm(true);
-                        setIsOpen(false);
-                      }}
-                      className="w-full py-3 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold"
-                    >
-                      Get Started
-                    </button>
+        {/* THEME TOGGLE */}
+        
 
-                    <button
-                      onClick={toggleTheme}
-                      className="w-full py-3 rounded-2xl bg-slate-100 dark:bg-white/10 dark:text-white text-slate-900 font-bold"
-                    >
-                      {isDarkMode ? "Light Mode" : "Dark Mode"}
-                    </button>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
         </div>
       </nav>
 
@@ -2485,12 +2487,18 @@ const [isCategoryOpen, setIsCategoryOpen] = useState(false);
     className="w-full px-4 py-3 rounded-2xl border"
   >
     <option value="">Select City</option>
-    <option>Mumbai</option>
-    <option>Pune</option>
-    <option>Nashik</option>
-    <option>Nagpur</option>
-    <option>Delhi</option>
-    <option>Bangalore</option>
+    <option value="411001 - Pune GPO">411001 - Pune GPO</option>
+    <option value="411002 - Rasta Peth">411002 - Rasta Peth</option>
+    <option value="411003 - Khadki">411003 - Khadki</option>
+    <option value="411004 - Deccan Gymkhana">411004 - Deccan Gymkhana</option>
+    <option value="411005 - Shivajinagar">411005 - Shivajinagar</option>
+    <option value="411006 - Yerwada">411006 - Yerwada</option>
+    <option value="411007 - Aundh">411007 - Aundh</option>
+    <option value="411008 - Baner">411008 - Baner</option>
+    <option value="411009 - Kothrud">411009 - Kothrud</option>
+    <option value="411011 - Swargate">411011 - Swargate</option>
+    <option value="411014 - Viman Nagar">411014 - Viman Nagar</option>
+    <option value="411015 - Hadapsar">411015 - Hadapsar</option>
   </select>
 
   {/* MESSAGE */}

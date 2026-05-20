@@ -29,3 +29,19 @@
   background: #2563eb;
   color: white;
 }
+
+/* app/globals.css */
+@layer utilities {
+  .animate-vertical-marquee {
+    animation: verticalMarquee linear infinite;
+  }
+}
+
+@keyframes verticalMarquee {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}

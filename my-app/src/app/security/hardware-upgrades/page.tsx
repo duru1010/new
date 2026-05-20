@@ -175,7 +175,7 @@ export default function HardwareUpgradePage() {
         <div className="container mx-auto px-6 relative z-10">
           {/* BACK BUTTON */}
           <Link
-            href="/Security"
+            href="/security"
             className="inline-flex items-center gap-2 text-blue-600 font-bold mb-8"
           >
             <ArrowLeft size={18} />

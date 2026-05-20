@@ -1,268 +1,138 @@
-// "use client";
-// import React, { useRef } from 'react';
-// import { motion, useInView } from 'framer-motion';
-// import { Award, Users, CheckCircle, Clock, Shield, Zap } from 'lucide-react';
-
-// const stats = [
-//   { label: "Satisfied Clients", value: 500, suffix: "+", icon: <Users size={20}/>, color: "from-blue-500 to-cyan-400" },
-//   { label: "Expert Engineers", value: 25, suffix: "+", icon: <Award size={20}/>, color: "from-indigo-500 to-purple-400" },
-//   { label: "Successful Projects", value: 1200, suffix: "+", icon: <CheckCircle size={20}/>, color: "from-emerald-500 to-teal-400" },
-//   { label: "Uptime Support", value: 99, suffix: "%", icon: <Zap size={20}/>, color: "from-orange-500 to-red-400" },
-// ];
-
-// const Features = () => {
-//   return (
-//     <section className="py-24 relative bg-transparent overflow-hidden">
-//       <div className="container mx-auto px-6 relative z-10">
-//         <div className="flex flex-col lg:flex-row items-center gap-16">
-          
-//           {/* --- LEFT SIDE: ANIMATED IMAGE STACK --- */}
-//           <motion.div 
-//             initial={{ opacity: 0, x: -30 }}
-//             whileInView={{ opacity: 1, x: 0 }}
-//             className="w-full lg:w-1/2 relative"
-//           >
-//             {/* Decorative Background Glow */}
-//             <div className="absolute -top-10 -left-10 w-64 h-64 bg-blue-500/20 blur-[100px] rounded-full" />
-            
-//             <div className="relative group overflow-hidden rounded-[3rem] border border-slate-200 dark:border-white/10 shadow-2xl">
-//               <motion.img 
-//                 whileHover={{ scale: 1.05 }}
-//                 transition={{ duration: 0.6 }}
-//                 src="/0d377e8e49df986439e89f3d835d1439.jpg" 
-//                 alt="Datacenter Infrastructure"
-//                 className="w-full h-[500px] object-cover transition duration-700 group-hover:rotate-1"
-//               />
-//               {/* Glass Overlay on Image */}
-//               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-60" />
-              
-//               <div className="absolute bottom-10 left-10 right-10">
-//                 <motion.div 
-//                   initial={{ y: 20, opacity: 0 }}
-//                   whileInView={{ y: 0, opacity: 1 }}
-//                   className="p-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl"
-//                 >
-//                   <p className="text-white/70 text-xs font-bold uppercase tracking-widest mb-1">Current Focus</p>
-//                   <h4 className="text-white text-xl font-bold">Enterprise Cloud & Security Hosting</h4>
-//                 </motion.div>
-//               </div>
-//             </div>
-
-//             {/* Floating Achievement Card */}
-//             <motion.div 
-//               animate={{ y: [0, -15, 0] }}
-//               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-//               className="absolute -top-6 -right-6 p-5 bg-white dark:bg-slate-900 shadow-2xl rounded-2xl border border-slate-100 dark:border-white/5 hidden md:flex items-center gap-4"
-//             >
-//               <div className="w-12 h-12 bg-emerald-500/10 text-emerald-500 rounded-xl flex items-center justify-center">
-//                 <Shield size={24} />
-//               </div>
-//               <div>
-//                 <p className="text-[10px] font-black text-slate-400 uppercase tracking-tighter">Verified Provider</p>
-//                 <p className="text-sm font-bold dark:text-white">ISO 27001 Certified</p>
-//               </div>
-//             </motion.div>
-//           </motion.div>
-
-//           {/* --- RIGHT SIDE: STATS CONTENT --- */}
-//           <div className="w-full lg:w-1/2">
-//             <motion.div 
-//               initial={{ opacity: 0, y: 20 }}
-//               whileInView={{ opacity: 1, y: 0 }}
-//               className="mb-12"
-//             >
-//               <h3 className="text-blue-600 dark:text-cyan-400 font-bold uppercase tracking-[0.2em] text-xs mb-4">Why Choose Softlink?</h3>
-//               <h2 className="text-4xl md:text-5xl font-black tracking-tighter text-slate-900 dark:text-white leading-tight">
-//                 Empowering businesses with <br /> 
-//                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500">reliable tech stacks.</span>
-//               </h2>
-//             </motion.div>
-
-//             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-//               {stats.map((stat, i) => (
-//                 <StatCard key={i} {...stat} delay={i * 0.1} />
-//               ))}
-//             </div>
-//           </div>
-
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// const StatCard = ({ label, value, suffix, icon, color, delay }: any) => {
-//   const ref = useRef(null);
-//   const isInView = useInView(ref, { once: true });
-
-//   return (
-//     <motion.div
-//       ref={ref}
-//       initial={{ opacity: 0, scale: 0.9 }}
-//       whileInView={{ opacity: 1, scale: 1 }}
-//       transition={{ delay }}
-//       className="p-6 rounded-3xl bg-slate-50/50 dark:bg-slate-900/40 border border-slate-200 dark:border-white/5 group"
-//     >
-//       <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${color} flex items-center justify-center text-white mb-4 shadow-lg`}>
-//         {icon}
-//       </div>
-//       <div className="flex items-baseline gap-1">
-//         <span className="text-3xl font-black dark:text-white text-slate-900 tracking-tighter">
-//           {isInView ? <Counter from={0} to={value} /> : 0}
-//         </span>
-//         <span className="text-xl font-bold text-blue-500">{suffix}</span>
-//       </div>
-//       <p className="text-slate-500 dark:text-slate-400 font-bold text-[10px] uppercase tracking-widest mt-1">
-//         {label}
-//       </p>
-//     </motion.div>
-//   );
-// };
-
-// const Counter = ({ from, to }: { from: number; to: number }) => {
-//   const [count, setCount] = React.useState(from);
-//   React.useEffect(() => {
-//     if (count < to) {
-//       const timeout = setTimeout(() => setCount(count + Math.ceil(to / 50)), 30);
-//       return () => clearTimeout(timeout);
-//     }
-//   }, [count, to]);
-//   return <>{count > to ? to : count}</>;
-// };
-
-// export default Features;
-
 "use client";
-import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { Award, Users, CheckCircle, Shield, Zap } from 'lucide-react';
 
-const stats = [
-  { label: "Satisfied Clients", value: 1000, suffix: "+", icon: <Users size={20}/>, color: "from-[#0057FF] to-[#4DA6FF]" },
-  { label: "Expert Engineers", value: 25, suffix: "+", icon: <Award size={20}/>, color: "from-[#0A1628] to-[#1A3A6B]" },
-  { label: "Successful Projects", value: 1200, suffix: "+", icon: <CheckCircle size={20}/>, color: "from-[#0057FF] to-[#1A3A6B]" },
-  { label: "Uptime Support", value: 99, suffix: "%", icon: <Zap size={20}/>, color: "from-[#4DA6FF] to-[#0057FF]" },
+import React from "react";
+import { Star, Quote } from "lucide-react";
+
+// Expanded database array to create a completely seamless scrolling infinite loop loop
+const testimonials = [
+  {
+    name: "Amit Sharma",
+    role: "IT Manager, Mumbai",
+    text: "Softlink transformed our entire office setup with fast networking and reliable support. Truly professional service.",
+    rating: 5,
+  },
+  {
+    name: "Priya Desai",
+    role: "Business Owner, Pune",
+    text: "Their CCTV installation and monitoring system is top-notch. We feel much more secure now.",
+    rating: 5,
+  },
+  {
+    name: "Rahul Verma",
+    role: "Startup Founder",
+    text: "Excellent service for software licensing and IT rental. Very smooth experience and quick response time.",
+    rating: 5,
+  },
+  {
+    name: "Sneha Nair",
+    role: "Operations Head",
+    text: "Exceptional speed on data center migrating layout structures. Complete zero downtime achieved.",
+    rating: 5,
+  },
+  {
+    name: "Aniket Joshi",
+    role: "CTO, Tech Solutions",
+    text: "The infrastructure upgrading they conducted handled our scaling perfectly. Highly skilled engineers.",
+    rating: 5,
+  },
+  {
+    name: "Ritu Kapoor",
+    role: "Director, HR Agency",
+    text: "Unbeatable support desk assistance. They resolved our server anomalies within minutes.",
+    rating: 5,
+  },
 ];
 
-const Features = () => {
+const Testimonials = () => {
   return (
-    <section className="py-24 relative bg-transparent overflow-hidden">
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-16">
-          
-          {/* --- LEFT SIDE: ANIMATED IMAGE STACK --- */}
-          <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            className="w-full lg:w-1/2 relative"
-          >
-            {/* Branded Background Glow */}
-            <div className="absolute -top-10 -left-10 w-64 h-64 bg-[#0057FF]/10 blur-[100px] rounded-full" />
-            
-            <div className="relative group overflow-hidden rounded-[3rem] border border-slate-200 dark:border-[#0057FF]/20 shadow-2xl">
-              <motion.img 
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.6 }}
-                src="/a17e926721d214ed38986aa592f425ca.jpg" 
-                alt="Datacenter Infrastructure"
-                className="w-full h-[500px] object-cover transition duration-700 group-hover:rotate-1"
-              />
-              {/* Branded Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628]/90 via-transparent to-transparent opacity-70" />
-              
-              <div className="absolute bottom-10 left-10 right-10">
-                <motion.div 
-                  initial={{ y: 20, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  className="p-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl"
-                >
-                  <p className="text-[#4DA6FF] text-xs font-bold uppercase tracking-widest mb-1">Current Focus</p>
-                  <h4 className="text-white text-xl font-bold">Enterprise Cloud & Security Hosting</h4>
-                </motion.div>
-              </div>
-            </div>
+    <section className="relative py-24 bg-[#F8FAFC] dark:bg-[#030712] overflow-hidden transition-colors duration-300">
+      
+      {/* 🌐 MODERN TECH GRID BACKGROUND (Aceternity Aesthetic) */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-60 pointer-events-none" />
 
-            {/* Floating Achievement Card */}
-            <motion.div 
-              animate={{ y: [0, -15, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -top-6 -right-6 p-5 bg-white dark:bg-[#0A1628] shadow-2xl rounded-2xl border border-[#F0F4FF] dark:border-[#0057FF]/30 hidden md:flex items-center gap-4"
-            >
-              <div className="w-12 h-12 bg-[#0057FF]/10 text-[#0057FF] rounded-xl flex items-center justify-center">
-                <Shield size={24} />
-              </div>
-              <div>
-                <p className="text-[10px] font-black text-slate-400 uppercase tracking-tighter">Verified Provider</p>
-                <p className="text-sm font-bold dark:text-white">Professional IT Solutions</p>
-              </div>
-            </motion.div>
-          </motion.div>
+      {/* 🔵 HIGH-END BACKGROUND AMBIENT GLOW */}
+      <div className="absolute inset-0 pointer-events-none mix-blend-screen dark:mix-blend-normal">
+        <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-blue-500/10 dark:bg-blue-600/15 blur-[140px] rounded-full" />
+        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-cyan-400/10 dark:bg-cyan-500/10 blur-[140px] rounded-full" />
+      </div>
 
-          {/* --- RIGHT SIDE: STATS CONTENT --- */}
-          <div className="w-full lg:w-1/2">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              className="mb-12"
-            >
-              <h3 className="text-[#0057FF] dark:text-[#4DA6FF] font-bold uppercase tracking-[0.2em] text-xs mb-4">Why Choose Softlink?</h3>
-              <h2 className="text-4xl md:text-5xl font-black tracking-tighter text-[#0A1628] dark:text-white leading-tight">
-                Empowering businesses with <br /> 
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0057FF] via-[#4DA6FF] to-[#0057FF]">reliable tech stacks.</span>
-              </h2>
-            </motion.div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {stats.map((stat, i) => (
-                <StatCard key={i} {...stat} delay={i * 0.1} />
-              ))}
-            </div>
-          </div>
-
+      <div className="container mx-auto px-4 relative z-10">
+        
+        {/* HEADER */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight text-slate-900 dark:text-white">
+            What Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">Clients Say</span>
+          </h2>
+          <p className="text-slate-500 dark:text-slate-400 mt-4 text-base md:text-lg">
+            Real feedback from businesses we empower
+          </p>
         </div>
+
+        {/* 🚀 AUTOMATIC SCROLL SLIDER WINDOW */}
+        {/* Uses a linear gradient mask to smoothly fade cards away at the extreme top and bottom edges */}
+        <div className="relative h-[600px] w-full overflow-hidden [mask-image:linear-gradient(to_bottom,transparent_0%,#000_8%,#000_92%,transparent_100%)]">
+          
+          {/* 4-COLUMN ROW GRID DESKTOP CONTAINER */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 h-full w-full">
+            
+            {Array.from({ length: 4 }).map((_, colIdx) => (
+              <div 
+                key={colIdx} 
+                // hover:[animation-play-state:paused] tells the browser to freeze scrolling when hovering over a card
+                className="flex flex-col gap-6 animate-vertical-marquee hover:[animation-play-state:paused]"
+                style={{
+                  // Stagger velocities between alternating columns for organic movement
+                  animationDuration: colIdx % 2 === 0 ? "28s" : "22s",
+                  // Delay column entrance timings to completely offset linear alignments
+                  animationDelay: `${colIdx * -3}s`
+                }}
+              >
+                {/* Double the elements array to allow continuous looping seamlessly */}
+                {[...testimonials, ...testimonials].map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="w-full p-6 md:p-8 rounded-3xl bg-white/60 dark:bg-slate-950/40 backdrop-blur-xl border border-slate-200/60 dark:border-slate-800/80 shadow-[0_15px_35px_rgba(0,0,0,0.02)] dark:shadow-[0_15px_35px_rgba(0,0,0,0.2)] overflow-hidden relative transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/30 dark:hover:border-blue-400/30 group"
+                  >
+                    {/* Floating Background Quote Emblem */}
+                    <Quote className="absolute right-6 top-6 w-16 h-16 text-slate-200/30 dark:text-slate-800/15 transform pointer-events-none font-bold group-hover:rotate-6 transition-transform duration-500" />
+
+                    {/* Star Component */}
+                    <div className="flex gap-0.5 mb-4 relative z-10">
+                      {Array.from({ length: item.rating }).map((_, i) => (
+                        <Star key={i} size={14} className="text-amber-400 fill-amber-400" />
+                      ))}
+                    </div>
+
+                    {/* Testimonial Quote String Content */}
+                    <p className="relative z-10 text-sm md:text-base text-slate-700 dark:text-slate-200 font-medium leading-relaxed mb-6">
+                      “{item.text}”
+                    </p>
+
+                    {/* Footer Credentials */}
+                    <div className="relative z-10 pt-4 border-t border-slate-200/60 dark:border-slate-800/60 flex items-center justify-between gap-2">
+                      <div className="truncate">
+                        <h4 className="font-bold text-slate-900 dark:text-white text-sm tracking-tight truncate">
+                          {item.name}
+                        </h4>
+                        <p className="text-xs text-slate-500 dark:text-slate-400 truncate mt-0.5">
+                          {item.role}
+                        </p>
+                      </div>
+                      <div className="shrink-0 px-2.5 py-1 rounded-full bg-blue-500/10 dark:bg-blue-400/10 text-blue-600 dark:text-blue-400 text-[10px] font-bold uppercase tracking-wider">
+                        Verified
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ))}
+
+          </div>
+        </div>
+
       </div>
     </section>
   );
 };
 
-const StatCard = ({ label, value, suffix, icon, color, delay }: any) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, scale: 0.9 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ delay }}
-      className="p-6 rounded-3xl bg-[#F0F4FF]/50 dark:bg-[#1A3A6B]/20 border border-slate-200 dark:border-[#0057FF]/10 group hover:border-[#0057FF]/40 transition-colors"
-    >
-      <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${color} flex items-center justify-center text-white mb-4 shadow-lg shadow-[#0057FF]/20`}>
-        {icon}
-      </div>
-      <div className="flex items-baseline gap-1">
-        <span className="text-3xl font-black dark:text-white text-[#0A1628] tracking-tighter">
-          {isInView ? <Counter from={0} to={value} /> : 0}
-        </span>
-        <span className="text-xl font-bold text-[#0057FF]">{suffix}</span>
-      </div>
-      <p className="text-slate-500 dark:text-slate-400 font-bold text-[10px] uppercase tracking-widest mt-1">
-        {label}
-      </p>
-    </motion.div>
-  );
-};
-
-const Counter = ({ from, to }: { from: number; to: number }) => {
-  const [count, setCount] = React.useState(from);
-  React.useEffect(() => {
-    if (count < to) {
-      const increment = Math.ceil(to / 40);
-      const timeout = setTimeout(() => setCount(prev => Math.min(prev + increment, to)), 30);
-      return () => clearTimeout(timeout);
-    }
-  }, [count, to]);
-  return <>{count}</>;
-};
-
-export default Features;
+export default Testimonials;

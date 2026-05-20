@@ -645,32 +645,7 @@ const HardwarePage = () => {
   }, []);
 
   // ---------------- HARDWARE PRODUCTS ----------------
-  const products = [
-    {
-      name: "Business Laptops",
-      category: "Computing",
-      brand: "HP, Dell, Lenovo",
-      icon: <Monitor />,
-    },
-    {
-      name: "High-End Workstations",
-      category: "Performance",
-      brand: "HP Z-Series",
-      icon: <Cpu />,
-    },
-    {
-      name: "Enterprise Servers",
-      category: "Infrastructure",
-      brand: "Dell PowerEdge",
-      icon: <Server />,
-    },
-    {
-      name: "Network Storage",
-      category: "Data",
-      brand: "Synology / QNAP",
-      icon: <HardDrive />,
-    },
-  ];
+  
 
   // ---------------- SOFTWARE BRANDS ----------------
   const licenseBrands = [
@@ -773,33 +748,7 @@ const HardwarePage = () => {
 
         {/* HARDWARE GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
-          {products.map((p, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              whileHover={{ y: -10 }}
-              className="relative p-8 rounded-[2.5rem] bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-white/5 overflow-hidden group shadow-sm hover:shadow-xl transition-all"
-            >
-              <div className="w-14 h-14 rounded-2xl bg-white dark:bg-slate-800 text-indigo-600 flex items-center justify-center mb-10 shadow-lg border border-slate-100 dark:border-white/10 group-hover:bg-indigo-600 group-hover:text-white transition-all">
-                {p.icon}
-              </div>
-
-              <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">
-                {p.category}
-              </span>
-
-              <h3 className="text-2xl font-black text-slate-900 dark:text-white mt-1 mb-3">
-                {p.name}
-              </h3>
-
-              <p className="text-sm text-slate-500 dark:text-slate-300">
-                {p.brand}
-              </p>
-            </motion.div>
-          ))}
+          
         </div>
 
         {/* LICENSE BRANDS */}

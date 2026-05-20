@@ -311,6 +311,7 @@
 // );
 
 // export default Hero;
+
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -359,10 +360,29 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, [heroSlides.length]);
 
+  // ✅ FIXED SCROLL FUNCTION
+ const scrollToSection = (id: string) => {
+  const el = document.getElementById(id);
+
+  if (!el) {
+    console.log("Section not found:", id);
+    return;
+  }
+
+  const offset = 90; // navbar height
+  const top =
+    el.getBoundingClientRect().top + window.pageYOffset - offset;
+
+  window.scrollTo({
+    top,
+    behavior: "smooth",
+  });
+};
+
   return (
     <section className="relative min-h-[900px] w-full flex items-center justify-center overflow-hidden bg-[#F0F4FF] pt-24 pb-12">
       
-      {/* Background */}
+      {/* BACKGROUND */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 h-full w-full [background-image:radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:40px_40px] [mask-image:linear-gradient(to_bottom,white,transparent,white)]" />
 
@@ -377,7 +397,7 @@ const Hero = () => {
 
       <div className="container mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         
-        {/* Left Content */}
+        {/* LEFT */}
         <div className="max-w-2xl">
           
           <div className="flex items-center gap-2 mb-6">
@@ -387,57 +407,27 @@ const Hero = () => {
             </span>
           </div>
 
-          {/* Animated Title */}
+          {/* TITLE */}
           <AnimatePresence mode="wait">
             <motion.h1
               key={`title-${activeIndex}`}
-              initial={{
-                opacity: 0,
-                rotateX: -30,
-                y: 40,
-                scale: 0.95,
-                filter: "blur(10px)",
-              }}
-              animate={{
-                opacity: 1,
-                rotateX: 0,
-                y: 0,
-                scale: 1,
-                filter: "blur(0px)",
-              }}
-              exit={{
-                opacity: 0,
-                rotateX: 30,
-                y: -30,
-                scale: 1.05,
-                filter: "blur(10px)",
-              }}
-              transition={{
-                duration: 0.7,
-                ease: [0.16, 1, 0.3, 1],
-              }}
               className="text-4xl md:text-6xl lg:text-7xl font-black text-[#0A1628] mb-6 leading-[1.1]"
-              style={{ perspective: 1000 }}
             >
               {heroSlides[activeIndex].title}
             </motion.h1>
           </AnimatePresence>
 
-          {/* Animated Subtitle */}
+          {/* SUBTITLE */}
           <AnimatePresence mode="wait">
             <motion.p
               key={`subtitle-${activeIndex}`}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
               className="text-lg text-slate-600 mb-8 max-w-lg leading-relaxed"
             >
               {heroSlides[activeIndex].subtitle}
             </motion.p>
           </AnimatePresence>
 
-          {/* Dots */}
+          {/* DOTS */}
           <div className="flex gap-3 mt-6">
             {heroSlides.map((_, i) => (
               <motion.button
@@ -445,50 +435,47 @@ const Hero = () => {
                 onClick={() => setActiveIndex(i)}
                 animate={{
                   width: i === activeIndex ? 28 : 10,
-                  backgroundColor:
-                    i === activeIndex ? "#2563eb" : "#cbd5e1",
-                  scale: i === activeIndex ? 1.1 : 1,
+                  backgroundColor: i === activeIndex ? "#2563eb" : "#cbd5e1",
                 }}
-                transition={{ duration: 0.3 }}
                 className="h-2.5 rounded-full"
               />
             ))}
           </div>
+
+          {/* CTA BUTTONS */}
+          <div className="mt-8 flex flex-wrap gap-4">
+            
+            {/* ✅ FIXED BUTTON */}
+            <button
+              onClick={() => scrollToSection("services")}
+              className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full shadow-lg transition"
+            >
+              Get Services
+            </button>
+
+            <button
+              onClick={() => scrollToSection("contact")}
+              className="px-6 py-3 bg-white border border-blue-600 text-blue-600 font-bold rounded-full hover:bg-blue-50 transition"
+            >
+              Contact Us
+            </button>
+
+          </div>
+
         </div>
 
-        {/* Right Image */}
+        {/* RIGHT IMAGE */}
         <div className="relative flex justify-center">
-          
           <AnimatePresence mode="wait">
             <motion.img
               key={`image-${activeIndex}`}
               src={heroSlides[activeIndex].image}
-              alt={heroSlides[activeIndex].title}
-              initial={{
-                opacity: 0,
-                scale: 1.15,
-                rotateY: -20,
-                filter: "blur(10px)",
-              }}
-              animate={{
-                opacity: 1,
-                scale: 1,
-                rotateY: 0,
-                filter: "blur(0px)",
-              }}
-              exit={{
-                opacity: 0,
-                scale: 0.95,
-                rotateY: 20,
-                filter: "blur(10px)",
-              }}
-              transition={{ duration: 0.8 }}
+              alt="hero"
               className="w-full max-w-[520px] aspect-square object-cover rounded-[3rem] shadow-2xl"
-              style={{ perspective: 1200 }}
             />
           </AnimatePresence>
-
         </div>
+
       </div>
     </section>
   );

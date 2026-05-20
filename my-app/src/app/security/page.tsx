@@ -1325,25 +1325,7 @@ const HardwarePage = () => {
             </div>
 
             {/* POINTS */}
-            <div className="mt-8 space-y-3">
-              {[
-                "Fast Repair Service",
-                "Affordable Rentals",
-                "On-site Support",
-                "Quality Guaranteed",
-              ].map((item, i) => (
-                <div
-                  key={i}
-                  className="flex items-center gap-3 text-slate-700 dark:text-slate-300"
-                >
-                  <CheckCircle2
-                    className="text-blue-600"
-                    size={18}
-                  />
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
+           
 
             {/* BUTTONS */}
             <div className="flex flex-wrap gap-4 mt-10">

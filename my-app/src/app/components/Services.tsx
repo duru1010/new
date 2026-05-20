@@ -186,7 +186,10 @@ const services = [
 
 const Services = () => {
   return (
-    <section className="py-24 bg-[#F0F4FF] dark:bg-[#0A1628] transition-colors duration-700">
+   <section
+  id="services"
+  className="py-24 bg-[#F0F4FF] dark:bg-[#0A1628] transition-colors duration-700"
+>
       <div className="container mx-auto px-6">
         
         {/* Section Header */}
@@ -205,7 +208,7 @@ const Services = () => {
         </div>
 
         {/* 3-Card Grid Arrangement */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <motion.div
               key={index}

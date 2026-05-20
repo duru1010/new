@@ -6,7 +6,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { 
   Zap, Shield, Cpu, ArrowRight, Activity, 
   Check, Globe, Layers, CloudLightning, 
-  Headphones, MousePointer2, Smartphone
+  Headphones, MousePointer2, Smartphone,
+  Link,
+  ArrowLeft
 } from "lucide-react";
 
 // ================= THEME CONSTANTS =================
@@ -63,13 +65,19 @@ export default function VoltFiberUltra() {
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-[#020617] text-slate-900 dark:text-white selection:bg-sky-500/30">
-      
+        <Link
+            href="/networking"
+            className="inline-flex items-center gap-2 text-blue-600 font-bold mb-8"
+          >
+            <ArrowLeft size={18} />
+            Back To Services
+          </Link>
       {/* --- VOID BACKGROUND EFFECTS --- */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
         <div className="absolute top-[-15%] left-[-10%] w-[800px] h-[800px] bg-sky-500/10 blur-[140px] rounded-full animate-pulse" />
         <div className="absolute bottom-[-20%] right-[-10%] w-[900px] h-[900px] bg-blue-600/10 blur-[160px] rounded-full" />
       </div>
-
+     
       {/* --- GLASS NAVIGATION --- */}
       
       {/* --- HERO: KINETIC ENERGY --- */}
