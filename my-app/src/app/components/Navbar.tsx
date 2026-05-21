@@ -2244,7 +2244,7 @@ const Navbar = () => {
               "
             >
               {/* HEADER */}
-              <div className="sticky top-0 z-20 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-white/10 px-5 sm:px-8 py-5">
+              <div className="sticky top-0 z-20 bg-white bg-blue-600  border-b border-slate-200 dark:border-white/10 px-5 sm:px-8 py-5">
                 <button
                   onClick={() => setShowForm(false)}
                   className="absolute top-5 right-5 text-slate-400 hover:text-slate-700 dark:hover:text-white transition-colors"
@@ -2252,7 +2252,7 @@ const Navbar = () => {
                   <X size={24} />
                 </button>
 
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-[10px] sm:text-xs font-black uppercase tracking-[0.2em] mb-3 border border-indigo-500/20">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-indigo-500/10 text-blue-600 dark:text-blue-400 text-[10px] sm:text-xs font-black uppercase tracking-[0.2em] mb-3 border border-indigo-500/20">
                   <ShoppingBag size={15} />
                    Quote Request
                 </div>
@@ -2452,7 +2452,7 @@ const Navbar = () => {
     <button
       type="button"
       onClick={sendOtp}
-      className="absolute right-2 top-1/2 -translate-y-1/2 px-3 py-2 bg-indigo-600 text-white text-xs rounded-xl"
+      className="absolute right-2 top-1/2 -translate-y-1/2 px-3 py-2 bg-blue-600  text-white text-xs rounded-xl"
     >
       Send OTP
     </button>
@@ -2534,7 +2534,7 @@ const Navbar = () => {
   {/* SUBMIT */}
   <button
     type="submit"
-    className="w-full py-4 bg-indigo-600 text-white font-bold rounded-2xl"
+    className="w-full py-4 bg-blue-600 text-white font-bold rounded-2xl"
   >
     Submit Rental Request
   </button>

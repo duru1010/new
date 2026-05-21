@@ -28,58 +28,104 @@ import {
 export default function QuickHealPage() {
   const [billing, setBilling] = useState("yearly");
   const [isModalOpen, setIsModalOpen] = useState(false);
+const plans = [
+  {
+    name: "Adobe Photoshop Starter",
+    badge: "Starter",
+    priceMonthly: "₹799",
+    priceYearly: "₹8,999",
+    desc: "Perfect for beginners and basic photo editing projects.",
+    color: "from-blue-500 to-blue-700",
+    features: [
+      "Photo Editing Tools",
+      "Basic Retouching",
+      "Layer Support",
+      "AI Generative Fill",
+      "Cloud Storage",
+    ],
+  },
 
-  const plans = [
-    {
-      name: "Quick Heal Basic",
-      badge: "Lite",
-      priceMonthly: "₹499",
-      priceYearly: "₹4,999",
-      desc: "Essential antivirus protection for personal and small business devices.",
-      color: "from-blue-500 to-cyan-400",
-      features: [
-        "Real-Time Protection",
-        "Virus & Malware Scan",
-        "Safe Banking",
-        "Web Protection",
-        "Email Security",
-      ],
-    },
+  {
+    name: "Adobe Photoshop Pro",
+    badge: "Popular",
+    priceMonthly: "₹1,499",
+    priceYearly: "₹15,999",
+    desc: "Professional editing suite for designers, photographers and creators.",
+    color: "from-blue-600 to-cyan-500",
+    popular: true,
+    features: [
+      "Advanced Retouching",
+      "AI Image Generation",
+      "Premium Filters",
+      "RAW File Editing",
+      "Multi Device Access",
+    ],
+  },
 
-    {
-      name: "Quick Heal Total Security",
-      badge: "Prime",
-      priceMonthly: "₹999",
-      priceYearly: "₹10,999",
-      desc: "Advanced cyber security suite for modern businesses and enterprises.",
-      color: "from-cyan-500 to-blue-600",
-      popular: true,
-      features: [
-        "Advanced Threat Defense",
-        "Ransomware Protection",
-        "Firewall Security",
-        "Identity Protection",
-        "Multi Device Support",
-      ],
-    },
+  {
+    name: "Adobe Creative Cloud",
+    badge: "Creative",
+    priceMonthly: "₹2,499",
+    priceYearly: "₹26,999",
+    desc: "Complete Adobe creative suite with Photoshop, Illustrator and more.",
+    color: "from-cyan-500 to-blue-700",
+    features: [
+      "Photoshop Included",
+      "Illustrator Included",
+      "Premiere Pro Included",
+      "Cloud Sync",
+      "Adobe Fonts Access",
+    ],
+  },
 
-    {
-      name: "Quick Heal Enterprise",
-      badge: "Mega",
-      priceMonthly: "₹2,499",
-      priceYearly: "₹28,999",
-      desc: "Enterprise-grade cybersecurity infrastructure with centralized management.",
-      color: "from-sky-400 to-blue-700",
-      features: [
-        "Enterprise Endpoint Security",
-        "Centralized Dashboard",
-        "Cloud Protection",
-        "Data Loss Prevention",
-        "Priority Support",
-      ],
-    },
-  ];
+  {
+    name: "Adobe Photoshop Business",
+    badge: "Business",
+    priceMonthly: "₹3,499",
+    priceYearly: "₹36,999",
+    desc: "Business-ready creative tools for agencies and design teams.",
+    color: "from-blue-500 to-sky-500",
+    features: [
+      "Team Collaboration",
+      "Enterprise Storage",
+      "Admin Console",
+      "Shared Libraries",
+      "Commercial Licensing",
+    ],
+  },
 
+  {
+    name: "Adobe Photoshop Enterprise",
+    badge: "Enterprise",
+    priceMonthly: "₹5,999",
+    priceYearly: "₹64,999",
+    desc: "Enterprise-grade Adobe creative ecosystem with advanced management.",
+    color: "from-blue-700 to-cyan-400",
+    features: [
+      "Enterprise Security",
+      "Creative Cloud Suite",
+      "Advanced Asset Management",
+      "Priority Support",
+      "Unlimited Collaboration",
+    ],
+  },
+
+  {
+    name: "Adobe Photoshop AI Studio",
+    badge: "AI Powered",
+    priceMonthly: "₹4,499",
+    priceYearly: "₹48,999",
+    desc: "AI-powered image editing and design workflow for modern creators.",
+    color: "from-sky-500 to-blue-800",
+    features: [
+      "AI Generative Fill",
+      "AI Background Removal",
+      "Smart Object Editing",
+      "AI Design Suggestions",
+      "Ultra HD Export",
+    ],
+  },
+];
   const features = [
     {
       icon: <Shield size={24} />,
@@ -173,178 +219,141 @@ export default function QuickHealPage() {
       <div className="min-h-screen bg-[#F4F9FF] dark:bg-[#07111F] text-slate-900 dark:text-white overflow-hidden">
         {/* HERO */}
         <section className="relative pt-40 pb-24 overflow-hidden">
-          {/* BG EFFECTS */}
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-cyan-500/10 to-sky-400/10" />
+  {/* BG EFFECTS */}
+  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-cyan-500/10 to-sky-400/10" />
 
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/20 blur-3xl rounded-full" />
+  <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/20 blur-3xl rounded-full" />
 
-          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-cyan-400/20 blur-3xl rounded-full" />
+  <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-cyan-400/20 blur-3xl rounded-full" />
 
-          <div className="container mx-auto px-6 relative z-10">
-            <div className="grid lg:grid-cols-2 gap-14 items-center">
-              {/* LEFT */}
-              <div>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 text-sm font-bold mb-8 backdrop-blur-xl"
-                >
-                  <ShieldCheck size={16} />
-                  Quick Heal Certified Security
-                </motion.div>
+  <div className="container mx-auto px-6 relative z-10">
+    <div className="grid lg:grid-cols-2 gap-14 items-center">
+      {/* LEFT */}
+      <div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 text-sm font-bold mb-8 backdrop-blur-xl"
+        >
+          <Sparkles size={16} />
+          Adobe Certified Creative Suite
+        </motion.div>
 
-                <motion.h1
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 }}
-                  className="text-5xl md:text-7xl font-black leading-none tracking-tight mb-8"
-                >
-                  Quick Heal
-                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-500 to-sky-400">
-                    Cyber Security
-                  </span>
-                </motion.h1>
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="text-5xl md:text-7xl font-black leading-none tracking-tight mb-8"
+        >
+          Adobe
+          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-500 to-sky-400">
+            Photoshop Suite
+          </span>
+        </motion.h1>
 
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.2 }}
-                  className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl"
-                >
-                  Protect your devices, business infrastructure and sensitive
-                  data with advanced Quick Heal cybersecurity solutions.
-                </motion.p>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl"
+        >
+          Create stunning graphics, professional photo edits and AI-powered
+          digital artwork with Adobe Photoshop creative solutions.
+        </motion.p>
 
-                {/* BUTTONS */}
-                <div className="flex flex-wrap gap-4 mt-10">
-                  <button
-                    onClick={() => setIsModalOpen(true)}
-                    className="px-8 py-4 rounded-2xl bg-blue-600 hover:bg-cyan-500 text-white font-bold flex items-center gap-2 transition-all duration-300 shadow-2xl shadow-blue-500/40 hover:scale-105"
-                  >
-                    Get Protected
-                    <ArrowRight size={18} />
-                  </button>
+        {/* BUTTONS */}
+        <div className="flex flex-wrap gap-4 mt-10">
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="px-8 py-4 rounded-2xl bg-blue-600 hover:bg-cyan-500 text-white font-bold flex items-center gap-2 transition-all duration-300 shadow-2xl shadow-blue-500/40 hover:scale-105"
+          >
+            Get Started
+            <ArrowRight size={18} />
+          </button>
 
-                  <Link
-                    href="#plans"
-                    className="px-8 py-4 rounded-2xl border border-slate-300 dark:border-white/10 hover:border-blue-500 font-bold transition-all backdrop-blur-xl"
-                  >
-                    View Plans
-                  </Link>
-                </div>
+          <Link
+            href="#plans"
+            className="px-8 py-4 rounded-2xl border border-slate-300 dark:border-white/10 hover:border-blue-500 font-bold transition-all backdrop-blur-xl"
+          >
+            View Plans
+          </Link>
+        </div>
 
-                {/* STATS */}
-                <div className="grid grid-cols-3 gap-4 mt-10">
-                  {[
-                    { value: "99.9%", label: "Threat Detection" },
-                    { value: "24/7", label: "Monitoring" },
-                    { value: "10K+", label: "Protected Devices" },
-                  ].map((item, index) => (
-                    <motion.div
-                      key={index}
-                      whileHover={{ y: -5 }}
-                      className="p-5 rounded-[2rem] bg-white/80 dark:bg-[#0D1728]/80 backdrop-blur-2xl border border-slate-200 dark:border-white/10 shadow-xl"
-                    >
-                      <h3 className="text-2xl font-black">
-                        {item.value}
-                      </h3>
+        {/* STATS */}
+        <div className="grid grid-cols-3 gap-4 mt-10">
+          {[
+            { value: "4K+", label: "Creative Assets" },
+            { value: "24/7", label: "Cloud Sync" },
+            { value: "50K+", label: "Designers" },
+          ].map((item, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ y: -5 }}
+              className="p-5 rounded-[2rem] bg-white/80 dark:bg-[#0D1728]/80 backdrop-blur-2xl border border-slate-200 dark:border-white/10 shadow-xl"
+            >
+              <h3 className="text-2xl font-black">
+                {item.value}
+              </h3>
 
-                      <p className="text-xs uppercase tracking-[0.2em] font-bold text-slate-500 mt-2">
-                        {item.label}
-                      </p>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
+              <p className="text-xs uppercase tracking-[0.2em] font-bold text-slate-500 mt-2">
+                {item.label}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
 
-              {/* RIGHT */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.3 }}
-                className="relative"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-400 blur-3xl opacity-30 rounded-full" />
+      {/* RIGHT */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.3 }}
+        className="relative"
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-400 blur-3xl opacity-30 rounded-full" />
 
-                <div className="relative rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl">
-                  <Image
-                    src="/3b68ecaac42370efe5a73a830219f9a5.jpg"
-                    alt="Quick Heal Security"
-                    width={900}
-                    height={700}
-                    className="w-full h-[520px] object-cover"
-                  />
-                </div>
+        <div className="relative rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl">
+          <Image
+            src="/3b68ecaac42370efe5a73a830219f9a5.jpg"
+            alt="Adobe Photoshop"
+            width={900}
+            height={700}
+            className="w-full h-[520px] object-cover"
+          />
+        </div>
 
-                {/* FLOATING CARD */}
-                <motion.div
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                  }}
-                  className="absolute -bottom-8 -left-5 bg-white dark:bg-[#0D1728] rounded-[2rem] p-5 shadow-2xl border border-slate-200 dark:border-white/10"
-                >
-                  <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-400 flex items-center justify-center text-white shadow-xl shadow-blue-500/40">
-                      <Sparkles size={24} />
-                    </div>
-
-                    <div>
-                      <p className="font-black text-slate-900 dark:text-white">
-                        AI Threat Detection
-                      </p>
-
-                      <p className="text-sm text-slate-500">
-                        Malware • Ransomware • Spyware
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              </motion.div>
+        {/* FLOATING CARD */}
+        <motion.div
+          animate={{ y: [0, -10, 0] }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+          }}
+          className="absolute -bottom-8 -left-5 bg-white dark:bg-[#0D1728] rounded-[2rem] p-5 shadow-2xl border border-slate-200 dark:border-white/10"
+        >
+          <div className="flex items-center gap-4">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-400 flex items-center justify-center text-white shadow-xl shadow-blue-500/40">
+              <Sparkles size={24} />
             </div>
-          </div>
-        </section>
 
-        {/* FEATURES */}
-        <section className="py-24">
-          <div className="container mx-auto px-6">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-4xl md:text-5xl font-black mb-6">
-                Advanced Cyber Protection
-              </h2>
+            <div>
+              <p className="font-black text-slate-900 dark:text-white">
+                AI Creative Tools
+              </p>
 
-              <p className="text-slate-600 dark:text-slate-300 text-lg leading-relaxed">
-                Enterprise-grade antivirus, ransomware protection and business
-                cybersecurity solutions.
+              <p className="text-sm text-slate-500">
+                Editing • Retouching • Design
               </p>
             </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {features.map((feature, idx) => (
-                <motion.div
-                  key={idx}
-                  whileHover={{ y: -12, scale: 1.02 }}
-                  className="p-8 rounded-[2rem] bg-white/80 dark:bg-[#0D1728]/80 backdrop-blur-2xl border border-slate-200 dark:border-white/10 shadow-lg hover:shadow-[0_0_40px_rgba(59,130,246,0.25)] transition-all duration-500"
-                >
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-400 text-white flex items-center justify-center mb-6 shadow-lg shadow-blue-500/40">
-                    {feature.icon}
-                  </div>
-
-                  <h3 className="text-2xl font-black mb-3">
-                    {feature.title}
-                  </h3>
-
-                  <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                    {feature.desc}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
           </div>
-        </section>
+        </motion.div>
+      </motion.div>
+    </div>
+  </div>
+</section>
 
-        {/* PLANS */}
+
+
         <section id="plans" className="py-24">
           <div className="container mx-auto px-6">
             <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 mb-16">
@@ -458,6 +467,47 @@ export default function QuickHealPage() {
             </div>
           </div>
         </section>
+
+        {/* FEATURES */}
+        <section className="py-24">
+          <div className="container mx-auto px-6">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="text-4xl md:text-5xl font-black mb-6">
+                Advanced Cyber Protection
+              </h2>
+
+              <p className="text-slate-600 dark:text-slate-300 text-lg leading-relaxed">
+                Enterprise-grade antivirus, ransomware protection and business
+                cybersecurity solutions.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {features.map((feature, idx) => (
+                <motion.div
+                  key={idx}
+                  whileHover={{ y: -12, scale: 1.02 }}
+                  className="p-8 rounded-[2rem] bg-white/80 dark:bg-[#0D1728]/80 backdrop-blur-2xl border border-slate-200 dark:border-white/10 shadow-lg hover:shadow-[0_0_40px_rgba(59,130,246,0.25)] transition-all duration-500"
+                >
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-400 text-white flex items-center justify-center mb-6 shadow-lg shadow-blue-500/40">
+                    {feature.icon}
+                  </div>
+
+                  <h3 className="text-2xl font-black mb-3">
+                    {feature.title}
+                  </h3>
+
+                  <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
+                    {feature.desc}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* PLANS */}
+        
       </div>
 
       {/* MODAL */}

@@ -118,31 +118,6 @@ export default function HardwareUpgradePage() {
 
   // ================= WHY CHOOSE US =================
 
-  const whyChoose = [
-    {
-      icon: <Cpu size={20} />,
-      title: "Latest Hardware",
-      desc: "We provide genuine latest generation hardware components.",
-    },
-
-    {
-      icon: <ShieldCheck size={20} />,
-      title: "Warranty Support",
-      desc: "All hardware upgrades come with reliable warranty support.",
-    },
-
-    {
-      icon: <Package size={20} />,
-      title: "Bulk Upgrade Solutions",
-      desc: "Upgrade office and corporate systems in bulk easily.",
-    },
-
-    {
-      icon: <Headphones size={20} />,
-      title: "Expert Support",
-      desc: "Professional installation with quick customer support.",
-    },
-  ];
 
   // ================= SERVICES =================
 
@@ -306,31 +281,7 @@ export default function HardwareUpgradePage() {
 
       {/* ================= WHY CHOOSE ================= */}
 
-      <section className="py-24 bg-slate-50 dark:bg-slate-900/30">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {whyChoose.map((item, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ y: -8 }}
-                className="p-8 rounded-[2rem] bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/5"
-              >
-                <div className="w-14 h-14 rounded-2xl bg-blue-600 text-white flex items-center justify-center mb-6">
-                  {item.icon}
-                </div>
-
-                <h3 className="text-xl font-black text-slate-900 dark:text-white mb-4">
-                  {item.title}
-                </h3>
-
-                <p className="text-slate-500 dark:text-slate-400 leading-relaxed">
-                  {item.desc}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       {/* ================= UPGRADE PRODUCTS ================= */}
 

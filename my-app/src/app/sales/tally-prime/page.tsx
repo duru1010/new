@@ -34,7 +34,7 @@ export default function TallyPrimePage() {
       priceMonthly: "₹750",
       priceYearly: "₹9,000",
       desc: "Single-user accounting solution for startups and small businesses.",
-      color: "from-[#00BFFF] to-[#0080FF]",
+      color: "from-blue-500 to-blue-700",
       features: [
         "Single User Access",
         "GST Billing",
@@ -50,7 +50,7 @@ export default function TallyPrimePage() {
       priceMonthly: "₹1,850",
       priceYearly: "₹21,600",
       desc: "Multi-user business accounting solution for growing enterprises.",
-      color: "from-[#0080FF] to-[#005BFF]",
+      color: "from-blue-600 to-blue-800",
       popular: true,
       features: [
         "Multi User Access",
@@ -67,7 +67,7 @@ export default function TallyPrimePage() {
       priceMonthly: "₹3,250",
       priceYearly: "₹38,000",
       desc: "Enterprise-grade accounting and inventory management platform.",
-      color: "from-[#005BFF] to-[#003CFF]",
+      color: "from-blue-700 to-blue-900",
       features: [
         "Enterprise Security",
         "Branch Management",
@@ -75,6 +75,26 @@ export default function TallyPrimePage() {
         "Advanced Reporting",
         "Priority Support",
       ],
+    },
+  ];
+
+  const tallySecurityProducts = [
+    {
+      title: "Tally Ultimate Security 1 User Lifetime Validity",
+      price: "₹25,517",
+      oldPrice: "₹27,000",
+      discount: "5% OFF",
+      image: "/software-service-tss-silver-tally-original-imahgwymvavthgdv.webp",
+      tag: "Lifetime",
+    },
+
+    {
+      title: "Tally Total Security 1 User 1 Year (Renewal)",
+      price: "₹5,777",
+      oldPrice: "₹6,000",
+      discount: "3% OFF",
+      image: "/software-service-tss-gold-tally-original-imahgwymvavthgdv.webp",
+      tag: "Renewal",
     },
   ];
 
@@ -168,14 +188,14 @@ export default function TallyPrimePage() {
 
   return (
     <>
-      <div className="min-h-screen bg-[#F8FBFF] dark:bg-[#020617] text-slate-900 dark:text-white overflow-hidden">
+      <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white overflow-hidden">
         {/* HERO */}
         <section className="relative pt-40 pb-24 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#00BFFF]/10 via-[#0080FF]/10 to-[#005BFF]/10" />
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-100/40 via-blue-200/20 to-blue-300/20 dark:from-blue-900/20 dark:via-blue-800/10 dark:to-blue-700/10" />
 
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#0080FF]/20 blur-3xl rounded-full" />
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/20 blur-3xl rounded-full" />
 
-          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#00BFFF]/20 blur-3xl rounded-full" />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/20 blur-3xl rounded-full" />
 
           <div className="container mx-auto px-6 relative z-10">
             <div className="grid lg:grid-cols-2 gap-14 items-center">
@@ -184,7 +204,7 @@ export default function TallyPrimePage() {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#0080FF]/10 border border-[#0080FF]/20 text-[#0080FF] text-sm font-bold mb-8 backdrop-blur-xl"
+                  className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-blue-600/10 border border-blue-600/20 text-blue-600 text-sm font-bold mb-8 backdrop-blur-xl"
                 >
                   <Briefcase size={16} />
                   Tally Certified Solutions
@@ -197,7 +217,7 @@ export default function TallyPrimePage() {
                   className="text-5xl md:text-7xl font-black leading-none tracking-tight mb-8"
                 >
                   Tally
-                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#00BFFF] via-[#0080FF] to-[#005BFF]">
+                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700">
                     Prime Solutions
                   </span>
                 </motion.h1>
@@ -216,7 +236,7 @@ export default function TallyPrimePage() {
                 <div className="flex flex-wrap gap-4 mt-10">
                   <button
                     onClick={() => setIsModalOpen(true)}
-                    className="px-8 py-4 rounded-2xl bg-[#0080FF] hover:bg-[#005BFF] text-white font-bold flex items-center gap-2 transition-all duration-300 shadow-2xl shadow-[#0080FF]/40 hover:scale-105"
+                    className="px-8 py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold flex items-center gap-2 transition-all duration-300 shadow-2xl shadow-blue-600/40 hover:scale-105"
                   >
                     Get Started
                     <ArrowRight size={18} />
@@ -224,7 +244,7 @@ export default function TallyPrimePage() {
 
                   <Link
                     href="#plans"
-                    className="px-8 py-4 rounded-2xl border border-slate-300 dark:border-white/10 hover:border-[#0080FF] font-bold transition-all backdrop-blur-xl"
+                    className="px-8 py-4 rounded-2xl border border-slate-300 dark:border-white/10 hover:border-blue-600 font-bold transition-all backdrop-blur-xl"
                   >
                     View Plans
                   </Link>
@@ -238,7 +258,7 @@ export default function TallyPrimePage() {
                 transition={{ delay: 0.3 }}
                 className="relative"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-[#00BFFF] to-[#005BFF] blur-3xl opacity-30 rounded-full" />
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-700 blur-3xl opacity-30 rounded-full" />
 
                 <div className="relative rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl">
                   <Image
@@ -250,6 +270,98 @@ export default function TallyPrimePage() {
                   />
                 </div>
               </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* SECURITY PRODUCTS */}
+        <section className="py-24 bg-white dark:bg-slate-900">
+          <div className="container mx-auto px-6">
+            <div className="max-w-3xl mb-16">
+              <h2 className="text-4xl md:text-5xl font-black mb-6">
+                Tally Security Products
+              </h2>
+
+              <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+                Secure your Tally software with lifetime validity and renewal
+                protection plans.
+              </p>
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-8">
+              {tallySecurityProducts.map((product, idx) => (
+                <motion.div
+                  key={idx}
+                  whileHover={{ y: -10, scale: 1.02 }}
+                  className="group rounded-[2.5rem] overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 shadow-2xl"
+                >
+                  <div className="relative overflow-hidden">
+                    <Image
+                      src={product.image}
+                      alt={product.title}
+                      width={800}
+                      height={500}
+                      className="w-full h-[280px] object-cover group-hover:scale-105 transition-all duration-500"
+                    />
+
+                    <div className="absolute top-5 left-5 px-4 py-2 rounded-full bg-gradient-to-r from-blue-500 to-blue-700 text-white text-xs font-black uppercase tracking-widest shadow-lg">
+                      {product.tag}
+                    </div>
+                  </div>
+
+                  <div className="p-8">
+                    <div className="flex items-center gap-2 text-blue-600 mb-4">
+                      <ShieldCheck size={20} />
+                      <span className="font-bold uppercase tracking-widest text-xs">
+                        Security Voucher
+                      </span>
+                    </div>
+
+                    <h3 className="text-2xl font-black leading-snug mb-6">
+                      {product.title}
+                    </h3>
+
+                    <div className="flex items-center gap-4 mb-8 flex-wrap">
+                      <div className="text-4xl font-black text-blue-700">
+                        {product.price}
+                      </div>
+
+                      <div className="text-xl line-through text-slate-400">
+                        {product.oldPrice}
+                      </div>
+
+                      <div className="px-4 py-2 rounded-full bg-green-100 text-green-700 text-sm font-black">
+                        {product.discount}
+                      </div>
+                    </div>
+
+                    <div className="space-y-4 mb-8">
+                      <div className="flex items-center gap-3">
+                        <Check size={18} className="text-blue-600 shrink-0" />
+                        <span>Advanced Data Security</span>
+                      </div>
+
+                      <div className="flex items-center gap-3">
+                        <Check size={18} className="text-blue-600 shrink-0" />
+                        <span>Business Protection Coverage</span>
+                      </div>
+
+                      <div className="flex items-center gap-3">
+                        <Check size={18} className="text-blue-600 shrink-0" />
+                        <span>Reliable Renewal Support</span>
+                      </div>
+                    </div>
+
+                    <button
+                      onClick={() => setIsModalOpen(true)}
+                      className="w-full py-4 rounded-2xl bg-gradient-to-r from-blue-500 to-blue-700 text-white font-bold flex items-center justify-center gap-2 shadow-2xl shadow-blue-600/30 hover:scale-[1.02] transition-all duration-300"
+                    >
+                      Buy Now
+                      <ArrowRight size={18} />
+                    </button>
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
@@ -273,9 +385,9 @@ export default function TallyPrimePage() {
                 <motion.div
                   key={idx}
                   whileHover={{ y: -12, scale: 1.02 }}
-                  className="p-8 rounded-[2rem] bg-white/80 dark:bg-[#071028]/80 backdrop-blur-2xl border border-slate-200 dark:border-white/10 shadow-lg hover:shadow-[0_0_40px_rgba(0,128,255,0.2)] transition-all duration-500"
+                  className="p-8 rounded-[2rem] bg-white dark:bg-slate-900 backdrop-blur-2xl border border-slate-200 dark:border-white/10 shadow-lg hover:shadow-[0_0_40px_rgba(37,99,235,0.25)] transition-all duration-500"
                 >
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#00BFFF] to-[#005BFF] text-white flex items-center justify-center mb-6 shadow-lg shadow-[#0080FF]/40">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 text-white flex items-center justify-center mb-6 shadow-lg shadow-blue-600/40">
                     {feature.icon}
                   </div>
 
@@ -292,171 +404,8 @@ export default function TallyPrimePage() {
           </div>
         </section>
 
-        {/* CATALOG */}
-        <section className="py-24 bg-slate-50 dark:bg-[#071028]/40">
-          <div className="container mx-auto px-6">
-            <div className="max-w-3xl mb-16">
-              <h2 className="text-4xl md:text-5xl font-black mb-6">
-                Tally Prime Catalog
-              </h2>
-
-              <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-                Explore accounting, GST billing and enterprise management
-                features included in Tally Prime.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              {catalog.map((cat, idx) => (
-                <motion.div
-                  key={idx}
-                  whileHover={{ y: -10 }}
-                  className="p-10 rounded-[2.5rem] bg-white/80 dark:bg-[#071028]/80 backdrop-blur-2xl border border-slate-200 dark:border-white/10 shadow-xl hover:shadow-[0_0_50px_rgba(0,128,255,0.25)] transition-all duration-500"
-                >
-                  <div className="flex items-center gap-4 mb-8">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#00BFFF] to-[#005BFF] text-white flex items-center justify-center shadow-xl shadow-[#0080FF]/40">
-                      {cat.icon}
-                    </div>
-
-                    <h3 className="text-3xl font-black">{cat.title}</h3>
-                  </div>
-
-                  <div className="space-y-4">
-                    {cat.items.map((item, i) => (
-                      <div
-                        key={i}
-                        className="flex items-center gap-3 p-4 rounded-2xl bg-slate-100 dark:bg-slate-900"
-                      >
-                        <div className="w-6 h-6 rounded-full bg-[#0080FF]/10 text-[#0080FF] flex items-center justify-center shrink-0">
-                          <Check size={14} />
-                        </div>
-
-                        <span className="font-medium text-slate-700 dark:text-slate-200">
-                          {item}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* PLANS */}
-        <section id="plans" className="py-24">
-          <div className="container mx-auto px-6">
-            <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 mb-16">
-              <div>
-                <h2 className="text-4xl md:text-5xl font-black mb-4">
-                  Choose Your Plan
-                </h2>
-
-                <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl">
-                  Flexible Tally Prime plans for startups, SMEs and enterprises.
-                </p>
-              </div>
-
-              {/* TOGGLE */}
-              <div className="flex items-center gap-2 bg-slate-100 dark:bg-slate-900 p-2 rounded-2xl">
-                <button
-                  onClick={() => setBilling("monthly")}
-                  className={`px-6 py-3 rounded-xl font-bold transition-all ${
-                    billing === "monthly"
-                      ? "bg-[#0080FF] text-white"
-                      : "text-slate-600 dark:text-slate-300"
-                  }`}
-                >
-                  Monthly
-                </button>
-
-                <button
-                  onClick={() => setBilling("yearly")}
-                  className={`px-6 py-3 rounded-xl font-bold transition-all ${
-                    billing === "yearly"
-                      ? "bg-[#0080FF] text-white"
-                      : "text-slate-600 dark:text-slate-300"
-                  }`}
-                >
-                  Yearly
-                </button>
-              </div>
-            </div>
-
-            {/* PLAN CARDS */}
-            <div className="grid lg:grid-cols-3 gap-8">
-              {plans.map((plan, idx) => (
-                <motion.div
-                  key={idx}
-                  whileHover={{ y: -12, scale: 1.02 }}
-                  className={`relative rounded-[2.5rem] overflow-hidden border hover:shadow-[0_0_50px_rgba(0,128,255,0.35)] transition-all duration-500 ${
-                    plan.popular
-                      ? "border-[#0080FF] shadow-2xl shadow-[#0080FF]/20"
-                      : "border-slate-200 dark:border-white/10"
-                  } bg-white/80 dark:bg-[#071028]/80 backdrop-blur-2xl`}
-                >
-                  {plan.popular && (
-                    <div className="absolute top-5 right-5 px-4 py-2 rounded-full bg-gradient-to-r from-[#00BFFF] to-[#005BFF] text-white text-xs font-black uppercase tracking-widest flex items-center gap-2">
-                      <Crown size={14} />
-                      Most Popular
-                    </div>
-                  )}
-
-                  <div className={`h-2 bg-gradient-to-r ${plan.color}`} />
-
-                  <div className="p-10">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-sm font-bold mb-6">
-                      <Zap size={14} />
-                      {plan.badge}
-                    </div>
-
-                    <h3 className="text-3xl font-black leading-tight mb-4">
-                      {plan.name}
-                    </h3>
-
-                    <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
-                      {plan.desc}
-                    </p>
-
-                    <div className="mb-8">
-                      <span className="text-5xl font-black">
-                        {billing === "monthly"
-                          ? plan.priceMonthly
-                          : plan.priceYearly}
-                      </span>
-
-                      <span className="text-slate-500 ml-2 font-medium">
-                        / {billing === "monthly" ? "month" : "year"}
-                      </span>
-                    </div>
-
-                    <div className="space-y-4 mb-10">
-                      {plan.features.map((feature, i) => (
-                        <div key={i} className="flex items-center gap-3">
-                          <div className="w-6 h-6 rounded-full bg-[#0080FF]/10 text-[#0080FF] flex items-center justify-center shrink-0">
-                            <Check size={14} />
-                          </div>
-
-                          <span className="text-slate-700 dark:text-slate-200 font-medium">
-                            {feature}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <button
-                      onClick={() => setIsModalOpen(true)}
-                      className="w-full py-4 rounded-2xl bg-[#0080FF] hover:bg-[#005BFF] text-white font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-2xl shadow-[#0080FF]/30"
-                    >
-                      Get Started
-                      <ArrowRight size={18} />
-                    </button>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
+        
       </div>
 
       {/* MODAL */}
@@ -473,10 +422,9 @@ export default function TallyPrimePage() {
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.9, opacity: 0, y: 50 }}
               transition={{ duration: 0.4 }}
-              className="max-w-5xl mx-auto bg-white dark:bg-[#071028] rounded-[3rem] overflow-hidden border border-slate-200 dark:border-white/10 shadow-2xl"
+              className="max-w-5xl mx-auto bg-white dark:bg-slate-900 rounded-[3rem] overflow-hidden border border-slate-200 dark:border-white/10 shadow-2xl"
             >
-              {/* HEADER */}
-              <div className="relative overflow-hidden bg-gradient-to-r from-[#00BFFF] via-[#0080FF] to-[#005BFF] px-10 py-12">
+              <div className="relative overflow-hidden bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 px-10 py-12">
                 <button
                   onClick={() => setIsModalOpen(false)}
                   className="absolute top-6 right-6 w-12 h-12 rounded-2xl bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-all"
@@ -484,85 +432,56 @@ export default function TallyPrimePage() {
                   <X size={22} />
                 </button>
 
-                <div className="relative z-10">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 text-white text-xs font-black uppercase tracking-[0.25em] mb-6">
-                    Tally Prime Inquiry
-                  </div>
+                <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight leading-tight mb-4">
+                  Request a Quote
+                </h2>
 
-                  <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight leading-tight mb-4">
-                    Request a
-                    <br />
-                    Tally Prime Quote.
-                  </h2>
-
-                  <p className="text-cyan-100 text-lg max-w-2xl leading-relaxed">
-                    Fill your business requirement details and our team will
-                    contact you shortly.
-                  </p>
-                </div>
+                <p className="text-blue-100 text-lg max-w-2xl leading-relaxed">
+                  Fill your details and our team will contact you shortly.
+                </p>
               </div>
 
-              {/* FORM */}
               <div className="p-8 md:p-12">
                 <div className="grid lg:grid-cols-2 gap-8">
-                  {/* LEFT */}
-                  <div className="space-y-6">
-                    <input
-                      type="text"
-                      placeholder="Full Name"
-                      className="w-full h-14 px-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-[#0080FF]"
-                    />
+                  <input
+                    type="text"
+                    placeholder="Full Name"
+                    className="w-full h-14 px-5 rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  />
 
-                    <input
-                      type="tel"
-                      placeholder="Mobile Number"
-                      className="w-full h-14 px-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-[#0080FF]"
-                    />
+                  <input
+                    type="tel"
+                    placeholder="Mobile Number"
+                    className="w-full h-14 px-5 rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  />
 
-                    <input
-                      type="email"
-                      placeholder="Email Address"
-                      className="w-full h-14 px-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-[#0080FF]"
-                    />
-                  </div>
+                  <input
+                    type="email"
+                    placeholder="Email Address"
+                    className="w-full h-14 px-5 rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  />
 
-                  {/* RIGHT */}
-                  <div className="space-y-6">
-                    <select className="w-full h-14 px-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-[#0080FF]">
-                      <option>Select Plan</option>
-                      <option>Tally Prime Silver</option>
-                      <option>Tally Prime Gold</option>
-                      <option>Tally Prime Enterprise</option>
-                    </select>
-
-                    <input
-                      type="text"
-                      placeholder="Business City"
-                      className="w-full h-14 px-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-[#0080FF]"
-                    />
-
-                    <select className="w-full h-14 px-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-[#0080FF]">
-                      <option>Select Requirement</option>
-                      <option>New Tally Setup</option>
-                      <option>GST Billing</option>
-                      <option>Inventory Management</option>
-                      <option>Multi User Setup</option>
-                    </select>
-                  </div>
+                  <select className="w-full h-14 px-5 rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-600">
+                    <option>Select Product</option>
+                    <option>
+                      Tally Ultimate Security 1 User Lifetime Validity
+                    </option>
+                    <option>
+                      Tally Total Security 1 User 1 Year (Renewal)
+                    </option>
+                  </select>
                 </div>
 
-                {/* TEXTAREA */}
                 <div className="mt-8">
                   <textarea
                     rows={6}
-                    placeholder="Describe your business requirement..."
-                    className="w-full p-5 rounded-[2rem] bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-[#0080FF] resize-none"
+                    placeholder="Describe your requirement..."
+                    className="w-full p-5 rounded-[2rem] bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-600 resize-none"
                   />
                 </div>
 
-                {/* BUTTON */}
                 <div className="flex flex-wrap gap-4 mt-10">
-                  <button className="px-10 py-5 rounded-2xl bg-gradient-to-r from-[#00BFFF] to-[#005BFF] text-white font-black uppercase tracking-widest text-xs shadow-2xl shadow-[#0080FF]/40 hover:scale-105 transition-all duration-300">
+                  <button className="px-10 py-5 rounded-2xl bg-gradient-to-r from-blue-500 to-blue-700 text-white font-black uppercase tracking-widest text-xs shadow-2xl shadow-blue-600/40 hover:scale-105 transition-all duration-300">
                     Submit Inquiry
                   </button>
                 </div>

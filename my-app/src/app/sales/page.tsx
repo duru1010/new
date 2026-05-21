@@ -648,28 +648,7 @@ const HardwarePage = () => {
   
 
   // ---------------- SOFTWARE BRANDS ----------------
-  const licenseBrands = [
-    {
-      name: "Microsoft 365",
-      desc: "Office, Windows & Azure",
-      icon: <Terminal className="text-blue-500" />,
-    },
-    {
-      name: "Tally Prime",
-      desc: "Business & Accounting",
-      icon: <Zap className="text-yellow-500" />,
-    },
-    {
-      name: "Quick Heal",
-      desc: "Total Security & Antivirus",
-      icon: <ShieldCheck className="text-red-500" />,
-    },
-    {
-      name: "Adobe CC",
-      desc: "Creative Cloud Licenses",
-      icon: <Star className="text-purple-500" />,
-    },
-  ];
+ 
 
   // ---------------- DETAILED SERVICES ----------------
   const detailedServices = [
@@ -679,7 +658,7 @@ const HardwarePage = () => {
       subItems: [
         {
           id: "microsoft-365",
-          name: "Microsoft 365",
+          name: "Microsoft ",
           desc: "Official Microsoft productivity suite.",
           img: "/9f65e0094e0172fd3bccd9fc3306d514.jpg",
         },
@@ -752,28 +731,7 @@ const HardwarePage = () => {
         </div>
 
         {/* LICENSE BRANDS */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
-          {licenseBrands.map((brand, idx) => (
-            <motion.div
-              key={idx}
-              whileHover={{ y: -8 }}
-              className="p-6 rounded-3xl border border-slate-200 dark:border-white/10 bg-white dark:bg-slate-900 shadow-sm hover:shadow-xl transition-all"
-            >
-              <div className="w-14 h-14 rounded-2xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-5">
-                {brand.icon}
-              </div>
-
-              <h4 className="text-xl font-black text-slate-900 dark:text-white">
-                {brand.name}
-              </h4>
-
-              <p className="mt-2 text-sm text-slate-500 dark:text-slate-300">
-                {brand.desc}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-
+       
         {/* SOFTWARE LICENSE SECTION */}
         <section className="py-20">
           <div className="container mx-auto px-0">

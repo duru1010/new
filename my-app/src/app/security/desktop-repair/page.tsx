@@ -123,29 +123,6 @@ export default function LaptopRepairRentalPage() {
     "Gaming Laptop Repair",
   ];
 
-  const whyRent = [
-    {
-      icon: <Laptop size={20} />,
-      title: "Portable & Flexible",
-      desc: "Carry your laptop anywhere and work remotely with ease.",
-    },
-    {
-      icon: <ShieldCheck size={20} />,
-      title: "No Maintenance Cost",
-      desc: "We handle servicing and maintenance so you focus on business.",
-    },
-    {
-      icon: <Package size={20} />,
-      title: "Bulk Quantity Available",
-      desc: "Rent laptops in bulk for exams, events and corporate training.",
-    },
-    {
-      icon: <Headphones size={20} />,
-      title: "Best Support",
-      desc: "Fast support and customer-centric laptop rental services.",
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-white dark:bg-slate-950 overflow-hidden">
       {/* HERO */}
@@ -294,31 +271,7 @@ export default function LaptopRepairRentalPage() {
 </section>
 
       {/* WHY RENT */}
-      <section className="py-24 bg-slate-50 dark:bg-slate-900/30">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {whyRent.map((item, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ y: -8 }}
-                className="p-8 rounded-[2rem] bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/5"
-              >
-                <div className="w-14 h-14 rounded-2xl bg-blue-600 text-white flex items-center justify-center mb-6">
-                  {item.icon}
-                </div>
-
-                <h3 className="text-xl font-black text-slate-900 dark:text-white mb-4">
-                  {item.title}
-                </h3>
-
-                <p className="text-slate-500 dark:text-slate-400 leading-relaxed">
-                  {item.desc}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       {/* RENTAL PRODUCTS */}
       <section className="py-24">

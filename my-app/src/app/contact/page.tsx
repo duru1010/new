@@ -33,7 +33,7 @@ export default function ContactPage() {
     message: "",
   });
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     setIsSubmitting(true);
@@ -63,7 +63,7 @@ export default function ContactPage() {
 
       {/* HERO SECTION */}
       <section className="relative pt-36 pb-24 overflow-hidden">
-        
+
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-cyan-500/5 to-transparent" />
 
         <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl" />
@@ -135,6 +135,7 @@ export default function ContactPage() {
                 </div>
 
               </div>
+
             </motion.div>
 
             {/* RIGHT CARD */}
@@ -239,69 +240,23 @@ export default function ContactPage() {
                   </div>
 
                 </div>
+
               </div>
 
             </motion.div>
 
           </div>
+
         </div>
       </section>
 
-      {/* CONTACT FORM */}
+      {/* CONTACT + LOCATION SECTION */}
       <section className="pb-24 relative z-10">
         <div className="max-w-7xl mx-auto px-6">
 
-          <div className="grid lg:grid-cols-2 gap-10">
+          <div className="grid lg:grid-cols-2 gap-10 items-start">
 
-            {/* LEFT INFO */}
-            <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: true }}
-              className="bg-white dark:bg-[#0e1626] p-10 rounded-[3rem] border border-slate-200 dark:border-white/10 shadow-xl"
-            >
-
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-100 dark:bg-blue-500/10 text-blue-700 dark:text-blue-400 text-xs font-black uppercase tracking-[0.2em] mb-6">
-                <Globe size={14} />
-                Why Choose Us
-              </div>
-
-              <h2 className="text-4xl font-black text-[#13204e] dark:text-white mb-8 leading-tight">
-                Enterprise Grade
-                <span className="block text-blue-600">
-                  Technology Partner
-                </span>
-              </h2>
-
-              <div className="space-y-6">
-
-                {[
-                  "Networking & Server Infrastructure",
-                  "CCTV Surveillance Systems",
-                  "Software Licensing & AMC",
-                  "Laptop / Desktop Repairs",
-                  "Cloud & Data Security",
-                  "Office IT Setup & Maintenance",
-                ].map((item, i) => (
-                  <div
-                    key={i}
-                    className="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 dark:bg-[#060b16]"
-                  >
-                    <div className="w-12 h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center">
-                      <CheckCircle2 size={22} />
-                    </div>
-
-                    <p className="font-bold dark:text-white">
-                      {item}
-                    </p>
-                  </div>
-                ))}
-
-              </div>
-            </motion.div>
-
-            {/* RIGHT FORM */}
+            {/* LEFT - CONTACT FORM */}
             <motion.form
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -478,7 +433,57 @@ export default function ContactPage() {
 
             </motion.form>
 
+            {/* RIGHT - LOCATION CARD */}
+            <motion.div
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="bg-white dark:bg-[#0e1626] rounded-[3rem] border border-slate-200 dark:border-white/10 overflow-hidden shadow-2xl sticky top-28"
+            >
+
+              {/* CONTENT */}
+              <div className="p-10">
+
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-100 dark:bg-blue-500/10 text-blue-700 dark:text-blue-400 text-xs font-black uppercase tracking-[0.2em] mb-6">
+                  <Globe size={14} />
+                  Our Location
+                </div>
+
+                <h2 className="text-4xl font-black text-[#13204e] dark:text-white mb-4">
+                  Visit Our Office
+                </h2>
+
+                <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
+                  Softlink Solutions provides complete IT infrastructure,
+                  CCTV surveillance, networking, cloud solutions,
+                  software licensing, rentals, and technical support
+                  services across Nashik and surrounding regions.
+                </p>
+
+                {/* INFO */}
+                
+
+              </div>
+
+              {/* MAP */}
+              <div className="w-full h-[350px]">
+                <iframe
+                  title="Softlink Solutions Location"
+                  src="https://www.google.com/maps?q=Nashik,Maharashtra,India&output=embed"
+                  width="100%"
+                  height="100%"
+                  loading="lazy"
+                  allowFullScreen
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="border-0"
+                />
+              </div>
+
+            </motion.div>
+
           </div>
+
         </div>
       </section>
 
