@@ -960,34 +960,7 @@ const NetworkingPage = () => {
       </section>
 
       {/* CORE SERVICES */}
-      <section className="py-24 relative">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-4">
-            Network Solutions
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16 text-left">
-            {coreServices.map((service, index) => (
-              <motion.div
-                key={index}
-                className="group relative bg-white dark:bg-slate-900 p-8 rounded-[2rem] border border-slate-100 dark:border-white/10 shadow-sm hover:shadow-xl transition-all"
-              >
-                <div
-                  className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.gradient} text-white flex items-center justify-center mb-6`}
-                >
-                  {service.icon}
-                </div>
-                <h3 className="text-xl font-black text-slate-900 dark:text-white mb-3">
-                  {service.title}
-                </h3>
-                <p className="text-sm text-slate-500 dark:text-slate-400">
-                  {service.desc}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       {/* SERVICE CATALOG */}
       <section className="py-20">
@@ -1119,6 +1092,34 @@ const NetworkingPage = () => {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+      <section className="py-24 relative">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-4">
+            Network Solutions
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16 text-left">
+            {coreServices.map((service, index) => (
+              <motion.div
+                key={index}
+                className="group relative bg-white dark:bg-slate-900 p-8 rounded-[2rem] border border-slate-100 dark:border-white/10 shadow-sm hover:shadow-xl transition-all"
+              >
+                <div
+                  className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.gradient} text-white flex items-center justify-center mb-6`}
+                >
+                  {service.icon}
+                </div>
+                <h3 className="text-xl font-black text-slate-900 dark:text-white mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-sm text-slate-500 dark:text-slate-400">
+                  {service.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
     </div>
