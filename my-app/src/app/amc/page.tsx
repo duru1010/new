@@ -14,7 +14,9 @@ import {
   BellRing,
   Wifi,
   Zap,
+  Sparkles,
 } from "lucide-react";
+import { div } from "framer-motion/m";
 
 // =========================
 // DATA
@@ -91,135 +93,172 @@ const CCTVPage = () => {
     <div className="min-h-screen bg-white overflow-hidden">
       {/* HERO */}
       <section className="relative pt-32 pb-24">
-        <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
-          {/* LEFT */}
+  <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+
+    {/* LEFT */}
+    <div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#0057FF]/10 border border-[#0057FF]/20 text-[#0057FF] text-xs font-bold mb-6">
+          <Sparkles size={14} />
+          Smart CCTV Surveillance
+        </div>
+      </motion.div>
+
+      <h1 className="text-5xl md:text-6xl font-black text-[#0A1628] dark:text-white leading-tight">
+        Secure Your <br />
+        Business With <br />
+        <span className="text-[#0057FF]">Smart CCTV</span>
+      </h1>
+
+      <p className="mt-6 text-slate-600 dark:text-slate-300 text-lg leading-relaxed max-w-xl">
+        Professional CCTV camera installation with AI monitoring,
+        remote mobile access, cloud backup, and enterprise-grade
+        security systems.
+      </p>
+
+      <p className="mt-4 text-slate-500 dark:text-slate-400">
+        ✔ HD Night Vision | ✔ Remote Access | ✔ Motion Detection |
+        ✔ 24/7 Monitoring
+      </p>
+
+      {/* BUTTONS */}
+      <div className="flex flex-wrap gap-4 mt-10">
+
+        <motion.button
+          whileHover={{ scale: 1.04 }}
+          whileTap={{ scale: 0.96 }}
+          className="px-8 py-4 bg-[#0057FF] text-white rounded-2xl font-bold flex items-center gap-2 shadow-xl shadow-blue-500/20"
+        >
+          Get Started
+          <ArrowRight size={18} />
+        </motion.button>
+
+        <motion.a
+          whileHover={{ scale: 1.04 }}
+          whileTap={{ scale: 0.96 }}
+          href="/#contact"
+          className="px-8 py-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl font-bold flex items-center gap-2 shadow-lg text-[#0A1628] dark:text-white"
+        >
+          Contact Us
+          <ArrowUpRight size={18} />
+        </motion.a>
+
+      </div>
+
+    </div>
+
+    {/* RIGHT IMAGE */}
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7 }}
+      className="relative"
+    >
+
+      <div className="rounded-[2.5rem] overflow-hidden border-8 border-white dark:border-slate-800 shadow-2xl relative">
+
+        <Image
+          src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=1471&auto=format&fit=crop"
+          width={1000}
+          height={700}
+          className="w-full h-[560px] object-cover"
+          alt="CCTV Security"
+          priority
+        />
+
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+
+        {/* TOP BADGE */}
+        <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-xl px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3">
+
+          <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />
+
           <div>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600/10 text-blue-600 text-xs font-bold mb-6">
-              <Zap size={14} />
-              Smart CCTV Surveillance
-            </div>
-
-            <h1 className="text-5xl md:text-6xl font-black text-slate-900 leading-tight">
-              Secure Your <br />
-              Business With <br />
-              <span className="text-blue-600">Smart CCTV</span>
-            </h1>
-
-            <p className="mt-6 text-slate-600 text-lg leading-relaxed max-w-xl">
-              Professional CCTV camera installation with AI monitoring,
-              remote mobile access, cloud backup, and enterprise-grade
-              security systems.
+            <p className="text-xs font-semibold text-slate-500 uppercase">
+              Live Monitoring
             </p>
 
-            <p className="mt-4 text-slate-500">
-              ✔ HD Night Vision | ✔ Remote Access | ✔ Motion Detection |
-              ✔ 24/7 Monitoring
-            </p>
-
-            
+            <h4 className="text-sm font-black text-slate-900">
+              24/7 Active Surveillance
+            </h4>
           </div>
 
-          {/* RIGHT IMAGE */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="relative"
-          >
-            <div className="rounded-[2.5rem] overflow-hidden border-8 border-white shadow-2xl relative">
-              <Image
-                src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=1471&auto=format&fit=crop"
-                width={1000}
-                height={700}
-                className="w-full h-[560px] object-cover"
-                alt="CCTV Security"
-                priority
-              />
+        </div>
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+        {/* BOTTOM CARD */}
+        <div className="absolute bottom-6 left-6 right-6 bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-5">
 
-              {/* TOP BADGE */}
-              <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-xl px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3">
-                <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />
+          <div className="flex items-center justify-between gap-4 flex-wrap">
 
-                <div>
-                  <p className="text-xs font-semibold text-slate-500 uppercase">
-                    Live Monitoring
-                  </p>
+            <div>
+              <p className="text-white/70 text-sm">
+                AI Powered Security System
+              </p>
 
-                  <h4 className="text-sm font-black text-slate-900">
-                    24/7 Active Surveillance
-                  </h4>
-                </div>
-              </div>
-
-              {/* BOTTOM CARD */}
-              <div className="absolute bottom-6 left-6 right-6 bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-5">
-                <div className="flex items-center justify-between gap-4 flex-wrap">
-                  <div>
-                    <p className="text-white/70 text-sm">
-                      AI Powered Security System
-                    </p>
-
-                    <h3 className="text-white text-2xl font-black mt-1">
-                      Smart CCTV Protection
-                    </h3>
-                  </div>
-
-                  <div className="flex gap-3">
-                    <div className="bg-white/10 border border-white/20 px-4 py-3 rounded-2xl">
-                      <p className="text-white text-lg font-black">4K</p>
-                      <span className="text-white/60 text-xs">
-                        Ultra HD
-                      </span>
-                    </div>
-
-                    <div className="bg-white/10 border border-white/20 px-4 py-3 rounded-2xl">
-                      <p className="text-white text-lg font-black">365</p>
-                      <span className="text-white/60 text-xs">
-                        Days Backup
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <h3 className="text-white text-2xl font-black mt-1">
+                Smart CCTV Protection
+              </h3>
             </div>
 
-            {/* FLOATING IMAGE */}
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="hidden lg:block absolute -bottom-10 -left-10 w-52 rounded-3xl overflow-hidden border-4 border-white shadow-2xl"
-            >
-              <Image
-                src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=1471&auto=format&fit=crop"
-                width={300}
-                height={300}
-                alt="Security Camera"
-                className="w-full h-52 object-cover"
-              />
-            </motion.div>
-          </motion.div>
+            <div className="flex gap-3">
+
+              <div className="bg-white/10 border border-white/20 px-4 py-3 rounded-2xl">
+                <p className="text-white text-lg font-black">4K</p>
+                <span className="text-white/60 text-xs">
+                  Ultra HD
+                </span>
+              </div>
+
+              <div className="bg-white/10 border border-white/20 px-4 py-3 rounded-2xl">
+                <p className="text-white text-lg font-black">365</p>
+                <span className="text-white/60 text-xs">
+                  Days Backup
+                </span>
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
-      </section>
+
+      </div>
+
+      {/* FLOATING IMAGE */}
+      <motion.div
+        animate={{ y: [0, -10, 0] }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="hidden lg:block absolute -bottom-10 -left-10 w-52 rounded-3xl overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl"
+      >
+
+        <Image
+          src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=1471&auto=format&fit=crop"
+          width={200}
+          height={200}
+          alt="Security Camera"
+          className="w-full h-52 object-cover"
+        />
+
+      </motion.div>
+
+    </motion.div>
+
+  </div>
+</section>
 
       {/* SERVICES */}
       <section className="py-20">
         <div className="container mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl font-black text-slate-900">
-              CCTV Product Catalog
-            </h2>
-
-            <p className="text-slate-500 mt-4">
-              Explore our advanced CCTV surveillance systems designed for
-              offices, homes, industries, retail stores, and enterprises.
-            </p>
-          </div>
+          
 
           {detailedServices.map((service) => (
             <div key={service.id} className="space-y-10">
@@ -352,44 +391,53 @@ const CCTVPage = () => {
               </div>
 
               {/* FEATURES */}
-              <div className="grid md:grid-cols-3 gap-6 pt-8">
-                <div className="rounded-3xl border border-slate-200 p-6">
-                  <BellRing className="text-blue-600 mb-4" size={34} />
+            
 
-                  <h4 className="text-xl font-black text-slate-900">
-                    Motion Detection Alerts
-                  </h4>
+<div className="grid md:grid-cols-3 gap-6 pt-8">
 
-                  <p className="text-slate-500 mt-2">
-                    Instant security notifications directly on your mobile app.
-                  </p>
-                </div>
+  <div className="rounded-3xl border border-slate-200 dark:border-white/10 p-6 bg-white dark:bg-[#0D1728]">
+    <div className="w-14 h-14 rounded-2xl bg-[#0057FF] text-white flex items-center justify-center mb-6 shadow-lg shadow-blue-600/30">
+      <BellRing size={28} />
+    </div>
 
-                <div className="rounded-3xl border border-slate-200 p-6">
-                  <Wifi className="text-blue-600 mb-4" size={34} />
+    <h4 className="text-xl font-black text-[#0A1628] dark:text-white">
+      Motion Detection Alerts
+    </h4>
 
-                  <h4 className="text-xl font-black text-slate-900">
-                    Remote Access
-                  </h4>
+    <p className="text-slate-500 dark:text-slate-400 mt-2">
+      Instant security notifications directly on your mobile app.
+    </p>
+  </div>
 
-                  <p className="text-slate-500 mt-2">
-                    Access your CCTV footage anytime from anywhere securely.
-                  </p>
-                </div>
+  <div className="rounded-3xl border border-slate-200 dark:border-white/10 p-6 bg-white dark:bg-[#0D1728]">
+    <div className="w-14 h-14 rounded-2xl bg-[#0057FF] text-white flex items-center justify-center mb-6 shadow-lg shadow-blue-600/30">
+      <Wifi size={28} />
+    </div>
 
-                <div className="rounded-3xl border border-slate-200 p-6">
-                  <ShieldCheck className="text-blue-600 mb-4" size={34} />
+    <h4 className="text-xl font-black text-[#0A1628] dark:text-white">
+      Remote Access
+    </h4>
 
-                  <h4 className="text-xl font-black text-slate-900">
-                    Enterprise Security
-                  </h4>
+    <p className="text-slate-500 dark:text-slate-400 mt-2">
+      Access your CCTV footage anytime from anywhere securely.
+    </p>
+  </div>
 
-                  <p className="text-slate-500 mt-2">
-                    Advanced AI surveillance for commercial and industrial
-                    use.
-                  </p>
-                </div>
-              </div>
+  <div className="rounded-3xl border border-slate-200 dark:border-white/10 p-6 bg-white dark:bg-[#0D1728]">
+    <div className="w-14 h-14 rounded-2xl bg-[#0057FF] text-white flex items-center justify-center mb-6 shadow-lg shadow-blue-600/30">
+      <ShieldCheck size={28} />
+    </div>
+
+    <h4 className="text-xl font-black text-[#0A1628] dark:text-white">
+      Enterprise Security
+    </h4>
+
+    <p className="text-slate-500 dark:text-slate-400 mt-2">
+      Advanced AI surveillance for commercial and industrial use.
+    </p>
+  </div>
+
+</div>
             </div>
           ))}
         </div>

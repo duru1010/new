@@ -169,13 +169,13 @@ export default function HardwareUpgradePage() {
                 Hardware Upgrade Services
               </motion.div>
 
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[0.95] text-slate-900 dark:text-white mb-6">
-                Hardware
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
-                  {" "}
-                  Upgrade.
-                </span>
-              </h1>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[0.95] text-[#0A1628] dark:text-white mb-6">
+  Hardware
+  <span className="text-[#0057FF]">
+    {" "}
+    Upgrade.
+  </span>
+</h1>
 
               <p className="text-[15px] md:text-base text-slate-600 dark:text-slate-300 leading-relaxed mb-8 max-w-2xl">
                 Upgrade your computer or laptop performance with premium
@@ -287,18 +287,7 @@ export default function HardwareUpgradePage() {
 
       <section className="py-24">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-black tracking-tight text-slate-900 dark:text-white mb-6">
-              Hardware Upgrade
-              <span className="text-blue-600"> Solutions.</span>
-            </h2>
-
-            <p className="max-w-3xl mx-auto text-slate-500 dark:text-slate-400 text-lg">
-              Upgrade your computer performance with advanced hardware
-              solutions for gaming, office work, editing and business
-              productivity.
-            </p>
-          </div>
+          
 
           <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
             {upgradeProducts.map((item, index) => (
@@ -361,10 +350,10 @@ export default function HardwareUpgradePage() {
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div>
-              <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-slate-900 dark:text-white mb-8">
+              <h3 className="text-4xl md:text-6xl font-black tracking-tighter text-slate-900 dark:text-white mb-8">
                 Hardware
-                <span className="text-blue-600"> Upgrade Services.</span>
-              </h2>
+                <span className="text-blue-600"> Upgrade </span>
+              </h3>
 
               <div className="grid sm:grid-cols-2 gap-4">
                 {upgradeServices.map((service, index) => (

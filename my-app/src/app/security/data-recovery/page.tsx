@@ -170,13 +170,13 @@ export default function DataRecoveryPage() {
                 Data Recovery Services
               </motion.div>
 
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[0.95] text-slate-900 dark:text-white mb-6">
-                Data
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
-                  {" "}
-                  Recovery.
-                </span>
-              </h1>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[0.95] text-[#0A1628] dark:text-white mb-6">
+  Data
+  <span className="text-[#0057FF]">
+    {" "}
+    Recovery.
+  </span>
+</h1>
 
               <p className="text-[15px] md:text-base text-slate-600 dark:text-slate-300 leading-relaxed mb-8 max-w-2xl">
                 Recover your important files, business documents, photos,
@@ -351,7 +351,7 @@ export default function DataRecoveryPage() {
             <div>
               <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-slate-900 dark:text-white mb-8">
                 Data
-                <span className="text-blue-600"> Recovery Services.</span>
+                <span className="text-blue-600"> Recovery </span>
               </h2>
 
               <div className="grid sm:grid-cols-2 gap-4">

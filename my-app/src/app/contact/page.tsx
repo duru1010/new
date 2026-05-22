@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+
 import {
   Phone,
   Mail,
@@ -33,13 +34,16 @@ export default function ContactPage() {
     message: "",
   });
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
     e.preventDefault();
 
     setIsSubmitting(true);
 
     setTimeout(() => {
       setIsSubmitting(false);
+
       setShowSuccess(true);
 
       setFormData({
@@ -64,11 +68,7 @@ export default function ContactPage() {
       {/* HERO SECTION */}
       <section className="relative pt-36 pb-24 overflow-hidden">
 
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-cyan-500/5 to-transparent" />
-
-        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl" />
-
-        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-cyan-400/10 rounded-full blur-3xl" />
+        
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
 
@@ -81,14 +81,14 @@ export default function ContactPage() {
               transition={{ duration: 0.7 }}
             >
 
-              <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-blue-100 dark:bg-blue-500/10 text-blue-700 dark:text-blue-400 text-xs font-black uppercase tracking-[0.2em] border border-blue-200 dark:border-blue-500/20 mb-8">
+              <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#0057FF]/10 border border-[#0057FF]/20 text-[#0057FF] text-xs font-black uppercase tracking-[0.2em] mb-8">
                 <MessageSquare size={14} />
                 Contact Softlink Solutions
               </div>
 
-              <h1 className="text-5xl md:text-7xl font-black leading-[0.95] tracking-tight text-[#13204e] dark:text-white mb-8">
+              <h1 className="text-4xl md:text-7xl font-black leading-[0.95] tracking-tight text-[#0A1628] dark:text-white mb-8">
                 Let’s Build
-                <span className="block text-blue-600">
+                <span className="block text-[#0057FF]">
                   Smarter IT
                 </span>
                 Solutions.
@@ -100,35 +100,36 @@ export default function ContactPage() {
                 repairs, rentals, and enterprise solutions.
               </p>
 
+              {/* FEATURES */}
               <div className="flex flex-wrap gap-6">
 
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-2xl bg-[#0057FF] text-white flex items-center justify-center shadow-lg shadow-blue-500/20">
                     <ShieldCheck size={22} />
                   </div>
 
                   <div>
-                    <p className="font-black text-[#13204e] dark:text-white">
+                    <p className="font-black text-[#0A1628] dark:text-white">
                       Trusted Service
                     </p>
 
-                    <p className="text-sm text-slate-500">
+                    <p className="text-sm text-slate-500 dark:text-slate-400">
                       Professional Support
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-2xl bg-cyan-500 text-white flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-2xl bg-[#0057FF] text-white flex items-center justify-center shadow-lg shadow-blue-500/20">
                     <Headphones size={22} />
                   </div>
 
                   <div>
-                    <p className="font-black text-[#13204e] dark:text-white">
+                    <p className="font-black text-[#0A1628] dark:text-white">
                       24/7 Assistance
                     </p>
 
-                    <p className="text-sm text-slate-500">
+                    <p className="text-sm text-slate-500 dark:text-slate-400">
                       Fast Response Team
                     </p>
                   </div>
@@ -145,11 +146,11 @@ export default function ContactPage() {
               transition={{ duration: 0.7 }}
             >
 
-              <div className="relative bg-white dark:bg-[#0e1626] p-10 rounded-[3rem] border border-slate-200 dark:border-white/10 shadow-2xl overflow-hidden">
+              <div className="relative bg-white dark:bg-[#0D1728] p-10 rounded-[3rem] border border-slate-200 dark:border-white/10 shadow-2xl overflow-hidden">
 
-                <div className="absolute top-0 right-0 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl" />
+                <div className="absolute top-0 right-0 w-40 h-40 bg-[#0057FF]/10 rounded-full blur-3xl" />
 
-                <h3 className="text-3xl font-black text-[#13204e] dark:text-white mb-3">
+                <h3 className="text-3xl font-black text-[#0A1628] dark:text-white mb-3">
                   Quick Contact
                 </h3>
 
@@ -160,56 +161,56 @@ export default function ContactPage() {
                 <div className="space-y-6">
 
                   <div className="flex items-start gap-4">
-                    <div className="w-14 h-14 rounded-2xl bg-blue-600 text-white flex items-center justify-center shrink-0">
+                    <div className="w-14 h-14 rounded-2xl bg-[#0057FF] text-white flex items-center justify-center shrink-0 shadow-lg shadow-blue-500/20">
                       <Phone size={22} />
                     </div>
 
                     <div>
-                      <p className="font-black text-lg dark:text-white">
+                      <p className="font-black text-lg text-[#0A1628] dark:text-white">
                         Call Us
                       </p>
 
-                      <p className="text-slate-500">
+                      <p className="text-slate-500 dark:text-slate-400">
                         +91 9876543210
                       </p>
 
-                      <p className="text-slate-500">
+                      <p className="text-slate-500 dark:text-slate-400">
                         +91 9988776655
                       </p>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-14 h-14 rounded-2xl bg-cyan-500 text-white flex items-center justify-center shrink-0">
+                    <div className="w-14 h-14 rounded-2xl bg-[#0057FF] text-white flex items-center justify-center shrink-0 shadow-lg shadow-blue-500/20">
                       <Mail size={22} />
                     </div>
 
                     <div>
-                      <p className="font-black text-lg dark:text-white">
+                      <p className="font-black text-lg text-[#0A1628] dark:text-white">
                         Email Address
                       </p>
 
-                      <p className="text-slate-500">
+                      <p className="text-slate-500 dark:text-slate-400">
                         info@softlinksolutions.in
                       </p>
 
-                      <p className="text-slate-500">
+                      <p className="text-slate-500 dark:text-slate-400">
                         support@softlinksolutions.in
                       </p>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-14 h-14 rounded-2xl bg-indigo-500 text-white flex items-center justify-center shrink-0">
+                    <div className="w-14 h-14 rounded-2xl bg-[#0057FF] text-white flex items-center justify-center shrink-0 shadow-lg shadow-blue-500/20">
                       <MapPin size={22} />
                     </div>
 
                     <div>
-                      <p className="font-black text-lg dark:text-white">
+                      <p className="font-black text-lg text-[#0A1628] dark:text-white">
                         Office Address
                       </p>
 
-                      <p className="text-slate-500 leading-relaxed">
+                      <p className="text-slate-500 dark:text-slate-400 leading-relaxed">
                         Softlink Solutions,
                         <br />
                         Nashik, Maharashtra,
@@ -220,20 +221,20 @@ export default function ContactPage() {
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-14 h-14 rounded-2xl bg-emerald-500 text-white flex items-center justify-center shrink-0">
+                    <div className="w-14 h-14 rounded-2xl bg-[#0057FF] text-white flex items-center justify-center shrink-0 shadow-lg shadow-blue-500/20">
                       <Clock size={22} />
                     </div>
 
                     <div>
-                      <p className="font-black text-lg dark:text-white">
+                      <p className="font-black text-lg text-[#0A1628] dark:text-white">
                         Working Hours
                       </p>
 
-                      <p className="text-slate-500">
+                      <p className="text-slate-500 dark:text-slate-400">
                         Monday - Saturday
                       </p>
 
-                      <p className="text-slate-500">
+                      <p className="text-slate-500 dark:text-slate-400">
                         9:00 AM - 8:00 PM
                       </p>
                     </div>
@@ -248,30 +249,32 @@ export default function ContactPage() {
           </div>
 
         </div>
+
       </section>
 
-      {/* CONTACT + LOCATION SECTION */}
+      {/* CONTACT + LOCATION */}
       <section className="pb-24 relative z-10">
+
         <div className="max-w-7xl mx-auto px-6">
 
           <div className="grid lg:grid-cols-2 gap-10 items-start">
 
-            {/* LEFT - CONTACT FORM */}
+            {/* FORM */}
             <motion.form
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
               viewport={{ once: true }}
               onSubmit={handleSubmit}
-              className="bg-white dark:bg-[#0e1626] p-10 rounded-[3rem] border border-slate-200 dark:border-white/10 shadow-xl"
+              className="bg-white dark:bg-[#0D1728] p-10 rounded-[3rem] border border-slate-200 dark:border-white/10 shadow-xl"
             >
 
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-cyan-100 dark:bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 text-xs font-black uppercase tracking-[0.2em] mb-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0057FF]/10 border border-[#0057FF]/20 text-[#0057FF] text-xs font-black uppercase tracking-[0.2em] mb-6">
                 <Send size={14} />
                 Send Message
               </div>
 
-              <h2 className="text-4xl font-black text-[#13204e] dark:text-white mb-8">
+              <h2 className="text-4xl font-black text-[#0A1628] dark:text-white mb-8">
                 Get In Touch
               </h2>
 
@@ -294,7 +297,7 @@ export default function ContactPage() {
                         fullName: e.target.value,
                       })
                     }
-                    className="w-full pl-12 pr-4 py-4 rounded-2xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-[#060b16] dark:text-white outline-none focus:border-blue-500"
+                    className="w-full pl-12 pr-4 py-4 rounded-2xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-[#060B16] dark:text-white outline-none focus:border-[#0057FF]"
                   />
                 </div>
 
@@ -314,7 +317,7 @@ export default function ContactPage() {
                         company: e.target.value,
                       })
                     }
-                    className="w-full pl-12 pr-4 py-4 rounded-2xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-[#060b16] dark:text-white outline-none focus:border-blue-500"
+                    className="w-full pl-12 pr-4 py-4 rounded-2xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-[#060B16] dark:text-white outline-none focus:border-[#0057FF]"
                   />
                 </div>
 
@@ -335,7 +338,7 @@ export default function ContactPage() {
                         email: e.target.value,
                       })
                     }
-                    className="w-full pl-12 pr-4 py-4 rounded-2xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-[#060b16] dark:text-white outline-none focus:border-blue-500"
+                    className="w-full pl-12 pr-4 py-4 rounded-2xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-[#060B16] dark:text-white outline-none focus:border-[#0057FF]"
                   />
                 </div>
 
@@ -356,7 +359,7 @@ export default function ContactPage() {
                         mobile: e.target.value,
                       })
                     }
-                    className="w-full pl-12 pr-4 py-4 rounded-2xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-[#060b16] dark:text-white outline-none focus:border-blue-500"
+                    className="w-full pl-12 pr-4 py-4 rounded-2xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-[#060B16] dark:text-white outline-none focus:border-[#0057FF]"
                   />
                 </div>
 
@@ -371,7 +374,7 @@ export default function ContactPage() {
                       service: e.target.value,
                     })
                   }
-                  className="w-full px-5 py-4 rounded-2xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-[#060b16] dark:text-white outline-none focus:border-blue-500"
+                  className="w-full px-5 py-4 rounded-2xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-[#060B16] dark:text-white outline-none focus:border-[#0057FF]"
                 >
                   <option value="">Select Service</option>
                   <option>Networking Solutions</option>
@@ -394,7 +397,7 @@ export default function ContactPage() {
                       city: e.target.value,
                     })
                   }
-                  className="w-full px-5 py-4 rounded-2xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-[#060b16] dark:text-white outline-none focus:border-blue-500"
+                  className="w-full px-5 py-4 rounded-2xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-[#060B16] dark:text-white outline-none focus:border-[#0057FF]"
                 />
               </div>
 
@@ -409,14 +412,14 @@ export default function ContactPage() {
                       message: e.target.value,
                     })
                   }
-                  className="w-full px-5 py-4 rounded-2xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-[#060b16] dark:text-white outline-none resize-none focus:border-blue-500"
+                  className="w-full px-5 py-4 rounded-2xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-[#060B16] dark:text-white outline-none resize-none focus:border-[#0057FF]"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="mt-6 w-full py-5 rounded-2xl bg-blue-600 text-white font-black flex items-center justify-center gap-3 hover:bg-blue-700 transition-all disabled:opacity-60 shadow-2xl shadow-blue-500/20"
+                className="mt-6 w-full py-5 rounded-2xl bg-[#0057FF] text-white font-black flex items-center justify-center gap-3 hover:scale-[1.02] transition-all disabled:opacity-60 shadow-2xl shadow-blue-500/20"
               >
                 {isSubmitting ? (
                   <>
@@ -433,24 +436,23 @@ export default function ContactPage() {
 
             </motion.form>
 
-            {/* RIGHT - LOCATION CARD */}
+            {/* LOCATION CARD */}
             <motion.div
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
               viewport={{ once: true }}
-              className="bg-white dark:bg-[#0e1626] rounded-[3rem] border border-slate-200 dark:border-white/10 overflow-hidden shadow-2xl sticky top-28"
+              className="bg-white dark:bg-[#0D1728] rounded-[3rem] border border-slate-200 dark:border-white/10 overflow-hidden shadow-2xl sticky top-28"
             >
 
-              {/* CONTENT */}
               <div className="p-10">
 
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-100 dark:bg-blue-500/10 text-blue-700 dark:text-blue-400 text-xs font-black uppercase tracking-[0.2em] mb-6">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0057FF]/10 border border-[#0057FF]/20 text-[#0057FF] text-xs font-black uppercase tracking-[0.2em] mb-6">
                   <Globe size={14} />
                   Our Location
                 </div>
 
-                <h2 className="text-4xl font-black text-[#13204e] dark:text-white mb-4">
+                <h2 className="text-4xl font-black text-[#0A1628] dark:text-white mb-4">
                   Visit Our Office
                 </h2>
 
@@ -460,9 +462,6 @@ export default function ContactPage() {
                   software licensing, rentals, and technical support
                   services across Nashik and surrounding regions.
                 </p>
-
-                {/* INFO */}
-                
 
               </div>
 
@@ -485,10 +484,12 @@ export default function ContactPage() {
           </div>
 
         </div>
+
       </section>
 
       {/* SUCCESS MODAL */}
       <AnimatePresence>
+
         {showSuccess && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -496,11 +497,12 @@ export default function ContactPage() {
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 bg-black/60 backdrop-blur-md flex items-center justify-center p-4"
           >
+
             <motion.div
               initial={{ scale: 0.8, y: 40 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.8, y: 40 }}
-              className="bg-white dark:bg-[#0e1626] p-10 rounded-[3rem] max-w-md w-full text-center shadow-2xl"
+              className="bg-white dark:bg-[#0D1728] p-10 rounded-[3rem] max-w-md w-full text-center shadow-2xl"
             >
 
               <div className="w-20 h-20 rounded-full bg-green-100 dark:bg-green-500/10 flex items-center justify-center mx-auto mb-6">
@@ -510,7 +512,7 @@ export default function ContactPage() {
                 />
               </div>
 
-              <h2 className="text-3xl font-black dark:text-white mb-3">
+              <h2 className="text-3xl font-black text-[#0A1628] dark:text-white mb-3">
                 Message Sent!
               </h2>
 
@@ -521,14 +523,16 @@ export default function ContactPage() {
 
               <button
                 onClick={() => setShowSuccess(false)}
-                className="w-full py-4 rounded-2xl bg-blue-600 text-white font-black hover:bg-blue-700 transition-all"
+                className="w-full py-4 rounded-2xl bg-[#0057FF] text-white font-black hover:scale-[1.02] transition-all"
               >
                 Done
               </button>
 
             </motion.div>
+
           </motion.div>
         )}
+
       </AnimatePresence>
 
     </div>

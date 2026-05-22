@@ -53,21 +53,20 @@ export default function EnhancedWifiPortal() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-600 dark:text-indigo-400 text-sm font-semibold mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-sm font-semibold mb-6">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
               </span>
               Next-Gen Fiber Connectivity
             </div>
 
-            <h1 className="text-6xl md:text-7xl font-black leading-[1.1] tracking-tight">
-              Speeds that <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-500">
-                Move with You.
-              </span>
-            </h1>
-
+            <h3 className="text-6xl md:text-7xl font-black leading-[1.1] tracking-tight text-[#0A1628] dark:text-white">
+  Speeds that <br />
+  <span className="text-[#0057FF]">
+    Move with You.
+  </span>
+</h3>
             <p className="mt-6 text-xl text-slate-600 dark:text-slate-400 leading-relaxed max-w-xl">
               {descriptions.hero}
             </p>
@@ -75,13 +74,11 @@ export default function EnhancedWifiPortal() {
             <div className="mt-10 flex flex-wrap gap-4">
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="group px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-2xl flex items-center gap-3 transition-all hover:shadow-2xl hover:shadow-indigo-500/40"
+                className="group px-6 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-2xl flex items-center gap-3 transition-all hover:shadow-2xl hover:shadow-blue-500/40"
               >
-                Get Started Now <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                Get Started <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="px-8 py-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 font-bold rounded-2xl hover:bg-slate-50 transition-colors">
-                View Coverage
-              </button>
+              
             </div>
           </motion.div>
 
@@ -125,7 +122,7 @@ export default function EnhancedWifiPortal() {
                 onClick={() => setSelectedSpeed(speed)}
                 className={`relative px-6 py-2.5 rounded-xl text-sm font-bold transition-all whitespace-nowrap ${
                   selectedSpeed === speed
-                    ? "bg-white dark:bg-slate-800 text-indigo-600 dark:text-white shadow-sm"
+                    ? "bg-white dark:bg-slate-800 text-blue-600 dark:text-white shadow-sm"
                     : "text-slate-500 hover:text-slate-800 dark:hover:text-slate-200"
                 }`}
               >
@@ -151,10 +148,10 @@ export default function EnhancedWifiPortal() {
                 className="group relative bg-white dark:bg-slate-900 p-8 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 hover:border-indigo-500/50 transition-all hover:shadow-3xl hover:-translate-y-2"
               >
                 <div className="flex justify-between items-start mb-6">
-                  <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 group-hover:bg-indigo-500 group-hover:text-white transition-colors">
+                  <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-blue-600 text-white mb-4">
                     {plan.icon}
                   </div>
-                  <span className="px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-600 text-[10px] font-black uppercase tracking-widest">
+                  <span className="px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 text-[10px] font-black uppercase tracking-widest">
                     {plan.tag}
                   </span>
                 </div>
@@ -162,21 +159,21 @@ export default function EnhancedWifiPortal() {
                 <h3 className="text-2xl font-black tracking-tight">{plan.title}</h3>
                 
                 <div className="mt-4 flex items-baseline gap-1">
-                  <span className="text-4xl font-black text-indigo-600">₹{plan.price}</span>
+                  <span className="text-4xl font-black text-blue-600">₹{plan.price}</span>
                   <span className="text-slate-400 font-medium">/month</span>
                 </div>
 
                 <div className="my-6 space-y-3 border-y border-slate-100 dark:border-slate-800 py-6">
                   <div className="flex items-center gap-3 text-sm font-medium">
-                    <Zap size={16} className="text-indigo-500" />
+                    <Zap size={16} className="text-blue-500" />
                     <span>Up to {plan.speed} Speed</span>
                   </div>
                   <div className="flex items-center gap-3 text-sm font-medium">
-                    <CheckCircle2 size={16} className="text-indigo-500" />
+                    <CheckCircle2 size={16} className="text-blue-500" />
                     <span>{plan.data} Data Usage</span>
                   </div>
                   <div className="flex items-center gap-3 text-sm font-medium">
-                    <Wifi size={16} className="text-indigo-500" />
+                    <Wifi size={16} className="text-blue-500" />
                     <span>{plan.router} Included</span>
                   </div>
                 </div>
@@ -185,12 +182,12 @@ export default function EnhancedWifiPortal() {
                   {plan.desc}
                 </p>
 
-                <button
-                  onClick={() => setIsModalOpen(true)}
-                  className="w-full py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-2xl font-bold hover:bg-indigo-600 dark:hover:bg-indigo-500 dark:hover:text-white transition-all"
-                >
-                  Select Plan
-                </button>
+               <button
+                    onClick={() => setIsModalOpen(true)}
+                    className="w-full py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-black uppercase tracking-wider text-xs transition-all"
+                  >
+                    Request Quote
+                  </button>
               </motion.div>
             ))}
           </AnimatePresence>

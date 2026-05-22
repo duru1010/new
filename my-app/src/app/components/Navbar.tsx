@@ -2040,7 +2040,7 @@ const Navbar = () => {
     href="/aboutus"
     className="px-4 py-2 text-sm font-bold text-white hover:text-blue-100 transition-colors"
   >
-    AboutUs
+    About Us
   </a>
 
   {/* SERVICES DROPDOWN */}

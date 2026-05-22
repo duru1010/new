@@ -100,16 +100,16 @@ export default function AboutPage() {
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl md:text-7xl font-black leading-tight tracking-tight"
-          >
-            Trusted IT Infrastructure <br />
-            <span className="text-[#0057FF] bg-gradient-to-r from-[#0057FF] to-indigo-500 bg-clip-text text-transparent">
-              & Security Experts
-            </span>
-          </motion.h1>
+  initial={{ opacity: 0, y: 30 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, delay: 0.1 }}
+  className="text-4xl md:text-6xl font-black leading-tight tracking-tight text-[#0A1628] dark:text-white"
+>
+  Trusted IT Infrastructure <br />
+  <span className="text-[#0057FF]">
+    & Security Experts
+  </span>
+</motion.h1>
 
           <motion.p 
             initial={{ opacity: 0, y: 20 }}

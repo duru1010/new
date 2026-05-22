@@ -190,97 +190,112 @@ export default function TallyPrimePage() {
     <>
       <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white overflow-hidden">
         {/* HERO */}
-        <section className="relative pt-40 pb-24 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-100/40 via-blue-200/20 to-blue-300/20 dark:from-blue-900/20 dark:via-blue-800/10 dark:to-blue-700/10" />
+       <section className="relative pt-40 pb-24 overflow-hidden">
 
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/20 blur-3xl rounded-full" />
+  {/* Background */}
+  
 
-          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/20 blur-3xl rounded-full" />
+  
 
-          <div className="container mx-auto px-6 relative z-10">
-            <div className="grid lg:grid-cols-2 gap-14 items-center">
-              {/* LEFT */}
-              <div>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-blue-600/10 border border-blue-600/20 text-blue-600 text-sm font-bold mb-8 backdrop-blur-xl"
-                >
-                  <Briefcase size={16} />
-                  Tally Certified Solutions
-                </motion.div>
+  <div className="container mx-auto px-6 relative z-10">
 
-                <motion.h1
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 }}
-                  className="text-5xl md:text-7xl font-black leading-none tracking-tight mb-8"
-                >
-                  Tally
-                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700">
-                    Prime Solutions
-                  </span>
-                </motion.h1>
+    <div className="grid lg:grid-cols-2 gap-14 items-center">
 
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.2 }}
-                  className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl"
-                >
-                  Simplify your business accounting, GST billing, inventory
-                  management and financial reporting with next-generation
-                  Tally Prime solutions.
-                </motion.p>
+      {/* LEFT */}
+      <div>
 
-                <div className="flex flex-wrap gap-4 mt-10">
-                  <button
-                    onClick={() => setIsModalOpen(true)}
-                    className="px-8 py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold flex items-center gap-2 transition-all duration-300 shadow-2xl shadow-blue-600/40 hover:scale-105"
-                  >
-                    Get Started
-                    <ArrowRight size={18} />
-                  </button>
+        {/* Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-600/10 border border-blue-200 text-blue-600 text-xs font-bold uppercase tracking-wider mb-8"
+        >
+          <Briefcase size={14} />
+          Tally Certified Solutions
+        </motion.div>
 
-                  <Link
-                    href="#plans"
-                    className="px-8 py-4 rounded-2xl border border-slate-300 dark:border-white/10 hover:border-blue-600 font-bold transition-all backdrop-blur-xl"
-                  >
-                    View Plans
-                  </Link>
-                </div>
-              </div>
+        {/* Heading */}
+        <motion.h1
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.1 }}
+  className="text-5xl md:text-7xl font-black leading-tight tracking-tight mb-8"
+>
+  Tally
+  <span className="block text-[#0057FF]">
+    Prime Solutions
+  </span>
+</motion.h1>
 
-              {/* RIGHT */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.3 }}
-                className="relative"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-700 blur-3xl opacity-30 rounded-full" />
+        {/* Description */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl"
+        >
+          Simplify your business accounting, GST billing, inventory management and financial reporting
+          with next-generation Tally Prime solutions.
+        </motion.p>
 
-                <div className="relative rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl">
-                  <Image
-                    src="/236f93c5ddd54154df210333050523bd.jpg"
-                    alt="Tally Prime"
-                    width={900}
-                    height={700}
-                    className="w-full h-[520px] object-cover"
-                  />
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
+        {/* Buttons */}
+        <div className="flex flex-wrap gap-4 mt-10">
 
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="px-8 py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold flex items-center gap-2 transition-all shadow-xl shadow-blue-600/30 hover:-translate-y-0.5"
+          >
+            Get Started
+            <ArrowRight size={18} />
+          </button>
+
+          <Link
+            href="#plans"
+            className="px-8 py-4 rounded-2xl border border-slate-300 dark:border-white/10 hover:border-blue-600 font-bold transition-all backdrop-blur-xl hover:bg-white/5"
+          >
+            View Plans
+          </Link>
+
+        </div>
+
+      </div>
+
+      {/* RIGHT */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.3 }}
+        className="relative"
+      >
+
+        {/* Glow */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-700 blur-3xl opacity-25 rounded-full" />
+
+        {/* Image Card */}
+        <div className="relative rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl bg-white/5 backdrop-blur-md">
+
+          <Image
+            src="/236f93c5ddd54154df210333050523bd.jpg"
+            alt="Tally Prime"
+            width={900}
+            height={700}
+            className="w-full h-[520px] object-cover"
+          />
+
+        </div>
+
+      </motion.div>
+
+    </div>
+  </div>
+</section>
         {/* SECURITY PRODUCTS */}
         <section className="py-24 bg-white dark:bg-slate-900">
           <div className="container mx-auto px-6">
             <div className="max-w-3xl mb-16">
-              <h2 className="text-4xl md:text-5xl font-black mb-6">
+              <h3 className="text-4xl md:text-5xl font-black mb-6">
                 Tally Security Products
-              </h2>
+              </h3>
 
               <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
                 Secure your Tally software with lifetime validity and renewal
@@ -370,9 +385,9 @@ export default function TallyPrimePage() {
         <section className="py-24">
           <div className="container mx-auto px-6">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-4xl md:text-5xl font-black mb-6">
+              <h3 className="text-4xl md:text-5xl font-black mb-6">
                 Powerful Business Management
-              </h2>
+              </h3>
 
               <p className="text-slate-600 dark:text-slate-300 text-lg leading-relaxed">
                 Complete accounting, inventory and GST management software

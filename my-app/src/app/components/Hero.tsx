@@ -312,6 +312,9 @@
 
 // export default Hero;
 
+
+
+
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -374,13 +377,14 @@ const Hero = () => {
     el.getBoundingClientRect().top + window.pageYOffset - offset;
 
   window.scrollTo({
-    top,
+    left: 0,
+    top: top,
     behavior: "smooth",
   });
 };
 
   return (
-    <section className="relative min-h-[900px] w-full flex items-center justify-center overflow-hidden bg-[#F0F4FF] pt-24 pb-12">
+    <section className="relative min-h-[800px] w-full flex items-center justify-center overflow-hidden bg-[#F0F4FF] pt-24 pb-12">
       
       {/* BACKGROUND */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -407,25 +411,36 @@ const Hero = () => {
             </span>
           </div>
 
-          {/* TITLE */}
           <AnimatePresence mode="wait">
-            <motion.h1
-              key={`title-${activeIndex}`}
-              className="text-4xl md:text-6xl lg:text-7xl font-black text-[#0A1628] mb-6 leading-[1.1]"
-            >
-              {heroSlides[activeIndex].title}
-            </motion.h1>
-          </AnimatePresence>
+  <motion.h1
+    key={`title-${activeIndex}`}
+    initial={{ opacity: 0, x: 80 }}
+    animate={{ opacity: 1, x: 0 }}
+    exit={{ opacity: 0, x: -80 }}
+    transition={{ duration: 0.7, ease: "easeInOut" }}
+    className="text-5xl md:text-7xl font-black text-[#0A1628] dark:text-white leading-[0.95] tracking-tight mb-6"
+  >
+    {heroSlides[activeIndex].title.split(" ").slice(0, -2).join(" ")}{" "}
 
-          {/* SUBTITLE */}
-          <AnimatePresence mode="wait">
-            <motion.p
-              key={`subtitle-${activeIndex}`}
-              className="text-lg text-slate-600 mb-8 max-w-lg leading-relaxed"
-            >
-              {heroSlides[activeIndex].subtitle}
-            </motion.p>
-          </AnimatePresence>
+    <span className="text-[#0057FF]">
+      {heroSlides[activeIndex].title.split(" ").slice(-2).join(" ")}
+    </span>
+  </motion.h1>
+</AnimatePresence>
+
+{/* SUBTITLE */}
+<AnimatePresence mode="wait">
+  <motion.p
+    key={`subtitle-${activeIndex}`}
+    initial={{ opacity: 0, x: 60 }}
+    animate={{ opacity: 1, x: 0 }}
+    exit={{ opacity: 0, x: -60 }}
+    transition={{ duration: 0.7, ease: "easeInOut" }}
+    className="text-lg text-slate-600 dark:text-slate-300 mb-8 max-w-lg leading-relaxed"
+  >
+    {heroSlides[activeIndex].subtitle}
+  </motion.p>
+</AnimatePresence>
 
           {/* DOTS */}
           <div className="flex gap-3 mt-6">
@@ -448,14 +463,14 @@ const Hero = () => {
             {/* ✅ FIXED BUTTON */}
             <button
               onClick={() => scrollToSection("services")}
-              className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full shadow-lg transition"
+             className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-600 text-white rounded-2xl font-bold flex items-center gap-2 shadow-xl shadow-blue-500/20"
             >
               Get Services
             </button>
 
             <button
               onClick={() => scrollToSection("contact")}
-              className="px-6 py-3 bg-white border border-blue-600 text-blue-600 font-bold rounded-full hover:bg-blue-50 transition"
+             className="px-8 py-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl font-bold flex items-center gap-2 shadow-lg"
             >
               Contact Us
             </button>
@@ -466,16 +481,19 @@ const Hero = () => {
 
         {/* RIGHT IMAGE */}
         <div className="relative flex justify-center">
-          <AnimatePresence mode="wait">
-            <motion.img
-              key={`image-${activeIndex}`}
-              src={heroSlides[activeIndex].image}
-              alt="hero"
-              className="w-full max-w-[520px] aspect-square object-cover rounded-[3rem] shadow-2xl"
-            />
-          </AnimatePresence>
-        </div>
-
+  <AnimatePresence mode="wait">
+    <motion.img
+      key={`image-${activeIndex}`}
+      src={heroSlides[activeIndex].image}
+      alt="hero"
+      initial={{ opacity: 0, x: 120, scale: 0.9 }}
+      animate={{ opacity: 1, x: 0, scale: 1 }}
+      exit={{ opacity: 0, x: -120, scale: 0.9 }}
+      transition={{ duration: 0.8, ease: "easeInOut" }}
+      className="w-full max-w-[520px] aspect-square object-cover rounded-[3rem] shadow-2xl"
+    />
+  </AnimatePresence>
+</div>
       </div>
     </section>
   );

@@ -40,21 +40,27 @@ const ContactUs = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* HEADER */}
-          <div className="text-center mb-16">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0057FF]/10 text-[#0057FF] text-sm font-bold mb-4"
-            >
-              <Send size={16} />
-              Get In Touch
-            </motion.div>
+         <div className="text-center mb-16">
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0057FF]/10 text-[#0057FF] text-sm font-bold mb-4"
+  >
+    <Send size={16} />
+    Get In Touch
+  </motion.div>
 
-            <h2 className="text-4xl md:text-6xl font-black text-[#0A1628] dark:text-white">
-              Connect With Experts <br />
-              <span className="text-blue-600">For Your IT Needs</span>
-            </h2>
-          </div>
+  <motion.h2
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    className="text-4xl md:text-5xl font-black text-[#0A1628] dark:text-white leading-none"
+  >
+    Connect With Experts <br />
+    <span className="text-[#0057FF]">
+      For Your IT Needs
+    </span>
+  </motion.h2>
+</div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             {/* LEFT SIDE */}

@@ -39,16 +39,18 @@ const About = () => {
               About Us
             </span>
           </motion.div>
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-black tracking-tighter text-[#0A1628] dark:text-white"
-          >
-            Trusted Partner for <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0057FF] to-[#4DA6FF]">
-              IT Infrastructure & Security.
-            </span>
-          </motion.h2>
+          <div className="max-w-xl">
+  <motion.h2
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  className="text-4xl md:text-6xl font-black tracking-tighter text-[#0A1628] dark:text-white leading-none mb-4"
+>
+  Trusted Partner for <br />
+  <span className="text-[#0057FF]">
+    IT Infrastructure & Security.
+  </span>
+</motion.h2>
+</div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">

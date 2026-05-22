@@ -106,7 +106,7 @@ export default function AntivirusPage() {
       badge: "Lightweight",
       priceMonthly: "₹299",
       priceYearly: "₹2,999",
-      color: "from-sky-500 to-blue-700",
+    
       desc: "Ultra-light antivirus for fast systems and gamers.",
       features: [
         "Low System Usage",
@@ -123,83 +123,124 @@ export default function AntivirusPage() {
 
       {/* HERO */}
       <section className="relative pt-40 pb-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-cyan-500/10" />
 
-        <div className="container mx-auto px-6 relative z-10 text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl font-black"
-          >
-            Antivirus
-            <span className="block text-blue-600">Software Plans</span>
-          </motion.h1>
+  <div className="container mx-auto px-6 relative z-10">
+    <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-          <p className="mt-6 text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-            Choose the best protection for your devices — Windows, Mac & Business security solutions.
-          </p>
+      {/* LEFT CONTENT */}
+      <div>
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-5xl md:text-7xl font-black text-[#0A1628] dark:text-white"
+        >
+          Antivirus
+          <span className="block text-[#0057FF]">
+            Software Plans
+          </span>
+        </motion.h1>
+
+        <p className="mt-6 text-slate-600 dark:text-slate-300 max-w-xl text-lg">
+          Choose the best protection for your devices — Windows, Mac & Business security solutions.
+        </p>
+
+        <div className="flex flex-wrap gap-4 mt-10">
+         <button
+                     onClick={() => setIsModalOpen(true)}
+                     className="px-8 py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold flex items-center gap-2 transition-all shadow-xl shadow-blue-600/30 hover:-translate-y-0.5"
+                   >
+                     Get Started
+                     <ArrowRight size={18} />
+                   </button>
+
+          
         </div>
-      </section>
+      </div>
 
-      {/* PLANS */}
-      <section className="py-20">
-        <div className="container mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* RIGHT IMAGE */}
+      {/* RIGHT IMAGE */}
+<motion.div
+  initial={{ opacity: 0, scale: 0.9 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ delay: 0.2 }}
+  className="relative flex justify-center lg:justify-end"
+>
+  <div className="absolute inset-0 bg-[#0057FF]/20 blur-3xl rounded-full" />
 
-          {antivirusPlans.map((plan, i) => (
-            <motion.div
-              key={i}
-              whileHover={{ y: -10, scale: 1.02 }}
-              className={`relative rounded-[2.5rem] overflow-hidden bg-white dark:bg-[#0D1728] border shadow-xl ${
-                plan.popular ? "border-blue-500" : "border-slate-200 dark:border-white/10"
-              }`}
-            >
+  <img
+    src="/1c1914f4c03275e69d4d81e45a5cb480.jpg"
+    alt="Antivirus Protection"
+    className="relative z-10 w-[500px] max-w-xl lg:max-w-2xl object-contain -mt-6 lg:-mt-12"
+  />
+</motion.div>
 
-              {plan.popular && (
-                <div className="absolute top-5 right-5 px-4 py-2 text-xs font-bold bg-blue-600 text-white rounded-full flex items-center gap-1">
-                  <Crown size={14} /> Popular
-                </div>
-              )}
+    </div>
+  </div>
+</section>
 
-              <div className={`h-2 bg-gradient-to-r ${plan.color}`} />
+{/* PLANS */}
+<section className="py-20">
+  <div className="container mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-              <div className="p-8">
-                <h3 className="text-2xl font-black mb-2">{plan.name}</h3>
+    {antivirusPlans.map((plan, i) => (
+      <motion.div
+        key={i}
+        whileHover={{ y: -10, scale: 1.02 }}
+        className={`relative rounded-[2.5rem] overflow-hidden bg-white dark:bg-[#0D1728] border shadow-xl ${
+          plan.popular
+            ? "border-[#0057FF]"
+            : "border-slate-200 dark:border-white/10"
+        }`}
+      >
 
-                <p className="text-sm text-slate-500 mb-6">{plan.desc}</p>
+        {plan.popular && (
+          <div className="absolute top-5 right-5 px-4 py-2 text-xs font-bold bg-[#0057FF] text-white rounded-full flex items-center gap-1">
+            <Crown size={14} /> Popular
+          </div>
+        )}
 
-                <div className="mb-6">
-                  <span className="text-4xl font-black">
-                    {billing === "yearly" ? plan.priceYearly : plan.priceMonthly}
-                  </span>
-                  <span className="text-slate-500 ml-2">
-                    / {billing === "yearly" ? "year" : "month"}
-                  </span>
-                </div>
+        <div className="p-8">
+          <h3 className="text-2xl font-black mb-2">{plan.name}</h3>
 
-                <div className="space-y-3 mb-8">
-                  {plan.features.map((f, idx) => (
-                    <div key={idx} className="flex items-center gap-2">
-                      <Check className="text-blue-600" size={16} />
-                      <span className="text-sm">{f}</span>
-                    </div>
-                  ))}
-                </div>
+          <p className="text-sm text-slate-500 mb-6">{plan.desc}</p>
 
-                <button
-                  onClick={() => {
-                    setSelected(plan);
-                    setIsModalOpen(true);
-                  }}
-                  className="w-full py-3 rounded-2xl bg-blue-600 text-white font-bold flex items-center justify-center gap-2 hover:bg-cyan-500 transition"
-                >
-                  Get Protection <ArrowRight size={16} />
-                </button>
+          <div className="mb-6">
+            <span className="text-4xl font-black">
+              {billing === "yearly"
+                ? plan.priceYearly
+                : plan.priceMonthly}
+            </span>
+
+            <span className="text-slate-500 ml-2">
+              / {billing === "yearly" ? "year" : "month"}
+            </span>
+          </div>
+
+          <div className="space-y-3 mb-8">
+            {plan.features.map((f, idx) => (
+              <div key={idx} className="flex items-center gap-2">
+                <Check className="text-[#0057FF]" size={16} />
+                <span className="text-sm">{f}</span>
               </div>
-            </motion.div>
-          ))}
+            ))}
+          </div>
 
+          <button
+            onClick={() => {
+              setSelected(plan);
+              setIsModalOpen(true);
+            }}
+            className="w-full py-3 rounded-2xl bg-[#0057FF] text-white font-bold flex items-center justify-center gap-2 hover:opacity-90 transition"
+          >
+            Get Protection
+            <ArrowRight size={16} />
+          </button>
         </div>
-      </section>
+      </motion.div>
+    ))}
+
+  </div>
+</section>
 
       {/* MODAL */}
      <AnimatePresence>

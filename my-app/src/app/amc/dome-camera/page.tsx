@@ -217,15 +217,7 @@ export default function DomeCCTVPage() {
       {/* CATALOG */}
       <section className="py-24 bg-slate-50">
         <div className="container mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-5xl font-black text-slate-900">
-              Dome CCTV Catalog
-            </h2>
-
-            <p className="text-slate-500 mt-5 text-lg">
-              Explore our premium range of Dome CCTV surveillance systems.
-            </p>
-          </div>
+          
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {catalogItems.map((item, index) => (

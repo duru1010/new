@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Star, Quote } from "lucide-react";
+import { motion } from "framer-motion";
 
 // Expanded database array to create a completely seamless scrolling infinite loop loop
 const testimonials = [
@@ -60,13 +61,26 @@ const Testimonials = () => {
         
         {/* HEADER */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight text-slate-900 dark:text-white">
-            What Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">Clients Say</span>
-          </h2>
-          <p className="text-slate-500 dark:text-slate-400 mt-4 text-base md:text-lg">
-            Real feedback from businesses we empower
-          </p>
-        </div>
+  <div className="text-center mb-16">
+  <motion.h2
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    className="text-4xl md:text-5xl font-black tracking-tight text-[#0A1628] dark:text-white leading-none"
+  >
+    What Our{" "}
+    <span className="text-[#0057FF]">
+      Clients Say
+    </span>
+  </motion.h2>
+
+  <p className="text-slate-500 dark:text-slate-400 mt-4 text-base md:text-lg">
+    Real feedback from businesses we empower
+  </p>
+</div>
+  <p className="text-slate-500 dark:text-slate-400 mt-4 text-base md:text-lg">
+    Real feedback from businesses we empower
+  </p>
+</div>
 
         {/* 🚀 AUTOMATIC SCROLL SLIDER WINDOW */}
         {/* Uses a linear gradient mask to smoothly fade cards away at the extreme top and bottom edges */}

@@ -531,6 +531,7 @@ import {
   Lock,
   Briefcase,
   X,
+  ArrowUpRight,
 } from "lucide-react";
 
 interface GetStartedModalProps {
@@ -692,26 +693,30 @@ const HardwarePage = () => {
 
         {/* HERO */}
         <div className="max-w-4xl mb-20">
+
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="flex items-center gap-2 text-indigo-600 dark:text-indigo-400 font-black uppercase tracking-[0.3em] text-xs mb-4"
-          >
+                     initial={{ opacity: 0, y: 40 }}
+                     animate={{ opacity: 1, y: 0 }}
+                     transition={{ duration: 0.8 }}
+                   >
+         
+                     <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-blue-600/10 border border-blue-200 text-blue-600 text-xs font-bold mb-6">
             <ShoppingBag size={16} />
             Enterprise IT Solutions
+            </div>
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-5xl md:text-8xl font-black text-slate-900 dark:text-white leading-none tracking-tighter mb-8"
-          >
-            Hardware & <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-violet-500 to-purple-400">
-              Licensing.
-            </span>
-          </motion.h1>
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.2 }}
+  className="text-4xl md:text-7xl font-black text-slate-900 dark:text-white leading-none tracking-tighter mb-8"
+>
+  Hardware & <br />
+  <span className="text-[#0057FF]">
+    Licensing.
+  </span>
+</motion.h1>
 
           <motion.p
             initial={{ opacity: 0 }}
@@ -724,7 +729,30 @@ const HardwarePage = () => {
             enterprise-grade solutions at reasonable prices.
           </motion.p>
         </div>
-
+      <div className="flex flex-wrap gap-4 mt-10">
+      
+                    <motion.button
+                      whileHover={{ scale: 1.04 }}
+                      whileTap={{ scale: 0.96 }}
+                      onClick={() => {
+                        openModal();
+                        window.location.hash = "get-started";
+                      }}
+                      className="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-2xl font-bold flex items-center gap-2 shadow-xl shadow-blue-500/20"
+                    >
+                      Get Service <ArrowRight size={18} />
+                    </motion.button>
+      
+                    <motion.a
+                      whileHover={{ scale: 1.04 }}
+                      whileTap={{ scale: 0.96 }}
+                      href="/#contact"
+                      className="px-8 py-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl font-bold flex items-center gap-2 shadow-lg"
+                    >
+                      Contact Us <ArrowUpRight size={18} />
+                    </motion.a>
+      
+                  </div>
         {/* HARDWARE GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
           
@@ -780,7 +808,7 @@ const HardwarePage = () => {
                               openModal();
                               window.location.hash = "get-started";
                             }}
-                            className="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold flex items-center justify-center gap-2 transition-all"
+                            className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold flex items-center justify-center gap-2 transition-all"
                           >
                             Hire Now
                             <ArrowRight size={16} />

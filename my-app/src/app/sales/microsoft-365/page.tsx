@@ -7,6 +7,7 @@ import {
   Layers,
   LayoutGrid,
   X,
+  Sparkles,
 } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -162,65 +163,77 @@ export default function MicrosoftCatalogPage() {
 
       {/* HERO SECTION */}
       <section className="relative pt-32 pb-20 bg-gradient-to-b from-blue-100/50 via-white to-transparent overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div className="grid lg:grid-cols-2 gap-12 items-center">
 
-            {/* Hero Content */}
-            <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-wider">
-                <Layers size={14} />
-                Volume Software Provisioning
-              </div>
+      {/* Hero Content */}
+      <div className="space-y-6">
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
-                Empower Infrastructure With{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">
-                  Genuine Licenses
-                </span>
-              </h1>
-
-              <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl">
-                Deploy authentic Microsoft workplace applications and operating
-                systems flawlessly. Access comprehensive multi-device
-                configurations, custom volume tier discounts, and official
-                lifetime cloud upgrade support tailored precisely for small
-                businesses or global enterprise backbones.
-              </p>
-
-              <div className="flex flex-wrap gap-4 pt-2">
-                <button
-                  onClick={() => handleOpenModal()}
-                  className="px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm tracking-wide shadow-lg shadow-blue-600/20 transition-all transform hover:-translate-y-0.5 flex items-center gap-2"
-                >
-                  Request Bulk Quote
-                  <ArrowRight size={16} />
-                </button>
-
-                <a
-                  href="#catalog-grid"
-                  className="px-6 py-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-bold text-sm transition-all flex items-center gap-2"
-                >
-                  <LayoutGrid size={16} />
-                  Browse Catalog
-                </a>
-              </div>
-            </div>
-
-            {/* Hero Image */}
-            <div className="relative lg:ml-4">
-              <div className="absolute inset-0 bg-gradient-to-tr from-blue-500 to-cyan-500 blur-3xl opacity-10 rounded-full" />
-
-              <div className="relative rounded-3xl border border-blue-100 shadow-xl bg-white p-3 overflow-hidden">
-                <img
-                  src="/9f65e0094e0172fd3bccd9fc3306d514.jpg"
-                  alt="Enterprise Dashboard"
-                  className="w-full h-[360px] object-cover rounded-2xl"
-                />
-              </div>
-            </div>
+      
+      
+        {/* Animated Badge 2 */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-600/10 border border-blue-200 text-blue-600 text-xs font-bold uppercase tracking-wider mb-6">
+            <Sparkles size={14} />
+             Volume Software Provisioning
           </div>
+        </motion.div>
+
+        {/* Heading */}
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
+          Infrastructure With{" "}
+          <span className="text-[#0057FF]">Genuine Licenses</span>
+        </h1>
+
+        {/* Description */}
+        <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl">
+          Deploy authentic Microsoft workplace applications and operating systems flawlessly.
+          Access comprehensive multi-device configurations, custom volume tier discounts,
+          and official lifetime cloud upgrade support tailored precisely for small businesses
+          or global enterprise backbones.
+        </p>
+
+        {/* Buttons */}
+        <div className="flex flex-wrap gap-4 pt-2">
+          <button
+            onClick={() => handleOpenModal()}
+            className="px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm tracking-wide shadow-lg shadow-blue-600/20 transition-all transform hover:-translate-y-0.5 flex items-center gap-2"
+          >
+            Request  Quote
+            <ArrowRight size={16} />
+          </button>
+
+          <a
+            href="#catalog-grid"
+            className="px-6 py-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-bold text-sm transition-all flex items-center gap-2"
+          >
+            <LayoutGrid size={16} />
+            Browse Catalog
+          </a>
         </div>
-      </section>
+
+      </div>
+
+      {/* Hero Image */}
+      <div className="relative lg:ml-4">
+        <div className="absolute inset-0 bg-gradient-to-tr from-blue-500 to-cyan-500 blur-3xl opacity-10 rounded-full" />
+
+        <div className="relative rounded-3xl border border-blue-100 shadow-xl bg-white p-3 overflow-hidden">
+          <img
+            src="/9f65e0094e0172fd3bccd9fc3306d514.jpg"
+            alt="Enterprise Dashboard"
+            className="w-full h-[360px] object-cover rounded-2xl"
+          />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* CATALOG */}
       <section

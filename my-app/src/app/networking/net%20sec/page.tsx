@@ -8,7 +8,8 @@ import {
   Check, Globe, Layers, CloudLightning, 
   Headphones, MousePointer2, Smartphone,
   Link,
-  ArrowLeft
+  ArrowLeft,
+  CheckCircle2
 } from "lucide-react";
 
 // ================= THEME CONSTANTS =================
@@ -88,20 +89,20 @@ export default function VoltFiberUltra() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "circOut" }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-600 dark:text-sky-400 text-xs font-black uppercase tracking-widest mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs font-black uppercase tracking-widest mb-8">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-sky-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
               </span>
               Network Online: 99.9% Uptime
             </div>
             
-            <h1 className="text-7xl md:text-9xl font-black leading-[0.9] mb-8 italic uppercase tracking-tighter">
-              Pure <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-blue-500 to-indigo-600 drop-shadow-sm">
-                Velocity.
-              </span>
-            </h1>
+           <h1 className="text-6xl md:text-7xl font-black leading-[1.1] tracking-tight text-[#0A1628] dark:text-white">
+  Pure  
+  <span className="text-[#0057FF]">
+   Velocity
+  </span>
+</h1>
             
             <p className="text-xl text-slate-500 dark:text-slate-400 max-w-lg mb-12 leading-relaxed font-medium">
               We’ve rebuilt the internet from the silicon up. Experience the raw power of symmetrical fiber with zero interference.
@@ -114,11 +115,9 @@ export default function VoltFiberUltra() {
                 onClick={() => setIsModalOpen(true)}
                 className="px-10 py-5 bg-blue-600 text-white font-black rounded-2xl shadow-[0_20px_40px_rgba(37,99,235,0.3)] hover:bg-blue-700 transition-all flex items-center gap-3"
               >
-                Start Surge <ArrowRight size={22} strokeWidth={3} />
+                Get Started <ArrowRight size={22} strokeWidth={3} />
               </motion.button>
-              <button className="px-10 py-5 bg-white dark:bg-slate-800/50 backdrop-blur-md border border-slate-200 dark:border-white/10 font-bold rounded-2xl hover:bg-slate-100 transition-all">
-                Compare Technology
-              </button>
+              
             </div>
           </motion.div>
 
@@ -146,6 +145,89 @@ export default function VoltFiberUltra() {
         </div>
       </section>
 
+
+       <section className="py-20 px-10 ">
+  <div className="max-w-7xl mx-auto">
+    
+    {/* Header */}
+    <div className="flex flex-col md:flex-row justify-between items-end mb-6 gap-8">
+      <div>
+        <h2 className="text-5xl font-black text-white italic tracking-tighter mb-4">
+          CHOOSE YOUR SPEED
+        </h2>
+        <p className="text-slate-400 font-medium">
+          No contracts. No hardware fees. Just high-voltage fiber.
+        </p>
+      </div>
+
+     
+    </div>
+
+    {/* Cards */}
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <AnimatePresence mode="popLayout">
+        {plans.map((plan, i) => (
+          <motion.div
+            key={plan.id}
+            layout
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            transition={{ delay: i * 0.1 }}
+            className="group relative bg-white dark:bg-slate-900 p-8 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 hover:border-indigo-500/50 transition-all hover:shadow-3xl hover:-translate-y-2"
+          >
+            {/* Tag */}
+            <div className="flex justify-between items-start mb-6">
+              <span className="px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 text-[10px] font-black uppercase tracking-widest">
+                {plan.tag}
+              </span>
+            </div>
+
+            {/* Title */}
+            <h3 className="text-2xl font-black tracking-tight">
+              {plan.title}
+            </h3>
+
+            {/* Speed */}
+            <div className="mt-2 flex items-center gap-2 text-blue-600 font-black">
+              {plan.speed}
+            </div>
+
+            {/* Price */}
+            <div className="mt-4 flex items-baseline gap-1">
+              <span className="text-4xl font-black text-blue-600">
+                ₹{plan.price}
+              </span>
+              <span className="text-slate-400 font-medium">/month</span>
+            </div>
+
+            {/* Features */}
+            <div className="my-6 space-y-3 border-y border-slate-100 dark:border-slate-800 py-6">
+              {plan.features.map((f: string) => (
+                <div
+                  key={f}
+                  className="flex items-center gap-3 text-sm font-medium"
+                >
+                  <CheckCircle2 size={16} className="text-blue-500" />
+                  <span>{f}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Button */}
+            <button
+                    onClick={() => setIsModalOpen(true)}
+                    className="w-full py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-black uppercase tracking-wider text-xs transition-all"
+                  >
+                    Request Quote
+                  </button>
+          </motion.div>
+        ))}
+      </AnimatePresence>
+    </div>
+  </div>
+</section>
+
       {/* --- FEATURES: THE BENTO GRID --- */}
       <section className="py-32 px-6">
         <div className="max-w-7xl mx-auto">
@@ -153,7 +235,7 @@ export default function VoltFiberUltra() {
             {/* Bento Card 1: Main Highlighting */}
             <motion.div 
               whileHover={{ y: -5 }}
-              className="md:col-span-2 bg-gradient-to-br from-blue-600 to-indigo-800 rounded-[2.5rem] p-12 text-white relative overflow-hidden group shadow-2xl shadow-blue-500/20"
+              className="md:col-span-2 bg-gradient-to-br from-blue-600 to-blue-800 rounded-[2.5rem] p-12 text-white relative overflow-hidden group shadow-2xl shadow-blue-500/20"
             >
               <div className="relative z-10">
                 <h2 className="text-4xl font-black mb-6 italic leading-none">1:1 Symmetrical <br/>DNA Architecture</h2>
@@ -173,7 +255,7 @@ export default function VoltFiberUltra() {
               whileHover={{ y: -5 }}
               className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/5 rounded-[2.5rem] p-10 flex flex-col justify-between"
             >
-              <div className="w-14 h-14 bg-sky-100 dark:bg-sky-500/10 rounded-2xl flex items-center justify-center text-sky-600">
+              <div className="w-14 h-14 bg-blue-100 dark:bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-600">
                 <Headphones size={28} />
               </div>
               <div>
@@ -185,9 +267,9 @@ export default function VoltFiberUltra() {
             {/* Bento Card 3: Mobile Access */}
             <motion.div 
               whileHover={{ y: -5 }}
-              className="bg-sky-50 dark:bg-slate-800/40 border border-sky-100 dark:border-white/5 rounded-[2.5rem] p-10 flex flex-col justify-between overflow-hidden relative"
+              className="bg-blue-50 dark:bg-slate-800/40 border border-blue-100 dark:border-white/5 rounded-[2.5rem] p-10 flex flex-col justify-between overflow-hidden relative"
             >
-              <Smartphone size={120} className="absolute top-[-20px] right-[-30px] text-sky-200/50 dark:text-white/5" />
+              <Smartphone size={120} className="absolute top-[-20px] right-[-30px] text-blue-200/50 dark:text-white/5" />
               <div className="relative z-10">
                 <h3 className="text-2xl font-black mb-3 italic">Command <br/>Center App</h3>
                 <p className="text-slate-500 dark:text-slate-400 text-sm font-medium">Manage your network, guest access, and security from any device.</p>
@@ -208,7 +290,7 @@ export default function VoltFiberUltra() {
               </div>
               <div className="grid grid-cols-2 gap-4 w-full md:w-auto shrink-0">
                 <div className="p-6 bg-white/5 border border-white/10 rounded-2xl flex flex-col items-center gap-2">
-                    <Shield className="text-sky-400" />
+                    <Shield className="text-blue-400" />
                     <span className="text-[10px] font-black tracking-widest uppercase">AES-256</span>
                 </div>
                 <div className="p-6 bg-white/5 border border-white/10 rounded-2xl flex flex-col items-center gap-2">
@@ -222,75 +304,7 @@ export default function VoltFiberUltra() {
       </section>
 
       {/* --- PRICING: THE NEON CARDS --- */}
-      <section className="py-24 px-6 bg-slate-950">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
-            <div>
-              <h2 className="text-5xl font-black text-white italic tracking-tighter mb-4">CHOOSE YOUR SPEED</h2>
-              <p className="text-slate-400 font-medium">No contracts. No hardware fees. Just high-voltage fiber.</p>
-            </div>
-            <div className="flex gap-2">
-              <div className="px-4 py-2 rounded-full bg-white text-black font-black text-xs uppercase italic">Monthly</div>
-              <div className="px-4 py-2 rounded-full bg-white/5 text-slate-500 font-black text-xs uppercase italic">Annual (Save 15%)</div>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {plans.map((plan, idx) => (
-              <motion.div
-                key={plan.id}
-                onMouseEnter={() => setHoveredCard(idx)}
-                onMouseLeave={() => setHoveredCard(null)}
-                className={`group relative p-10 rounded-[3rem] transition-all duration-700 cursor-pointer overflow-hidden ${
-                  hoveredCard === idx 
-                  ? "bg-slate-900 -translate-y-4 shadow-3xl shadow-blue-500/20" 
-                  : "bg-white/5 border border-white/10"
-                }`}
-              >
-                {/* Neon Glow on Hover */}
-                {hoveredCard === idx && (
-                    <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sky-400 via-blue-600 to-indigo-500 animate-pulse" />
-                )}
-
-                <div className="mb-10">
-                    <span className="text-[10px] font-black tracking-[0.2em] uppercase text-sky-400 italic bg-sky-400/10 px-3 py-1 rounded-md">
-                    {plan.tag}
-                    </span>
-                    <h3 className="text-3xl font-black text-white mt-6 italic uppercase">{plan.title}</h3>
-                    <div className="text-sky-500 font-black text-xl italic mt-1">{plan.speed}</div>
-                </div>
-                
-                <div className="flex items-baseline gap-2 mb-10">
-                  <span className="text-6xl font-black text-white tracking-tighter italic">₹{plan.price}</span>
-                  <span className="text-slate-500 font-bold uppercase text-xs">/ month</span>
-                </div>
-
-                <div className="space-y-5 mb-12">
-                  {plan.features.map(f => (
-                    <div key={f} className="flex items-center gap-4 text-sm font-bold text-slate-300">
-                      <div className="shrink-0 w-5 h-5 rounded-full bg-sky-500 flex items-center justify-center text-white">
-                        <Check size={12} strokeWidth={4} />
-                      </div>
-                      {f}
-                    </div>
-                  ))}
-                </div>
-
-                <button 
-                  onClick={() => setIsModalOpen(true)}
-                  className={`w-full py-5 rounded-2xl font-black text-sm uppercase tracking-widest italic transition-all ${
-                    hoveredCard === idx 
-                    ? "bg-white text-black scale-105" 
-                    : "bg-white/10 text-slate-400"
-                  }`}
-                >
-                  Configure_Node
-                </button>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       {/* --- COVERAGE MODAL --- */}
       <AnimatePresence>

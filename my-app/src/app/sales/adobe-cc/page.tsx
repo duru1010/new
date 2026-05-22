@@ -220,11 +220,7 @@ const plans = [
         {/* HERO */}
         <section className="relative pt-40 pb-24 overflow-hidden">
   {/* BG EFFECTS */}
-  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-cyan-500/10 to-sky-400/10" />
-
-  <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/20 blur-3xl rounded-full" />
-
-  <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-cyan-400/20 blur-3xl rounded-full" />
+  
 
   <div className="container mx-auto px-6 relative z-10">
     <div className="grid lg:grid-cols-2 gap-14 items-center">
@@ -239,17 +235,17 @@ const plans = [
           Adobe Certified Creative Suite
         </motion.div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="text-5xl md:text-7xl font-black leading-none tracking-tight mb-8"
-        >
-          Adobe
-          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-500 to-sky-400">
-            Photoshop Suite
-          </span>
-        </motion.h1>
+       <motion.h1
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.1 }}
+  className="text-5xl md:text-7xl font-black leading-none tracking-tight mb-8 text-[#0A1628] dark:text-white"
+>
+  Adobe
+  <span className="block text-[#0057FF]">
+    Photoshop Suite
+  </span>
+</motion.h1>
 
         <motion.p
           initial={{ opacity: 0 }}
@@ -295,7 +291,7 @@ const plans = [
                 {item.value}
               </h3>
 
-              <p className="text-xs uppercase tracking-[0.2em] font-bold text-slate-500 mt-2">
+              <p className="text-xs uppercase tracking-[0.2em] font-bold text-blue-500 mt-2">
                 {item.label}
               </p>
             </motion.div>
@@ -341,7 +337,7 @@ const plans = [
                 AI Creative Tools
               </p>
 
-              <p className="text-sm text-slate-500">
+              <p className="text-sm text-blue-500">
                 Editing • Retouching • Design
               </p>
             </div>
@@ -412,7 +408,6 @@ const plans = [
                     </div>
                   )}
 
-                  <div className={`h-2 bg-gradient-to-r ${plan.color}`} />
 
                   <div className="p-10">
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-sm font-bold mb-6">
@@ -489,7 +484,7 @@ const plans = [
                   whileHover={{ y: -12, scale: 1.02 }}
                   className="p-8 rounded-[2rem] bg-white/80 dark:bg-[#0D1728]/80 backdrop-blur-2xl border border-slate-200 dark:border-white/10 shadow-lg hover:shadow-[0_0_40px_rgba(59,130,246,0.25)] transition-all duration-500"
                 >
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-400 text-white flex items-center justify-center mb-6 shadow-lg shadow-blue-500/40">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 text-white flex items-center justify-center mb-6 shadow-lg shadow-blue-600/40">
                     {feature.icon}
                   </div>
 

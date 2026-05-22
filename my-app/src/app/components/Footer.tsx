@@ -15,18 +15,13 @@ const Footer = () => {
     ],
 
     Solutions: [
-      { name: "IT Infrastructure", href: "/it-infrastructure" },
-      { name: "Security Systems", href: "/security-systems" },
+      { name: "Rental & Repair", href: "/security" },
+      { name: "Software Licenses", href: "/sales" },
       { name: "Networking", href: "/networking" },
-      { name: "Cloud Services", href: "/cloud-services" },
+      { name: "Security & Surveillance", href: "/amc" },
     ],
 
     Support: [
-      {
-        name: "Get a Quotation",
-        href: "/dashboard/quotations",
-        isNew: true,
-      },
       { name: "Help Center", href: "/help-center" },
       { name: "Privacy Policy", href: "/privacy-policy" },
       { name: "Terms of Service", href: "/terms-of-service" },

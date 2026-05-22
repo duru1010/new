@@ -157,12 +157,12 @@ export default function LaptopRepairRentalPage() {
         </motion.div>
 
         {/* HEADING */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[0.95] text-slate-900 dark:text-white mb-6">
-          Get Laptop{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
-            On Rent.
-          </span>
-        </h1>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[0.95] text-[#0A1628] dark:text-white mb-6">
+  Get Laptop{" "}
+  <span className="text-[#0057FF]">
+    On Rent.
+  </span>
+</h1>
 
         {/* DESCRIPTION */}
         <p className="text-[15px] md:text-base text-slate-600 dark:text-slate-300 leading-relaxed mb-8 max-w-2xl">
@@ -336,10 +336,10 @@ export default function LaptopRepairRentalPage() {
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div>
-              <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-slate-900 dark:text-white mb-8">
+              <h3 className="text-4xl md:text-6xl font-black tracking-tighter text-slate-900 dark:text-white mb-8">
                 Laptop
                 <span className="text-blue-600"> Repair Services.</span>
-              </h2>
+              </h3>
 
               <div className="grid sm:grid-cols-2 gap-4">
                 {repairServices.map((service, index) => (

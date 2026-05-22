@@ -1143,7 +1143,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { animate, motion } from "framer-motion";
 
 import {
   Zap,
@@ -1277,14 +1277,14 @@ const HardwarePage = () => {
               Trusted Repair & Rental Services
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-black text-slate-900 dark:text-white leading-[1] tracking-tight">
-              Smart Device <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-500 to-cyan-500">
-                Repair & Rental
-              </span>
-              <br />
-              Solutions
-            </h1>
+            <h1 className="text-5xl md:text-6xl font-black text-[#0A1628] dark:text-white leading-[1] tracking-tight">
+  Smart Device <br />
+  <span className="text-[#0057FF]">
+    Repair & Rental
+  </span>
+  <br />
+  Solutions
+</h1>
 
             <p className="mt-7 text-slate-600 dark:text-slate-300 text-lg leading-relaxed max-w-xl">
               We provide professional laptop & desktop repair services along
@@ -1337,7 +1337,7 @@ const HardwarePage = () => {
                   openModal();
                   window.location.hash = "get-started";
                 }}
-                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-2xl font-bold flex items-center gap-2 shadow-xl shadow-blue-500/20"
+                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-600 text-white rounded-2xl font-bold flex items-center gap-2 shadow-xl shadow-blue-500/20"
               >
                 Get Service <ArrowRight size={18} />
               </motion.button>
@@ -1402,23 +1402,7 @@ const HardwarePage = () => {
 
         <div className="container mx-auto px-6">
 
-          <div className="text-center max-w-2xl mx-auto mb-20">
-
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600/10 text-blue-600 text-xs font-bold mb-5">
-              <Zap size={14} />
-              Our Services
-            </div>
-
-            <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white">
-              Repair & Rental Services
-            </h2>
-
-            <p className="text-slate-500 mt-5 text-lg">
-              Choose from our professional device repair and rental
-              solutions
-            </p>
-
-          </div>
+          
 
           {detailedServices.map((service) => (
             <div key={service.id} className="space-y-10">

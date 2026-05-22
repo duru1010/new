@@ -107,19 +107,22 @@ export default function StructuredCablingPage() {
           {/* LEFT */}
           <div>
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 text-indigo-600 text-xs font-black uppercase tracking-widest mb-6"
-            >
+                        initial={{ opacity: 0, y: 40 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                      >
+            
+                        <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-blue-600/10 border border-blue-200 text-blue-600 text-xs font-bold mb-6">
               <Cable size={16} />
               Structured Cabling Solutions
+              <div/>
+            </div>
             </motion.div>
 
-            <h1 className="text-5xl md:text-6xl font-black text-slate-900 dark:text-white leading-tight">
-              Smart & Reliable{" "}
-              <span className="text-indigo-600">Network Cabling</span>
-            </h1>
-
+           <h1 className="text-5xl md:text-6xl font-black text-[#0A1628] dark:text-white leading-tight">
+  Smart & Reliable{" "}
+  <span className="text-[#0057FF]">Network Cabling</span>
+</h1>
             <p className="mt-6 text-slate-600 dark:text-slate-300 leading-relaxed">
   Structured cabling is a standardized system for designing and installing a building’s network wiring so all data, voice, and video communication runs smoothly, efficiently, and in an organized way.
 
@@ -129,20 +132,12 @@ export default function StructuredCablingPage() {
 
   <br /><br />
 
-  It includes Ethernet (Cat6/Cat6A) cables, fiber optic lines for high-speed backbone connections, patch panels for organized connections, and network racks to manage all equipment.
-
-  <br /><br />
-
-  It works like the “road system of your IT network” — connecting computers, servers, CCTV cameras, routers, and Wi-Fi systems in a clean and scalable way.
-
-  <br /><br />
-
-  It improves performance, reduces downtime, supports future expansion, and keeps your network organized and scalable.
+ 
 </p>
 
             <button
               onClick={() => setIsModalOpen(true)}
-              className="mt-8 px-8 py-4 bg-indigo-600 text-white font-bold rounded-2xl flex items-center gap-2 hover:bg-indigo-700 transition"
+              className="mt-8 px-8 py-4 bg-blue-600 text-white font-bold rounded-2xl flex items-center gap-2 hover:bg-indigo-700 transition"
             >
               Get Quote <ArrowRight size={18} />
             </button>
@@ -202,11 +197,11 @@ export default function StructuredCablingPage() {
                 </div>
 
                 <button
-                  onClick={() => setIsModalOpen(true)}
-                  className="mt-6 w-full py-3 bg-indigo-600 text-white rounded-xl font-bold"
-                >
-                  Request Service
-                </button>
+                    onClick={() => setIsModalOpen(true)}
+                    className="w-full py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-black uppercase tracking-wider text-xs transition-all"
+                  >
+                    Request Quote
+                  </button>
               </div>
             </motion.div>
           ))}
@@ -222,7 +217,7 @@ export default function StructuredCablingPage() {
               key={i}
               className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10"
             >
-              <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-indigo-600 text-white mb-4">
+              <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-blue-600 text-white mb-4">
                 {item.icon}
               </div>
 
