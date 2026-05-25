@@ -536,65 +536,7 @@ const GetStartedModal: React.FC<GetStartedModalProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/70 backdrop-blur-md">
-      <motion.div
-        initial={{ opacity: 0, scale: 0.92 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="relative bg-white dark:bg-slate-900 w-full max-w-xl rounded-[2rem] border border-slate-200 dark:border-white/10 shadow-2xl p-8"
-      >
-        {/* CLOSE BUTTON */}
-        <button
-          onClick={onClose}
-          className="absolute top-5 right-5 w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-red-500 hover:text-white transition-all"
-        >
-          <X size={18} />
-        </button>
-
-        {/* HEADER */}
-        <div className="mb-6">
-          <p className="text-xs font-black uppercase tracking-[0.3em] text-blue-600 mb-3">
-            Get Started
-          </p>
-
-          <h2 className="text-3xl font-black text-slate-900 dark:text-white">
-            Enterprise IT Solutions
-          </h2>
-
-          <p className="mt-3 text-slate-500 dark:text-slate-300">
-            Tell us what solution you need and our team will contact you.
-          </p>
-        </div>
-
-        {/* OPTIONS */}
-        <div className="space-y-4">
-          {[
-            "Hardware Purchase",
-            "Software Licensing",
-            "Networking Setup",
-            "Cloud Solutions",
-          ].map((type, idx) => (
-            <button
-              key={idx}
-              onClick={() => setSelectedType(type)}
-              className={`w-full p-4 rounded-2xl border text-left transition-all ${
-                selectedType === type
-                  ? "border-blue-500 bg-blue-50 dark:bg-blue-500/10"
-                  : "border-slate-200 dark:border-white/10 hover:border-blue-400"
-              }`}
-            >
-              <h4 className="font-bold text-slate-900 dark:text-white">
-                {type}
-              </h4>
-            </button>
-          ))}
-        </div>
-
-        {/* CTA */}
-        <button className="w-full mt-8 py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold transition-all">
-          Continue
-        </button>
-      </motion.div>
-    </div>
+    <></>
   );
 };
 
