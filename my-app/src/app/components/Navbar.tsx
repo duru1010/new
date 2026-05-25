@@ -2015,7 +2015,7 @@ const Navbar = () => {
       <img
         src="/softlink_logowht01-1024x293 (1).png"
         alt="Softlink Logo"
-        className="w-30 h-15 object-contain cursor-pointer"
+        className="w-45 h-15 object-contain cursor-pointer"
       />
     </Link>
 
