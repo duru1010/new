@@ -22,92 +22,180 @@ export default function LaptopRepairRentalPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const rentalProducts = [
-    {
-      title: "Core i9 Laptop on Rent",
-      price: "Request Quote",
-      specs: [
-        "Core i9",
-        "10th / 11th / 12th / 13th Gen",
-        "16 GB RAM",
-        "Up to 1 TB SSD",
-        "RTX 3060 6 GB Graphics",
-        '16" FHD / Web Cam / WiFi',
-      ],
-      image:
-        "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&q=80&w=1200",
-    },
-    {
-      title: "Gaming Laptop on Rent",
-      price: "₹6999 / Month",
-      specs: [
-        "Core i9 11th Gen",
-        "16 GB RAM",
-        "512 GB SSD",
-        "RTX 2070 8GB",
-        '15.6" FHD Display',
-        "Dell / Asus / Lenovo",
-      ],
-      image:
-        "https://images.unsplash.com/photo-1611078489935-0cb964de46d6?auto=format&fit=crop&q=80&w=1200",
-    },
-    {
-      title: "Core i7 Laptop on Rent",
-      price: "₹3999 / Month",
-      specs: [
-        "Core i7",
-        "16 GB RAM",
-        "512 GB SSD",
-        "RTX 3060 6 GB",
-        '16" QHD Display',
-        "WiFi + Webcam",
-      ],
-      image:
-        "https://images.unsplash.com/photo-1517336714739-489689fd1ca8?auto=format&fit=crop&q=80&w=1200",
-    },
-    {
-      title: "Core i5 Laptop on Rent",
-      price: "₹1890 / Month",
-      specs: [
-        "Core i5",
-        "16 GB RAM",
-        "256 GB SSD",
-        "RTX 2050 4 GB",
-        '14" HD Display',
-        "Webcam + WiFi",
-      ],
-      image:
-        "https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?auto=format&fit=crop&q=80&w=1200",
-    },
-    {
-      title: "Core i3 Laptop on Rent",
-      price: "₹1000 / Month",
-      specs: [
-        "Core i3 Processor",
-        "4-8 GB RAM",
-        "250 GB HDD",
-        "LAN Card",
-        '14"-15" Screen',
-        "WiFi + Webcam",
-      ],
-      image:
-        "https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?auto=format&fit=crop&q=80&w=1200",
-    },
-    {
-      title: "AMD Ryzen 5 Laptop",
-      price: "Request Quote",
-      specs: [
-        "Ryzen 5 Processor",
-        "8-16 GB RAM",
-        "512GB SSD - 1TB SSD",
-        "Radeon Graphics",
-        '16.1" FHD Screen',
-        "Webcam + WiFi",
-      ],
-      image:
-        "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&q=80&w=1200",
-    },
-  ];
+   {
+    title: "Core i5 Computer on Rent",
+    price: "₹1,999",
+    originalPrice: "₹2,999",
+    discount: 35,
+    rating: 4.8,
+    reviewCount: 124,
+    badge: "Best Seller",
+    tag: "Trending",
+    stockStatus: "Available",
+    specs: [
+      "Intel Core i5 Processor",
+      "4 - 8 GB RAM",
+      "250 GB - 500 GB HDD",
+      "10/100 MBPS LAN CARD",
+      "Logitech Keyboard & Mouse",
+      '18.5" TFT Screen',
+    ],
+    image:
+      "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&q=80&w=1200",
+  },
 
+  {
+    title: "Core i7 Computer on Rent",
+    price: "₹2,999",
+    originalPrice: "₹4,499",
+    discount: 40,
+    rating: 4.9,
+    reviewCount: 210,
+    badge: "Premium",
+    tag: "Hot Deal",
+    stockStatus: "Limited",
+    specs: [
+      "Intel Core i7 Processor",
+      "8 - 16 GB RAM",
+      "500 GB - 1 TB HDD",
+      "Graphics Card",
+      "Logitech Keyboard & Mouse",
+      '21.5" TFT Screen',
+    ],
+    image:
+      "https://images.unsplash.com/photo-1547082299-de196ea013d6?auto=format&fit=crop&q=80&w=1200",
+  },
+
+  {
+    title: "Dual Core Computer on Rent",
+    price: "₹999",
+    originalPrice: "₹1,499",
+    discount: 25,
+    rating: 4.5,
+    reviewCount: 86,
+    badge: "Budget",
+    tag: "Popular",
+    stockStatus: "Available",
+    specs: [
+      "Intel Dual Core Processor",
+      "2 - 4 GB RAM",
+      "160 GB - 250 GB HDD",
+      "LAN Card",
+      "Logitech Keyboard & Mouse",
+      '18" TFT Screen',
+    ],
+    image:
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200",
+  },
+
+  {
+    title: "Core i3 Computer on Rent",
+    price: "₹1,499",
+    originalPrice: "₹2,199",
+    discount: 30,
+    rating: 4.6,
+    reviewCount: 102,
+    badge: "Office Use",
+    tag: "Trending",
+    stockStatus: "Available",
+    specs: [
+      "Intel Core i3 Processor",
+      "4 - 8 GB RAM",
+      "160 GB - 250 GB HDD",
+      "LAN Card",
+      "Logitech Keyboard & Mouse",
+      '18" TFT Screen',
+    ],
+    image:
+      "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&q=80&w=1200",
+  },
+
+  {
+    title: "Gaming Computer on Rent",
+    price: "₹5,999",
+    originalPrice: "₹8,999",
+    discount: 45,
+    rating: 5.0,
+    reviewCount: 320,
+    badge: "Gaming Beast",
+    tag: "Hot Deal",
+    stockStatus: "Limited",
+    specs: [
+      "High Performance CPU",
+      "16 - 32 GB RAM",
+      "RTX Graphics Card",
+      "1 TB SSD",
+      "RGB Gaming Setup",
+      "Editing & Gaming Ready",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&q=80&w=1200",
+  },
+
+  {
+    title: "Customized Desktop Rental",
+    price: "Custom Pricing",
+    originalPrice: "₹12,999",
+    discount: 20,
+    rating: 4.7,
+    reviewCount: 65,
+    badge: "Enterprise",
+    tag: "Custom",
+    stockStatus: "Available",
+    specs: [
+      "Custom RAM & SSD",
+      "Intel / AMD Processor",
+      "Business Ready Setup",
+      "Bulk Quantity Available",
+      "Corporate Rental",
+      "Flexible Duration",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1587831990711-23ca6441447b?auto=format&fit=crop&q=80&w=1200",
+  },
+   {
+    title: "Customized Desktop Rental",
+    price: "Custom Pricing",
+    originalPrice: "₹12,999",
+    discount: 20,
+    rating: 4.7,
+    reviewCount: 65,
+    badge: "Enterprise",
+    tag: "Custom",
+    stockStatus: "Available",
+    specs: [
+      "Custom RAM & SSD",
+      "Intel / AMD Processor",
+      "Business Ready Setup",
+      "Bulk Quantity Available",
+      "Corporate Rental",
+      "Flexible Duration",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1587831990711-23ca6441447b?auto=format&fit=crop&q=80&w=1200",
+  },
+   {
+    title: "Customized Desktop Rental",
+    price: "Custom Pricing",
+    originalPrice: "₹12,999",
+    discount: 20,
+    rating: 4.7,
+    reviewCount: 65,
+    badge: "Enterprise",
+    tag: "Custom",
+    stockStatus: "Available",
+    specs: [
+      "Custom RAM & SSD",
+      "Intel / AMD Processor",
+      "Business Ready Setup",
+      "Bulk Quantity Available",
+      "Corporate Rental",
+      "Flexible Duration",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1587831990711-23ca6441447b?auto=format&fit=crop&q=80&w=1200",
+  },
+];
   const repairServices = [
     "Laptop Screen Replacement",
     "Motherboard Repair",
@@ -191,12 +279,7 @@ export default function LaptopRepairRentalPage() {
             <ArrowRight size={18} />
           </button>
 
-          <button
-            onClick={() => setIsModalOpen(true)}
-            className="px-7 py-4 rounded-2xl border border-slate-300 dark:border-white/10 text-slate-800 dark:text-white font-black uppercase tracking-wider text-xs hover:bg-slate-100 dark:hover:bg-white/5 transition-all"
-          >
-            Repair Service
-          </button>
+          
         </div>
 
         {/* STATS */}
@@ -329,7 +412,18 @@ export default function LaptopRepairRentalPage() {
           (Trusted Rentals)
         </span>
       </div>
+        <div className="mt-4 flex items-center gap-2 flex-wrap">
 
+            <span className="bg-emerald-50 text-emerald-600 text-xs font-black px-3 py-1 rounded-full border border-emerald-100">
+              {item.discount}% OFF
+            </span>
+
+            {item.badge && (
+              <span className="bg-blue-50 text-blue-700 text-xs font-black px-3 py-1 rounded-full border border-blue-100">
+                {item.badge}
+              </span>
+            )}
+          </div>
       {/* SPECS */}
       <div className="space-y-3 mb-8">
         {item.specs.map((spec, i) => (

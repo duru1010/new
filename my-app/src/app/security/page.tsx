@@ -1367,7 +1367,7 @@ const HardwarePage = () => {
 
             <div className="relative rounded-[2.5rem] overflow-hidden border-[10px] border-white dark:border-slate-800 shadow-[0_20px_80px_rgba(37,99,235,0.25)]">
               <Image
-                src="/668c0b235856c81c1d06148db126f2b0.jpg"
+                src="/d180a616ed782721668672cb41c96bc1.jpg"
                 width={1000}
                 height={700}
                 className="w-full h-[560px] object-cover hover:scale-105 transition-transform duration-700"
