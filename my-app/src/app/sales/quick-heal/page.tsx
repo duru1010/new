@@ -30,8 +30,7 @@ export default function AntivirusPage() {
     id: 1,
     name: "Bitdefender Total Security",
     badge: "Best Overall",
-    image:
-      "/1c1914f4c03275e69d4d81e45a5cb480.jpg",
+   image: "/1c1914f4c03275e69d4d81e45a5cb480.jpg",
     rating: "4.9",
     reviewCount: 245,
     priceMonthly: "₹399",
@@ -54,8 +53,7 @@ export default function AntivirusPage() {
     id: 2,
     name: "Norton 360 Deluxe",
     badge: "Premium",
-    image:
-      "/1c1914f4c03275e69d4d81e45a5cb480.jpg",
+    image: "/1c1914f4c03275e69d4d81e45a5cb480.jpg",
     rating: "4.8",
     reviewCount: 198,
     priceMonthly: "₹599",
@@ -77,8 +75,7 @@ export default function AntivirusPage() {
     id: 3,
     name: "McAfee Total Protection",
     badge: "Family Pack",
-    image:
-      "/1c1914f4c03275e69d4d81e45a5cb480.jpg",
+    image: "/1c1914f4c03275e69d4d81e45a5cb480.jpg",
     rating: "4.7",
     reviewCount: 176,
     priceMonthly: "₹499",
@@ -100,8 +97,7 @@ export default function AntivirusPage() {
     id: 4,
     name: "Kaspersky Premium",
     badge: "Secure Banking",
-    image:
-      "/1c1914f4c03275e69d4d81e45a5cb480.jpg",
+     image: "/1c1914f4c03275e69d4d81e45a5cb480.jpg",
     rating: "4.9",
     reviewCount: 221,
     priceMonthly: "₹349",
@@ -123,8 +119,7 @@ export default function AntivirusPage() {
     id: 5,
     name: "Avast One Essential",
     badge: "Free+Pro",
-    image:
-      "/1c1914f4c03275e69d4d81e45a5cb480.jpg",
+     image: "/1c1914f4c03275e69d4d81e45a5cb480.jpg",
     rating: "4.6",
     reviewCount: 134,
     priceMonthly: "₹199",
@@ -146,8 +141,7 @@ export default function AntivirusPage() {
     id: 6,
     name: "ESET Internet Security",
     badge: "Lightweight",
-    image:
-      "/1c1914f4c03275e69d4d81e45a5cb480.jpg",
+     image:"/1c1914f4c03275e69d4d81e45a5cb480.jpg",
     rating: "4.8",
     reviewCount: 158,
     priceMonthly: "₹299",
@@ -257,11 +251,12 @@ export default function AntivirusPage() {
       >
         {/* IMAGE */}
         <div className="relative h-[260px] overflow-hidden">
-          <img
-            src={`https://source.unsplash.com/600x400/?antivirus,cybersecurity&sig=${index}`}
-            alt={plan.name}
-            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-          />
+          <Image
+  src={plan.image}
+  alt={plan.name}
+  fill
+  className="object-cover group-hover:scale-110 transition-transform duration-700"
+/>
 
           {/* Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />

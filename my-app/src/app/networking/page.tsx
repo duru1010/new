@@ -918,15 +918,15 @@ const NetworkingPage = () => {
                 We set up Wired, Wireless networks and NAS solutions for Offices, Companies, Institutes, Shops and Clinics.
               </motion.p>
 
-              <motion.button
-                              whileHover={{ scale: 1.04 }}
-                              whileTap={{ scale: 0.96 }}
-                              onClick={() => {
-                                openModal();
-                                window.location.hash = "get-started";
-                              }}
-                              className="px-8 py-4 from-blue-600 to-blue-600 text-white rounded-2xl font-bold flex items-center gap-2 shadow-xl shadow-blue-500/20"
-                            >
+             <motion.button
+                           whileHover={{ scale: 1.04 }}
+                           whileTap={{ scale: 0.96 }}
+                           onClick={() => {
+                             openModal();
+                             window.location.hash = "get-started";
+                           }}
+                           className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-2xl font-bold flex items-center gap-2 shadow-xl shadow-blue-500/20"
+                         >
                               Get Service <ArrowRight size={18} />
                             </motion.button>
             </div>
