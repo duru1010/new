@@ -1,3 +1,7 @@
+
+
+
+
 "use client";
 
 import React, { useState } from "react";
@@ -9,12 +13,7 @@ import {
   ArrowLeft,
   ArrowRight,
   Monitor,
-  ShieldCheck,
-  CheckCircle2,
   BadgeCheck,
-  Headphones,
-  Package,
-  Cpu,
   Wrench,
 } from "lucide-react";
 
@@ -22,102 +21,139 @@ export default function ComputerRentalPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   // ================= COMPUTER RENTAL DATA =================
+const rentalProducts = [
+  {
+    title: "Core i5 Computer on Rent",
+    price: "₹1,999",
+    originalPrice: "₹2,999",
+    discount: 35,
+    rating: 4.8,
+    reviewCount: 124,
+    badge: "Best Seller",
+    tag: "Trending",
+    stockStatus: "Available",
+    specs: [
+      "Intel Core i5 Processor",
+      "4 - 8 GB RAM",
+      "250 GB - 500 GB HDD",
+      "10/100 MBPS LAN CARD",
+      "Logitech Keyboard & Mouse",
+      '18.5" TFT Screen',
+    ],
+    image:
+      "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&q=80&w=1200",
+  },
 
-  const rentalProducts = [
-    {
-      title: "Core i5 Computer on Rent",
-      price: "Request Quote",
-      specs: [
-        "Intel Core i5 Processor",
-        "4 - 8 GB RAM",
-        "250 GB - 500 GB HDD",
-        "10/100 MBPS LAN CARD",
-        "Logitech Keyboard & Mouse",
-        '18.5" TFT Screen',
-      ],
-      image:
-        "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&q=80&w=1200",
-    },
+  {
+    title: "Core i7 Computer on Rent",
+    price: "₹2,999",
+    originalPrice: "₹4,499",
+    discount: 40,
+    rating: 4.9,
+    reviewCount: 210,
+    badge: "Premium",
+    tag: "Hot Deal",
+    stockStatus: "Limited",
+    specs: [
+      "Intel Core i7 Processor",
+      "8 - 16 GB RAM",
+      "500 GB - 1 TB HDD",
+      "Graphics Card",
+      "Logitech Keyboard & Mouse",
+      '21.5" TFT Screen',
+    ],
+    image:
+      "https://images.unsplash.com/photo-1547082299-de196ea013d6?auto=format&fit=crop&q=80&w=1200",
+  },
 
-    {
-      title: "Core i7 Computer on Rent",
-      price: "Request Quote",
-      specs: [
-        "Intel Core i7 Processor",
-        "8 - 16 GB RAM",
-        "500 GB - 1 TB HDD",
-        "Graphics Card",
-        "Logitech Keyboard & Mouse",
-        '21.5" TFT Screen',
-      ],
-      image:
-        "https://images.unsplash.com/photo-1547082299-de196ea013d6?auto=format&fit=crop&q=80&w=1200",
-    },
+  {
+    title: "Dual Core Computer on Rent",
+    price: "₹999",
+    originalPrice: "₹1,499",
+    discount: 25,
+    rating: 4.5,
+    reviewCount: 86,
+    badge: "Budget",
+    tag: "Popular",
+    stockStatus: "Available",
+    specs: [
+      "Intel Dual Core Processor",
+      "2 - 4 GB RAM",
+      "160 GB - 250 GB HDD",
+      "LAN Card",
+      "Logitech Keyboard & Mouse",
+      '18" TFT Screen',
+    ],
+    image:
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200",
+  },
 
-    {
-      title: "Dual Core Computer on Rent",
-      price: "Request Quote",
-      specs: [
-        "Intel Dual Core Processor",
-        "2 - 4 GB RAM",
-        "160 GB - 250 GB HDD",
-        "LAN Card",
-        "Logitech Keyboard & Mouse",
-        '18" TFT Screen',
-      ],
-      image:
-        "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200",
-    },
+  {
+    title: "Core i3 Computer on Rent",
+    price: "₹1,499",
+    originalPrice: "₹2,199",
+    discount: 30,
+    rating: 4.6,
+    reviewCount: 102,
+    badge: "Office Use",
+    tag: "Trending",
+    stockStatus: "Available",
+    specs: [
+      "Intel Core i3 Processor",
+      "4 - 8 GB RAM",
+      "160 GB - 250 GB HDD",
+      "LAN Card",
+      "Logitech Keyboard & Mouse",
+      '18" TFT Screen',
+    ],
+    image:
+      "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&q=80&w=1200",
+  },
 
-    {
-      title: "Core i3 Computer on Rent",
-      price: "Request Quote",
-      specs: [
-        "Intel Core i3 Processor",
-        "4 - 8 GB RAM",
-        "160 GB - 250 GB HDD",
-        "LAN Card",
-        "Logitech Keyboard & Mouse",
-        '18" TFT Screen',
-      ],
-      image:
-        "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&q=80&w=1200",
-    },
+  {
+    title: "Gaming Computer on Rent",
+    price: "₹5,999",
+    originalPrice: "₹8,999",
+    discount: 45,
+    rating: 5.0,
+    reviewCount: 320,
+    badge: "Gaming Beast",
+    tag: "Hot Deal",
+    stockStatus: "Limited",
+    specs: [
+      "High Performance CPU",
+      "16 - 32 GB RAM",
+      "RTX Graphics Card",
+      "1 TB SSD",
+      "RGB Gaming Setup",
+      "Editing & Gaming Ready",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&q=80&w=1200",
+  },
 
-    {
-      title: "Gaming Computer on Rent",
-      price: "Request Quote",
-      specs: [
-        "High Performance CPU",
-        "16 - 32 GB RAM",
-        "RTX Graphics Card",
-        "1 TB SSD",
-        "RGB Gaming Setup",
-        "Editing & Gaming Ready",
-      ],
-      image:
-        "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&q=80&w=1200",
-    },
-
-    {
-      title: "Customized Desktop Rental",
-      price: "Custom Pricing",
-      specs: [
-        "Custom RAM & SSD",
-        "Intel / AMD Processor",
-        "Business Ready Setup",
-        "Bulk Quantity Available",
-        "Corporate Rental",
-        "Flexible Duration",
-      ],
-      image:
-        "https://images.unsplash.com/photo-1587831990711-23ca6441447b?auto=format&fit=crop&q=80&w=1200",
-    },
-  ];
-
-  // ================= WHY RENT =================
-
-  
+  {
+    title: "Customized Desktop Rental",
+    price: "Custom Pricing",
+    originalPrice: "₹12,999",
+    discount: 20,
+    rating: 4.7,
+    reviewCount: 65,
+    badge: "Enterprise",
+    tag: "Custom",
+    stockStatus: "Available",
+    specs: [
+      "Custom RAM & SSD",
+      "Intel / AMD Processor",
+      "Business Ready Setup",
+      "Bulk Quantity Available",
+      "Corporate Rental",
+      "Flexible Duration",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1587831990711-23ca6441447b?auto=format&fit=crop&q=80&w=1200",
+  },
+];
 
   // ================= REPAIR SERVICES =================
 
@@ -170,12 +206,9 @@ export default function ComputerRentalPage() {
               </motion.div>
 
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[0.95] text-[#0A1628] dark:text-white mb-6">
-  Computer
-  <span className="text-[#0057FF]">
-    {" "}
-    On Rent.
-  </span>
-</h1>
+                Computer
+                <span className="text-[#0057FF]"> On Rent.</span>
+              </h1>
 
               <p className="text-[15px] md:text-base text-slate-600 dark:text-slate-300 leading-relaxed mb-8 max-w-2xl">
                 The Computer offers great performance and speed for all your
@@ -280,68 +313,180 @@ export default function ComputerRentalPage() {
         </div>
       </section>
 
-      {/* ================= WHY RENT ================= */}
-
-      
       {/* ================= RENTAL PRODUCTS ================= */}
 
-      <section className="py-24">
-        <div className="container mx-auto px-6">
-          
+      <section
+        id="catalog-grid"
+        className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+      >
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between border-b border-blue-100 pb-6 mb-10">
+          <div>
+            <h2 className="text-3xl font-black text-slate-900 tracking-tight">
+              Computer Rental Catalog
+            </h2>
 
-          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
-            {rentalProducts.map((item, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ y: -10 }}
-                className="overflow-hidden rounded-[2.5rem] bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/5 shadow-xl"
-              >
-                <div className="relative h-[260px] overflow-hidden">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    className="object-cover hover:scale-110 transition-transform duration-700"
-                  />
-                </div>
+            <p className="mt-2 text-sm text-slate-500">
+              Explore our desktop rental solutions for business, gaming,
+              editing, office and corporate requirements.
+            </p>
+          </div>
 
-                <div className="p-8">
-                  <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-2xl font-black text-slate-900 dark:text-white">
-                      {item.title}
-                    </h3>
-
-                    <span className="text-blue-600 font-black text-sm">
-                      {item.price}
-                    </span>
-                  </div>
-
-                  <div className="space-y-3 mb-8">
-                    {item.specs.map((spec, i) => (
-                      <div key={i} className="flex items-center gap-3">
-                        <CheckCircle2
-                          size={16}
-                          className="text-blue-600"
-                        />
-
-                        <span className="text-slate-600 dark:text-slate-300 text-sm">
-                          {spec}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <button
-                    onClick={() => setIsModalOpen(true)}
-                    className="w-full py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-black uppercase tracking-wider text-xs transition-all"
-                  >
-                    Request Quote
-                  </button>
-                </div>
-              </motion.div>
-            ))}
+          <div className="mt-4 md:mt-0 bg-blue-50 border border-blue-100 text-blue-700 px-4 py-2 rounded-lg text-xs font-bold tracking-wide shadow-sm uppercase self-start">
+            Matrix Slots: {rentalProducts.length} Items Available
           </div>
         </div>
+
+        {/* GRID */}
+       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+  {rentalProducts.map((product, index) => (
+    <div
+      key={index}
+      className="overflow-hidden rounded-[2.5rem] bg-white border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-500 group"
+    >
+      {/* IMAGE */}
+      <div className="relative h-[260px] overflow-hidden">
+
+        {/* Product Image */}
+        <img
+          src={product.image}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          alt={product.title}
+          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+        />
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+
+        {/* TOP BADGES */}
+        <div className="absolute top-5 left-5 flex flex-col gap-2 z-10">
+
+          {product.tag && (
+            <span
+              className={`text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full text-white shadow-lg ${
+                product.tag === "Trending"
+                  ? "bg-cyan-500"
+                  : product.tag === "Hot Deal"
+                  ? "bg-blue-600"
+                  : "bg-indigo-600"
+              }`}
+            >
+              {product.tag}
+            </span>
+          )}
+
+          {product.stockStatus && (
+            <span className="bg-red-500 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-lg">
+              {product.stockStatus}
+            </span>
+          )}
+        </div>
+
+        {/* PRICE BADGE */}
+        <div className="absolute top-5 right-5 bg-white/95 backdrop-blur-md text-blue-600 font-black text-xs px-4 py-2 rounded-full shadow-lg border border-white">
+          {product.price}
+        </div>
+      </div>
+
+      {/* CONTENT */}
+      <div className="p-8 flex flex-col min-h-[420px]">
+
+        {/* TITLE */}
+        <div className="min-h-[92px] mb-5">
+          <h3 className="text-lg leading-7 font-black text-slate-900 group-hover:text-blue-600 transition-colors duration-300 line-clamp-3">
+            {product.title}
+          </h3>
+        </div>
+
+        {/* RATINGS */}
+        <div className="flex items-center gap-3 mb-6">
+          <div className="bg-blue-600 text-white text-xs font-black px-3 py-1 rounded-full flex items-center gap-1 shadow-md">
+            {product.rating}
+            <span>★</span>
+          </div>
+
+          <span className="text-sm text-slate-500 font-semibold">
+            ({product.reviewCount} Reviews)
+          </span>
+        </div>
+
+        {/* PRICE SECTION */}
+        <div className="mb-6">
+          <div className="flex items-center gap-3 flex-wrap">
+
+            <span className="text-3xl font-black text-slate-900">
+              {product.price}
+            </span>
+
+            <span className="text-base text-slate-400 line-through">
+              {product.originalPrice}
+            </span>
+          </div>
+
+          {/* OFFER BADGES */}
+          <div className="mt-4 flex items-center gap-2 flex-wrap">
+
+            <span className="bg-emerald-50 text-emerald-600 text-xs font-black px-3 py-1 rounded-full border border-emerald-100">
+              {product.discount}% OFF
+            </span>
+
+            {product.badge && (
+              <span className="bg-blue-50 text-blue-700 text-xs font-black px-3 py-1 rounded-full border border-blue-100">
+                {product.badge}
+              </span>
+            )}
+          </div>
+        </div>
+
+        {/* SPECS */}
+        <div className="space-y-2 mb-8">
+          {product.specs.map((spec, i) => (
+            <div
+              key={i}
+              className="text-sm text-slate-600 flex items-center gap-2"
+            >
+              <div className="w-2 h-2 rounded-full bg-blue-600" />
+              {spec}
+            </div>
+          ))}
+        </div>
+
+        {/* BUTTON */}
+        <div className="mt-auto">
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="w-full py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-black uppercase tracking-wider text-xs transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-blue-600/20 hover:shadow-blue-600/40"
+          >
+            Get Quote
+            <ArrowRight size={16} />
+          </button>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
       </section>
 
       {/* ================= REPAIR SERVICES ================= */}

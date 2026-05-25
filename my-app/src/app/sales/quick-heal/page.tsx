@@ -17,6 +17,7 @@ import {
   ArrowRight,
   X,
   Sparkles,
+  CheckCircle2,
 } from "lucide-react";
 
 export default function AntivirusPage() {
@@ -25,98 +26,145 @@ export default function AntivirusPage() {
   const [selected, setSelected] = useState<any>(null);
 
   const antivirusPlans = [
-    {
-      name: "Bitdefender Total Security",
-      badge: "Best Overall",
-      priceMonthly: "₹399",
-      priceYearly: "₹3,999",
-      color: "from-blue-500 to-cyan-400",
-      popular: true,
-      desc: "Top-rated antivirus with AI threat detection and lightweight performance.",
-      features: [
-        "AI Malware Detection",
-        "Anti-Ransomware Protection",
-        "VPN Included",
-        "Multi Device Support",
-        "Web Attack Protection",
-      ],
-    },
-    {
-      name: "Norton 360 Deluxe",
-      badge: "Premium",
-      priceMonthly: "₹599",
-      priceYearly: "₹5,999",
-      color: "from-purple-500 to-blue-500",
-      desc: "All-in-one security suite for families and professionals.",
-      features: [
-        "Smart Firewall",
-        "Dark Web Monitoring",
-        "Cloud Backup",
-        "Password Manager",
-        "Parental Control",
-      ],
-    },
-    {
-      name: "McAfee Total Protection",
-      badge: "Family Pack",
-      priceMonthly: "₹499",
-      priceYearly: "₹4,799",
-      color: "from-red-500 to-orange-400",
-      desc: "Unlimited devices protection with identity security tools.",
-      features: [
-        "Unlimited Devices",
-        "Identity Protection",
-        "Safe Web Browsing",
-        "Ransomware Rollback",
-        "Performance Boost",
-      ],
-    },
-    {
-      name: "Kaspersky Premium",
-      badge: "Secure Banking",
-      priceMonthly: "₹349",
-      priceYearly: "₹3,499",
-      color: "from-green-500 to-emerald-400",
-      desc: "Strong banking protection and powerful malware defense.",
-      features: [
-        "Safe Money Banking Mode",
-        "VPN Security",
-        "Anti Phishing",
-        "Privacy Protection",
-        "System Optimization",
-      ],
-    },
-    {
-      name: "Avast One Essential",
-      badge: "Free+Pro",
-      priceMonthly: "₹199",
-      priceYearly: "₹1,999",
-      color: "from-yellow-500 to-orange-400",
-      desc: "Lightweight antivirus with strong free protection layer.",
-      features: [
-        "Free Antivirus",
-        "Network Inspector",
-        "Firewall Protection",
-        "Data Breach Alerts",
-        "VPN (Limited)",
-      ],
-    },
-    {
-      name: "ESET Internet Security",
-      badge: "Lightweight",
-      priceMonthly: "₹299",
-      priceYearly: "₹2,999",
-    
-      desc: "Ultra-light antivirus for fast systems and gamers.",
-      features: [
-        "Low System Usage",
-        "Anti-Theft Protection",
-        "Network Scanner",
-        "Exploit Blocker",
-        "Cloud Powered Scan",
-      ],
-    },
-  ];
+  {
+    id: 1,
+    name: "Bitdefender Total Security",
+    badge: "Best Overall",
+    image:
+      "/1c1914f4c03275e69d4d81e45a5cb480.jpg",
+    rating: "4.9",
+    reviewCount: 245,
+    priceMonthly: "₹399",
+    priceYearly: "₹3,999",
+    originalPrice: "₹4,999",
+    discount: 20,
+    color: "from-blue-500 to-cyan-400",
+    popular: true,
+    desc: "Top-rated antivirus with AI threat detection and lightweight performance.",
+    features: [
+      "AI Malware Detection",
+      "Anti-Ransomware Protection",
+      "VPN Included",
+      "Multi Device Support",
+      "Web Attack Protection",
+    ],
+  },
+
+  {
+    id: 2,
+    name: "Norton 360 Deluxe",
+    badge: "Premium",
+    image:
+      "/1c1914f4c03275e69d4d81e45a5cb480.jpg",
+    rating: "4.8",
+    reviewCount: 198,
+    priceMonthly: "₹599",
+    priceYearly: "₹5,999",
+    originalPrice: "₹7,499",
+    discount: 18,
+    color: "from-purple-500 to-blue-500",
+    desc: "All-in-one security suite for families and professionals.",
+    features: [
+      "Smart Firewall",
+      "Dark Web Monitoring",
+      "Cloud Backup",
+      "Password Manager",
+      "Parental Control",
+    ],
+  },
+
+  {
+    id: 3,
+    name: "McAfee Total Protection",
+    badge: "Family Pack",
+    image:
+      "/1c1914f4c03275e69d4d81e45a5cb480.jpg",
+    rating: "4.7",
+    reviewCount: 176,
+    priceMonthly: "₹499",
+    priceYearly: "₹4,799",
+    originalPrice: "₹5,999",
+    discount: 15,
+    color: "from-red-500 to-orange-400",
+    desc: "Unlimited devices protection with identity security tools.",
+    features: [
+      "Unlimited Devices",
+      "Identity Protection",
+      "Safe Web Browsing",
+      "Ransomware Rollback",
+      "Performance Boost",
+    ],
+  },
+
+  {
+    id: 4,
+    name: "Kaspersky Premium",
+    badge: "Secure Banking",
+    image:
+      "/1c1914f4c03275e69d4d81e45a5cb480.jpg",
+    rating: "4.9",
+    reviewCount: 221,
+    priceMonthly: "₹349",
+    priceYearly: "₹3,499",
+    originalPrice: "₹4,299",
+    discount: 19,
+    color: "from-green-500 to-emerald-400",
+    desc: "Strong banking protection and powerful malware defense.",
+    features: [
+      "Safe Money Banking Mode",
+      "VPN Security",
+      "Anti Phishing",
+      "Privacy Protection",
+      "System Optimization",
+    ],
+  },
+
+  {
+    id: 5,
+    name: "Avast One Essential",
+    badge: "Free+Pro",
+    image:
+      "/1c1914f4c03275e69d4d81e45a5cb480.jpg",
+    rating: "4.6",
+    reviewCount: 134,
+    priceMonthly: "₹199",
+    priceYearly: "₹1,999",
+    originalPrice: "₹2,499",
+    discount: 20,
+    color: "from-yellow-500 to-orange-400",
+    desc: "Lightweight antivirus with strong free protection layer.",
+    features: [
+      "Free Antivirus",
+      "Network Inspector",
+      "Firewall Protection",
+      "Data Breach Alerts",
+      "VPN (Limited)",
+    ],
+  },
+
+  {
+    id: 6,
+    name: "ESET Internet Security",
+    badge: "Lightweight",
+    image:
+      "/1c1914f4c03275e69d4d81e45a5cb480.jpg",
+    rating: "4.8",
+    reviewCount: 158,
+    priceMonthly: "₹299",
+    priceYearly: "₹2,999",
+    originalPrice: "₹3,699",
+    discount: 18,
+    color: "from-slate-500 to-slate-700",
+    desc: "Ultra-light antivirus for fast systems and gamers.",
+    features: [
+      "Low System Usage",
+      "Anti-Theft Protection",
+      "Network Scanner",
+      "Exploit Blocker",
+      "Cloud Powered Scan",
+    ],
+  },
+];
 
   return (
     <div className="min-h-screen bg-[#F4F9FF] dark:bg-[#07111F] text-black dark:text-white">
@@ -179,69 +227,148 @@ export default function AntivirusPage() {
 </section>
 
 {/* PLANS */}
-<section className="py-20">
-  <div className="container mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+ <section
+  id="catalog-grid"
+  className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+>
+  {/* HEADER */}
+  <div className="flex flex-col md:flex-row md:items-center md:justify-between border-b border-blue-100 pb-6 mb-10">
+    <div>
+      <h2 className="text-3xl font-black text-slate-900 tracking-tight">
+        Antivirus Plans
+      </h2>
 
-    {antivirusPlans.map((plan, i) => (
-      <motion.div
-        key={i}
-        whileHover={{ y: -10, scale: 1.02 }}
-        className={`relative rounded-[2.5rem] overflow-hidden bg-white dark:bg-[#0D1728] border shadow-xl ${
-          plan.popular
-            ? "border-[#0057FF]"
-            : "border-slate-200 dark:border-white/10"
-        }`}
+      <p className="mt-2 text-sm text-slate-500">
+        Protect your devices with our comprehensive antivirus solutions.
+      </p>
+    </div>
+
+    <div className="mt-4 md:mt-0 bg-blue-50 border border-blue-100 text-blue-700 px-4 py-2 rounded-lg text-xs font-bold tracking-wide shadow-sm uppercase self-start">
+      {antivirusPlans.length} Plans Available
+    </div>
+  </div>
+
+  {/* GRID */}
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+    {antivirusPlans.map((plan, index) => (
+      <div
+        key={index}
+        className="overflow-hidden rounded-[2.5rem] bg-white border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-500 group"
       >
+        {/* IMAGE */}
+        <div className="relative h-[260px] overflow-hidden">
+          <img
+            src={`https://source.unsplash.com/600x400/?antivirus,cybersecurity&sig=${index}`}
+            alt={plan.name}
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+          />
 
-        {plan.popular && (
-          <div className="absolute top-5 right-5 px-4 py-2 text-xs font-bold bg-[#0057FF] text-white rounded-full flex items-center gap-1">
-            <Crown size={14} /> Popular
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+
+          {/* BADGES */}
+          <div className="absolute top-5 left-5 flex flex-col gap-2 z-10">
+            <span
+              className={`text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full text-white shadow-lg ${
+                plan.popular
+                  ? "bg-blue-600"
+                  : "bg-indigo-600"
+              }`}
+            >
+              {plan.badge}
+            </span>
           </div>
-        )}
 
-        <div className="p-8">
-          <h3 className="text-2xl font-black mb-2">{plan.name}</h3>
+          {/* PRICE BADGE */}
+          <div className="absolute top-5 right-5 bg-white/95 text-blue-600 font-black text-xs px-4 py-2 rounded-full shadow-lg">
+            {plan.priceMonthly}
+          </div>
+        </div>
 
-          <p className="text-sm text-slate-500 mb-6">{plan.desc}</p>
+        {/* CONTENT */}
+        <div className="p-8 flex flex-col min-h-[450px]">
 
+          {/* TITLE */}
+          <div className="min-h-[80px] mb-5">
+            <h3 className="text-xl leading-7 font-black text-slate-900 group-hover:text-blue-600 transition-colors duration-300">
+              {plan.name}
+            </h3>
+          </div>
+
+          {/* RATINGS */}
+          <div className="flex items-center gap-3 mb-5">
+            <div className="bg-blue-600 text-white text-xs font-black px-3 py-1 rounded-full flex items-center gap-1 shadow-md">
+              4.9
+              <span>★</span>
+            </div>
+
+            <span className="text-sm text-slate-500 font-semibold">
+              (245 Reviews)
+            </span>
+          </div>
+
+          {/* DESCRIPTION */}
+          <p className="text-sm text-slate-500 leading-relaxed mb-6">
+            {plan.desc}
+          </p>
+
+          {/* PRICE */}
           <div className="mb-6">
-            <span className="text-4xl font-black">
-              {billing === "yearly"
-                ? plan.priceYearly
-                : plan.priceMonthly}
-            </span>
+            <div className="flex items-center gap-3 flex-wrap">
+              <span className="text-3xl font-black text-slate-900">
+                {plan.priceMonthly}
+              </span>
 
-            <span className="text-slate-500 ml-2">
-              / {billing === "yearly" ? "year" : "month"}
-            </span>
+              <span className="text-base text-slate-400 line-through">
+                {plan.priceYearly}
+              </span>
+            </div>
+
+            {/* OFFER BADGES */}
+            <div className="mt-4 flex items-center gap-2 flex-wrap">
+              <span className="bg-emerald-50 text-emerald-600 text-xs font-black px-3 py-1 rounded-full border border-emerald-100">
+                25% OFF
+              </span>
+
+              {plan.popular && (
+                <span className="bg-blue-50 text-blue-700 text-xs font-black px-3 py-1 rounded-full border border-blue-100">
+                  Most Popular
+                </span>
+              )}
+            </div>
           </div>
 
+          {/* FEATURES */}
           <div className="space-y-3 mb-8">
-            {plan.features.map((f, idx) => (
-              <div key={idx} className="flex items-center gap-2">
-                <Check className="text-[#0057FF]" size={16} />
-                <span className="text-sm">{f}</span>
+            {plan.features.map((feature, i) => (
+              <div key={i} className="flex items-start gap-3">
+                <Check
+                  size={16}
+                  className="text-blue-600 mt-1 flex-shrink-0"
+                />
+
+                <span className="text-slate-600 text-sm leading-relaxed">
+                  {feature}
+                </span>
               </div>
             ))}
           </div>
 
-          <button
-            onClick={() => {
-              setSelected(plan);
-              setIsModalOpen(true);
-            }}
-            className="w-full py-3 rounded-2xl bg-[#0057FF] text-white font-bold flex items-center justify-center gap-2 hover:opacity-90 transition"
-          >
-            Get Protection
-            <ArrowRight size={16} />
-          </button>
+          {/* BUTTON */}
+          <div className="mt-auto">
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="w-full py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-black uppercase tracking-wider text-xs transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-blue-600/20 hover:shadow-blue-600/40"
+            >
+              Get Quote
+              <ArrowRight size={16} />
+            </button>
+          </div>
         </div>
-      </motion.div>
+      </div>
     ))}
-
   </div>
 </section>
-
       {/* MODAL */}
      <AnimatePresence>
              {isModalOpen && (

@@ -13,19 +13,185 @@ const descriptions = {
   business: `Enterprise-grade internet built for productivity. Supports heavy workloads and cloud applications.`,
   security: `Advanced secure WiFi with built-in protection against threats and encrypted connectivity.`,
 };
-
 const plansBySpeed = {
   "100 Mbps": [
-    { title: "ACT Basic Home", speed: "100 Mbps", data: "Unlimited", router: "Free Router", price: "799", tag: "Popular", desc: descriptions.home, icon: <Wifi className="text-blue-500" /> },
-    { title: "ACT Home Boost", speed: "100 Mbps", data: "Unlimited", router: "AI Router", price: "849", tag: "New", desc: descriptions.business, icon: <Zap className="text-yellow-500" /> },
-    { title: "ACT Secure Home", speed: "100 Mbps", data: "Unlimited", router: "Free Router", price: "999", tag: "Security", desc: descriptions.security, icon: <ShieldCheck className="text-emerald-500" /> },
+    {
+      title: "ACT Basic Home",
+      speed: "100 Mbps",
+      data: "Unlimited",
+      router: "Free Router",
+      price: "₹799",
+      originalPrice: "₹999",
+      discount: 20,
+      rating: "4.7",
+      reviewCount: 124,
+      badge: "Recommended",
+      tag: "Popular",
+      image:
+        "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1200",
+      specs: [
+        "Unlimited Data",
+        "Free Dual Band Router",
+        "Smooth HD Streaming",
+        "Perfect for Home Use",
+      ],
+    },
+
+    {
+      title: "ACT Home Boost",
+      speed: "100 Mbps",
+      data: "Unlimited",
+      router: "AI Router",
+      price: "₹849",
+      originalPrice: "₹1099",
+      discount: 23,
+      rating: "4.8",
+      reviewCount: 98,
+      badge: "AI Router",
+      tag: "New",
+      image:
+        "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200",
+      specs: [
+        "AI Smart Router",
+        "Smart Device Optimization",
+        "Ultra Stable WiFi",
+        "4K Streaming Support",
+      ],
+    },
+
+    {
+      title: "ACT Secure Home",
+      speed: "100 Mbps",
+      data: "Unlimited",
+      router: "Free Router",
+      price: "₹999",
+      originalPrice: "₹1299",
+      discount: 25,
+      rating: "4.9",
+      reviewCount: 77,
+      badge: "Secure",
+      tag: "Security",
+      image:
+        "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200",
+      specs: [
+        "Advanced Security",
+        "Parental Controls",
+        "Protected Browsing",
+        "Secure WiFi Access",
+      ],
+    },
+    {
+      title: "ACT Secure Home",
+      speed: "100 Mbps",
+      data: "Unlimited",
+      router: "Free Router",
+      price: "₹999",
+      originalPrice: "₹1299",
+      discount: 25,
+      rating: "4.9",
+      reviewCount: 77,
+      badge: "Secure",
+      tag: "Security",
+      image:
+        "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200",
+      specs: [
+        "Advanced Security",
+        "Parental Controls",
+        "Protected Browsing",
+        "Secure WiFi Access",
+      ],
+    },
   ],
+
   "200 Mbps": [
-    { title: "ACT Storm Basic", speed: "200 Mbps", data: "Unlimited", router: "Free Router", price: "1199", tag: "Value", desc: descriptions.home, icon: <Wifi className="text-blue-500" /> },
-    { title: "ACT Gaming Pro", speed: "200 Mbps", data: "Unlimited", router: "Gaming Router", price: "1499", tag: "Pro Gamer", desc: descriptions.gaming, icon: <Gamepad2 className="text-purple-500" /> },
-    { title: "ACT Storm Mesh", speed: "200 Mbps", data: "Unlimited", router: "Mesh Router", price: "1299", tag: "Best Seller", desc: descriptions.home, icon: <Zap className="text-orange-500" /> },
+    {
+      title: "ACT Storm Basic",
+      speed: "200 Mbps",
+      data: "Unlimited",
+      router: "Free Router",
+      price: "₹1199",
+      originalPrice: "₹1499",
+      discount: 20,
+      rating: "4.8",
+      reviewCount: 210,
+      badge: "Value",
+      tag: "Value",
+      image:
+        "https://images.unsplash.com/photo-1520869562399-e772f042f422?auto=format&fit=crop&w=1200",
+      specs: [
+        "Ultra Fast Downloads",
+        "Unlimited Data",
+        "Multi Device Support",
+        "HD Video Calls",
+      ],
+    },
+
+    {
+      title: "ACT Gaming Pro",
+      speed: "200 Mbps",
+      data: "Unlimited",
+      router: "Gaming Router",
+      price: "₹1499",
+      originalPrice: "₹1899",
+      discount: 22,
+      rating: "4.9",
+      reviewCount: 320,
+      badge: "Gaming",
+      tag: "Pro Gamer",
+      image:
+        "https://images.unsplash.com/photo-1542751110-97427bbecf20?auto=format&fit=crop&w=1200",
+      specs: [
+        "Low Latency Gaming",
+        "Gaming Optimized Router",
+        "Zero Lag Experience",
+        "Fast Ping Response",
+      ],
+    },
+
+    {
+      title: "ACT Storm Mesh",
+      speed: "200 Mbps",
+      data: "Unlimited",
+      router: "Mesh Router",
+      price: "₹1299",
+      originalPrice: "₹1599",
+      discount: 18,
+      rating: "4.8",
+      reviewCount: 140,
+      badge: "Mesh WiFi",
+      tag: "Best Seller",
+      image:
+        "https://images.unsplash.com/photo-1593642532973-d31b6557fa68?auto=format&fit=crop&w=1200",
+      specs: [
+        "Whole Home Coverage",
+        "Mesh Router Included",
+        "Dead Zone Removal",
+        "Smart Roaming",
+      ],
+    },
+
+    {
+      title: "ACT Storm Mesh",
+      speed: "200 Mbps",
+      data: "Unlimited",
+      router: "Mesh Router",
+      price: "₹1299",
+      originalPrice: "₹1599",
+      discount: 18,
+      rating: "4.8",
+      reviewCount: 140,
+      badge: "Mesh WiFi",
+      tag: "Best Seller",
+      image:
+        "https://images.unsplash.com/photo-1593642532973-d31b6557fa68?auto=format&fit=crop&w=1200",
+      specs: [
+        "Whole Home Coverage",
+        "Mesh Router Included",
+        "Dead Zone Removal",
+        "Smart Roaming",
+      ],
+    },
   ],
-  // Add other speeds similarly...
 };
 
 // ================= COMPONENT =================
@@ -134,65 +300,132 @@ export default function EnhancedWifiPortal() {
       </section>
 
       {/* PLANS GRID */}
-      <section className="py-20 px-6">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <AnimatePresence mode="popLayout">
-            {filteredPlans.map((plan, i) => (
-              <motion.div
-                key={plan.title}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ delay: i * 0.1 }}
-                className="group relative bg-white dark:bg-slate-900 p-8 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 hover:border-indigo-500/50 transition-all hover:shadow-3xl hover:-translate-y-2"
-              >
-                <div className="flex justify-between items-start mb-6">
-                  <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-blue-600 text-white mb-4">
-                    {plan.icon}
-                  </div>
-                  <span className="px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 text-[10px] font-black uppercase tracking-widest">
-                    {plan.tag}
-                  </span>
-                </div>
-
-                <h3 className="text-2xl font-black tracking-tight">{plan.title}</h3>
-                
-                <div className="mt-4 flex items-baseline gap-1">
-                  <span className="text-4xl font-black text-blue-600">₹{plan.price}</span>
-                  <span className="text-slate-400 font-medium">/month</span>
-                </div>
-
-                <div className="my-6 space-y-3 border-y border-slate-100 dark:border-slate-800 py-6">
-                  <div className="flex items-center gap-3 text-sm font-medium">
-                    <Zap size={16} className="text-blue-500" />
-                    <span>Up to {plan.speed} Speed</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-sm font-medium">
-                    <CheckCircle2 size={16} className="text-blue-500" />
-                    <span>{plan.data} Data Usage</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-sm font-medium">
-                    <Wifi size={16} className="text-blue-500" />
-                    <span>{plan.router} Included</span>
-                  </div>
-                </div>
-
-                <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-8 h-12 line-clamp-2">
-                  {plan.desc}
-                </p>
-
-               <button
-                    onClick={() => setIsModalOpen(true)}
-                    className="w-full py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-black uppercase tracking-wider text-xs transition-all"
+      <section
+                    id="catalog-grid"
+                    className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
                   >
-                    Request Quote
-                  </button>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </div>
-      </section>
+                    {/* Header */}
+                    
+                    {/* GRID */}
+                    {/* GRID */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                    {filteredPlans.map((item, index) => (
+                      <div
+                        key={index}
+                        className="overflow-hidden rounded-[2.5rem] bg-white border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-500 group"
+                      >
+                        {/* IMAGE */}
+                        <div className="relative h-[260px] overflow-hidden">
+                          <img
+                            src={item.image}
+                            alt={item.title}
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                          />
+                  
+                          {/* Overlay */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                  
+                          {/* TOP BADGES */}
+                          <div className="absolute top-5 left-5 flex flex-col gap-2 z-10">
+                            {item.tag && (
+                              <span
+                                className={`text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full text-white shadow-lg ${
+                                  item.tag === "Trending"
+                                    ? "bg-cyan-500"
+                                    : item.tag === "Hot Deal"
+                                    ? "bg-blue-600"
+                                    : "bg-indigo-600"
+                                }`}
+                              >
+                                {item.tag}
+                              </span>
+                            )}
+                          </div>
+                  
+                          {/* PRICE BADGE */}
+                          <div className="absolute top-5 right-5 bg-white/95 backdrop-blur-md text-blue-600 font-black text-xs px-4 py-2 rounded-full shadow-lg border border-white">
+                            {item.price}
+                          </div>
+                        </div>
+                  
+                        {/* CONTENT */}
+                        <div className="p-8 flex flex-col min-h-[420px]">
+                          {/* TITLE */}
+                          <div className="min-h-[80px] mb-5">
+                            <h3 className="text-xl leading-7 font-black text-slate-900 group-hover:text-blue-600 transition-colors duration-300">
+                              {item.title}
+                            </h3>
+                          </div>
+                  
+                          {/* RATINGS */}
+                          <div className="flex items-center gap-3 mb-6">
+                            <div className="bg-blue-600 text-white text-xs font-black px-3 py-1 rounded-full flex items-center gap-1 shadow-md">
+                              {item.rating}
+                              <span>★</span>
+                            </div>
+                  
+                            <span className="text-sm text-slate-500 font-semibold">
+                              ({item.reviewCount} Reviews)
+                            </span>
+                          </div>
+                  
+                          {/* PRICE SECTION */}
+                          <div className="mb-6">
+                            <div className="flex items-center gap-3 flex-wrap">
+                              <span className="text-lg font-black text-slate-900">
+                                {item.price}
+                              </span>
+                  
+                              <span className="text-sm text-slate-400 line-through">
+                                {item.originalPrice}
+                              </span>
+                            </div>
+                  
+                            {/* OFFER BADGES */}
+                            <div className="mt-4 flex items-center gap-2 flex-wrap">
+                              <span className="bg-emerald-50 text-emerald-600 text-xs font-black px-3 py-1 rounded-full border border-emerald-100">
+                                {item.discount}% OFF
+                              </span>
+                  
+                              {item.badge && (
+                                <span className="bg-blue-50 text-blue-700 text-xs font-black px-3 py-1 rounded-full border border-blue-100">
+                                  {item.badge}
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                  
+                          {/* SPECS */}
+                          <div className="space-y-3 mb-8">
+                            {item.specs.map((spec, i) => (
+                              <div key={i} className="flex items-start gap-3">
+                                <CheckCircle2
+                                  size={16}
+                                  className="text-blue-600 mt-1 flex-shrink-0"
+                                />
+                  
+                                <span className="text-slate-600 text-sm leading-relaxed">
+                                  {spec}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                  
+                          {/* BUTTON */}
+                          <div className="mt-auto">
+                            <button
+                              onClick={() => setIsModalOpen(true)}
+                              className="w-full py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-black uppercase tracking-wider text-xs transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-blue-600/20 hover:shadow-blue-600/40"
+                            >
+                              Request Quote
+                              <ArrowRight size={16} />
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  </section>
 
       {/* MODAL (Re-styled) */}
      <AnimatePresence>

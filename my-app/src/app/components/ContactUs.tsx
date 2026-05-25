@@ -68,7 +68,7 @@ const ContactUs = () => {
               <motion.a
                 href="tel:+919881099456"
                 whileHover={{ scale: 1.02 }}
-                className="flex items-center gap-5 p-6 rounded-3xl bg-white dark:bg-[#1A3A6B]/20 border shadow-xl"
+                className="flex items-center gap-5 p-6 rounded-3xl bg-white dark:bg-[#1A3A6B]/20 shadow-xl"
               >
                 <div className="w-14 h-14 bg-blue-600 text-white flex items-center justify-center rounded-2xl">
                   <Phone />
@@ -89,7 +89,7 @@ const ContactUs = () => {
               <motion.a
                 href="mailto:info@softinkcomputers.co.in"
                 whileHover={{ scale: 1.02 }}
-                className="flex items-center gap-5 p-6 rounded-3xl bg-white dark:bg-[#1A3A6B]/20 border shadow-xl"
+                className="flex items-center gap-5 p-6 rounded-3xl bg-white dark:bg-[#1A3A6B]/20   border-4 border-white dark:border-[#1A3A6B] shadow-xl"
               >
                 <div className="w-14 h-14 bg-[#0A1628] text-white flex items-center justify-center rounded-2xl">
                   <Mail />
@@ -104,7 +104,7 @@ const ContactUs = () => {
                 </div>
               </motion.a>
 
-              <div className="flex items-center gap-5 p-6 rounded-3xl bg-slate-100 dark:bg-[#1A3A6B]/10 border">
+              <div className="flex items-center gap-5 p-6 rounded-3xl bg-slate-100 dark:bg-[#1A3A6B]/10 border-4 border-white dark:border-[#1A3A6B] ">
                 <div className="w-14 h-14 bg-slate-200 dark:bg-[#1A3A6B] flex items-center justify-center rounded-2xl">
                   <Clock />
                 </div>
@@ -127,7 +127,7 @@ const ContactUs = () => {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="rounded-[2.5rem] overflow-hidden bg-white dark:bg-[#1A3A6B]/20 border shadow-xl"
+                  className="rounded-[2.5rem] overflow-hidden bg-white dark:bg-[#1A3A6B]/20 border-4 border-white dark:border-[#1A3A6B] shadow-xl"
                 >
                   {/* MAP */}
                   <div className="h-56 w-full">

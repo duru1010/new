@@ -22,37 +22,67 @@ import {
 export default function DomeCCTVPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const catalogItems = [
-    {
-      title: "2MP Dome Camera",
-      price: "₹2,499",
-      image: "/35641e264d658c6f9b0fa84a8f65503d.jpg",
-      resolution: "Full HD 1080P",
-      feature: "Night Vision",
-    },
-    {
-      title: "4MP Smart Dome",
-      price: "₹4,999",
-      image: "/35641e264d658c6f9b0fa84a8f65503d.jpg",
-      resolution: "2K Ultra HD",
-      feature: "AI Motion Detection",
-    },
-    {
-      title: "Wireless Dome CCTV",
-      price: "₹6,499",
-      image: "/35641e264d658c6f9b0fa84a8f65503d.jpg",
-      resolution: "4MP WiFi",
-      feature: "Mobile Access",
-    },
-    {
-      title: "PTZ Dome Camera",
-      price: "₹9,999",
-      image: "/35641e264d658c6f9b0fa84a8f65503d.jpg",
-      resolution: "360° Rotation",
-      feature: "Auto Tracking",
-    },
-  ];
+ const catalogItems = [
+  {
+    id: 1,
+    title: "2MP Dome Camera",
+    badge: "Budget",
+    price: "₹2,499",
+    originalPrice: "₹3,199",
+    discount: 18,
+    rating: "4.6",
+    reviewCount: 142,
+    image: "/35641e264d658c6f9b0fa84a8f65503d.jpg",
+    resolution: "Full HD 1080P",
+    feature: "Night Vision",
+    popular: false,
+  },
 
+  {
+    id: 2,
+    title: "4MP Smart Dome",
+    badge: "Popular",
+    price: "₹4,999",
+    originalPrice: "₹6,299",
+    discount: 22,
+    rating: "4.8",
+    reviewCount: 268,
+    image: "/35641e264d658c6f9b0fa84a8f65503d.jpg",
+    resolution: "2K Ultra HD",
+    feature: "AI Motion Detection",
+    popular: true,
+  },
+
+  {
+    id: 3,
+    title: "Wireless Dome CCTV",
+    badge: "Wireless",
+    price: "₹6,499",
+    originalPrice: "₹7,999",
+    discount: 20,
+    rating: "4.9",
+    reviewCount: 198,
+    image: "/35641e264d658c6f9b0fa84a8f65503d.jpg",
+    resolution: "4MP WiFi",
+    feature: "Mobile Access",
+    popular: false,
+  },
+
+  {
+    id: 4,
+    title: "PTZ Dome Camera",
+    badge: "Premium",
+    price: "₹9,999",
+    originalPrice: "₹12,499",
+    discount: 25,
+    rating: "5.0",
+    reviewCount: 96,
+    image: "/35641e264d658c6f9b0fa84a8f65503d.jpg",
+    resolution: "360° Rotation",
+    feature: "Auto Tracking",
+    popular: true,
+  },
+];
   return (
     <div className="min-h-screen bg-white overflow-hidden">
       {/* HERO */}
@@ -215,118 +245,169 @@ export default function DomeCCTVPage() {
       </section>
 
       {/* CATALOG */}
-      <section className="py-24 bg-slate-50">
-        <div className="container mx-auto px-6">
-          
+     <section className="py-24 bg-slate-50">
+  <div className="container mx-auto px-6">
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {catalogItems.map((item, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ y: -12 }}
-                transition={{
-                  type: "spring",
-                  stiffness: 260,
-                  damping: 18,
-                }}
-                className="bg-white rounded-[2rem] overflow-hidden shadow-xl border border-slate-200 group"
-              >
-                <div className="relative overflow-hidden">
-                  <Image
-                    src={item.image}
-                    width={500}
-                    height={500}
-                    alt={item.title}
-                    className="w-full h-[320px] object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
+    {/* HEADER */}
+    <div className="flex flex-col md:flex-row md:items-center md:justify-between border-b border-slate-200 pb-6 mb-12">
+      <div>
+        <h2 className="text-4xl font-black text-slate-900 tracking-tight">
+          Dome CCTV Collection
+        </h2>
 
-                  <div className="absolute top-5 left-5 px-4 py-2 rounded-full bg-blue-600 text-white text-xs font-black uppercase tracking-wider">
-                    Best Seller
-                  </div>
-                </div>
+        <p className="mt-3 text-slate-500 max-w-2xl">
+          Smart dome surveillance cameras with AI tracking, ultra HD recording
+          and advanced night security.
+        </p>
+      </div>
 
-                <div className="p-6">
-                  <div className="flex items-center gap-1 text-yellow-500 mb-3">
-                    <Star size={16} fill="currentColor" />
-                    <Star size={16} fill="currentColor" />
-                    <Star size={16} fill="currentColor" />
-                    <Star size={16} fill="currentColor" />
-                    <Star size={16} fill="currentColor" />
-                  </div>
+      <div className="mt-5 md:mt-0 bg-blue-50 border border-blue-100 text-blue-700 px-5 py-3 rounded-2xl text-xs font-black uppercase tracking-widest shadow-sm">
+        {catalogItems.length} Cameras Available
+      </div>
+    </div>
 
-                  <h3 className="text-2xl font-black text-slate-900">
-                    {item.title}
-                  </h3>
-
-                  <p className="text-slate-500 mt-2">
-                    {item.resolution}
-                  </p>
-
-                  <div className="mt-5 flex items-center justify-between">
-                    <div>
-                      <p className="text-sm text-slate-400">Starting From</p>
-
-                      <h4 className="text-3xl font-black text-blue-600">
-                        {item.price}
-                      </h4>
-                    </div>
-
-                    <div className="w-14 h-14 rounded-2xl bg-blue-600 flex items-center justify-center text-white">
-                      <Camera size={24} />
-                    </div>
-                  </div>
-
-                  <div className="mt-6 space-y-3">
-                    <div className="flex items-center gap-3">
-                      <CheckCircle2
-                        className="text-green-500"
-                        size={18}
-                      />
-
-                      <span className="text-slate-600 text-sm">
-                        {item.feature}
-                      </span>
-                    </div>
-
-                    <div className="flex items-center gap-3">
-                      <CheckCircle2
-                        className="text-green-500"
-                        size={18}
-                      />
-
-                      <span className="text-slate-600 text-sm">
-                        Remote Mobile Monitoring
-                      </span>
-                    </div>
-
-                    <div className="flex items-center gap-3">
-                      <CheckCircle2
-                        className="text-green-500"
-                        size={18}
-                      />
-
-                      <span className="text-slate-600 text-sm">
-                        Cloud Storage Support
-                      </span>
-                    </div>
-                  </div>
-
-                  <button
-                    onClick={() => setIsModalOpen(true)}
-                    className="w-full mt-7 py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-black transition-all duration-300 flex items-center justify-center gap-2"
-                  >
-                    Request Quote
-                    <ArrowRight size={18} />
-                  </button>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
+    {/* GRID */}
+    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+     {catalogItems.map((camera, index) => (
+           <div
+             key={index}
+             className="overflow-hidden rounded-[2.5rem] bg-white border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-500 group"
+           >
+             {/* IMAGE */}
+             <div className="relative h-[260px] overflow-hidden">
+               <img
+                 src={camera.image}
+                 alt={camera.title}
+                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+               />
+     
+               {/* OVERLAY */}
+               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+     
+               {/* BADGE */}
+               <div className="absolute top-5 left-5 flex flex-col gap-2 z-10">
+                 <span className="text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full text-white shadow-lg bg-blue-600">
+                   CCTV Camera
+                 </span>
+               </div>
+     
+               {/* PRICE */}
+               <div className="absolute top-5 right-5 bg-white/95 text-blue-600 font-black text-xs px-4 py-2 rounded-full shadow-lg">
+                 {camera.price}
+               </div>
+             </div>
+     
+             {/* CONTENT */}
+             <div className="p-8 flex flex-col min-h-[450px]">
+               
+               {/* TITLE */}
+               <div className="min-h-[80px] mb-5">
+                 <h3 className="text-xl leading-7 font-black text-slate-900 group-hover:text-blue-600 transition-colors duration-300">
+                   {camera.title}
+                 </h3>
+               </div>
+     
+               {/* RATINGS */}
+               <div className="flex items-center gap-3 mb-5">
+                 <div className="bg-blue-600 text-white text-xs font-black px-3 py-1 rounded-full flex items-center gap-1 shadow-md">
+                   4.8
+                   <span>★</span>
+                 </div>
+     
+                 <span className="text-sm text-slate-500 font-semibold">
+                   (180 Reviews)
+                 </span>
+               </div>
+               <div className="mb-8">
+       <div className="flex items-center gap-3 flex-wrap">
+     
+         {/* CURRENT PRICE */}
+         <span className="text-3xl font-black text-slate-900">
+           {camera.price}
+         </span>
+     
+         {/* ORIGINAL PRICE */}
+         <span className="text-base text-slate-400 line-through">
+           {camera.originalPrice}
+         </span>
+       </div>
+     
+       {/* OFFER BADGES */}
+       <div className="mt-4 flex items-center gap-2 flex-wrap">
+     
+         {/* DISCOUNT */}
+         <span className="bg-emerald-50 text-emerald-600 text-xs font-black px-3 py-1 rounded-full border border-emerald-100">
+           {camera.discount}% OFF
+         </span>
+     
+         {/* BADGE */}
+         {camera.badge && (
+           <span className="bg-blue-50 text-blue-700 text-xs font-black px-3 py-1 rounded-full border border-blue-100">
+             {camera.badge}
+           </span>
+         )}
+       </div>
+     </div>
+     
+               {/* DESCRIPTION */}
+               <div className="space-y-3 mb-6">
+                 <div className="flex items-center gap-2">
+                   <ShieldCheck
+                     size={16}
+                     className="text-blue-600"
+                   />
+     
+                   <span className="text-sm text-slate-600 font-medium">
+                     {camera.resolution}
+                   </span>
+                 </div>
+     
+                 <div className="flex items-center gap-2">
+                   <Zap
+                     size={16}
+                     className="text-blue-600"
+                   />
+     
+                   <span className="text-sm text-slate-600 font-medium">
+                     {camera.feature}
+                   </span>
+                 </div>
+               </div>
+     
+               {/* OFFER */}
+               <div className="mb-8">
+                 <div className="mt-4 flex items-center gap-2 flex-wrap">
+                   <span className="bg-emerald-50 text-emerald-600 text-xs font-black px-3 py-1 rounded-full border border-emerald-100">
+                     20% OFF
+                   </span>
+     
+                   <span className="bg-blue-50 text-blue-700 text-xs font-black px-3 py-1 rounded-full border border-blue-100">
+                     Best Seller
+                   </span>
+                 </div>
+               </div>
+                
+               {/* BUTTON */}
+               <div className="mt-auto">
+                 <button
+                   onClick={() => setIsModalOpen(true)}
+                   className="w-full py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-black uppercase tracking-wider text-xs transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-blue-600/20 hover:shadow-blue-600/40"
+                 >
+                   Get Quote
+                   <ArrowRight size={16} />
+                 </button>
+               </div>
+             </div>
+           </div>
+         ))}
+    </div>
+  </div>
+</section>
       {/* FEATURES */}
-      <section className="py-24">
+       <section
+        id="catalog-grid"
+        className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+      >
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-4 gap-8">
             <div className="rounded-[2rem] border border-slate-200 p-8">

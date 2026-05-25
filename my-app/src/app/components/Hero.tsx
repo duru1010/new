@@ -337,21 +337,21 @@ const Hero = () => {
       title: "Smart Networking Infrastructure.",
       subtitle:
         "We build secure, scalable, and high-speed networking systems for modern enterprises.",
-      image: "/b058c545a8c24bd9ec1fbb9d2193ade7.jpg",
+      image: "/44ce9146a2561c3d94e8d2e7abd8c537.jpg",
     },
     {
       category: "Security",
       title: "Advanced CCTV & Security Systems.",
       subtitle:
         "AI-powered surveillance and real-time monitoring for complete business protection.",
-      image: "/e0b48f31b03a5057a71bf13e5790f771.jpg",
+      image: "/5e8037b9f4f4b90e55640a069fc59ad7.jpg",
     },
     {
       category: "Security",
       title: "Rental & Repair Services.",
       subtitle:
         "Affordable rental, installation, maintenance, and expert repair services for homes, offices, and businesses.",
-      image: "/668c0b235856c81c1d06148db126f2b0.jpg",
+      image: "/d180a616ed782721668672cb41c96bc1.jpg",
     },
   ];
 

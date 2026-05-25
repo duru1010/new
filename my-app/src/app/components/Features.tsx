@@ -77,9 +77,7 @@ const Testimonials = () => {
     Real feedback from businesses we empower
   </p>
 </div>
-  <p className="text-slate-500 dark:text-slate-400 mt-4 text-base md:text-lg">
-    Real feedback from businesses we empower
-  </p>
+ 
 </div>
 
         {/* 🚀 AUTOMATIC SCROLL SLIDER WINDOW */}

@@ -28,56 +28,98 @@ export default function TallyPrimePage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const plans = [
-    {
-      name: "Tally Prime Silver",
-      badge: "Lite",
-      priceMonthly: "₹750",
-      priceYearly: "₹9,000",
-      desc: "Single-user accounting solution for startups and small businesses.",
-      color: "from-blue-500 to-blue-700",
-      features: [
-        "Single User Access",
-        "GST Billing",
-        "Inventory Management",
-        "Accounting Reports",
-        "Invoice Generation",
-      ],
-    },
+  {
+    id: 1,
+    name: "Tally Prime Silver",
+    badge: "Lite",
+    image:
+      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200",
+    rating: "4.7",
+    reviewCount: 124,
+    priceMonthly: "₹750",
+    priceYearly: "₹9,000",
+    originalPrice: "₹11,000",
+    discount: 18,
+    desc: "Single-user accounting solution for startups and small businesses.",
+    color: "from-blue-500 to-blue-700",
+    features: [
+      "Single User Access",
+      "GST Billing",
+      "Inventory Management",
+      "Accounting Reports",
+      "Invoice Generation",
+    ],
+  },
 
-    {
-      name: "Tally Prime Gold",
-      badge: "Prime",
-      priceMonthly: "₹1,850",
-      priceYearly: "₹21,600",
-      desc: "Multi-user business accounting solution for growing enterprises.",
-      color: "from-blue-600 to-blue-800",
-      popular: true,
-      features: [
-        "Multi User Access",
-        "Advanced GST Reports",
-        "Payroll Management",
-        "Remote Access",
-        "Business Analytics",
-      ],
-    },
+  {
+    id: 2,
+    name: "Tally Prime Gold",
+    badge: "Prime",
+    image:
+      "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200",
+    rating: "4.9",
+    reviewCount: 286,
+    priceMonthly: "₹1,850",
+    priceYearly: "₹21,600",
+    originalPrice: "₹26,000",
+    discount: 20,
+    desc: "Multi-user business accounting solution for growing enterprises.",
+    color: "from-blue-600 to-blue-800",
+    popular: true,
+    features: [
+      "Multi User Access",
+      "Advanced GST Reports",
+      "Payroll Management",
+      "Remote Access",
+      "Business Analytics",
+    ],
+  },
 
-    {
-      name: "Tally Prime Enterprise",
-      badge: "Mega",
-      priceMonthly: "₹3,250",
-      priceYearly: "₹38,000",
-      desc: "Enterprise-grade accounting and inventory management platform.",
-      color: "from-blue-700 to-blue-900",
-      features: [
-        "Enterprise Security",
-        "Branch Management",
-        "Cloud Backup",
-        "Advanced Reporting",
-        "Priority Support",
-      ],
-    },
-  ];
-
+  {
+    id: 3,
+    name: "Tally Prime Enterprise",
+    badge: "Mega",
+    image:
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200",
+    rating: "5.0",
+    reviewCount: 98,
+    priceMonthly: "₹3,250",
+    priceYearly: "₹38,000",
+    originalPrice: "₹45,000",
+    discount: 15,
+    desc: "Enterprise-grade accounting and inventory management platform.",
+    color: "from-blue-700 to-blue-900",
+    features: [
+      "Enterprise Security",
+      "Branch Management",
+      "Cloud Backup",
+      "Advanced Reporting",
+      "Priority Support",
+    ],
+  },
+  {
+    id: 3,
+    name: "Tally Prime Enterprise",
+    badge: "Mega",
+    image:
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200",
+    rating: "5.0",
+    reviewCount: 98,
+    priceMonthly: "₹3,250",
+    priceYearly: "₹38,000",
+    originalPrice: "₹45,000",
+    discount: 15,
+    desc: "Enterprise-grade accounting and inventory management platform.",
+    color: "from-blue-700 to-blue-900",
+    features: [
+      "Enterprise Security",
+      "Branch Management",
+      "Cloud Backup",
+      "Advanced Reporting",
+      "Priority Support",
+    ],
+  },
+];
   const tallySecurityProducts = [
     {
       title: "Tally Ultimate Security 1 User Lifetime Validity",
@@ -289,98 +331,152 @@ export default function TallyPrimePage() {
     </div>
   </div>
 </section>
-        {/* SECURITY PRODUCTS */}
-        <section className="py-24 bg-white dark:bg-slate-900">
-          <div className="container mx-auto px-6">
-            <div className="max-w-3xl mb-16">
-              <h3 className="text-4xl md:text-5xl font-black mb-6">
-                Tally Security Products
-              </h3>
 
-              <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-                Secure your Tally software with lifetime validity and renewal
-                protection plans.
-              </p>
+
+
+        {/* SECURITY PRODUCTS */}
+        <section
+  id="catalog-grid"
+  className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+>
+  {/* HEADER */}
+  <div className="flex flex-col md:flex-row md:items-center md:justify-between border-b border-blue-100 pb-6 mb-10">
+    <div>
+      <h2 className="text-3xl font-black text-slate-900 tracking-tight">
+        Tally Prime Plans
+      </h2>
+
+      <p className="mt-2 text-sm text-slate-500">
+        Powerful accounting and GST solutions for businesses of all sizes.
+      </p>
+    </div>
+
+    <div className="mt-4 md:mt-0 bg-blue-50 border border-blue-100 text-blue-700 px-4 py-2 rounded-lg text-xs font-bold tracking-wide shadow-sm uppercase self-start">
+      {plans.length} Plans Available
+    </div>
+  </div>
+
+  {/* GRID */}
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    {plans.map((plan, index) => (
+      <div
+        key={index}
+        className="overflow-hidden rounded-[2.5rem] bg-white border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-500 group"
+      >
+        {/* IMAGE */}
+        <div className="relative h-[260px] overflow-hidden">
+          <img
+            src={plan.image}
+            alt={plan.name}
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+          />
+
+          {/* OVERLAY */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+
+          {/* BADGES */}
+          <div className="absolute top-5 left-5 flex flex-col gap-2 z-10">
+            <span
+              className={`text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full text-white shadow-lg ${
+                plan.popular
+                  ? "bg-blue-600"
+                  : "bg-indigo-600"
+              }`}
+            >
+              {plan.badge}
+            </span>
+          </div>
+
+          {/* PRICE BADGE */}
+          <div className="absolute top-5 right-5 bg-white/95 text-blue-600 font-black text-xs px-4 py-2 rounded-full shadow-lg">
+            {plan.priceMonthly}
+          </div>
+        </div>
+
+        {/* CONTENT */}
+        <div className="p-8 flex flex-col min-h-[450px]">
+
+          {/* TITLE */}
+          <div className="min-h-[80px] mb-5">
+            <h3 className="text-xl leading-7 font-black text-slate-900 group-hover:text-blue-600 transition-colors duration-300">
+              {plan.name}
+            </h3>
+          </div>
+
+          {/* RATINGS */}
+          <div className="flex items-center gap-3 mb-5">
+            <div className="bg-blue-600 text-white text-xs font-black px-3 py-1 rounded-full flex items-center gap-1 shadow-md">
+              {plan.rating}
+              <span>★</span>
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-8">
-              {tallySecurityProducts.map((product, idx) => (
-                <motion.div
-                  key={idx}
-                  whileHover={{ y: -10, scale: 1.02 }}
-                  className="group rounded-[2.5rem] overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 shadow-2xl"
-                >
-                  <div className="relative overflow-hidden">
-                    <Image
-                      src={product.image}
-                      alt={product.title}
-                      width={800}
-                      height={500}
-                      className="w-full h-[280px] object-cover group-hover:scale-105 transition-all duration-500"
-                    />
+            <span className="text-sm text-slate-500 font-semibold">
+              ({plan.reviewCount} Reviews)
+            </span>
+          </div>
 
-                    <div className="absolute top-5 left-5 px-4 py-2 rounded-full bg-gradient-to-r from-blue-500 to-blue-700 text-white text-xs font-black uppercase tracking-widest shadow-lg">
-                      {product.tag}
-                    </div>
-                  </div>
+          {/* DESCRIPTION */}
+          <p className="text-sm text-slate-500 leading-relaxed mb-6">
+            {plan.desc}
+          </p>
 
-                  <div className="p-8">
-                    <div className="flex items-center gap-2 text-blue-600 mb-4">
-                      <ShieldCheck size={20} />
-                      <span className="font-bold uppercase tracking-widest text-xs">
-                        Security Voucher
-                      </span>
-                    </div>
+          {/* PRICE */}
+          <div className="mb-6">
+            <div className="flex items-center gap-3 flex-wrap">
+              <span className="text-3xl font-black text-slate-900">
+                {plan.priceMonthly}
+              </span>
 
-                    <h3 className="text-2xl font-black leading-snug mb-6">
-                      {product.title}
-                    </h3>
+              <span className="text-base text-slate-400 line-through">
+                {plan.originalPrice}
+              </span>
+            </div>
 
-                    <div className="flex items-center gap-4 mb-8 flex-wrap">
-                      <div className="text-4xl font-black text-blue-700">
-                        {product.price}
-                      </div>
+            {/* OFFER BADGES */}
+            <div className="mt-4 flex items-center gap-2 flex-wrap">
+              <span className="bg-emerald-50 text-emerald-600 text-xs font-black px-3 py-1 rounded-full border border-emerald-100">
+                {plan.discount}% OFF
+              </span>
 
-                      <div className="text-xl line-through text-slate-400">
-                        {product.oldPrice}
-                      </div>
-
-                      <div className="px-4 py-2 rounded-full bg-green-100 text-green-700 text-sm font-black">
-                        {product.discount}
-                      </div>
-                    </div>
-
-                    <div className="space-y-4 mb-8">
-                      <div className="flex items-center gap-3">
-                        <Check size={18} className="text-blue-600 shrink-0" />
-                        <span>Advanced Data Security</span>
-                      </div>
-
-                      <div className="flex items-center gap-3">
-                        <Check size={18} className="text-blue-600 shrink-0" />
-                        <span>Business Protection Coverage</span>
-                      </div>
-
-                      <div className="flex items-center gap-3">
-                        <Check size={18} className="text-blue-600 shrink-0" />
-                        <span>Reliable Renewal Support</span>
-                      </div>
-                    </div>
-
-                    <button
-                      onClick={() => setIsModalOpen(true)}
-                      className="w-full py-4 rounded-2xl bg-gradient-to-r from-blue-500 to-blue-700 text-white font-bold flex items-center justify-center gap-2 shadow-2xl shadow-blue-600/30 hover:scale-[1.02] transition-all duration-300"
-                    >
-                      Buy Now
-                      <ArrowRight size={18} />
-                    </button>
-                  </div>
-                </motion.div>
-              ))}
+              {plan.popular && (
+                <span className="bg-blue-50 text-blue-700 text-xs font-black px-3 py-1 rounded-full border border-blue-100">
+                  Most Popular
+                </span>
+              )}
             </div>
           </div>
-        </section>
 
+          {/* FEATURES */}
+          <div className="space-y-3 mb-8">
+            {plan.features.map((feature, i) => (
+              <div key={i} className="flex items-start gap-3">
+                <Check
+                  size={16}
+                  className="text-blue-600 mt-1 flex-shrink-0"
+                />
+
+                <span className="text-slate-600 text-sm leading-relaxed">
+                  {feature}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* BUTTON */}
+          <div className="mt-auto">
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="w-full py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-black uppercase tracking-wider text-xs transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-blue-600/20 hover:shadow-blue-600/40"
+            >
+              Get Quote
+              <ArrowRight size={16} />
+            </button>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
         {/* FEATURES */}
         <section className="py-24">
           <div className="container mx-auto px-6">

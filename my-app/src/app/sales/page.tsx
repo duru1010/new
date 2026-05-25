@@ -504,7 +504,6 @@
 
 // export default HardwarePage;
 
-
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -514,26 +513,14 @@ import Image from "next/image";
 
 import {
   ShoppingBag,
-  Cpu,
-  Monitor,
-  HardDrive,
-  Server,
   ArrowRight,
   Star,
   Check,
-  ShieldCheck,
-  Terminal,
-  Zap,
-  Globe,
-  Database,
-  Cloud,
-  FileCode2,
-  Lock,
-  Briefcase,
-  X,
   ArrowUpRight,
+  X,
 } from "lucide-react";
 
+// ---------------- MODAL TYPES ----------------
 interface GetStartedModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -544,7 +531,6 @@ const GetStartedModal: React.FC<GetStartedModalProps> = ({
   isOpen,
   onClose,
 }) => {
-  const [step, setStep] = useState<number>(1);
   const [selectedType, setSelectedType] = useState<string>("");
 
   if (!isOpen) return null;
@@ -554,9 +540,9 @@ const GetStartedModal: React.FC<GetStartedModalProps> = ({
       <motion.div
         initial={{ opacity: 0, scale: 0.92 }}
         animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.92 }}
         className="relative bg-white dark:bg-slate-900 w-full max-w-xl rounded-[2rem] border border-slate-200 dark:border-white/10 shadow-2xl p-8"
       >
+        {/* CLOSE BUTTON */}
         <button
           onClick={onClose}
           className="absolute top-5 right-5 w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-red-500 hover:text-white transition-all"
@@ -564,8 +550,9 @@ const GetStartedModal: React.FC<GetStartedModalProps> = ({
           <X size={18} />
         </button>
 
+        {/* HEADER */}
         <div className="mb-6">
-          <p className="text-xs font-black uppercase tracking-[0.3em] text-indigo-600 mb-3">
+          <p className="text-xs font-black uppercase tracking-[0.3em] text-blue-600 mb-3">
             Get Started
           </p>
 
@@ -578,6 +565,7 @@ const GetStartedModal: React.FC<GetStartedModalProps> = ({
           </p>
         </div>
 
+        {/* OPTIONS */}
         <div className="space-y-4">
           {[
             "Hardware Purchase",
@@ -587,14 +575,11 @@ const GetStartedModal: React.FC<GetStartedModalProps> = ({
           ].map((type, idx) => (
             <button
               key={idx}
-              onClick={() => {
-                setSelectedType(type);
-                setStep(2);
-              }}
+              onClick={() => setSelectedType(type)}
               className={`w-full p-4 rounded-2xl border text-left transition-all ${
                 selectedType === type
-                  ? "border-indigo-500 bg-indigo-50 dark:bg-indigo-500/10"
-                  : "border-slate-200 dark:border-white/10 hover:border-indigo-400"
+                  ? "border-blue-500 bg-blue-50 dark:bg-blue-500/10"
+                  : "border-slate-200 dark:border-white/10 hover:border-blue-400"
               }`}
             >
               <h4 className="font-bold text-slate-900 dark:text-white">
@@ -604,17 +589,10 @@ const GetStartedModal: React.FC<GetStartedModalProps> = ({
           ))}
         </div>
 
-        {step === 2 && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="mt-8"
-          >
-            <button className="w-full py-4 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold transition-all">
-              Continue
-            </button>
-          </motion.div>
-        )}
+        {/* CTA */}
+        <button className="w-full mt-8 py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold transition-all">
+          Continue
+        </button>
       </motion.div>
     </div>
   );
@@ -626,14 +604,23 @@ const HardwarePage = () => {
 
   const openModal = () => {
     setIsModalOpen(true);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   useEffect(() => {
     const handleHashChange = () => {
       if (window.location.hash === "#get-started") {
         setIsModalOpen(true);
-        window.history.replaceState(null, "", window.location.pathname);
+
+        window.history.replaceState(
+          null,
+          "",
+          window.location.pathname
+        );
       }
     };
 
@@ -645,78 +632,81 @@ const HardwarePage = () => {
       window.removeEventListener("hashchange", handleHashChange);
   }, []);
 
-  // ---------------- HARDWARE PRODUCTS ----------------
-  
-
-  // ---------------- SOFTWARE BRANDS ----------------
- 
-
-  // ---------------- DETAILED SERVICES ----------------
+  // ---------------- SERVICES ----------------
   const detailedServices = [
-    {
-      id: "software-licenses",
-      title: "Software Licensing Solutions",
-      subItems: [
-        {
-          id: "microsoft-365",
-          name: "Microsoft ",
-          desc: "Official Microsoft productivity suite.",
-          img: "/9f65e0094e0172fd3bccd9fc3306d514.jpg",
-        },
-        {
-          id: "tally-prime",
-          name: "Tally Prime",
-          desc: "GST billing & accounting solutions.",
-          img: "/236f93c5ddd54154df210333050523bd.jpg",
-        },
-        {
-          id: "quick-heal",
-          name: "Antivirus",
-          desc: "Business antivirus protection.",
-          img: "/1c1914f4c03275e69d4d81e45a5cb480.jpg",
-        },
-        {
-          id: "adobe-cc",
-          name: "Adobe Creative Cloud",
-          desc: "Creative suite for professionals.",
-          img: "/3b68ecaac42370efe5a73a830219f9a5.jpg",
-        },
-       
-      ],
-    },
-  ];
-  
+  {
+    id: "sales",
+    title: "Microsoft & Software Sales Solutions",
+    desc:
+      "Professional Microsoft licensing, cloud solutions and software sales services for businesses, institutes and enterprises.",
+
+    subItems: [
+      {
+        id: "microsoft-365",
+        name: "Microsoft ",
+        desc: "Business productivity, Teams, Outlook and Office solutions.",
+        img: "/9f65e0094e0172fd3bccd9fc3306d514.jpg",
+      
+      },
+
+      {
+        id: "quick-heal",
+        name: "Antivirus & Security",
+        desc: "Enterprise-grade antivirus and security solutions.",
+        img: "/1c1914f4c03275e69d4d81e45a5cb480.jpg",
+    
+      },
+
+      {
+        id: "tally-prime",
+        name: "Telly Prime",
+        desc: "Streaming and entertainment solutions for businesses.",
+        img: "/236f93c5ddd54154df210333050523bd.jpg",
+        
+      },
+
+      {
+        id: "adobe-cc",
+        name: "Adobe Creative Cloud",
+        desc: "Professional design and creative tools for businesses.",
+        img: "/3b68ecaac42370efe5a73a830219f9a5.jpg",
+      
+      },
+    ],
+  },
+];
 
   return (
     <div className="min-h-screen bg-white dark:bg-slate-950 pt-40 pb-20 transition-colors duration-500">
+
       <div className="container mx-auto px-6">
 
         {/* HERO */}
         <div className="max-w-4xl mb-20">
 
           <motion.div
-                     initial={{ opacity: 0, y: 40 }}
-                     animate={{ opacity: 1, y: 0 }}
-                     transition={{ duration: 0.8 }}
-                   >
-         
-                     <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-blue-600/10 border border-blue-200 text-blue-600 text-xs font-bold mb-6">
-            <ShoppingBag size={16} />
-            Enterprise IT Solutions
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-blue-600/10 border border-blue-200 text-blue-600 text-xs font-bold mb-6">
+              <ShoppingBag size={16} />
+              Enterprise IT Solutions
             </div>
           </motion.div>
 
           <motion.h1
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ delay: 0.2 }}
-  className="text-4xl md:text-7xl font-black text-slate-900 dark:text-white leading-none tracking-tighter mb-8"
->
-  Hardware & <br />
-  <span className="text-[#0057FF]">
-    Licensing.
-  </span>
-</motion.h1>
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-4xl md:text-7xl font-black text-slate-900 dark:text-white leading-none tracking-tighter mb-8"
+          >
+            Hardware & <br />
+
+            <span className="text-[#0057FF]">
+              Licensing.
+            </span>
+          </motion.h1>
 
           <motion.p
             initial={{ opacity: 0 }}
@@ -728,116 +718,210 @@ const HardwarePage = () => {
             including Microsoft, Tally, Quick-Heal, Adobe and other
             enterprise-grade solutions at reasonable prices.
           </motion.p>
-        </div>
-      <div className="flex flex-wrap gap-4 mt-10">
-      
-                    <motion.button
-                      whileHover={{ scale: 1.04 }}
-                      whileTap={{ scale: 0.96 }}
-                      onClick={() => {
-                        openModal();
-                        window.location.hash = "get-started";
-                      }}
-                      className="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-2xl font-bold flex items-center gap-2 shadow-xl shadow-blue-500/20"
-                    >
-                      Get Service <ArrowRight size={18} />
-                    </motion.button>
-      
-                    <motion.a
-                      whileHover={{ scale: 1.04 }}
-                      whileTap={{ scale: 0.96 }}
-                      href="/#contact"
-                      className="px-8 py-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl font-bold flex items-center gap-2 shadow-lg"
-                    >
-                      Contact Us <ArrowUpRight size={18} />
-                    </motion.a>
-      
-                  </div>
-        {/* HARDWARE GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
-          
+
+          {/* HERO BUTTONS */}
+          <div className="flex flex-wrap gap-4 mt-10">
+
+            <motion.button
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.96 }}
+              onClick={() => {
+                openModal();
+                window.location.hash = "get-started";
+              }}
+              className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-2xl font-bold flex items-center gap-2 shadow-xl shadow-blue-500/20"
+            >
+              Get Service <ArrowRight size={18} />
+            </motion.button>
+
+            <motion.a
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.96 }}
+              href="/#contact"
+              className="px-8 py-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl font-bold flex items-center gap-2 shadow-lg"
+            >
+              Contact Us <ArrowUpRight size={18} />
+            </motion.a>
+
+          </div>
         </div>
 
-        {/* LICENSE BRANDS */}
-       
         {/* SOFTWARE LICENSE SECTION */}
-        <section className="py-20">
-          <div className="container mx-auto px-0">
+        <section className="py-24 relative">
+
+          <div className="container mx-auto px-6">
+
             {detailedServices.map((service) => (
               <div key={service.id} className="space-y-10">
+
+                {/* HEADER */}
                 <div>
                   <h3 className="text-3xl font-black text-slate-900 dark:text-white">
                     {service.title}
                   </h3>
+
+                  <p className="text-slate-500 mt-3 max-w-2xl">
+                    {service.desc}
+                  </p>
                 </div>
 
-                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                  {service.subItems.map((item) => (
+                {/* CARDS */}
+                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-7">
+
+                  {service.subItems.map((item, index) => (
                     <motion.div
                       key={item.id}
-                      whileHover={{ y: -12, scale: 1.03 }}
-                      className="relative h-[380px] rounded-3xl overflow-hidden group shadow-lg"
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      whileHover={{ y: -10 }}
+                      transition={{
+                        duration: 0.5,
+                        delay: index * 0.1,
+                        type: "spring",
+                      }}
+                      className="group relative overflow-hidden rounded-[2.5rem] bg-white border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-500"
                     >
-                      <Image
-                        src={item.img}
-                        alt={item.name}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
 
-                      {/* DARK OVERLAY */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                      {/* IMAGE */}
+                      <div className="relative h-[260px] overflow-hidden">
+
+                        <Image
+                          src={item.img}
+                          alt={item.name}
+                          fill
+                          loading="lazy"
+                          className="object-cover group-hover:scale-105 transition-transform duration-700"
+                        />
+
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+
+                        {/* BADGE */}
+                        <div className="absolute top-5 left-5">
+                          <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 backdrop-blur-md shadow-lg">
+
+                            <span className="text-[11px] font-bold uppercase tracking-widest text-slate-700">
+                              Premium Service
+                            </span>
+
+                          </div>
+                        </div>
+
+                        {/* NUMBER */}
+                        <div className="absolute top-5 right-5">
+                          <span className="text-5xl font-black text-white/70">
+                            0{index + 1}
+                          </span>
+                        </div>
+
+                      </div>
 
                       {/* CONTENT */}
-                      <div className="absolute bottom-0 left-0 w-full p-5 z-10">
+                      <div className="p-6">
+
+                        {/* LABEL */}
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 mb-4">
+
+                          <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+
+                          <span className="text-[11px] uppercase tracking-[0.2em] font-bold text-blue-600">
+                            Smart Solution
+                          </span>
+
+                        </div>
 
                         {/* TITLE */}
-                        <h4 className="text-xl font-black text-white drop-shadow-md">
+                        <h4 className="text-2xl font-black text-slate-900 leading-tight">
                           {item.name}
                         </h4>
 
-                        {/* DESCRIPTION */}
-                        <p className="text-xs text-white/70 mt-1">
+                        {/* DESC */}
+                        <p className="text-sm text-slate-600 mt-3 leading-relaxed">
                           {item.desc}
                         </p>
 
+                        {/* FEATURES */}
+                        <div className="flex flex-wrap gap-2 mt-5">
+
+                          <span className="px-3 py-1 rounded-full bg-slate-100 text-xs font-medium text-slate-700">
+                            Fast Service
+                          </span>
+
+                          <span className="px-3 py-1 rounded-full bg-slate-100 text-xs font-medium text-slate-700">
+                            Expert Team
+                          </span>
+
+                          <span className="px-3 py-1 rounded-full bg-slate-100 text-xs font-medium text-slate-700">
+                            Trusted Support
+                          </span>
+
+                        </div>
+
                         {/* BUTTONS */}
-                        <div className="mt-4 space-y-2 opacity-0 translate-y-6 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                        <div className="mt-6 flex gap-3">
+
                           <button
                             onClick={() => {
                               openModal();
                               window.location.hash = "get-started";
                             }}
-                            className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold flex items-center justify-center gap-2 transition-all"
+                            className="flex-1 py-3 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold flex items-center justify-center gap-2 transition-all duration-300"
                           >
                             Hire Now
                             <ArrowRight size={16} />
                           </button>
 
-                          <Link
-                            href={`/sales/${item.id}`}
-                            className="w-full py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl font-bold text-white flex items-center justify-center hover:bg-white/20 transition-all"
-                          >
-                            Know More
-                          </Link>
+                           <Link
+          href={`/sales/${item.id}`}
+          className="flex-1 py-3 rounded-2xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-900 font-bold flex items-center justify-center transition-all duration-300"
+        >
+          Know More
+        </Link>
+
                         </div>
+
                       </div>
+
+                      {/* BORDER */}
+                      <div className="absolute inset-0 rounded-[2.5rem] border-2 border-transparent group-hover:border-blue-200 transition-all duration-500 pointer-events-none" />
+
                     </motion.div>
                   ))}
+
                 </div>
+
+                {/* CTA */}
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  className="pt-6"
+                >
+                  <a
+                    href="/#contact"
+                    className="inline-flex px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-2xl font-bold items-center gap-2 shadow-xl shadow-blue-500/20"
+                  >
+                    Contact For Bulk Rental / Repair
+                    <ArrowUpRight size={18} />
+                  </a>
+                </motion.div>
+
               </div>
             ))}
+
           </div>
+
         </section>
 
-        {/* WHY BUY FROM US */}
+        {/* ADVANTAGE SECTION */}
         <div className="grid lg:grid-cols-2 gap-12 items-center bg-slate-50 dark:bg-slate-900/50 rounded-[4rem] p-8 md:p-20 border border-slate-100 dark:border-white/5">
+
+          {/* LEFT */}
           <div>
+
             <h2 className="text-4xl font-black text-slate-900 dark:text-white mb-8 tracking-tight leading-tight">
               The Softlink <br /> Advantage
             </h2>
 
             <div className="space-y-6">
+
               {[
                 {
                   t: "Seamless Activation",
@@ -853,11 +937,13 @@ const HardwarePage = () => {
                 },
               ].map((item, idx) => (
                 <div key={idx} className="flex gap-4">
-                  <div className="mt-1 w-6 h-6 rounded-full bg-indigo-600/10 text-indigo-600 flex items-center justify-center shrink-0">
+
+                  <div className="mt-1 w-6 h-6 rounded-full bg-blue-600/10 text-blue-600 flex items-center justify-center shrink-0">
                     <Check size={14} />
                   </div>
 
                   <div>
+
                     <h5 className="font-bold dark:text-white text-slate-900">
                       {item.t}
                     </h5>
@@ -865,20 +951,29 @@ const HardwarePage = () => {
                     <p className="text-sm text-slate-500 dark:text-slate-300">
                       {item.d}
                     </p>
+
                   </div>
+
                 </div>
               ))}
+
             </div>
+
           </div>
 
+          {/* RIGHT */}
           <div className="relative">
-            <div className="aspect-square bg-gradient-to-tr from-indigo-600 to-purple-500 rounded-[3rem] rotate-3 absolute inset-0 opacity-10" />
+
+            <div className="aspect-square bg-gradient-to-tr from-blue-600 to-indigo-500 rounded-[3rem] rotate-3 absolute inset-0 opacity-10" />
 
             <div className="relative bg-white dark:bg-slate-800 p-12 rounded-[3rem] border border-slate-100 dark:border-white/10 shadow-2xl">
-              <div className="flex items-center gap-2 text-indigo-600 mb-6">
+
+              <div className="flex items-center gap-2 text-blue-600 mb-6">
+
                 {[1, 2, 3, 4, 5].map((s) => (
                   <Star key={s} size={16} fill="currentColor" />
                 ))}
+
               </div>
 
               <p className="text-xl italic font-medium text-slate-700 dark:text-slate-300 mb-6">
@@ -888,9 +983,11 @@ const HardwarePage = () => {
               </p>
 
               <div className="flex items-center gap-4">
+
                 <div className="w-12 h-12 rounded-full bg-slate-200 dark:bg-slate-700" />
 
                 <div>
+
                   <p className="font-bold dark:text-white text-slate-900">
                     Rahul Mehta
                   </p>
@@ -898,10 +995,15 @@ const HardwarePage = () => {
                   <p className="text-xs text-slate-500 dark:text-slate-400 uppercase font-bold">
                     Creative Director, Pune
                   </p>
+
                 </div>
+
               </div>
+
             </div>
+
           </div>
+
         </div>
 
       </div>
@@ -911,6 +1013,7 @@ const HardwarePage = () => {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
       />
+
     </div>
   );
 };

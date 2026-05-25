@@ -851,6 +851,13 @@ const NetworkingPage = () => {
           img: "/9b3f1ec6973f5b7a31449f023d2fc2bb.jpg",
           icon: <Cpu size={16} />,
         },
+        {
+          id: "net sec",
+          name: "Network Security",
+          desc: "RAM, SSD, GPU upgrades for better performance & speed.",
+          img: "/9b3f1ec6973f5b7a31449f023d2fc2bb.jpg",
+          icon: <Cpu size={16} />,
+        },
         // {
         //   id: "vpn",
         //   name: "VPN & Remote Access",
@@ -918,7 +925,7 @@ const NetworkingPage = () => {
                                 openModal();
                                 window.location.hash = "get-started";
                               }}
-                              className="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-2xl font-bold flex items-center gap-2 shadow-xl shadow-blue-500/20"
+                              className="px-8 py-4 from-blue-600 to-blue-600 text-white rounded-2xl font-bold flex items-center gap-2 shadow-xl shadow-blue-500/20"
                             >
                               Get Service <ArrowRight size={18} />
                             </motion.button>
@@ -1097,6 +1104,8 @@ const NetworkingPage = () => {
           ))}
         </div>
       </section>
+
+      
       <section className="py-24 relative">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-4">

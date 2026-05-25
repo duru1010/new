@@ -19,31 +19,75 @@ const COLORS = {
   navy: "#020617",
 };
 
-const plans = [
-  { 
-    id: 1, 
-    title: "Sky Lite", 
-    speed: "150 Mbps", 
-    price: "699", 
-    tag: "Essential",
-    features: ["Dual-Band Router", "Unlimited Data", "24/7 Support"]
+const recoveryProducts = [
+  {
+    title: "Cat6 Enterprise Cabling",
+    image:
+      "https://images.unsplash.com/photo-1518770660439-4636190af475",
+    tag: "Trending",
+    rating: "4.9",
+    reviewCount: 120,
+    price: "₹12,999",
+    originalPrice: "₹16,999",
+    discount: 20,
+    badge: "Best Seller",
+    specs: [
+      "High-speed structured cabling",
+      "Enterprise-grade installation",
+      "Future-ready bandwidth",
+    ],
   },
-  { 
-    id: 2, 
-    title: "Electric Pro", 
-    speed: "400 Mbps", 
-    price: "1299", 
-    tag: "Most Popular",
-    features: ["WiFi 6 Router", "Zero Latency Gaming", "Priority Support"]
+  {
+    title: "Fiber Optic Infrastructure",
+    image:
+      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31",
+    tag: "Hot Deal",
+    rating: "4.8",
+    reviewCount: 98,
+    price: "₹24,999",
+    originalPrice: "₹31,999",
+    discount: 25,
+    badge: "Premium",
+    specs: [
+      "Ultra-fast fiber backbone",
+      "Low latency architecture",
+      "Long distance reliability",
+    ],
   },
-  { 
-    id: 3, 
-    title: "Thunderbolt", 
-    speed: "1 Gbps", 
-    price: "2499", 
-    tag: "Ultra Performance",
-    features: ["Mesh Setup Incl.", "Static IP", "Enterprise Security"]
-  }
+  {
+    title: "Enterprise WiFi Setup",
+    image:
+      "https://images.unsplash.com/photo-1520869562399-e772f042f422",
+    tag: "Popular",
+    rating: "4.7",
+    reviewCount: 87,
+    price: "₹18,999",
+    originalPrice: "₹22,999",
+    discount: 15,
+    badge: "Recommended",
+    specs: [
+      "Seamless roaming",
+      "WiFi 6 compatibility",
+      "Secure network coverage",
+    ],
+  },
+  {
+    title: "Enterprise WiFi Setup",
+    image:
+      "https://images.unsplash.com/photo-1520869562399-e772f042f422",
+    tag: "Popular",
+    rating: "4.7",
+    reviewCount: 87,
+    price: "₹18,999",
+    originalPrice: "₹22,999",
+    discount: 15,
+    badge: "Recommended",
+    specs: [
+      "Seamless roaming",
+      "WiFi 6 compatibility",
+      "Secure network coverage",
+    ],
+  },
 ];
 
 export default function VoltFiberUltra() {
@@ -146,87 +190,149 @@ export default function VoltFiberUltra() {
       </section>
 
 
-       <section className="py-20 px-10 ">
-  <div className="max-w-7xl mx-auto">
-    
-    {/* Header */}
-    <div className="flex flex-col md:flex-row justify-between items-end mb-6 gap-8">
-      <div>
-        <h2 className="text-5xl font-black text-white italic tracking-tighter mb-4">
-          CHOOSE YOUR SPEED
-        </h2>
-        <p className="text-slate-400 font-medium">
-          No contracts. No hardware fees. Just high-voltage fiber.
-        </p>
-      </div>
-
-     
-    </div>
-
-    {/* Cards */}
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <AnimatePresence mode="popLayout">
-        {plans.map((plan, i) => (
-          <motion.div
-            key={plan.id}
-            layout
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            transition={{ delay: i * 0.1 }}
-            className="group relative bg-white dark:bg-slate-900 p-8 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 hover:border-indigo-500/50 transition-all hover:shadow-3xl hover:-translate-y-2"
-          >
-            {/* Tag */}
-            <div className="flex justify-between items-start mb-6">
-              <span className="px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 text-[10px] font-black uppercase tracking-widest">
-                {plan.tag}
-              </span>
-            </div>
-
-            {/* Title */}
-            <h3 className="text-2xl font-black tracking-tight">
-              {plan.title}
-            </h3>
-
-            {/* Speed */}
-            <div className="mt-2 flex items-center gap-2 text-blue-600 font-black">
-              {plan.speed}
-            </div>
-
-            {/* Price */}
-            <div className="mt-4 flex items-baseline gap-1">
-              <span className="text-4xl font-black text-blue-600">
-                ₹{plan.price}
-              </span>
-              <span className="text-slate-400 font-medium">/month</span>
-            </div>
-
-            {/* Features */}
-            <div className="my-6 space-y-3 border-y border-slate-100 dark:border-slate-800 py-6">
-              {plan.features.map((f: string) => (
-                <div
-                  key={f}
-                  className="flex items-center gap-3 text-sm font-medium"
-                >
-                  <CheckCircle2 size={16} className="text-blue-500" />
-                  <span>{f}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Button */}
-            <button
-                    onClick={() => setIsModalOpen(true)}
-                    className="w-full py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-black uppercase tracking-wider text-xs transition-all"
-                  >
-                    Request Quote
-                  </button>
-          </motion.div>
-        ))}
-      </AnimatePresence>
-    </div>
-  </div>
-</section>
+       <section
+         id="catalog-grid"
+         className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+       >
+         {/* Header */}
+         <div className="flex flex-col md:flex-row md:items-center md:justify-between border-b border-blue-100 pb-6 mb-10">
+           <div>
+             <h2 className="text-3xl font-black text-slate-900 tracking-tight">
+               Hardware Upgrade Catalog
+             </h2>
+       
+             <p className="mt-2 text-sm text-slate-500">
+               Professional upgrade solutions for gaming, office, editing and
+               high-performance systems.
+             </p>
+           </div>
+       
+           <div className="mt-4 md:mt-0 bg-blue-50 border border-blue-100 text-blue-700 px-4 py-2 rounded-lg text-xs font-bold tracking-wide shadow-sm uppercase self-start">
+             {recoveryProducts.length} Upgrade Services Available
+           </div>
+         </div>
+       
+         {/* GRID */}
+         {/* GRID */}
+       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+         {recoveryProducts.map((item, index) => (
+           <div
+             key={index}
+             className="overflow-hidden rounded-[2.5rem] bg-white border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-500 group"
+           >
+             {/* IMAGE */}
+             <div className="relative h-[260px] overflow-hidden">
+               <img
+                 src={item.image}
+                 alt={item.title}
+                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+               />
+       
+               {/* Overlay */}
+               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+       
+               {/* TOP BADGES */}
+               <div className="absolute top-5 left-5 flex flex-col gap-2 z-10">
+                 {item.tag && (
+                   <span
+                     className={`text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full text-white shadow-lg ${
+                       item.tag === "Trending"
+                         ? "bg-cyan-500"
+                         : item.tag === "Hot Deal"
+                         ? "bg-blue-600"
+                         : "bg-indigo-600"
+                     }`}
+                   >
+                     {item.tag}
+                   </span>
+                 )}
+               </div>
+       
+               {/* PRICE BADGE */}
+               <div className="absolute top-5 right-5 bg-white/95 backdrop-blur-md text-blue-600 font-black text-xs px-4 py-2 rounded-full shadow-lg border border-white">
+                 {item.price}
+               </div>
+             </div>
+       
+             {/* CONTENT */}
+             <div className="p-8 flex flex-col min-h-[420px]">
+               {/* TITLE */}
+               <div className="min-h-[80px] mb-5">
+                 <h3 className="text-xl leading-7 font-black text-slate-900 group-hover:text-blue-600 transition-colors duration-300">
+                   {item.title}
+                 </h3>
+               </div>
+       
+               {/* RATINGS */}
+               <div className="flex items-center gap-3 mb-6">
+                 <div className="bg-blue-600 text-white text-xs font-black px-3 py-1 rounded-full flex items-center gap-1 shadow-md">
+                   {item.rating}
+                   <span>★</span>
+                 </div>
+       
+                 <span className="text-sm text-slate-500 font-semibold">
+                   ({item.reviewCount} Reviews)
+                 </span>
+               </div>
+       
+               {/* PRICE SECTION */}
+               <div className="mb-6">
+                 <div className="flex items-center gap-3 flex-wrap">
+                   <span className="text-lg font-black text-slate-900">
+                     {item.price}
+                   </span>
+       
+                   <span className="text-sm text-slate-400 line-through">
+                     {item.originalPrice}
+                   </span>
+                 </div>
+       
+                 {/* OFFER BADGES */}
+                 <div className="mt-4 flex items-center gap-2 flex-wrap">
+                   <span className="bg-emerald-50 text-emerald-600 text-xs font-black px-3 py-1 rounded-full border border-emerald-100">
+                     {item.discount}% OFF
+                   </span>
+       
+                   {item.badge && (
+                     <span className="bg-blue-50 text-blue-700 text-xs font-black px-3 py-1 rounded-full border border-blue-100">
+                       {item.badge}
+                     </span>
+                   )}
+                 </div>
+               </div>
+       
+               {/* SPECS */}
+               <div className="space-y-3 mb-8">
+                 {item.specs.map((spec, i) => (
+                   <div key={i} className="flex items-start gap-3">
+                     <CheckCircle2
+                       size={16}
+                       className="text-blue-600 mt-1 flex-shrink-0"
+                     />
+       
+                     <span className="text-slate-600 text-sm leading-relaxed">
+                       {spec}
+                     </span>
+                   </div>
+                 ))}
+               </div>
+       
+               {/* BUTTON */}
+               <div className="mt-auto">
+                 <button
+                   onClick={() => setIsModalOpen(true)}
+                   className="w-full py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-black uppercase tracking-wider text-xs transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-blue-600/20 hover:shadow-blue-600/40"
+                 >
+                   Request Quote
+                   <ArrowRight size={16} />
+                 </button>
+               </div>
+             </div>
+           </div>
+         ))}
+       </div>
+       </section>
+       
 
       {/* --- FEATURES: THE BENTO GRID --- */}
       <section className="py-32 px-6">

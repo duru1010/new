@@ -22,55 +22,82 @@ export default function StructuredCablingPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const services = [
-    {
-      title: "Office Structured Cabling",
-      desc: "Professional Cat6/Cat6A cabling for offices, institutes, and enterprises.",
-      image:
-        "https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&w=1200",
-      features: [
-        "Cat6 / Cat6A Installation",
-        "LAN Setup for Offices",
-        "Neat Cable Management",
-        "High-Speed Network Design",
-      ],
-    },
-    {
-      title: "Fiber Optic Cabling",
-      desc: "High-speed fiber backbone setup for large networks and buildings.",
-      image:
-        "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=1200",
-      features: [
-        "Single Mode / Multi Mode Fiber",
-        "Long Distance Connectivity",
-        "High Bandwidth Setup",
-        "Low Latency Network",
-      ],
-    },
-    {
-      title: "Server Rack Setup",
-      desc: "Professional rack installation with proper airflow and cable routing.",
-      image:
-        "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200",
-      features: [
-        "Rack Installation",
-        "Patch Panel Setup",
-        "Switch Configuration",
-        "Server Organization",
-      ],
-    },
-    {
-      title: "Network Design & Planning",
-      desc: "End-to-end network planning for performance and scalability.",
-      image:
-        "https://images.unsplash.com/photo-1551703599-6b3e8379aa8c?auto=format&fit=crop&w=1200",
-      features: [
-        "Network Architecture",
-        "IP Planning",
-        "Scalable Design",
-        "Security Planning",
-      ],
-    },
-  ];
+  {
+    title: "Office Structured Cabling",
+    tag: "Popular",
+    rating: "4.7",
+    reviewCount: 87,
+    price: "₹18,999",
+    originalPrice: "₹22,999",
+    discount: 15,
+    badge: "Recommended",
+    image:
+      "https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&w=1200",
+    specs: [
+      "Cat6 / Cat6A Installation",
+      "LAN Setup for Offices",
+      "Neat Cable Management",
+      "High-Speed Network Design",
+    ],
+  },
+
+  {
+    title: "Fiber Optic Cabling",
+    tag: "Hot Deal",
+    rating: "4.9",
+    reviewCount: 112,
+    price: "₹29,999",
+    originalPrice: "₹36,999",
+    discount: 20,
+    badge: "Enterprise",
+    image:
+      "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=1200",
+    specs: [
+      "Single Mode / Multi Mode Fiber",
+      "Long Distance Connectivity",
+      "High Bandwidth Setup",
+      "Low Latency Network",
+    ],
+  },
+
+  {
+    title: "Server Rack Setup",
+    tag: "Trending",
+    rating: "4.8",
+    reviewCount: 95,
+    price: "₹24,999",
+    originalPrice: "₹30,999",
+    discount: 18,
+    badge: "Professional",
+    image:
+      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200",
+    specs: [
+      "Rack Installation",
+      "Patch Panel Setup",
+      "Switch Configuration",
+      "Server Organization",
+    ],
+  },
+
+  {
+    title: "Network Design & Planning",
+    tag: "Premium",
+    rating: "4.9",
+    reviewCount: 76,
+    price: "₹34,999",
+    originalPrice: "₹41,999",
+    discount: 22,
+    badge: "Advanced",
+    image:
+      "https://images.unsplash.com/photo-1551703599-6b3e8379aa8c?auto=format&fit=crop&w=1200",
+    specs: [
+      "Network Architecture",
+      "IP Planning",
+      "Scalable Design",
+      "Security Planning",
+    ],
+  },
+];
 
   const whyChoose = [
     {
@@ -160,53 +187,132 @@ export default function StructuredCablingPage() {
       </section>
 
       {/* SERVICES */}
-      <section className="py-24">
-        <div className="container mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-
-          {services.map((item, i) => (
-            <motion.div
-              key={i}
-              whileHover={{ y: -10 }}
-              className="rounded-3xl overflow-hidden bg-white dark:bg-slate-900 shadow-lg border border-slate-200 dark:border-white/10"
+       <section
+              id="catalog-grid"
+              className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
             >
-              <div className="relative h-[200px]">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-
-              <div className="p-6">
-                <h3 className="text-xl font-black text-slate-900 dark:text-white">
-                  {item.title}
-                </h3>
-
-                <p className="text-sm text-slate-500 mt-2">
-                  {item.desc}
-                </p>
-
-                <div className="mt-4 space-y-2">
-                  {item.features.map((f, i) => (
-                    <div key={i} className="flex items-center gap-2 text-sm">
-                      <CheckCircle2 size={16} className="text-indigo-600" />
-                      {f}
+              {/* Header */}
+              
+              {/* GRID */}
+              {/* GRID */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+              {services.map((item, index) => (
+                <div
+                  key={index}
+                  className="overflow-hidden rounded-[2.5rem] bg-white border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-500 group"
+                >
+                  {/* IMAGE */}
+                  <div className="relative h-[260px] overflow-hidden">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+            
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+            
+                    {/* TOP BADGES */}
+                    <div className="absolute top-5 left-5 flex flex-col gap-2 z-10">
+                      {item.tag && (
+                        <span
+                          className={`text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full text-white shadow-lg ${
+                            item.tag === "Trending"
+                              ? "bg-cyan-500"
+                              : item.tag === "Hot Deal"
+                              ? "bg-blue-600"
+                              : "bg-indigo-600"
+                          }`}
+                        >
+                          {item.tag}
+                        </span>
+                      )}
                     </div>
-                  ))}
+            
+                    {/* PRICE BADGE */}
+                    <div className="absolute top-5 right-5 bg-white/95 backdrop-blur-md text-blue-600 font-black text-xs px-4 py-2 rounded-full shadow-lg border border-white">
+                      {item.price}
+                    </div>
+                  </div>
+            
+                  {/* CONTENT */}
+                  <div className="p-8 flex flex-col min-h-[420px]">
+                    {/* TITLE */}
+                    <div className="min-h-[80px] mb-5">
+                      <h3 className="text-xl leading-7 font-black text-slate-900 group-hover:text-blue-600 transition-colors duration-300">
+                        {item.title}
+                      </h3>
+                    </div>
+            
+                    {/* RATINGS */}
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="bg-blue-600 text-white text-xs font-black px-3 py-1 rounded-full flex items-center gap-1 shadow-md">
+                        {item.rating}
+                        <span>★</span>
+                      </div>
+            
+                      <span className="text-sm text-slate-500 font-semibold">
+                        ({item.reviewCount} Reviews)
+                      </span>
+                    </div>
+            
+                    {/* PRICE SECTION */}
+                    <div className="mb-6">
+                      <div className="flex items-center gap-3 flex-wrap">
+                        <span className="text-lg font-black text-slate-900">
+                          {item.price}
+                        </span>
+            
+                        <span className="text-sm text-slate-400 line-through">
+                          {item.originalPrice}
+                        </span>
+                      </div>
+            
+                      {/* OFFER BADGES */}
+                      <div className="mt-4 flex items-center gap-2 flex-wrap">
+                        <span className="bg-emerald-50 text-emerald-600 text-xs font-black px-3 py-1 rounded-full border border-emerald-100">
+                          {item.discount}% OFF
+                        </span>
+            
+                        {item.badge && (
+                          <span className="bg-blue-50 text-blue-700 text-xs font-black px-3 py-1 rounded-full border border-blue-100">
+                            {item.badge}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+            
+                    {/* SPECS */}
+                    <div className="space-y-3 mb-8">
+                      {item.specs.map((spec, i) => (
+                        <div key={i} className="flex items-start gap-3">
+                          <CheckCircle2
+                            size={16}
+                            className="text-blue-600 mt-1 flex-shrink-0"
+                          />
+            
+                          <span className="text-slate-600 text-sm leading-relaxed">
+                            {spec}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+            
+                    {/* BUTTON */}
+                    <div className="mt-auto">
+                      <button
+                        onClick={() => setIsModalOpen(true)}
+                        className="w-full py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-black uppercase tracking-wider text-xs transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-blue-600/20 hover:shadow-blue-600/40"
+                      >
+                        Request Quote
+                        <ArrowRight size={16} />
+                      </button>
+                    </div>
+                  </div>
                 </div>
-
-                <button
-                    onClick={() => setIsModalOpen(true)}
-                    className="w-full py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-black uppercase tracking-wider text-xs transition-all"
-                  >
-                    Request Quote
-                  </button>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+              ))}
+            </div>
+            </section>
 
       {/* WHY CHOOSE */}
       <section className="py-24 bg-slate-50 dark:bg-slate-900/30">

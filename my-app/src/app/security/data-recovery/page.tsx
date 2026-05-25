@@ -29,22 +29,37 @@ export default function DataRecoveryPage() {
   const recoveryProducts = [
     {
       title: "Hard Disk Data Recovery",
-      price: "Starting ₹1499",
-      specs: [
-        "HDD Recovery Support",
-        "Deleted File Recovery",
-        "Corrupted Disk Repair",
-        "Partition Recovery",
-        "Desktop & Laptop HDD",
-        "Fast Recovery Process",
-      ],
+       price: "Starting at ₹4999",
+      originalPrice: "₹15999",
+    discount: 45,
+    rating: 4.9,
+    reviewCount: 156,
+    badge: "Full Setup",
+    tag: "Trending",
+    specs: [
+      "RAM + SSD + CPU Upgrade",
+      "Custom Configuration",
+      "Office & Corporate Setup",
+      "Bulk Upgrade Support",
+      "Data Backup Available",
+      "On-Site Installation",
+    ],
+
+      
       image:
         "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200",
     },
 
     {
       title: "SSD Data Recovery",
-      price: "Starting ₹2499",
+       price: "Custom Pricing",
+      originalPrice: "₹15999",
+    discount: 45,
+    rating: 4.9,
+    reviewCount: 156,
+    badge: "Full Setup",
+    tag: "Trending",
+    
       specs: [
         "NVMe SSD Recovery",
         "SATA SSD Recovery",
@@ -59,23 +74,36 @@ export default function DataRecoveryPage() {
 
     {
       title: "Laptop Data Recovery",
-      price: "Request Quote",
-      specs: [
-        "Windows Laptop Recovery",
-        "MacBook Data Recovery",
-        "Formatted Drive Recovery",
-        "Blue Screen Error Fix",
-        "System Crash Recovery",
-        "Quick Diagnostic",
-      ],
+       price: "starting at ₹4999",
+     originalPrice: "₹15999",
+    discount: 45,
+    rating: 4.9,
+    reviewCount: 156,
+    badge: "Full Setup",
+    tag: "Trending",
+    specs: [
+      "RAM + SSD + CPU Upgrade",
+      "Custom Configuration",
+      "Office & Corporate Setup",
+      "Bulk Upgrade Support",
+      "Data Backup Available",
+      "On-Site Installation",
+    ],
+      
       image:
         "https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?auto=format&fit=crop&q=80&w=1200",
     },
 
     {
       title: "Pen Drive Recovery",
-      price: "Starting ₹999",
-      specs: [
+       price: "starting at ₹4999",
+      originalPrice: "₹15999",
+    discount: 45,
+    rating: 4.9,
+    reviewCount: 156,
+    badge: "Full Setup",
+    tag: "Trending",
+    specs: [
         "USB Drive Recovery",
         "Deleted Photo Recovery",
         "Virus Affected Recovery",
@@ -89,7 +117,13 @@ export default function DataRecoveryPage() {
 
     {
       title: "Server Data Recovery",
-      price: "Custom Pricing",
+       price: "Custom Pricing",
+      originalPrice: "₹15999",
+      discount: 45,
+      rating: 4.9,
+      reviewCount: 156,
+      badge: "Full Setup",
+      tag: "Trending",
       specs: [
         "RAID Recovery",
         "NAS Server Recovery",
@@ -104,15 +138,22 @@ export default function DataRecoveryPage() {
 
     {
       title: "Complete Data Recovery",
-      price: "Custom Pricing",
-      specs: [
-        "All Storage Device Support",
-        "Photo & Video Recovery",
-        "Office Data Recovery",
-        "Business File Recovery",
-        "Encrypted Drive Support",
-        "Data Backup Solutions",
-      ],
+       price: "starting at ₹4999",
+       originalPrice: "₹15999",
+    discount: 45,
+    rating: 4.9,
+    reviewCount: 156,
+    badge: "Full Setup",
+    tag: "Trending",
+    specs: [
+      "RAM + SSD + CPU Upgrade",
+      "Custom Configuration",
+      "Office & Corporate Setup",
+      "Bulk Upgrade Support",
+      "Data Backup Available",
+      "On-Site Installation",
+    ],
+      
       image:
         "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=1200",
     },
@@ -280,68 +321,153 @@ export default function DataRecoveryPage() {
         </div>
       </section>
 
-      {/* ================= WHY CHOOSE ================= */}
+     
 
       
 
       {/* ================= RECOVERY PRODUCTS ================= */}
+<section
+  id="catalog-grid"
+  className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+>
+  {/* Header */}
+  <div className="flex flex-col md:flex-row md:items-center md:justify-between border-b border-blue-100 pb-6 mb-10">
+    <div>
+      <h2 className="text-3xl font-black text-slate-900 tracking-tight">
+        Hardware Upgrade Catalog
+      </h2>
 
-      <section className="py-24">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
-            {recoveryProducts.map((item, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ y: -10 }}
-                className="overflow-hidden rounded-[2.5rem] bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/5 shadow-xl"
-              >
-                <div className="relative h-[260px] overflow-hidden">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    className="object-cover hover:scale-110 transition-transform duration-700"
-                  />
-                </div>
+      <p className="mt-2 text-sm text-slate-500">
+        Professional upgrade solutions for gaming, office, editing and
+        high-performance systems.
+      </p>
+    </div>
 
-                <div className="p-8">
-                  <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-2xl font-black text-slate-900 dark:text-white">
-                      {item.title}
-                    </h3>
+    <div className="mt-4 md:mt-0 bg-blue-50 border border-blue-100 text-blue-700 px-4 py-2 rounded-lg text-xs font-bold tracking-wide shadow-sm uppercase self-start">
+      {recoveryProducts.length} Upgrade Services Available
+    </div>
+  </div>
 
-                    <span className="text-blue-600 font-black text-sm">
-                      {item.price}
-                    </span>
-                  </div>
+  {/* GRID */}
+  {/* GRID */}
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+  {recoveryProducts.map((item, index) => (
+    <div
+      key={index}
+      className="overflow-hidden rounded-[2.5rem] bg-white border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-500 group"
+    >
+      {/* IMAGE */}
+      <div className="relative h-[260px] overflow-hidden">
+        <img
+          src={item.image}
+          alt={item.title}
+          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+        />
 
-                  <div className="space-y-3 mb-8">
-                    {item.specs.map((spec, i) => (
-                      <div key={i} className="flex items-center gap-3">
-                        <CheckCircle2
-                          size={16}
-                          className="text-blue-600"
-                        />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
 
-                        <span className="text-slate-600 dark:text-slate-300 text-sm">
-                          {spec}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
+        {/* TOP BADGES */}
+        <div className="absolute top-5 left-5 flex flex-col gap-2 z-10">
+          {item.tag && (
+            <span
+              className={`text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full text-white shadow-lg ${
+                item.tag === "Trending"
+                  ? "bg-cyan-500"
+                  : item.tag === "Hot Deal"
+                  ? "bg-blue-600"
+                  : "bg-indigo-600"
+              }`}
+            >
+              {item.tag}
+            </span>
+          )}
+        </div>
 
-                  <button
-                    onClick={() => setIsModalOpen(true)}
-                    className="w-full py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-black uppercase tracking-wider text-xs transition-all"
-                  >
-                    Request Quote
-                  </button>
-                </div>
-              </motion.div>
-            ))}
+        {/* PRICE BADGE */}
+        <div className="absolute top-5 right-5 bg-white/95 backdrop-blur-md text-blue-600 font-black text-xs px-4 py-2 rounded-full shadow-lg border border-white">
+          {item.price}
+        </div>
+      </div>
+
+      {/* CONTENT */}
+      <div className="p-8 flex flex-col min-h-[420px]">
+        {/* TITLE */}
+        <div className="min-h-[80px] mb-5">
+          <h3 className="text-xl leading-7 font-black text-slate-900 group-hover:text-blue-600 transition-colors duration-300">
+            {item.title}
+          </h3>
+        </div>
+
+        {/* RATINGS */}
+        <div className="flex items-center gap-3 mb-6">
+          <div className="bg-blue-600 text-white text-xs font-black px-3 py-1 rounded-full flex items-center gap-1 shadow-md">
+            {item.rating}
+            <span>★</span>
+          </div>
+
+          <span className="text-sm text-slate-500 font-semibold">
+            ({item.reviewCount} Reviews)
+          </span>
+        </div>
+
+        {/* PRICE SECTION */}
+        <div className="mb-6">
+          <div className="flex items-center gap-3 flex-wrap">
+            <span className="text-lg font-black text-slate-900">
+              {item.price}
+            </span>
+
+            <span className="text-sm text-slate-400 line-through">
+              {item.originalPrice}
+            </span>
+          </div>
+
+          {/* OFFER BADGES */}
+          <div className="mt-4 flex items-center gap-2 flex-wrap">
+            <span className="bg-emerald-50 text-emerald-600 text-xs font-black px-3 py-1 rounded-full border border-emerald-100">
+              {item.discount}% OFF
+            </span>
+
+            {item.badge && (
+              <span className="bg-blue-50 text-blue-700 text-xs font-black px-3 py-1 rounded-full border border-blue-100">
+                {item.badge}
+              </span>
+            )}
           </div>
         </div>
-      </section>
+
+        {/* SPECS */}
+        <div className="space-y-3 mb-8">
+          {item.specs.map((spec, i) => (
+            <div key={i} className="flex items-start gap-3">
+              <CheckCircle2
+                size={16}
+                className="text-blue-600 mt-1 flex-shrink-0"
+              />
+
+              <span className="text-slate-600 text-sm leading-relaxed">
+                {spec}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        {/* BUTTON */}
+        <div className="mt-auto">
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="w-full py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-black uppercase tracking-wider text-xs transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-blue-600/20 hover:shadow-blue-600/40"
+          >
+            Request Quote
+            <ArrowRight size={16} />
+          </button>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+</section>
 
       {/* ================= RECOVERY SERVICES ================= */}
 

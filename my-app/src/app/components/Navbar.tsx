@@ -2046,7 +2046,7 @@ const Navbar = () => {
   {/* SERVICES DROPDOWN */}
   <div className="relative group">
     <a
-      href="/services"
+      href="#services"
       className="flex items-center gap-1 px-4 py-2 text-sm font-bold text-white hover:text-blue-100 transition-colors"
     >
       Services
@@ -2079,7 +2079,7 @@ const Navbar = () => {
     href="/contact"
     className="px-4 py-2 text-sm font-bold text-white hover:text-blue-100 transition-colors"
   >
-    Contact
+    Contact Us
   </a>
 </div>
             </div>
