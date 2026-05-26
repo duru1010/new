@@ -430,6 +430,16 @@ export default function AntivirusPage() {
                            placeholder="Email Address"
                            className="w-full h-14 px-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500"
                          />
+
+                         <input
+        type="number"
+        name="quantity"
+       
+        placeholder="Quantity Required"
+        min="1"
+        required
+        className="w-full h-14 px-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
                        </div>
      
                        {/* RIGHT */}

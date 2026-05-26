@@ -31,7 +31,7 @@ const QuotationGenerator = () => {
   const [authError, setAuthError] = useState("");
   const [isAuthenticating, setIsAuthenticating] = useState(false);
 
-  const MASTER_ACCESS_KEY = "SOFTLINK2026";
+  const MASTER_ACCESS_KEY = "123";
 
   // ---------------- CORE GENERATOR STATE ----------------
   const [items, setItems] = useState<any[]>([

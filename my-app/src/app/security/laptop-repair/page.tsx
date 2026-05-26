@@ -26,6 +26,7 @@ export default function ComputerRentalPage() {
     fullName: "",
     mobile: "",
     email: "",
+    quantity: "",
     duration: "",
     city: "",
     computerType: "",
@@ -89,6 +90,7 @@ ${formData.message}
           fullName: "",
           mobile: "",
           email: "",
+          quantity:"",
           duration: "",
           city: "",
           computerType: "",
@@ -682,111 +684,123 @@ const rentalProducts = [
 
               {/* FORM */}
               <form
-                onSubmit={handleSubmit}
-                className="p-8 md:p-12"
-              >
-                <div className="grid lg:grid-cols-2 gap-8">
-                  {/* LEFT */}
-                  <div className="space-y-6">
-                    <input
-                      type="text"
-                      name="fullName"
-                      value={formData.fullName}
-                      onChange={handleChange}
-                      placeholder="Full Name"
-                      required
-                      className="w-full h-14 px-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    />
+  onSubmit={handleSubmit}
+  className="p-8 md:p-12"
+>
+  <div className="grid lg:grid-cols-2 gap-8">
+    {/* LEFT */}
+    <div className="space-y-6">
+      <input
+        type="text"
+        name="fullName"
+        value={formData.fullName}
+        onChange={handleChange}
+        placeholder="Full Name"
+        required
+        className="w-full h-14 px-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
 
-                    <input
-                      type="tel"
-                      name="mobile"
-                      value={formData.mobile}
-                      onChange={handleChange}
-                      placeholder="Mobile Number"
-                      required
-                      className="w-full h-14 px-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    />
+      <input
+        type="tel"
+        name="mobile"
+        value={formData.mobile}
+        onChange={handleChange}
+        placeholder="Mobile Number"
+        required
+        className="w-full h-14 px-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
 
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="Email Address"
-                      required
-                      className="w-full h-14 px-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    />
-                  </div>
+      <input
+        type="email"
+        name="email"
+        value={formData.email}
+        onChange={handleChange}
+        placeholder="Email Address"
+        required
+        className="w-full h-14 px-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
 
-                  {/* RIGHT */}
-                  <div className="space-y-6">
-                    <select
-                      name="duration"
-                      value={formData.duration}
-                      onChange={handleChange}
-                      required
-                      className="w-full h-14 px-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    >
-                      <option value="">Select Rental Duration</option>
-                      <option>1 Day</option>
-                      <option>1 Week</option>
-                      <option>1 Month</option>
-                      <option>6 Months</option>
-                      <option>1 Year</option>
-                    </select>
+     {/* QUANTITY FIELD */}
+<input
+  type="number"
+  name="quantity"
+  value={formData.quantity}
+  onChange={handleChange}
+  placeholder="Quantity Required"
+  min="1"
+  required
+  className="w-full h-14 px-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500"
+/>
+    </div>
 
-                    <input
-                      type="text"
-                      name="city"
-                      value={formData.city}
-                      onChange={handleChange}
-                      placeholder="Requirement City"
-                      required
-                      className="w-full h-14 px-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    />
+    {/* RIGHT */}
+    <div className="space-y-6">
+      <select
+        name="duration"
+        value={formData.duration}
+        onChange={handleChange}
+        required
+        className="w-full h-14 px-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      >
+        <option value="">Select Rental Duration</option>
+        <option>1 Day</option>
+        <option>1 Week</option>
+        <option>1 Month</option>
+        <option>6 Months</option>
+        <option>1 Year</option>
+      </select>
 
-                    <select
-                      name="computerType"
-                      value={formData.computerType}
-                      onChange={handleChange}
-                      required
-                      className="w-full h-14 px-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    >
-                      <option value="">Select Computer Type</option>
-                      <option>Core i3 Computer</option>
-                      <option>Core i5 Computer</option>
-                      <option>Core i7 Computer</option>
-                      <option>Gaming Computer</option>
-                      <option>Customized Desktop</option>
-                    </select>
-                  </div>
-                </div>
+      <input
+        type="text"
+        name="city"
+        value={formData.city}
+        onChange={handleChange}
+        placeholder="Requirement City"
+        required
+        className="w-full h-14 px-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
 
-                {/* TEXTAREA */}
-                <div className="mt-8">
-                  <textarea
-                    rows={6}
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Describe your project requirements, quantity, RAM, SSD, graphics card, rental duration etc..."
-                    required
-                    className="w-full p-5 rounded-[2rem] bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
-                  />
-                </div>
+      <select
+        name="computerType"
+        value={formData.computerType}
+        onChange={handleChange}
+        required
+        className="w-full h-14 px-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      >
+        <option value="">Select Computer Type</option>
+        <option>Core i3 Computer</option>
+        <option>Core i5 Computer</option>
+        <option>Core i7 Computer</option>
+        <option>Gaming Computer</option>
+        <option>Customized Desktop</option>
+      </select>
+    </div>
+  </div>
 
-                {/* BUTTON */}
-                <div className="flex flex-wrap gap-4 mt-10">
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="px-10 py-5 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-black uppercase tracking-widest text-xs shadow-2xl shadow-blue-500/30 hover:scale-105 transition-all disabled:opacity-50"
-                  >
-                    {loading ? "Sending..." : "Submit Quotation"}
-                  </button>
-                </div>
-              </form>
+  {/* TEXTAREA */}
+  <div className="mt-8">
+    <textarea
+      rows={6}
+      name="message"
+      value={formData.message}
+      onChange={handleChange}
+      placeholder="Describe your project requirements, quantity, RAM, SSD, graphics card, rental duration etc..."
+      required
+      className="w-full p-5 rounded-[2rem] bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+    />
+  </div>
+
+  {/* BUTTON */}
+  <div className="flex flex-wrap gap-4 mt-10">
+    <button
+      type="submit"
+      disabled={loading}
+      className="px-10 py-5 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-black uppercase tracking-widest text-xs shadow-2xl shadow-blue-500/30 hover:scale-105 transition-all disabled:opacity-50"
+    >
+      {loading ? "Sending..." : "Submit Quotation"}
+    </button>
+  </div>
+</form>
             </motion.div>
           </motion.div>
         )}

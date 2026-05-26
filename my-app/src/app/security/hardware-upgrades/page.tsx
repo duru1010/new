@@ -29,6 +29,7 @@ export default function ComputerRentalPage() {
     fullName: "",
     mobile: "",
     email: "",
+    quantity: "",
     duration: "",
     city: "",
     computerType: "",
@@ -92,6 +93,7 @@ ${formData.message}
           fullName: "",
           mobile: "",
           email: "",
+          quantity: "",
           duration: "",
           city: "",
           computerType: "",
@@ -664,6 +666,17 @@ const upgradeServices: string[] = [
                 className="w-full h-14 px-5 rounded-2xl bg-slate-100 dark:bg-slate-900"
                 required
               />
+
+              <input
+        type="number"
+        name="quantity"
+        value={formData.quantity}
+        onChange={handleChange}
+        placeholder="Quantity Required"
+        min="1"
+        required
+        className="w-full h-14 px-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
             </div>
 
             {/* RIGHT */}
