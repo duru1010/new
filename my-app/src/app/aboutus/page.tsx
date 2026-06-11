@@ -15,6 +15,7 @@ import {
   ThumbsUp 
 } from "lucide-react";
 
+
 // Structured Dataset
 const partners = [
   { name: "HP", logo: "/hp.webp" },
@@ -314,6 +315,7 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
+        
       </section>
 
       {/* ================= ECOSYSTEM PARTNERS SECTION ================= */}
