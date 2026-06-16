@@ -68,7 +68,7 @@ const Testimonials = () => {
     className="text-4xl md:text-5xl font-black tracking-tight text-[#0A1628] dark:text-white leading-none"
   >
     What Our{" "}
-    <span className="text-[#0057FF]">
+    <span className="bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] bg-clip-text text-transparent">
       Clients Say
     </span>
   </motion.h2>
@@ -103,7 +103,7 @@ const Testimonials = () => {
                 {[...testimonials, ...testimonials].map((item, idx) => (
                   <div
                     key={idx}
-                    className="w-full p-6 md:p-8 rounded-3xl bg-white/60 dark:bg-slate-950/40 backdrop-blur-xl border border-slate-200/60 dark:border-slate-800/80 shadow-[0_15px_35px_rgba(0,0,0,0.02)] dark:shadow-[0_15px_35px_rgba(0,0,0,0.2)] overflow-hidden relative transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/30 dark:hover:border-blue-400/30 group"
+className="w-full p-6 md:p-8 rounded-3xl bg-white/60 dark:bg-slate-950/40 backdrop-blur-xl border border-slate-200/60 dark:border-slate-800/80 shadow-[0_15px_35px_rgba(0,0,0,0.02)] dark:shadow-[0_15px_35px_rgba(0,0,0,0.2)] overflow-hidden relative transition-all duration-300 hover:scale-[1.02] hover:border-[#e36414]/40 dark:hover:border-[#e36414]/40 group"
                   >
                     {/* Floating Background Quote Emblem */}
                     <Quote className="absolute right-6 top-6 w-16 h-16 text-slate-200/30 dark:text-slate-800/15 transform pointer-events-none font-bold group-hover:rotate-6 transition-transform duration-500" />

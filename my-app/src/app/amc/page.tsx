@@ -188,7 +188,7 @@ const [formData, setFormData] = useState({
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#0057FF]/10 border border-[#0057FF]/20 text-[#0057FF] text-xs font-bold mb-6">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#e36414]/10 border border-[#e36414]/20 text-[#e36414] text-[11px] font-black uppercase tracking-[0.2em] mb-6">
           <Sparkles size={14} />
           Smart CCTV Surveillance
         </div>
@@ -197,7 +197,7 @@ const [formData, setFormData] = useState({
       <h1 className="text-5xl md:text-6xl font-black text-[#0A1628] dark:text-white leading-tight">
         Secure Your <br />
         Business With <br />
-        <span className="text-[#0057FF]">Smart CCTV</span>
+        <span className="bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] bg-clip-text text-transparent">Smart CCTV</span>
       </h1>
 
       <p className="mt-6 text-slate-600 dark:text-slate-300 text-lg leading-relaxed max-w-xl">
@@ -217,7 +217,7 @@ const [formData, setFormData] = useState({
         <motion.button
           whileHover={{ scale: 1.04 }}
           whileTap={{ scale: 0.96 }}
-          className="px-8 py-4 bg-[#0057FF] text-white rounded-2xl font-bold flex items-center gap-2 shadow-xl shadow-blue-500/20"
+          className="px-8 py-4 bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] text-white rounded-2xl font-bold flex items-center gap-2 shadow-xl shadow-blue-500/20"
         >
           Get Started
           <ArrowRight size={18} />
@@ -369,7 +369,7 @@ const [formData, setFormData] = useState({
       delay: index * 0.1,
       type: "spring",
     }}
-    className="group relative overflow-hidden rounded-[2.5rem] bg-white border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-500"
+    className="group relative overflow-hidden rounded-[2.5rem] bg-white border border-slate-200/80 shadow-xl hover:shadow-2xl transition-all duration-500"
   >
     {/* Image Section */}
     <div className="relative h-[260px] overflow-hidden">
@@ -383,12 +383,12 @@ const [formData, setFormData] = useState({
       />
 
       {/* Top Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#3b71ca]/40 via-transparent to-transparent" />
 
       {/* Floating Badge */}
       <div className="absolute top-5 left-5">
-        <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 backdrop-blur-md shadow-lg">
-          <div className="text-blue-600">
+        <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/95 backdrop-blur-md shadow-lg border border-cyan-50/50">
+          <div className="text-[#3b71ca]">
             {React.cloneElement(item.icon, { size: 16 })}
           </div>
 
@@ -410,16 +410,16 @@ const [formData, setFormData] = useState({
     <div className="p-6">
 
       {/* Small Label */}
-      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 mb-4">
-        <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-100/70 mb-4">
+        <div className="w-2 h-2 rounded-full bg-[#00b4ed] animate-pulse" />
 
-        <span className="text-[11px] uppercase tracking-[0.2em] font-bold text-blue-600">
+        <span className="text-[11px] uppercase tracking-[0.2em] font-bold text-[#3b71ca]">
           Smart Solution
         </span>
       </div>
 
       {/* Title */}
-      <h4 className="text-2xl font-black text-slate-900 leading-tight">
+      <h4 className="text-2xl font-black text-slate-900 leading-tight group-hover:text-[#3b71ca] transition-colors duration-300">
         {item.name}
       </h4>
 
@@ -453,7 +453,7 @@ const [formData, setFormData] = useState({
             openModal();
             window.location.hash = "get-started";
           }}
-          className="flex-1 py-3 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold flex items-center justify-center gap-2 transition-all duration-300"
+          className="flex-1 py-3 rounded-2xl bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] hover:opacity-95 text-white font-bold flex items-center justify-center gap-2 shadow-md shadow-[#3b71ca]/10 transition-all duration-300"
         >
           Hire Now
           <ArrowRight size={16} />
@@ -461,7 +461,7 @@ const [formData, setFormData] = useState({
 
         <Link
           href={`/amc/${item.id}`}
-          className="flex-1 py-3 rounded-2xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-900 font-bold flex items-center justify-center transition-all duration-300"
+          className="flex-1 py-3 rounded-2xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-900 font-bold flex items-center justify-center transition-all duration-300 hover:border-cyan-200"
         >
           Know More
         </Link>
@@ -470,18 +470,18 @@ const [formData, setFormData] = useState({
     </div>
 
     {/* Hover Border Glow */}
-    <div className="absolute inset-0 rounded-[2.5rem] border-2 border-transparent group-hover:border-blue-200 transition-all duration-500 pointer-events-none" />
+    <div className="absolute inset-0 rounded-[2.5rem] border-2 border-transparent group-hover:border-cyan-200 transition-all duration-500 pointer-events-none" />
   </motion.div>
 ))}
               </div>
 
               {/* FEATURES */}
-            
+              
 
 <div className="grid md:grid-cols-3 gap-6 pt-8">
 
   <div className="rounded-3xl border border-slate-200 dark:border-white/10 p-6 bg-white dark:bg-[#0D1728]">
-    <div className="w-14 h-14 rounded-2xl bg-[#0057FF] text-white flex items-center justify-center mb-6 shadow-lg shadow-blue-600/30">
+    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#3b71ca] to-[#00b4ed] text-white flex items-center justify-center mb-6 shadow-lg shadow-[#3b71ca]/20">
       <BellRing size={28} />
     </div>
 
@@ -495,7 +495,7 @@ const [formData, setFormData] = useState({
   </div>
 
   <div className="rounded-3xl border border-slate-200 dark:border-white/10 p-6 bg-white dark:bg-[#0D1728]">
-    <div className="w-14 h-14 rounded-2xl bg-[#0057FF] text-white flex items-center justify-center mb-6 shadow-lg shadow-blue-600/30">
+    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#3b71ca] to-[#00b4ed] text-white flex items-center justify-center mb-6 shadow-lg shadow-[#3b71ca]/20">
       <Wifi size={28} />
     </div>
 
@@ -509,7 +509,7 @@ const [formData, setFormData] = useState({
   </div>
 
   <div className="rounded-3xl border border-slate-200 dark:border-white/10 p-6 bg-white dark:bg-[#0D1728]">
-    <div className="w-14 h-14 rounded-2xl bg-[#0057FF] text-white flex items-center justify-center mb-6 shadow-lg shadow-blue-600/30">
+    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#3b71ca] to-[#00b4ed] text-white flex items-center justify-center mb-6 shadow-lg shadow-[#3b71ca]/20">
       <ShieldCheck size={28} />
     </div>
 

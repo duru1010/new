@@ -337,7 +337,7 @@ export default function TallyPrimePage() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-600/10 border border-blue-200 text-blue-600 text-xs font-bold uppercase tracking-wider mb-8"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#e36414]/10 border border-[#e36414]/20 text-[#e36414] text-[11px] font-black uppercase tracking-[0.2em] mb-6"
         >
           <Briefcase size={14} />
           Tally Certified Solutions
@@ -351,7 +351,7 @@ export default function TallyPrimePage() {
   className="text-5xl md:text-7xl font-black leading-tight tracking-tight mb-8"
 >
   Tally
-  <span className="block text-[#0057FF]">
+  <span className="block bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] bg-clip-text text-transparent">
     Prime Solutions
   </span>
 </motion.h1>
@@ -372,7 +372,7 @@ export default function TallyPrimePage() {
 
           <button
             onClick={() => setIsModalOpen(true)}
-            className="px-8 py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold flex items-center gap-2 transition-all shadow-xl shadow-blue-600/30 hover:-translate-y-0.5"
+            className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] hover:opacity-95 text-white font-bold text-sm tracking-wide shadow-lg shadow-[#3b71ca]/20 transition-all transform hover:-translate-y-0.5 flex items-center gap-2"
           >
             Get Started
             <ArrowRight size={18} />
@@ -422,12 +422,12 @@ export default function TallyPrimePage() {
 
 
         {/* SECURITY PRODUCTS */}
-        <section
+       <section
   id="catalog-grid"
   className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
 >
   {/* HEADER */}
-  <div className="flex flex-col md:flex-row md:items-center md:justify-between border-b border-blue-100 pb-6 mb-10">
+  <div className="flex flex-col md:flex-row md:items-center md:justify-between border-b border-cyan-100 pb-6 mb-10">
     <div>
       <h2 className="text-3xl font-black text-slate-900 tracking-tight">
         Tally Prime Plans
@@ -438,7 +438,7 @@ export default function TallyPrimePage() {
       </p>
     </div>
 
-    <div className="mt-4 md:mt-0 bg-blue-50 border border-blue-100 text-blue-700 px-4 py-2 rounded-lg text-xs font-bold tracking-wide shadow-sm uppercase self-start">
+    <div className="mt-4 md:mt-0 bg-cyan-50 border border-cyan-100 text-[#3b71ca] px-4 py-2 rounded-lg text-xs font-bold tracking-wide shadow-sm uppercase self-start">
       {plans.length} Plans Available
     </div>
   </div>
@@ -448,7 +448,7 @@ export default function TallyPrimePage() {
     {plans.map((plan, index) => (
       <div
         key={index}
-        className="overflow-hidden rounded-[2.5rem] bg-white border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-500 group"
+        className="overflow-hidden rounded-[2.5rem] bg-white border border-slate-200/80 shadow-xl hover:shadow-2xl transition-all duration-500 group"
       >
         {/* IMAGE */}
         <div className="relative h-[260px] overflow-hidden">
@@ -459,15 +459,15 @@ export default function TallyPrimePage() {
           />
 
           {/* OVERLAY */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#3b71ca]/40 via-transparent to-transparent" />
 
           {/* BADGES */}
           <div className="absolute top-5 left-5 flex flex-col gap-2 z-10">
             <span
               className={`text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full text-white shadow-lg ${
                 plan.popular
-                  ? "bg-blue-600"
-                  : "bg-indigo-600"
+                  ? "bg-[#3b71ca]"
+                  : "bg-[#00b4ed]"
               }`}
             >
               {plan.badge}
@@ -475,24 +475,23 @@ export default function TallyPrimePage() {
           </div>
 
           {/* PRICE BADGE */}
-          <div className="absolute top-5 right-5 bg-white/95 text-blue-600 font-black text-xs px-4 py-2 rounded-full shadow-lg">
+          <div className="absolute top-5 right-5 bg-white/95 backdrop-blur-md text-[#3b71ca] font-black text-xs px-4 py-2 rounded-full shadow-md border border-cyan-50/50">
             {plan.priceMonthly}
           </div>
         </div>
 
         {/* CONTENT */}
         <div className="p-8 flex flex-col min-h-[450px]">
-
           {/* TITLE */}
           <div className="min-h-[80px] mb-5">
-            <h3 className="text-xl leading-7 font-black text-slate-900 group-hover:text-blue-600 transition-colors duration-300">
+            <h3 className="text-xl leading-7 font-black text-slate-900 group-hover:text-[#3b71ca] transition-colors duration-300">
               {plan.name}
             </h3>
           </div>
 
           {/* RATINGS */}
           <div className="flex items-center gap-3 mb-5">
-            <div className="bg-blue-600 text-white text-xs font-black px-3 py-1 rounded-full flex items-center gap-1 shadow-md">
+            <div className="bg-[#3b71ca] text-white text-xs font-black px-3 py-1 rounded-full flex items-center gap-1 shadow-md">
               {plan.rating}
               <span>★</span>
             </div>
@@ -526,7 +525,7 @@ export default function TallyPrimePage() {
               </span>
 
               {plan.popular && (
-                <span className="bg-blue-50 text-blue-700 text-xs font-black px-3 py-1 rounded-full border border-blue-100">
+                <span className="bg-cyan-50 text-[#00b4ed] text-xs font-black px-3 py-1 rounded-full border border-cyan-100/70">
                   Most Popular
                 </span>
               )}
@@ -539,7 +538,7 @@ export default function TallyPrimePage() {
               <div key={i} className="flex items-start gap-3">
                 <Check
                   size={16}
-                  className="text-blue-600 mt-1 flex-shrink-0"
+                  className="text-[#00b4ed] mt-1 flex-shrink-0"
                 />
 
                 <span className="text-slate-600 text-sm leading-relaxed">
@@ -553,7 +552,7 @@ export default function TallyPrimePage() {
           <div className="mt-auto">
             <button
               onClick={() => setIsModalOpen(true)}
-              className="w-full py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-black uppercase tracking-wider text-xs transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-blue-600/20 hover:shadow-blue-600/40"
+              className="w-full py-4 rounded-2xl bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] hover:opacity-95 text-white font-black uppercase tracking-wider text-xs transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-[#3b71ca]/10 hover:shadow-[#00b4ed]/30"
             >
               Get Quote
               <ArrowRight size={16} />

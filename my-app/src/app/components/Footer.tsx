@@ -34,7 +34,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#0057FF] text-white border-t border-white/10 pt-20 pb-10 overflow-hidden">
+    <footer className="bg-[#0a1420] text-white border-t border-white/10 pt-20 pb-10 overflow-hidden">
       <div className="container mx-auto px-6">
 
         {/* TOP SECTION */}
@@ -47,7 +47,7 @@ const Footer = () => {
   <div className="space-y-1"> 
     <div className="flex items-center gap-3">
       <img
-        src="/softlink_logowht01-1024x293 (1).png"
+        src="/Logo Of Softlink C-01.png"
         alt="Softlink Logo"
         className="w-50 h-14 object-contain"
       />

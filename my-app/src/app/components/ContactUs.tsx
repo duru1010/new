@@ -42,13 +42,13 @@ const ContactUs = () => {
           {/* HEADER */}
          <div className="text-center mb-16">
   <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0057FF]/10 text-[#0057FF] text-sm font-bold mb-4"
-  >
-    <Send size={16} />
-    Get In Touch
-  </motion.div>
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#e36414]/10 text-[#e36414] text-sm font-bold mb-4"
+>
+  <Send size={16} />
+  Get In Touch
+</motion.div>
 
   <motion.h2
     initial={{ opacity: 0, y: 20 }}
@@ -56,7 +56,7 @@ const ContactUs = () => {
     className="text-4xl md:text-5xl font-black text-[#0A1628] dark:text-white leading-none"
   >
     Connect With Experts <br />
-    <span className="text-[#0057FF]">
+    <span className="bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] bg-clip-text text-transparent">
       For Your IT Needs
     </span>
   </motion.h2>

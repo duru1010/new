@@ -316,7 +316,7 @@ export default function QuickHealPage() {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 text-sm font-bold mb-8"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#e36414]/10 border border-[#e36414]/20 text-[#e36414] text-[11px] font-black uppercase tracking-[0.2em] mb-6"
                 >
                   <Sparkles size={16} />
                   Adobe Certified Creative Suite
@@ -329,7 +329,7 @@ export default function QuickHealPage() {
                   className="text-5xl md:text-7xl font-black leading-none tracking-tight mb-8 text-[#0A1628] dark:text-white"
                 >
                   Adobe
-                  <span className="block text-[#0057FF]">
+                  <span className="block bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] bg-clip-text text-transparent">
                     Photoshop Suite
                   </span>
                 </motion.h1>
@@ -347,7 +347,7 @@ export default function QuickHealPage() {
                 <div className="flex flex-wrap gap-4 mt-10">
                   <button
                     onClick={() => setIsModalOpen(true)}
-                    className="px-8 py-4 rounded-2xl bg-blue-600 hover:bg-cyan-500 text-white font-bold flex items-center gap-2 transition-all duration-300"
+                    className="px-8 py-4 rounded-2xl bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] hover:opacity-95 text-white font-black uppercase tracking-wider text-xs transition-all duration-300 flex items-center gap-2 shadow-lg shadow-[#3b71ca]/10 hover:shadow-[#00b4ed]/30"
                   >
                     Get Started
                     <ArrowRight size={18} />
@@ -355,7 +355,7 @@ export default function QuickHealPage() {
 
                   <Link
                     href="#catalog-grid"
-                    className="px-8 py-4 rounded-2xl border border-slate-300 dark:border-white/10 font-bold"
+                    className="px-8 py-4 rounded-2xl border border-slate-300 dark:border-white/10 hover:border-blue-600 font-bold transition-all backdrop-blur-xl hover:bg-white/5"
                   >
                     View Plans
                   </Link>
@@ -385,127 +385,135 @@ export default function QuickHealPage() {
 
         {/* PRODUCT GRID */}
         <section
-          id="catalog-grid"
-          className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-        >
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between border-b border-blue-100 pb-6 mb-10">
-            <div>
-              <h2 className="text-3xl font-black text-slate-900 tracking-tight">
-                Adobe Product Catalog
-              </h2>
+  id="catalog-grid"
+  className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+>
+  {/* HEADER */}
+  <div className="flex flex-col md:flex-row md:items-center md:justify-between border-b border-cyan-100 pb-6 mb-10">
+    <div>
+      <h2 className="text-3xl font-black text-slate-900 tracking-tight">
+        Adobe Product Catalog
+      </h2>
 
-              <p className="mt-2 text-sm text-slate-500">
-                Professional creative tools and AI-powered design solutions.
-              </p>
-            </div>
+      <p className="mt-2 text-sm text-slate-500">
+        Professional creative tools and AI-powered design solutions.
+      </p>
+    </div>
 
-            <div className="mt-4 md:mt-0 bg-blue-50 border border-blue-100 text-blue-700 px-4 py-2 rounded-lg text-xs font-bold tracking-wide shadow-sm uppercase self-start">
-              {plans.length} Plans Available
+    <div className="mt-4 md:mt-0 bg-cyan-50 border border-cyan-100 text-[#3b71ca] px-4 py-2 rounded-lg text-xs font-bold tracking-wide shadow-sm uppercase self-start">
+      {plans.length} Plans Available
+    </div>
+  </div>
+
+  {/* GRID */}
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+    {plans.map((plan) => (
+      <div
+        key={plan.id}
+        className="overflow-hidden rounded-[2.5rem] bg-white border border-slate-200/80 shadow-xl hover:shadow-2xl transition-all duration-500 group"
+      >
+        {/* IMAGE */}
+        <div className="relative h-[260px] overflow-hidden">
+          <img
+            src={plan.image}
+            alt={plan.title}
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+          />
+
+          {/* OVERLAY */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#3b71ca]/40 via-transparent to-transparent" />
+
+          {/* BADGES */}
+          <div className="absolute top-5 left-5 flex flex-col gap-2 z-10">
+            <span className="text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full text-white shadow-lg bg-[#3b71ca]">
+              {plan.badge}
+            </span>
+          </div>
+
+          {/* PRICE BADGE */}
+          <div className="absolute top-5 right-5 bg-white/95 backdrop-blur-md text-[#3b71ca] font-black text-xs px-4 py-2 rounded-full shadow-md border border-cyan-50/50">
+            {plan.monthlyPrice}
+          </div>
+        </div>
+
+        {/* CONTENT */}
+        <div className="p-8 flex flex-col min-h-[420px]">
+          {/* TITLE */}
+          <div className="min-h-[80px] mb-5">
+            <h3 className="text-xl leading-7 font-black text-slate-900 group-hover:text-[#3b71ca] transition-colors duration-300">
+              {plan.title}
+            </h3>
+          </div>
+
+          {/* RATINGS */}
+          <div className="flex items-center gap-3 mb-6">
+            {plan.rating ? (
+              <>
+                <div className="bg-[#3b71ca] text-white text-xs font-black px-3 py-1 rounded-full flex items-center gap-1 shadow-md">
+                  {plan.rating}
+                  <span>★</span>
+                </div>
+
+                <span className="text-sm text-slate-500 font-semibold">
+                  ({plan.reviewCount} Reviews)
+                </span>
+              </>
+            ) : (
+              <span className="text-sm text-slate-400 italic">
+                Standard License Edition
+              </span>
+            )}
+          </div>
+
+          {/* DESCRIPTION */}
+          <p className="text-sm text-slate-500 leading-relaxed mb-6">
+            {plan.desc}
+          </p>
+
+          {/* PRICE */}
+          <div className="mb-6">
+            <div className="flex items-center gap-3 flex-wrap">
+              <span className="text-3xl font-black text-slate-900">
+                {plan.monthlyPrice}
+              </span>
+
+              <span className="text-base text-slate-400 line-through">
+                ₹{plan.originalPrice}
+              </span>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            {plans.map((plan) => (
-              <div
-                key={plan.id}
-                className="overflow-hidden rounded-[2.5rem] bg-white border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-500 group"
-              >
-                {/* IMAGE */}
-                <div className="relative h-[260px] overflow-hidden">
-                  <img
-                    src={plan.image}
-                    alt={plan.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
+          {/* FEATURES */}
+          <div className="space-y-3 mb-8">
+            {plan.specs.map((spec, i) => (
+              <div key={i} className="flex items-start gap-3">
+                <CheckCircle2
+                  size={16}
+                  className="text-[#00b4ed] mt-1 flex-shrink-0"
+                />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-
-                  <div className="absolute top-5 left-5 flex flex-col gap-2 z-10">
-                    <span className="text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full text-white shadow-lg bg-blue-600">
-                      {plan.badge}
-                    </span>
-                  </div>
-
-                  <div className="absolute top-5 right-5 bg-white/95 text-blue-600 font-black text-xs px-4 py-2 rounded-full shadow-lg">
-                    {plan.monthlyPrice}
-                  </div>
-                </div>
-
-                {/* CONTENT */}
-                <div className="p-8 flex flex-col min-h-[420px]">
-
-                  <div className="min-h-[80px] mb-5">
-                    <h3 className="text-xl leading-7 font-black text-slate-900 group-hover:text-blue-600 transition-colors duration-300">
-                      {plan.title}
-                    </h3>
-                  </div>
-                    <div className="flex items-center gap-3 mb-6">
-          {plan.rating ? (
-            <>
-              <div className="bg-blue-600 text-white text-xs font-black px-3 py-1 rounded-full flex items-center gap-1 shadow-md">
-                {plan.rating}
-                <span>★</span>
-              </div>
-
-              <span className="text-sm text-slate-500 font-semibold">
-                ({plan.reviewCount} Reviews)
-              </span>
-            </>
-          ) : (
-            <span className="text-sm text-slate-400 italic">
-              Standard License Edition
-            </span>
-          )}
-        </div>
-                  <p className="text-sm text-slate-500 leading-relaxed mb-6">
-                    {plan.desc}
-                  </p>
-
-                  {/* PRICE */}
-                  <div className="mb-6">
-                    <div className="flex items-center gap-3 flex-wrap">
-                      <span className="text-3xl font-black text-slate-900">
-                        {plan.monthlyPrice}
-                      </span>
-
-                      <span className="text-base text-slate-400 line-through">
-                        ₹{plan.originalPrice}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* FEATURES */}
-                  <div className="space-y-3 mb-8">
-                    {plan.specs.map((spec, i) => (
-                      <div key={i} className="flex items-start gap-3">
-                        <CheckCircle2
-                          size={16}
-                          className="text-blue-600 mt-1 flex-shrink-0"
-                        />
-
-                        <span className="text-slate-600 text-sm leading-relaxed">
-                          {spec}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* BUTTON */}
-                  <div className="mt-auto">
-                    <button
-                      onClick={handleOpenModal}
-                      className="w-full py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-black uppercase tracking-wider text-xs transition-all duration-300 flex items-center justify-center gap-2"
-                    >
-                      Get Quote
-                      <ArrowRight size={16} />
-                    </button>
-                  </div>
-                </div>
+                <span className="text-slate-600 text-sm leading-relaxed">
+                  {spec}
+                </span>
               </div>
             ))}
           </div>
-        </section>
 
+          {/* BUTTON */}
+          <div className="mt-auto">
+            <button
+              onClick={handleOpenModal}
+              className="w-full py-4 rounded-2xl bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] hover:opacity-95 text-white font-black uppercase tracking-wider text-xs transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-[#3b71ca]/10 hover:shadow-[#00b4ed]/30"
+            >
+              Get Quote
+              <ArrowRight size={16} />
+            </button>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
         {/* FEATURES */}
         <section className="py-24">
           <div className="container mx-auto px-6">

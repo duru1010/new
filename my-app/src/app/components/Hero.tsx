@@ -314,7 +314,6 @@
 
 
 
-
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -364,38 +363,39 @@ const Hero = () => {
   }, [heroSlides.length]);
 
   // ✅ FIXED SCROLL FUNCTION
- const scrollToSection = (id: string) => {
-  const el = document.getElementById(id);
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
 
-  if (!el) {
-    console.log("Section not found:", id);
-    return;
-  }
+    if (!el) {
+      console.log("Section not found:", id);
+      return;
+    }
 
-  const offset = 90; // navbar height
-  const top =
-    el.getBoundingClientRect().top + window.pageYOffset - offset;
+    const offset = 90; // navbar height
+    const top =
+      el.getBoundingClientRect().top + window.pageYOffset - offset;
 
-  window.scrollTo({
-    left: 0,
-    top: top,
-    behavior: "smooth",
-  });
-};
+    window.scrollTo({
+      left: 0,
+      top: top,
+      behavior: "smooth",
+    });
+  };
 
   return (
-    <section className="relative min-h-[800px] w-full flex items-center justify-center overflow-hidden bg-[#F0F4FF] pt-24 pb-12">
+    <section className="relative min-h-[800px] w-full flex items-center justify-center overflow-hidden bg-[#F4F9FC] pt-24 pb-12">
       
       {/* BACKGROUND */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 h-full w-full [background-image:radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:40px_40px] [mask-image:linear-gradient(to_bottom,white,transparent,white)]" />
 
+        {/* Changed glowing blobs to match Logo Blue & Cyan */}
         <div className="absolute top-[3%] right-[5%] w-[250px] h-[250px] lg:w-[350px] lg:h-[350px]">
-          <div className="absolute inset-0 bg-[#0057FF]/20 blur-[60px] rounded-full animate-pulse" />
+          <div className="absolute inset-0 bg-[#00b4ed]/20 blur-[60px] rounded-full animate-pulse" />
         </div>
 
         <div className="absolute bottom-[3%] left-[5%] w-[200px] h-[200px] lg:w-[300px] lg:h-[300px]">
-          <div className="absolute inset-0 bg-[#0057FF]/10 blur-[70px] rounded-full" />
+          <div className="absolute inset-0 bg-[#3b71ca]/10 blur-[70px] rounded-full" />
         </div>
       </div>
 
@@ -405,42 +405,44 @@ const Hero = () => {
         <div className="max-w-2xl">
           
           <div className="flex items-center gap-2 mb-6">
-            <CheckCircle className="text-blue-600" size={16} />
-            <span className="text-xs font-bold tracking-widest text-blue-600 uppercase">
+            {/* Changed CheckCircle color to Logo Cyan */}
+            <CheckCircle className="text-[#00b4ed]" size={16} />
+            <span className="text-xs font-bold tracking-widest bg-gradient-to-tr from-[#9e2a2b] via-[#e36414] to-[#fb8b24] bg-clip-text text-transparent uppercase">
               Trusted by 1,000+ Businesses
             </span>
           </div>
 
           <AnimatePresence mode="wait">
-  <motion.h1
-    key={`title-${activeIndex}`}
-    initial={{ opacity: 0, x: 80 }}
-    animate={{ opacity: 1, x: 0 }}
-    exit={{ opacity: 0, x: -80 }}
-    transition={{ duration: 0.7, ease: "easeInOut" }}
-    className="text-5xl md:text-7xl font-black text-[#0A1628] dark:text-white leading-[0.95] tracking-tight mb-6"
-  >
-    {heroSlides[activeIndex].title.split(" ").slice(0, -2).join(" ")}{" "}
+            <motion.h1
+              key={`title-${activeIndex}`}
+              initial={{ opacity: 0, x: 80 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -80 }}
+              transition={{ duration: 0.7, ease: "easeInOut" }}
+              className="text-5xl md:text-7xl font-black text-[#0A1628] dark:text-white leading-[0.95] tracking-tight mb-6"
+            >
+              {heroSlides[activeIndex].title.split(" ").slice(0, -2).join(" ")}{" "}
 
-    <span className="text-[#0057FF]">
-      {heroSlides[activeIndex].title.split(" ").slice(-2).join(" ")}
-    </span>
-  </motion.h1>
-</AnimatePresence>
+              {/* Changed generic blue text to Logo Cyan-Blue */}
+              <span className="bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] bg-clip-text text-transparent">
+                {heroSlides[activeIndex].title.split(" ").slice(-2).join(" ")}
+              </span>
+            </motion.h1>
+          </AnimatePresence>
 
-{/* SUBTITLE */}
-<AnimatePresence mode="wait">
-  <motion.p
-    key={`subtitle-${activeIndex}`}
-    initial={{ opacity: 0, x: 60 }}
-    animate={{ opacity: 1, x: 0 }}
-    exit={{ opacity: 0, x: -60 }}
-    transition={{ duration: 0.7, ease: "easeInOut" }}
-    className="text-lg text-slate-600 dark:text-slate-300 mb-8 max-w-lg leading-relaxed"
-  >
-    {heroSlides[activeIndex].subtitle}
-  </motion.p>
-</AnimatePresence>
+          {/* SUBTITLE */}
+          <AnimatePresence mode="wait">
+            <motion.p
+              key={`subtitle-${activeIndex}`}
+              initial={{ opacity: 0, x: 60 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -60 }}
+              transition={{ duration: 0.7, ease: "easeInOut" }}
+              className="text-lg text-slate-600 dark:text-slate-300 mb-8 max-w-lg leading-relaxed"
+            >
+              {heroSlides[activeIndex].subtitle}
+            </motion.p>
+          </AnimatePresence>
 
           {/* DOTS */}
           <div className="flex gap-3 mt-6">
@@ -450,7 +452,8 @@ const Hero = () => {
                 onClick={() => setActiveIndex(i)}
                 animate={{
                   width: i === activeIndex ? 28 : 10,
-                  backgroundColor: i === activeIndex ? "#2563eb" : "#cbd5e1",
+                  // Active dot now matches Logo Blue
+                  backgroundColor: i === activeIndex ? "#3b71ca" : "#cbd5e1",
                 }}
                 className="h-2.5 rounded-full"
               />
@@ -460,17 +463,17 @@ const Hero = () => {
           {/* CTA BUTTONS */}
           <div className="mt-8 flex flex-wrap gap-4">
             
-            {/* ✅ FIXED BUTTON */}
+            {/* ✅ FIXED BUTTON - Gradient matches Logo's Blue-to-Cyan track */}
             <button
               onClick={() => scrollToSection("services")}
-             className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-600 text-white rounded-2xl font-bold flex items-center gap-2 shadow-xl shadow-blue-500/20"
+              className="px-8 py-4 bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] text-white rounded-2xl font-bold flex items-center gap-2 shadow-xl shadow-[#3b71ca]/20 hover:opacity-95 transition-opacity"
             >
               Get Services
             </button>
 
             <button
               onClick={() => scrollToSection("contact")}
-             className="px-8 py-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl font-bold flex items-center gap-2 shadow-lg"
+              className="px-8 py-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl font-bold flex items-center gap-2 shadow-lg"
             >
               Contact Us
             </button>
@@ -481,19 +484,19 @@ const Hero = () => {
 
         {/* RIGHT IMAGE */}
         <div className="relative flex justify-center">
-  <AnimatePresence mode="wait">
-    <motion.img
-      key={`image-${activeIndex}`}
-      src={heroSlides[activeIndex].image}
-      alt="hero"
-      initial={{ opacity: 0, x: 120, scale: 0.9 }}
-      animate={{ opacity: 1, x: 0, scale: 1 }}
-      exit={{ opacity: 0, x: -120, scale: 0.9 }}
-      transition={{ duration: 0.8, ease: "easeInOut" }}
-      className="w-full max-w-[520px] aspect-square object-cover rounded-[3rem] shadow-2xl"
-    />
-  </AnimatePresence>
-</div>
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={`image-${activeIndex}`}
+              src={heroSlides[activeIndex].image}
+              alt="hero"
+              initial={{ opacity: 0, x: 120, scale: 0.9 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              exit={{ opacity: 0, x: -120, scale: 0.9 }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
+              className="w-full max-w-[520px] aspect-square object-cover rounded-[3rem] shadow-2xl"
+            />
+          </AnimatePresence>
+        </div>
       </div>
     </section>
   );

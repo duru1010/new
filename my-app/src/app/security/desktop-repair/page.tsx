@@ -325,18 +325,18 @@ ${formData.message}
       <div>
         {/* TAG */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600/10 border border-blue-600/20 text-blue-600 text-[11px] font-black uppercase tracking-[0.2em] mb-6"
-        >
-          <Laptop size={15} />
-          Laptop Rental & Repair
-        </motion.div>
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#e36414]/10 border border-[#e36414]/20 text-[#e36414] text-[11px] font-black uppercase tracking-[0.2em] mb-6"
+>
+  <Laptop size={15} />
+  Laptop Rental & Repair
+</motion.div>
 
         {/* HEADING */}
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[0.95] text-[#0A1628] dark:text-white mb-6">
   Get Laptop{" "}
-  <span className="text-[#0057FF]">
+  <span className="bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] bg-clip-text text-transparent">
     On Rent.
   </span>
 </h1>
@@ -362,7 +362,7 @@ ${formData.message}
         <div className="flex flex-wrap gap-4 mb-10">
           <button
             onClick={() => setIsModalOpen(true)}
-            className="px-7 py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-black uppercase tracking-wider text-xs flex items-center gap-3 transition-all duration-300 hover:scale-105"
+            className="px-7 py-4 rounded-2xl bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] hover:from-[#2a5db0] hover:to-[#0096c7] text-white font-black uppercase tracking-wider text-xs flex items-center gap-3 transition-all duration-300 hover:scale-105"
           >
             Rent Laptop
             <ArrowRight size={18} />
@@ -446,104 +446,106 @@ ${formData.message}
       
 
       {/* RENTAL PRODUCTS */}
-       <section
-        id="catalog-grid"
-        className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-      >
-        <div className="container mx-auto px-6">
-         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-           {rentalProducts.map((item, index) => (
-  <motion.div
-    key={index}
-    whileHover={{ y: -10 }}
-    className="overflow-hidden rounded-[2.5rem] bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/5 shadow-xl hover:shadow-2xl transition-all duration-500 group"
-  >
-    {/* IMAGE */}
-    <div className="relative h-[260px] overflow-hidden">
-      <Image
-        src={item.image}
-        alt={item.title}
-        fill
-        className="object-cover group-hover:scale-110 transition-transform duration-700"
-      />
-
-      {/* OVERLAY */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-
-      {/* PRICE BADGE */}
-      <div className="absolute top-5 right-5 bg-white/95 backdrop-blur-md text-blue-600 font-black text-xs px-4 py-2 rounded-full shadow-lg border border-white">
-        {item.price}
-      </div>
-
-      {/* DISCOUNT BADGE (same style as hardware cards) */}
-      <div className="absolute top-5 left-5 bg-emerald-50 text-emerald-600 text-xs font-black px-3 py-1 rounded-full border border-emerald-100">
-        GET OFF
-      </div>
-    </div>
-
-    {/* CONTENT */}
-    <div className="p-8 flex flex-col min-h-[420px]">
-      
-      {/* TITLE */}
-      <div className="min-h-[80px] mb-5">
-        <h3 className="text-xl leading-7 font-black text-slate-900 dark:text-white group-hover:text-blue-600 transition-colors duration-300">
-          {item.title}
-        </h3>
-      </div>
-
-      {/* STAR + RATING (same style logic as hardware cards) */}
-      <div className="flex items-center gap-3 mb-6">
-        <div className="bg-blue-600 text-white text-xs font-black px-3 py-1 rounded-full flex items-center gap-1 shadow-md">
-          ★ 4.8
-        </div>
-
-        <span className="text-sm text-slate-500 font-semibold">
-          (Trusted Rentals)
-        </span>
-      </div>
-        <div className="mt-4 flex items-center gap-2 flex-wrap">
-
-            <span className="bg-emerald-50 text-emerald-600 text-xs font-black px-3 py-1 rounded-full border border-emerald-100">
-              {item.discount}% OFF
-            </span>
-
-            {item.badge && (
-              <span className="bg-blue-50 text-blue-700 text-xs font-black px-3 py-1 rounded-full border border-blue-100">
-                {item.badge}
-              </span>
-            )}
-          </div>
-      {/* SPECS */}
-      <div className="space-y-3 mb-8">
-        {item.specs.map((spec, i) => (
-          <div key={i} className="flex items-start gap-3">
-            <CheckCircle2
-              size={16}
-              className="text-blue-600 mt-1 flex-shrink-0"
-            />
-            <span className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-              {spec}
-            </span>
-          </div>
-        ))}
-      </div>
-
-      {/* BUTTON */}
-      <div className="mt-auto">
-        <button
-          onClick={() => setIsModalOpen(true)}
-          className="w-full py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-black uppercase tracking-wider text-xs transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-blue-600/20 hover:shadow-blue-600/40"
+      <section
+  id="catalog-grid"
+  className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+>
+  <div className="container mx-auto px-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+      {rentalProducts.map((item, index) => (
+        <motion.div
+          key={index}
+          whileHover={{ y: -10 }}
+          className="overflow-hidden rounded-[2.5rem] bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/5 shadow-xl hover:shadow-2xl transition-all duration-500 group"
         >
-          Request Quote
-          <ArrowRight size={16} />
-        </button>
-      </div>
+          {/* IMAGE */}
+          <div className="relative h-[260px] overflow-hidden">
+            <Image
+              src={item.image}
+              alt={item.title}
+              fill
+              className="object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+
+            {/* OVERLAY */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+
+            {/* PRICE BADGE - Changed text to Logo Blue */}
+            <div className="absolute top-5 right-5 bg-white/95 backdrop-blur-md text-[#3b71ca] font-black text-xs px-4 py-2 rounded-full shadow-lg border border-white">
+              {item.price}
+            </div>
+
+            {/* DISCOUNT BADGE */}
+            <div className="absolute top-5 left-5 bg-emerald-50 text-emerald-600 text-xs font-black px-3 py-1 rounded-full border border-emerald-100">
+              GET OFF
+            </div>
+          </div>
+
+          {/* CONTENT */}
+          <div className="p-8 flex flex-col min-h-[420px]">
+            
+            {/* TITLE - Hover color changed to Logo Blue */}
+            <div className="min-h-[80px] mb-5">
+              <h3 className="text-xl leading-7 font-black text-slate-900 dark:text-white group-hover:text-[#3b71ca] transition-colors duration-300">
+                {item.title}
+              </h3>
+            </div>
+
+            {/* STAR + RATING - Changed to Logo Blue background */}
+            <div className="flex items-center gap-3 mb-6">
+              <div className="bg-[#3b71ca] text-white text-xs font-black px-3 py-1 rounded-full flex items-center gap-1 shadow-md">
+                ★ 4.8
+              </div>
+
+              <span className="text-sm text-slate-500 font-semibold">
+                (Trusted Rentals)
+              </span>
+            </div>
+
+            <div className="mt-4 flex items-center gap-2 flex-wrap">
+              <span className="bg-emerald-50 text-emerald-600 text-xs font-black px-3 py-1 rounded-full border border-emerald-100">
+                {item.discount}% OFF
+              </span>
+
+              {item.badge && (
+                // Changed secondary badge to Logo Blue theme tints
+                <span className="bg-[#3b71ca]/10 text-[#3b71ca] text-xs font-black px-3 py-1 rounded-full border border-[#3b71ca]/20">
+                  {item.badge}
+                </span>
+              )}
+            </div>
+
+            {/* SPECS - Check icons updated to Logo Cyan */}
+            <div className="space-y-3 mb-8">
+              {item.specs.map((spec, i) => (
+                <div key={i} className="flex items-start gap-3">
+                  <CheckCircle2
+                    size={16}
+                    className="text-[#00b4ed] mt-1 flex-shrink-0"
+                  />
+                  <span className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                    {spec}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            {/* BUTTON - Implemented your brand gradient background from Blue to Cyan */}
+            <div className="mt-auto">
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="w-full py-4 rounded-2xl bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] hover:opacity-95 text-white font-black uppercase tracking-wider text-xs transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-[#3b71ca]/20"
+              >
+                Request Quote
+                <ArrowRight size={16} />
+              </button>
+            </div>
+          </div>
+        </motion.div>
+      ))}
     </div>
-  </motion.div>
-))}
-</div>
-        </div>
-      </section>
+  </div>
+</section>
 
       {/* REPAIR SERVICES */}
       <section className="py-24 bg-slate-50 dark:bg-slate-900/30">
@@ -552,7 +554,7 @@ ${formData.message}
             <div>
               <h3 className="text-4xl md:text-6xl font-black tracking-tighter text-slate-900 dark:text-white mb-8">
                 Laptop
-                <span className="text-blue-600"> Repair Services.</span>
+                <span className="bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] bg-clip-text text-transparent"> Repair Services.</span>
               </h3>
 
               <div className="grid sm:grid-cols-2 gap-4">

@@ -887,15 +887,13 @@ const NetworkingPage = () => {
           <div className="flex flex-col lg:flex-row items-center gap-16">
             <div className="lg:w-3/5 text-center lg:text-left">
               <motion.div
-                          initial={{ opacity: 0, y: 40 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.8 }}
-                        >
-                 <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-blue-600/10 border border-blue-200 text-blue-600 text-xs font-bold mb-6">        
-                <Network size={16} />
-                Elite IT & Networking Partner
-                </div>
-              </motion.div>
+                             initial={{ opacity: 0, y: 20 }}
+                             animate={{ opacity: 1, y: 0 }}
+                             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#e36414]/10 border border-[#e36414]/20 text-[#e36414] text-[11px] font-black uppercase tracking-[0.2em] mb-6"
+                           >
+                             <Network size={15} />
+                              Elite IT & Networking Partner
+                           </motion.div>
 
               <motion.h1
   initial={{ opacity: 0, y: 20 }}
@@ -904,7 +902,7 @@ const NetworkingPage = () => {
   className="text-5xl md:text-6xl font-black text-[#0A1628] dark:text-white leading-[0.95] tracking-tighter mb-8"
 >
   Smart Tech for <br />
-  <span className="text-[#0057FF]">
+  <span className="bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] bg-clip-text text-transparent">
     Modern SMEs.
   </span>
 </motion.h1>
@@ -918,17 +916,18 @@ const NetworkingPage = () => {
                 We set up Wired, Wireless networks and NAS solutions for Offices, Companies, Institutes, Shops and Clinics.
               </motion.p>
 
-             <motion.button
-                           whileHover={{ scale: 1.04 }}
-                           whileTap={{ scale: 0.96 }}
-                           onClick={() => {
-                             openModal();
-                             window.location.hash = "get-started";
-                           }}
-                           className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-2xl font-bold flex items-center gap-2 shadow-xl shadow-blue-500/20"
-                         >
-                              Get Service <ArrowRight size={18} />
-                            </motion.button>
+            <motion.button
+                            whileHover={{ scale: 1.04 }}
+                            whileTap={{ scale: 0.96 }}
+                            onClick={() => {
+                              openModal();
+                              window.location.hash = "get-started";
+                            }}
+                            className="px-8 py-4 bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] text-white rounded-2xl font-bold flex items-center gap-2 shadow-xl shadow-blue-500/20"
+                          >
+                            Get Service <ArrowRight size={18} />
+                          </motion.button>
+            
             </div>
 
             {/* HERO CARD */}
@@ -1079,7 +1078,7 @@ const NetworkingPage = () => {
             openModal();
             window.location.hash = "get-started";
           }}
-          className="flex-1 py-3 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold flex items-center justify-center gap-2 transition-all duration-300"
+          className="flex-1 py-3 rounded-2xl bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] text-white  hover:bg-blue-700 text-white font-bold flex items-center justify-center gap-2 transition-all duration-300"
         >
           Hire Now
           <ArrowRight size={16} />

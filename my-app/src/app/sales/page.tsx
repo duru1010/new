@@ -631,10 +631,10 @@ const HardwarePage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-blue-600/10 border border-blue-200 text-blue-600 text-xs font-bold mb-6">
-              <ShoppingBag size={16} />
-              Enterprise IT Solutions
-            </div>
+             <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#e36414]/10 border border-[#e36414]/20 text-[#e36414] text-xs font-bold mb-6">
+  <ShoppingBag size={14} />
+  Software Sales & Licensing
+</div>
           </motion.div>
 
           <motion.h1
@@ -645,7 +645,7 @@ const HardwarePage = () => {
           >
             Hardware & <br />
 
-            <span className="text-[#0057FF]">
+            <span className="bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] bg-clip-text text-transparent">
               Licensing.
             </span>
           </motion.h1>
@@ -671,7 +671,7 @@ const HardwarePage = () => {
                 openModal();
                 window.location.hash = "get-started";
               }}
-              className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-2xl font-bold flex items-center gap-2 shadow-xl shadow-blue-500/20"
+              className="px-8 py-4 bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] text-white rounded-2xl font-bold flex items-center gap-2 shadow-xl shadow-[#3b71ca]/20"
             >
               Get Service <ArrowRight size={18} />
             </motion.button>
@@ -689,168 +689,145 @@ const HardwarePage = () => {
         </div>
 
         {/* SOFTWARE LICENSE SECTION */}
-        <section className="py-24 relative">
+      <section className="py-24 relative">
+  <div className="container mx-auto px-6">
+    {detailedServices.map((service) => (
+      <div key={service.id} className="space-y-10">
 
-          <div className="container mx-auto px-6">
+        {/* HEADER */}
+        <div>
+          <h3 className="text-3xl font-black text-slate-900 dark:text-white">
+            {service.title}
+          </h3>
 
-            {detailedServices.map((service) => (
-              <div key={service.id} className="space-y-10">
+          <p className="text-slate-500 mt-3 max-w-2xl">
+            {service.desc}
+          </p>
+        </div>
 
-                {/* HEADER */}
-                <div>
-                  <h3 className="text-3xl font-black text-slate-900 dark:text-white">
-                    {service.title}
-                  </h3>
+        {/* CARDS */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-7">
+          {service.subItems.map((item, index) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -10 }}
+              transition={{
+                duration: 0.5,
+                delay: index * 0.1,
+                type: "spring",
+              }}
+              className="group relative overflow-hidden rounded-[2.5rem] bg-white border border-slate-200/80 shadow-xl hover:shadow-2xl transition-all duration-500"
+            >
+              {/* IMAGE */}
+              <div className="relative h-[260px] overflow-hidden">
+                <Image
+                  src={item.img}
+                  alt={item.name}
+                  fill
+                  loading="lazy"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                />
 
-                  <p className="text-slate-500 mt-3 max-w-2xl">
-                    {service.desc}
-                  </p>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#3b71ca]/30 via-transparent to-transparent" />
+
+                {/* BADGE */}
+                <div className="absolute top-5 left-5">
+                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 backdrop-blur-md shadow-lg border border-cyan-50/50">
+                    <span className="text-[11px] font-black uppercase tracking-widest text-[#3b71ca]">
+                      Premium Service
+                    </span>
+                  </div>
                 </div>
 
-                {/* CARDS */}
-                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-7">
-
-                  {service.subItems.map((item, index) => (
-                    <motion.div
-                      key={item.id}
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      whileHover={{ y: -10 }}
-                      transition={{
-                        duration: 0.5,
-                        delay: index * 0.1,
-                        type: "spring",
-                      }}
-                      className="group relative overflow-hidden rounded-[2.5rem] bg-white border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-500"
-                    >
-
-                      {/* IMAGE */}
-                      <div className="relative h-[260px] overflow-hidden">
-
-                        <Image
-                          src={item.img}
-                          alt={item.name}
-                          fill
-                          loading="lazy"
-                          className="object-cover group-hover:scale-105 transition-transform duration-700"
-                        />
-
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-
-                        {/* BADGE */}
-                        <div className="absolute top-5 left-5">
-                          <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 backdrop-blur-md shadow-lg">
-
-                            <span className="text-[11px] font-bold uppercase tracking-widest text-slate-700">
-                              Premium Service
-                            </span>
-
-                          </div>
-                        </div>
-
-                        {/* NUMBER */}
-                        <div className="absolute top-5 right-5">
-                          <span className="text-5xl font-black text-white/70">
-                            0{index + 1}
-                          </span>
-                        </div>
-
-                      </div>
-
-                      {/* CONTENT */}
-                      <div className="p-6">
-
-                        {/* LABEL */}
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 mb-4">
-
-                          <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-
-                          <span className="text-[11px] uppercase tracking-[0.2em] font-bold text-blue-600">
-                            Smart Solution
-                          </span>
-
-                        </div>
-
-                        {/* TITLE */}
-                        <h4 className="text-2xl font-black text-slate-900 leading-tight">
-                          {item.name}
-                        </h4>
-
-                        {/* DESC */}
-                        <p className="text-sm text-slate-600 mt-3 leading-relaxed">
-                          {item.desc}
-                        </p>
-
-                        {/* FEATURES */}
-                        <div className="flex flex-wrap gap-2 mt-5">
-
-                          <span className="px-3 py-1 rounded-full bg-slate-100 text-xs font-medium text-slate-700">
-                            Fast Service
-                          </span>
-
-                          <span className="px-3 py-1 rounded-full bg-slate-100 text-xs font-medium text-slate-700">
-                            Expert Team
-                          </span>
-
-                          <span className="px-3 py-1 rounded-full bg-slate-100 text-xs font-medium text-slate-700">
-                            Trusted Support
-                          </span>
-
-                        </div>
-
-                        {/* BUTTONS */}
-                        <div className="mt-6 flex gap-3">
-
-                          <button
-                            onClick={() => {
-                              openModal();
-                              window.location.hash = "get-started";
-                            }}
-                            className="flex-1 py-3 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold flex items-center justify-center gap-2 transition-all duration-300"
-                          >
-                            Hire Now
-                            <ArrowRight size={16} />
-                          </button>
-
-                           <Link
-          href={`/sales/${item.id}`}
-          className="flex-1 py-3 rounded-2xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-900 font-bold flex items-center justify-center transition-all duration-300"
-        >
-          Know More
-        </Link>
-
-                        </div>
-
-                      </div>
-
-                      {/* BORDER */}
-                      <div className="absolute inset-0 rounded-[2.5rem] border-2 border-transparent group-hover:border-blue-200 transition-all duration-500 pointer-events-none" />
-
-                    </motion.div>
-                  ))}
-
+                {/* NUMBER */}
+                <div className="absolute top-5 right-5">
+                  <span className="text-5xl font-black text-white/60 drop-shadow-sm">
+                    0{index + 1}
+                  </span>
                 </div>
-
-                {/* CTA */}
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  className="pt-6"
-                >
-                  <a
-                    href="/#contact"
-                    className="inline-flex px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-2xl font-bold items-center gap-2 shadow-xl shadow-blue-500/20"
-                  >
-                    Contact For Bulk Rental / Repair
-                    <ArrowUpRight size={18} />
-                  </a>
-                </motion.div>
-
               </div>
-            ))}
 
-          </div>
+              {/* CONTENT */}
+              <div className="p-6">
+                {/* LABEL */}
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-100 mb-4">
+                  <div className="w-2 h-2 rounded-full bg-[#00b4ed] animate-pulse" />
+                  <span className="text-[11px] uppercase tracking-[0.2em] font-bold text-[#3b71ca]">
+                    Smart Solution
+                  </span>
+                </div>
 
-        </section>
+                {/* TITLE */}
+                <h4 className="text-2xl font-black text-slate-900 leading-tight group-hover:text-[#3b71ca] transition-colors duration-300">
+                  {item.name}
+                </h4>
+
+                {/* DESC */}
+                <p className="text-sm text-slate-600 mt-3 leading-relaxed">
+                  {item.desc}
+                </p>
+
+                {/* FEATURES */}
+                <div className="flex flex-wrap gap-2 mt-5">
+                  <span className="px-3 py-1 rounded-full bg-slate-50 border border-slate-100 text-xs font-medium text-slate-600">
+                    Fast Service
+                  </span>
+                  <span className="px-3 py-1 rounded-full bg-slate-50 border border-slate-100 text-xs font-medium text-slate-600">
+                    Expert Team
+                  </span>
+                  <span className="px-3 py-1 rounded-full bg-slate-50 border border-slate-100 text-xs font-medium text-slate-600">
+                    Trusted Support
+                  </span>
+                </div>
+
+                {/* BUTTONS */}
+                <div className="mt-6 flex gap-3">
+                  <button
+                    onClick={() => {
+                      openModal();
+                      window.location.hash = "get-started";
+                    }}
+                    className="flex-1 py-3 rounded-2xl bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] hover:opacity-95 text-white font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-md shadow-[#3b71ca]/10"
+                  >
+                    Hire Now
+                    <ArrowRight size={16} />
+                  </button>
+
+                  <Link
+                    href={`/sales/${item.id}`}
+                    className="flex-1 py-3 rounded-2xl border border-slate-200 bg-white hover:bg-slate-50 hover:text-[#3b71ca] hover:border-[#3b71ca]/30 text-slate-900 font-bold flex items-center justify-center transition-all duration-300"
+                  >
+                    Know More
+                  </Link>
+                </div>
+              </div>
+
+              {/* BORDER OVERLAY ON HOVER */}
+              <div className="absolute inset-0 rounded-[2.5rem] border-2 border-transparent group-hover:border-[#00b4ed]/40 transition-all duration-500 pointer-events-none" />
+            </motion.div>
+          ))}
+        </div>
+
+        {/* BOTTOM CTA */}
+        <motion.div
+          whileHover={{ scale: 1.01 }}
+          className="pt-6"
+        >
+          <a
+            href="/#contact"
+            className="inline-flex px-8 py-4 bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] hover:opacity-95 text-white rounded-2xl font-bold items-center gap-2 shadow-xl shadow-[#3b71ca]/20 transition-all duration-300"
+          >
+            Contact For Bulk Rental / Repair
+            <ArrowUpRight size={18} />
+          </a>
+        </motion.div>
+
+      </div>
+    ))}
+  </div>
+</section>
 
         {/* ADVANTAGE SECTION */}
         

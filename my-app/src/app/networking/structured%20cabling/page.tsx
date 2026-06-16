@@ -220,22 +220,18 @@ export default function StructuredCablingPage() {
 
           {/* LEFT */}
           <div>
-            <motion.div
-                        initial={{ opacity: 0, y: 40 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                      >
-            
-                        <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-blue-600/10 border border-blue-200 text-blue-600 text-xs font-bold mb-6">
-              <Cable size={16} />
-              Structured Cabling Solutions
-              <div/>
-            </div>
-            </motion.div>
+             <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#e36414]/10 border border-[#e36414]/20 text-[#e36414] text-[11px] font-black uppercase tracking-[0.2em] mb-6"
+              >
+                <Cable size={15} />
+                Structured Cabling Solutions
+              </motion.div>
 
            <h1 className="text-5xl md:text-6xl font-black text-[#0A1628] dark:text-white leading-tight">
   Smart & Reliable{" "}
-  <span className="text-[#0057FF]">Network Cabling</span>
+  <span className="bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] bg-clip-text text-transparent">Network Cabling</span>
 </h1>
             <p className="mt-6 text-slate-600 dark:text-slate-300 leading-relaxed">
   Structured cabling is a standardized system for designing and installing a building’s network wiring so all data, voice, and video communication runs smoothly, efficiently, and in an organized way.
@@ -250,11 +246,12 @@ export default function StructuredCablingPage() {
 </p>
 
             <button
-              onClick={() => setIsModalOpen(true)}
-              className="mt-8 px-8 py-4 bg-blue-600 text-white font-bold rounded-2xl flex items-center gap-2 hover:bg-indigo-700 transition"
-            >
-              Get Quote <ArrowRight size={18} />
-            </button>
+                       onClick={() => setIsModalOpen(true)}
+                       className="px-7 py-4 rounded-2xl bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] hover:from-[#2a5db0] hover:to-[#0096c7] text-white font-black uppercase tracking-wider text-xs flex items-center gap-3 transition-all duration-300 hover:scale-105"
+                     >
+                     Get Quote
+                       <ArrowRight size={18} />
+                     </button>
           </div>
 
           {/* RIGHT IMAGE */}
@@ -275,132 +272,131 @@ export default function StructuredCablingPage() {
 
       {/* SERVICES */}
        <section
-              id="catalog-grid"
-              className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-            >
-              {/* Header */}
-              
-              {/* GRID */}
-              {/* GRID */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-              {services.map((item, index) => (
-                <div
-                  key={index}
-                  className="overflow-hidden rounded-[2.5rem] bg-white border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-500 group"
-                >
-                  {/* IMAGE */}
-                  <div className="relative h-[260px] overflow-hidden">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-            
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-            
-                    {/* TOP BADGES */}
-                    <div className="absolute top-5 left-5 flex flex-col gap-2 z-10">
-                      {item.tag && (
-                        <span
-                          className={`text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full text-white shadow-lg ${
-                            item.tag === "Trending"
-                              ? "bg-cyan-500"
-                              : item.tag === "Hot Deal"
-                              ? "bg-blue-600"
-                              : "bg-indigo-600"
-                          }`}
-                        >
-                          {item.tag}
-                        </span>
-                      )}
-                    </div>
-            
-                    {/* PRICE BADGE */}
-                    <div className="absolute top-5 right-5 bg-white/95 backdrop-blur-md text-blue-600 font-black text-xs px-4 py-2 rounded-full shadow-lg border border-white">
-                      {item.price}
-                    </div>
-                  </div>
-            
-                  {/* CONTENT */}
-                  <div className="p-8 flex flex-col min-h-[420px]">
-                    {/* TITLE */}
-                    <div className="min-h-[80px] mb-5">
-                      <h3 className="text-xl leading-7 font-black text-slate-900 group-hover:text-blue-600 transition-colors duration-300">
-                        {item.title}
-                      </h3>
-                    </div>
-            
-                    {/* RATINGS */}
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="bg-blue-600 text-white text-xs font-black px-3 py-1 rounded-full flex items-center gap-1 shadow-md">
-                        {item.rating}
-                        <span>★</span>
-                      </div>
-            
-                      <span className="text-sm text-slate-500 font-semibold">
-                        ({item.reviewCount} Reviews)
-                      </span>
-                    </div>
-            
-                    {/* PRICE SECTION */}
-                    <div className="mb-6">
-                      <div className="flex items-center gap-3 flex-wrap">
-                        <span className="text-lg font-black text-slate-900">
-                          {item.price}
-                        </span>
-            
-                        <span className="text-sm text-slate-400 line-through">
-                          {item.originalPrice}
-                        </span>
-                      </div>
-            
-                      {/* OFFER BADGES */}
-                      <div className="mt-4 flex items-center gap-2 flex-wrap">
-                        <span className="bg-emerald-50 text-emerald-600 text-xs font-black px-3 py-1 rounded-full border border-emerald-100">
-                          {item.discount}% OFF
-                        </span>
-            
-                        {item.badge && (
-                          <span className="bg-blue-50 text-blue-700 text-xs font-black px-3 py-1 rounded-full border border-blue-100">
-                            {item.badge}
-                          </span>
-                        )}
-                      </div>
-                    </div>
-            
-                    {/* SPECS */}
-                    <div className="space-y-3 mb-8">
-                      {item.specs.map((spec, i) => (
-                        <div key={i} className="flex items-start gap-3">
-                          <CheckCircle2
-                            size={16}
-                            className="text-blue-600 mt-1 flex-shrink-0"
-                          />
-            
-                          <span className="text-slate-600 text-sm leading-relaxed">
-                            {spec}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-            
-                    {/* BUTTON */}
-                    <div className="mt-auto">
-                      <button
-                        onClick={() => setIsModalOpen(true)}
-                        className="w-full py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-black uppercase tracking-wider text-xs transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-blue-600/20 hover:shadow-blue-600/40"
-                      >
-                        Request Quote
-                        <ArrowRight size={16} />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            </section>
+  id="catalog-grid"
+  className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+>
+  {/* Header */}
+  
+  {/* GRID */}
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+    {services.map((item, index) => (
+      <div
+        key={index}
+        className="overflow-hidden rounded-[2.5rem] bg-white border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-500 group"
+      >
+        {/* IMAGE */}
+        <div className="relative h-[260px] overflow-hidden">
+          <img
+            src={item.image}
+            alt={item.title}
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+          />
 
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+
+          {/* TOP BADGES */}
+          <div className="absolute top-5 left-5 flex flex-col gap-2 z-10">
+            {item.tag && (
+              <span
+                className={`text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full text-white shadow-lg ${
+                  item.tag === "Trending"
+                    ? "bg-[#00b4ed]" // Softlink Cyan
+                    : item.tag === "Hot Deal"
+                    ? "bg-[#3b71ca]" // Softlink Blue
+                    : "bg-[#1a3a78]" // Deep Navy corporate accent
+                }`}
+              >
+                {item.tag}
+              </span>
+            )}
+          </div>
+
+          {/* PRICE BADGE - Text color updated to Corporate Blue */}
+          <div className="absolute top-5 right-5 bg-white/95 backdrop-blur-md text-[#3b71ca] font-black text-xs px-4 py-2 rounded-full shadow-lg border border-white">
+            {item.price}
+          </div>
+        </div>
+
+        {/* CONTENT */}
+        <div className="p-8 flex flex-col min-h-[420px]">
+          {/* TITLE - Hover color changed to Corporate Blue */}
+          <div className="min-h-[80px] mb-5">
+            <h3 className="text-xl leading-7 font-black text-slate-900 group-hover:text-[#3b71ca] transition-colors duration-300">
+              {item.title}
+            </h3>
+          </div>
+
+          {/* RATINGS - Background color updated to Corporate Blue */}
+          <div className="flex items-center gap-3 mb-6">
+            <div className="bg-[#3b71ca] text-white text-xs font-black px-3 py-1 rounded-full flex items-center gap-1 shadow-md">
+              {item.rating}
+              <span>★</span>
+            </div>
+
+            <span className="text-sm text-slate-500 font-semibold">
+              ({item.reviewCount} Reviews)
+            </span>
+          </div>
+
+          {/* PRICE SECTION */}
+          <div className="mb-6">
+            <div className="flex items-center gap-3 flex-wrap">
+              <span className="text-lg font-black text-slate-900">
+                {item.price}
+              </span>
+
+              <span className="text-sm text-slate-400 line-through">
+                {item.originalPrice}
+              </span>
+            </div>
+
+            {/* OFFER BADGES */}
+            <div className="mt-4 flex items-center gap-2 flex-wrap">
+              <span className="bg-emerald-50 text-emerald-600 text-xs font-black px-3 py-1 rounded-full border border-emerald-100">
+                {item.discount}% OFF
+              </span>
+
+              {item.badge && (
+                // Secondary badge updated with custom brand tints
+                <span className="bg-[#3b71ca]/10 text-[#3b71ca] text-xs font-black px-3 py-1 rounded-full border border-[#3b71ca]/20">
+                  {item.badge}
+                </span>
+              )}
+            </div>
+          </div>
+
+          {/* SPECS - Check icons shifted to bright Cyan */}
+          <div className="space-y-3 mb-8">
+            {item.specs.map((spec, i) => (
+              <div key={i} className="flex items-start gap-3">
+                <CheckCircle2
+                  size={16}
+                  className="text-[#00b4ed] mt-1 flex-shrink-0"
+                />
+
+                <span className="text-slate-600 text-sm leading-relaxed">
+                  {spec}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* BUTTON - Main action CTA styled with the seamless Blue-to-Cyan track gradient */}
+          <div className="mt-auto">
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="w-full py-4 rounded-2xl bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] hover:opacity-95 text-white font-black uppercase tracking-wider text-xs transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-[#3b71ca]/20"
+            >
+              Request Quote
+              <ArrowRight size={16} />
+            </button>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
       {/* WHY CHOOSE */}
       <section className="py-24 bg-slate-50 dark:bg-slate-900/30">
         <div className="container mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -555,9 +551,9 @@ export default function StructuredCablingPage() {
                               >
                                 <option value="">Select  Requirment  type</option>
                                 <option>Structured Cabling</option>
-                                <option>Network Monitoring</option>
-                                <option>Security Auditing</option>
-                                <option>Incident Response</option>
+                                <option>Fiber Optic Cabling</option>
+                                <option>Coaxial Cabling</option>
+                                <option>Server Cabling</option>
                               </select>
                             </div>
                           </div>

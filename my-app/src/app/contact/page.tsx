@@ -21,46 +21,63 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function ContactPage() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showSuccess, setShowSuccess] = useState(false);
+ const [formData, setFormData] = useState({
+  fullName: "",
+  company: "",
+  email: "",
+  mobile: "",
+  service: "",
+  city: "",
+  message: "",
+});
 
-  const [formData, setFormData] = useState({
-    fullName: "",
-    company: "",
-    email: "",
-    mobile: "",
-    service: "",
-    city: "",
-    message: "",
-  });
+const [isSubmitting, setIsSubmitting] = useState(false);
+const [showSuccess, setShowSuccess] = useState(false);
 
-  const handleSubmit = async (
-    e: React.FormEvent<HTMLFormElement>
-  ) => {
-    e.preventDefault();
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
 
-    setIsSubmitting(true);
+  setIsSubmitting(true);
 
-    setTimeout(() => {
-      setIsSubmitting(false);
+  try {
+    const response = await fetch("/api/send-email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        fullName: formData.fullName,
+        email: formData.email,
+        mobile: formData.mobile,
+        service: formData.service,
+        message: formData.message,
+      }),
+    });
 
-      setShowSuccess(true);
+    const data = await response.json();
 
-      setFormData({
-        fullName: "",
-        company: "",
-        email: "",
-        mobile: "",
-        service: "",
-        city: "",
-        message: "",
-      });
+    if (!response.ok) {
+      throw new Error(data.error || "Failed to send message");
+    }
 
-      setTimeout(() => {
-        setShowSuccess(false);
-      }, 4000);
-    }, 2000);
-  };
+    alert("Message sent successfully!");
+
+    setFormData({
+      fullName: "",
+      company: "",
+      email: "",
+      mobile: "",
+      service: "",
+      city: "",
+      message: "",
+    });
+  } catch (error: any) {
+    console.error(error);
+    alert(error.message || "Something went wrong");
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   return (
     <div className="min-h-screen bg-[#f5f9ff] dark:bg-[#060b16] overflow-hidden">
@@ -81,14 +98,13 @@ export default function ContactPage() {
               transition={{ duration: 0.7 }}
             >
 
-              <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#0057FF]/10 border border-[#0057FF]/20 text-[#0057FF] text-xs font-black uppercase tracking-[0.2em] mb-8">
-                <MessageSquare size={14} />
-                Contact Softlink Solutions
-              </div>
-
+             <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#e36414]/10 border border-[#e36414]/20 text-[#e36414] text-xs font-black uppercase tracking-[0.2em] mb-8">
+  <MessageSquare size={14} />
+  Contact Softlink Solutions
+</div>
               <h1 className="text-4xl md:text-7xl font-black leading-[0.95] tracking-tight text-[#0A1628] dark:text-white mb-8">
                 Let’s Build
-                <span className="block text-[#0057FF]">
+                <span className="block bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] bg-clip-text text-transparent">
                   Smarter IT
                 </span>
                 Solutions.
@@ -269,10 +285,10 @@ export default function ContactPage() {
               className="bg-white dark:bg-[#0D1728] p-10 rounded-[3rem] border border-slate-200 dark:border-white/10 shadow-xl"
             >
 
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0057FF]/10 border border-[#0057FF]/20 text-[#0057FF] text-xs font-black uppercase tracking-[0.2em] mb-6">
-                <Send size={14} />
-                Send Message
-              </div>
+             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#e36414]/10 border border-[#e36414]/20 text-[#e36414] text-xs font-black uppercase tracking-[0.2em] mb-6">
+  <Send size={14} />
+  Send Message
+</div>
 
               <h2 className="text-4xl font-black text-[#0A1628] dark:text-white mb-8">
                 Get In Touch
@@ -419,7 +435,7 @@ export default function ContactPage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="mt-6 w-full py-5 rounded-2xl bg-[#0057FF] text-white font-black flex items-center justify-center gap-3 hover:scale-[1.02] transition-all disabled:opacity-60 shadow-2xl shadow-blue-500/20"
+                className="mt-6 w-full py-5 rounded-2xl bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] text-white  font-black flex items-center justify-center gap-3 hover:scale-[1.02] transition-all disabled:opacity-60 shadow-2xl shadow-blue-500/20"
               >
                 {isSubmitting ? (
                   <>
@@ -447,10 +463,10 @@ export default function ContactPage() {
 
               <div className="p-10">
 
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0057FF]/10 border border-[#0057FF]/20 text-[#0057FF] text-xs font-black uppercase tracking-[0.2em] mb-6">
-                  <Globe size={14} />
-                  Our Location
-                </div>
+               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#e36414]/10 border border-[#e36414]/20 text-[#e36414] text-xs font-black uppercase tracking-[0.2em] mb-6">
+  <Globe size={14} />
+  Our Location
+</div>
 
                 <h2 className="text-4xl font-black text-[#0A1628] dark:text-white mb-4">
                   Visit Our Office
@@ -512,7 +528,7 @@ export default function ContactPage() {
                 />
               </div>
 
-              <h2 className="text-3xl font-black text-[#0A1628] dark:text-white mb-3">
+              <h2 className="text-3xl font-black bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] text-white  dark:text-white mb-3">
                 Message Sent!
               </h2>
 
@@ -521,12 +537,12 @@ export default function ContactPage() {
                 get back to you shortly.
               </p>
 
-              <button
-                onClick={() => setShowSuccess(false)}
-                className="w-full py-4 rounded-2xl bg-[#0057FF] text-white font-black hover:scale-[1.02] transition-all"
-              >
-                Done
-              </button>
+             <button
+  onClick={() => setShowSuccess(false)}
+  className="w-full py-4 rounded-2xl bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] text-white font-black hover:scale-[1.02] transition-all"
+>
+  Done
+</button>
 
             </motion.div>
 

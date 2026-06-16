@@ -30,15 +30,17 @@ const About = () => {
         
         <div className="flex flex-col mb-16">
           <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            className="flex items-center gap-3 mb-4"
-          >
-            <div className="w-10 h-[2px] bg-[#0057FF]" />
-            <span className="text-[#0057FF] dark:text-[#4DA6FF] font-bold uppercase tracking-widest text-sm">
-              About Us
-            </span>
-          </motion.div>
+  initial={{ opacity: 0, x: -20 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  className="flex items-center gap-3 mb-4"
+>
+  {/* Line color changed from generic blue to Softlink Logo Blue/Cyan */}
+  <div className="w-10 h-[2px] bg-[#00b4ed]" />
+  
+  <span className="bg-gradient-to-tr from-[#9e2a2b] via-[#e36414] to-[#fb8b24] bg-clip-text text-transparent font-bold uppercase tracking-widest text-sm">
+    About Us
+  </span>
+</motion.div>
           <div className="max-w-xl">
   <motion.h2
   initial={{ opacity: 0, y: 20 }}
@@ -46,7 +48,7 @@ const About = () => {
   className="text-4xl md:text-6xl font-black tracking-tighter text-[#0A1628] dark:text-white leading-none mb-4"
 >
   Trusted Partner for <br />
-  <span className="text-[#0057FF]">
+  <span className="bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] bg-clip-text text-transparent">
     IT Infrastructure & Security.
   </span>
 </motion.h2>

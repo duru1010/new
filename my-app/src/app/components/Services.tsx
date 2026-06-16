@@ -196,13 +196,13 @@ const Services = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
           <div className="max-w-xl">
             <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-[#0A1628] dark:text-white leading-none mb-4">
-              Our Core <span className="text-[#0057FF]">Expertise.</span>
+              Our Core <span className="bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] bg-clip-text text-transparent">Expertise.</span>
             </h2>
             <p className="text-slate-500 dark:text-slate-400 font-medium">
               Comprehensive IT infrastructure and support services designed for growth.
             </p>
           </div>
-          <Link href="/all-services" className="text-[#0057FF] font-bold flex items-center gap-2 hover:underline">
+          <Link href="/all-services" className="bg-gradient-to-tr from-[#9e2a2b] via-[#e36414] to-[#fb8b24] bg-clip-text text-transparent font-bold flex items-center gap-2 hover:underline">
             View All Services <ArrowUpRight size={20} />
           </Link>
         </div>
@@ -227,7 +227,7 @@ const Services = () => {
                       alt={service.title} 
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
-                    <div className="absolute top-4 right-4 bg-white/90 dark:bg-[#0A1628]/90 backdrop-blur-md p-2 rounded-xl text-[#0057FF] shadow-sm">
+                    <div className="absolute top-4 right-4 bg-white/90 dark:bg-[#0A1628]/90 backdrop-blur-md p-2 rounded-xl  shadow-sm">
                       {service.icon}
                     </div>
                   </div>
@@ -236,7 +236,7 @@ const Services = () => {
                   <div className="p-8 flex flex-col flex-grow">
                     <div className="flex gap-2 mb-4">
                       {service.tags.map(tag => (
-                        <span key={tag} className="text-[10px] font-black uppercase tracking-widest px-2 py-1 bg-[#0057FF]/5 dark:bg-[#4DA6FF]/10 text-[#0057FF] dark:text-[#4DA6FF] rounded-lg">
+                        <span key={tag} className="text-[10px] font-black uppercase tracking-widest px-2 py-1 bg-[#0057FF]/5 dark:bg-[#4DA6FF]/10 bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] bg-clip-text text-transparent dark:text-[#4DA6FF] rounded-lg">
                           {tag}
                         </span>
                       ))}
@@ -251,10 +251,10 @@ const Services = () => {
                     </p>
 
                     <div className="pt-6 border-t border-slate-100 dark:border-white/5 flex items-center justify-between">
-                      <span className="text-xs font-bold text-slate-400 group-hover:text-[#0057FF] transition-colors">
+                      <span className="text-xs font-bold text-slate-400 group-hover:text-[#00b4ed] transition-colors">
                         Discover Service
                       </span>
-                      <CheckCircle2 size={18} className="text-[#4DA6FF]/40 group-hover:text-[#0057FF] transition-colors" />
+                      <CheckCircle2 size={18} className="text-[#4DA6FF]/40 group-hover:text-[#00b4ed] transition-colors" />
                     </div>
                   </div>
                 </div>
@@ -263,6 +263,7 @@ const Services = () => {
           ))}
         </div>
       </div>
+      
     </section>
   );
 };

@@ -2004,7 +2004,7 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto">
           <motion.div
             className={`relative flex items-center justify-between py-3 px-4 sm:px-6 ${
-             "rounded-full bg-blue-600 backdrop-blur-xl border border-blue-500 shadow-xl"
+             "rounded-full bg-[#0a1420] backdrop-blur-xl border border-blue-500 shadow-xl"
             }`}
           >
             {/* LOGO */}
@@ -2013,7 +2013,7 @@ const Navbar = () => {
 
     <Link href="/" className="inline-block">
       <img
-        src="/softlink_logowht01-1024x293 (1).png"
+        src="/Logo Of Softlink C-01.png"
         alt="Softlink Logo"
         className="w-45 h-15 object-contain cursor-pointer"
       />
@@ -2184,15 +2184,15 @@ const Navbar = () => {
         </a>
 
         {/* GET QUOTATION (NEW ADDED ITEM) */}
-        <button
-          onClick={() => {
-            setShowForm(true);
-            setIsOpen(false);
-          }}
-          className="w-full px-4 py-3 rounded-2xl bg-white text-blue-600 font-bold hover:bg-blue-50 transition"
-        >
-          Get Quotation
-        </button>
+       <button
+  onClick={() => {
+    setShowForm(true);
+    setIsOpen(false);
+  }}
+  className="w-full px-4 py-3 rounded-2xl bg-white bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] bg-clip-text text-transparent border border-cyan-100/50 font-bold hover:bg-cyan-50/40 transition-colors duration-300 shadow-sm"
+>
+  Get Quotation
+</button>
 
         {/* THEME TOGGLE */}
         
@@ -2252,7 +2252,7 @@ const Navbar = () => {
                   <X size={24} />
                 </button>
 
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-indigo-500/10 text-blue-600 dark:text-blue-400 text-[10px] sm:text-xs font-black uppercase tracking-[0.2em] mb-3 border border-indigo-500/20">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#e36414]/10 border border-[#e36414]/20 text-[#e36414] text-[11px] font-black uppercase tracking-widest mb-8">
                   <ShoppingBag size={15} />
                    Quote Request
                 </div>
@@ -2533,11 +2533,11 @@ const Navbar = () => {
 
   {/* SUBMIT */}
   <button
-    type="submit"
-    className="w-full py-4 bg-blue-600 text-white font-bold rounded-2xl"
-  >
-    Submit Rental Request
-  </button>
+  type="submit"
+  className="w-full py-4 bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] hover:opacity-95 text-white font-bold rounded-2xl shadow-lg shadow-[#3b71ca]/10 hover:shadow-[#00b4ed]/20 transition-all duration-300"
+>
+  Submit Rental Request
+</button>
 </form>
               </div>
             </motion.div>

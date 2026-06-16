@@ -307,17 +307,17 @@ export default function EnhancedWifiPortal() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-sm font-semibold mb-6">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-              </span>
-              Next-Gen Fiber Connectivity
-            </div>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#e36414]/10 border border-[#e36414]/20 text-[#e36414] text-sm font-black uppercase tracking-widest mb-6">
+  <span className="relative flex h-2 w-2">
+    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#e36414] opacity-75"></span>
+    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#e36414]"></span>
+  </span>
+  Next-Gen Fiber Connectivity
+</div>
 
             <h3 className="text-6xl md:text-7xl font-black leading-[1.1] tracking-tight text-[#0A1628] dark:text-white">
   Speeds that <br />
-  <span className="text-[#0057FF]">
+  <span className="bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] bg-clip-text text-transparent">
     Move with You.
   </span>
 </h3>
@@ -328,7 +328,7 @@ export default function EnhancedWifiPortal() {
             <div className="mt-10 flex flex-wrap gap-4">
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="group px-6 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-2xl flex items-center gap-3 transition-all hover:shadow-2xl hover:shadow-blue-500/40"
+                className="group px-6 py-4 bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] hover:from-[#2a5db0] hover:to-[#0096c7] text-white font-bold rounded-2xl flex items-center gap-3 transition-all hover:shadow-2xl hover:shadow-[#3b71ca]/40"
               >
                 Get Started <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </button>
@@ -388,132 +388,131 @@ export default function EnhancedWifiPortal() {
       </section>
 
       {/* PLANS GRID */}
-      <section
-                    id="catalog-grid"
-                    className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-                  >
-                    {/* Header */}
-                    
-                    {/* GRID */}
-                    {/* GRID */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                    {filteredPlans.map((item, index) => (
-                      <div
-                        key={index}
-                        className="overflow-hidden rounded-[2.5rem] bg-white border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-500 group"
-                      >
-                        {/* IMAGE */}
-                        <div className="relative h-[260px] overflow-hidden">
-                          <img
-                            src={item.image}
-                            alt={item.title}
-                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                          />
-                  
-                          {/* Overlay */}
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-                  
-                          {/* TOP BADGES */}
-                          <div className="absolute top-5 left-5 flex flex-col gap-2 z-10">
-                            {item.tag && (
-                              <span
-                                className={`text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full text-white shadow-lg ${
-                                  item.tag === "Trending"
-                                    ? "bg-cyan-500"
-                                    : item.tag === "Hot Deal"
-                                    ? "bg-blue-600"
-                                    : "bg-indigo-600"
-                                }`}
-                              >
-                                {item.tag}
-                              </span>
-                            )}
-                          </div>
-                  
-                          {/* PRICE BADGE */}
-                          <div className="absolute top-5 right-5 bg-white/95 backdrop-blur-md text-blue-600 font-black text-xs px-4 py-2 rounded-full shadow-lg border border-white">
-                            {item.price}
-                          </div>
-                        </div>
-                  
-                        {/* CONTENT */}
-                        <div className="p-8 flex flex-col min-h-[420px]">
-                          {/* TITLE */}
-                          <div className="min-h-[80px] mb-5">
-                            <h3 className="text-xl leading-7 font-black text-slate-900 group-hover:text-blue-600 transition-colors duration-300">
-                              {item.title}
-                            </h3>
-                          </div>
-                  
-                          {/* RATINGS */}
-                          <div className="flex items-center gap-3 mb-6">
-                            <div className="bg-blue-600 text-white text-xs font-black px-3 py-1 rounded-full flex items-center gap-1 shadow-md">
-                              {item.rating}
-                              <span>★</span>
-                            </div>
-                  
-                            <span className="text-sm text-slate-500 font-semibold">
-                              ({item.reviewCount} Reviews)
-                            </span>
-                          </div>
-                  
-                          {/* PRICE SECTION */}
-                          <div className="mb-6">
-                            <div className="flex items-center gap-3 flex-wrap">
-                              <span className="text-lg font-black text-slate-900">
-                                {item.price}
-                              </span>
-                  
-                              <span className="text-sm text-slate-400 line-through">
-                                {item.originalPrice}
-                              </span>
-                            </div>
-                  
-                            {/* OFFER BADGES */}
-                            <div className="mt-4 flex items-center gap-2 flex-wrap">
-                              <span className="bg-emerald-50 text-emerald-600 text-xs font-black px-3 py-1 rounded-full border border-emerald-100">
-                                {item.discount}% OFF
-                              </span>
-                  
-                              {item.badge && (
-                                <span className="bg-blue-50 text-blue-700 text-xs font-black px-3 py-1 rounded-full border border-blue-100">
-                                  {item.badge}
-                                </span>
-                              )}
-                            </div>
-                          </div>
-                  
-                          {/* SPECS */}
-                          <div className="space-y-3 mb-8">
-                            {item.specs.map((spec, i) => (
-                              <div key={i} className="flex items-start gap-3">
-                                <CheckCircle2
-                                  size={16}
-                                  className="text-blue-600 mt-1 flex-shrink-0"
-                                />
-                  
-                                <span className="text-slate-600 text-sm leading-relaxed">
-                                  {spec}
-                                </span>
-                              </div>
-                            ))}
-                          </div>
-                  
-                          {/* BUTTON */}
-                          <div className="mt-auto">
-                            <button
-                              onClick={() => setIsModalOpen(true)}
-                              className="w-full py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-black uppercase tracking-wider text-xs transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-blue-600/20 hover:shadow-blue-600/40"
-                            >
-                              Request Quote
-                              <ArrowRight size={16} />
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                  </section>
+     <section
+  id="catalog-grid"
+  className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+>
+  {/* Header */}
+  
+  {/* GRID */}
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+    {filteredPlans.map((item, index) => (
+      <div
+        key={index}
+        className="overflow-hidden rounded-[2.5rem] bg-white border border-cyan-100 shadow-xl hover:shadow-2xl transition-all duration-500 group"
+      >
+        {/* IMAGE */}
+        <div className="relative h-[260px] overflow-hidden">
+          <img
+            src={item.image}
+            alt={item.title}
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+          />
+
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#3b71ca]/40 via-transparent to-transparent" />
+
+          {/* TOP BADGES */}
+          <div className="absolute top-5 left-5 flex flex-col gap-2 z-10">
+            {item.tag && (
+              <span
+                className={`text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full text-white shadow-lg ${
+                  item.tag === "Trending"
+                    ? "bg-[#00b4ed]"
+                    : item.tag === "Hot Deal"
+                    ? "bg-[#3b71ca]"
+                    : "bg-gradient-to-r from-[#3b71ca] to-[#00b4ed]"
+                }`}
+              >
+                {item.tag}
+              </span>
+            )}
+          </div>
+
+          {/* PRICE BADGE */}
+          <div className="absolute top-5 right-5 bg-white/95 backdrop-blur-md text-[#3b71ca] font-black text-xs px-4 py-2 rounded-full shadow-md border border-cyan-50">
+            {item.price}
+          </div>
+        </div>
+
+        {/* CONTENT */}
+        <div className="p-8 flex flex-col min-h-[420px]">
+          {/* TITLE */}
+          <div className="min-h-[80px] mb-5">
+            <h3 className="text-xl leading-7 font-black text-slate-900 group-hover:text-[#3b71ca] transition-colors duration-300">
+              {item.title}
+            </h3>
+          </div>
+
+          {/* RATINGS */}
+          <div className="flex items-center gap-3 mb-6">
+            <div className="bg-[#3b71ca] text-white text-xs font-black px-3 py-1 rounded-full flex items-center gap-1 shadow-md">
+              {item.rating}
+              <span>★</span>
+            </div>
+
+            <span className="text-sm text-slate-500 font-semibold">
+              ({item.reviewCount} Reviews)
+            </span>
+          </div>
+
+          {/* PRICE SECTION */}
+          <div className="mb-6">
+            <div className="flex items-center gap-3 flex-wrap">
+              <span className="text-lg font-black text-slate-900">
+                {item.price}
+              </span>
+
+              <span className="text-sm text-slate-400 line-through">
+                {item.originalPrice}
+              </span>
+            </div>
+
+            {/* OFFER BADGES */}
+            <div className="mt-4 flex items-center gap-2 flex-wrap">
+              <span className="bg-emerald-50 text-emerald-600 text-xs font-black px-3 py-1 rounded-full border border-emerald-100">
+                {item.discount}% OFF
+              </span>
+
+              {item.badge && (
+                <span className="bg-cyan-50 text-[#00b4ed] text-xs font-black px-3 py-1 rounded-full border border-cyan-100/70">
+                  {item.badge}
+                </span>
+              )}
+            </div>
+          </div>
+
+          {/* SPECS */}
+          <div className="space-y-3 mb-8">
+            {item.specs.map((spec, i) => (
+              <div key={i} className="flex items-start gap-3">
+                <CheckCircle2
+                  size={16}
+                  className="text-[#00b4ed] mt-1 flex-shrink-0"
+                />
+
+                <span className="text-slate-600 text-sm leading-relaxed">
+                  {spec}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* BUTTON */}
+          <div className="mt-auto">
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="w-full py-4 rounded-2xl bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] hover:opacity-95 text-white font-black uppercase tracking-wider text-xs transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-[#3b71ca]/20 hover:shadow-[#00b4ed]/40"
+            >
+              Request Quote
+              <ArrowRight size={16} />
+            </button>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
 
       {/* MODAL (Re-styled) */}
      <AnimatePresence>

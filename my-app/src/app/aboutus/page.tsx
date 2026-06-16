@@ -91,14 +91,14 @@ export default function AboutPage() {
 
         <div className="container mx-auto px-6 relative z-10 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <p className="text-[#0057FF] font-bold uppercase tracking-[0.4em] text-xs mb-4 bg-[#0057FF]/10 dark:bg-[#0057FF]/20 px-4 py-1.5 rounded-full inline-block">
-              Softlink Computers
-            </p>
-          </motion.div>
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}
+>
+  <p className="text-[#e36414] font-bold uppercase tracking-[0.4em] text-xs mb-4 bg-[#e36414]/10 dark:bg-[#e36414]/20 px-4 py-1.5 rounded-full inline-block">
+    Softlink Computers
+  </p>
+</motion.div>
 
           <motion.h1
   initial={{ opacity: 0, y: 30 }}
@@ -107,7 +107,7 @@ export default function AboutPage() {
   className="text-4xl md:text-6xl font-black leading-tight tracking-tight text-[#0A1628] dark:text-white"
 >
   Trusted IT Infrastructure <br />
-  <span className="text-[#0057FF]">
+  <span className="bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] bg-clip-text text-transparent">
     & Security Experts
   </span>
 </motion.h1>
@@ -131,7 +131,7 @@ export default function AboutPage() {
           {/* LEFT COLUMN: NARRATIVE CONTENT */}
           <div className="lg:col-span-7 space-y-8">
             <div className="space-y-4">
-              <h2 className="text-xs font-bold text-[#0057FF] uppercase tracking-widest">Our Legacy</h2>
+              <h2 className="text-xs font-bold bg-gradient-to-tr from-[#9e2a2b] via-[#e36414] to-[#fb8b24] bg-clip-text text-transparent uppercase tracking-widest">Our Legacy</h2>
               <motion.h3 
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -228,7 +228,7 @@ export default function AboutPage() {
       <section className="py-24 bg-slate-50 dark:bg-[#0B1B33]/40 border-y border-slate-100 dark:border-white/5">
         <div className="container mx-auto px-6">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-xs font-bold text-[#0057FF] uppercase tracking-widest mb-3">Operational DNA</h2>
+            <h2 className="text-xs font-bold bg-gradient-to-tr from-[#9e2a2b] via-[#e36414] to-[#fb8b24] bg-clip-text text-transparent uppercase tracking-widest mb-3">Operational DNA</h2>
             <h3 className="text-3xl md:text-4xl font-bold">Engineered For Performance</h3>
             <p className="text-slate-500 dark:text-slate-400 mt-4">
               We guide every corporate maintenance contract and hardware supply run via absolute metrics.
@@ -247,9 +247,9 @@ export default function AboutPage() {
                   transition={{ delay: idx * 0.1 }}
                   className="bg-white dark:bg-[#0A1628] p-8 rounded-3xl border border-slate-100 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="w-12 h-12 rounded-2xl bg-[#0057FF]/10 text-[#0057FF] flex items-center justify-center mb-6">
-                    <Icon size={24} />
-                  </div>
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#3b71ca]/15 to-[#00b4ed]/15 text-[#3b71ca] flex items-center justify-center mb-6">
+  <Icon size={24} />
+</div>
                   <h4 className="font-bold text-lg mb-3">{val.title}</h4>
                   <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">{val.desc}</p>
                 </motion.div>
@@ -265,7 +265,7 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             
             <div className="lg:col-span-4 space-y-4">
-              <h2 className="text-xs font-bold text-[#0057FF] uppercase tracking-widest">Our Fleet</h2>
+              <h2 className="text-xs font-boldbg-gradient-to-tr from-[#9e2a2b] via-[#e36414] to-[#fb8b24] bg-clip-text text-transparent uppercase tracking-widest">Our Fleet</h2>
               <h3 className="text-3xl md:text-4xl font-bold tracking-tight">Technical Capability Breakdown</h3>
               <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
                 Softlink Computers maps out full hardware supply chains combined with precision internal engineering parameters.
@@ -296,7 +296,7 @@ export default function AboutPage() {
       <section className="py-24 bg-slate-50 dark:bg-[#0B1B33]/40 border-t border-slate-100 dark:border-white/5">
         <div className="container mx-auto px-6">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-xs font-bold text-[#0057FF] uppercase tracking-widest mb-3">Our History</h2>
+            <h2 className="text-xs font-bold bg-gradient-to-tr from-[#9e2a2b] via-[#e36414] to-[#fb8b24] bg-clip-text text-transparent uppercase tracking-widest mb-3">Our History</h2>
             <h3 className="text-3xl md:text-4xl font-bold">The Strategic Expansion Timeline</h3>
           </div>
 
@@ -321,7 +321,7 @@ export default function AboutPage() {
       {/* ================= ECOSYSTEM PARTNERS SECTION ================= */}
       <section className="py-20 border-t border-slate-200 dark:border-white/10 bg-white dark:bg-[#0A1628]">
         <div className="container mx-auto px-6 text-center mb-12">
-          <h2 className="text-xs font-bold text-[#0057FF] uppercase tracking-widest mb-3">Alliances</h2>
+          <h2 className="text-xs font-bold bg-gradient-to-tr from-[#9e2a2b] via-[#e36414] to-[#fb8b24] bg-clip-text text-transparent uppercase tracking-widest mb-3">Alliances</h2>
           <h3 className="text-2xl md:text-3xl font-bold">Authorized Distribution Partners</h3>
           <p className="text-sm text-slate-400 mt-2">Integrating clean hardware builds directly supported by regional tier-1 tech networks.</p>
         </div>
