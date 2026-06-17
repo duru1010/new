@@ -2088,12 +2088,13 @@ const Navbar = () => {
             <div className="flex items-center gap-2 sm:gap-4">
               {/* GET QUOTATION */}
               <button
-                onClick={() => setShowForm(true)}
-                className="hidden md:block px-6 py-2.5 bg-white hover:bg-blue-50 text-blue-600 rounded-full text-sm font-bold transition-all shadow-lg active:scale-95"
-              >
-                Get Quotation
-              </button>
-
+  onClick={() => setShowForm(true)}
+  className="hidden md:block bg-white px-5 py-2 rounded-full font-semibold hover:bg-blue-50 transition"
+>
+  <span className="bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] bg-clip-text text-transparent">
+    Get Quotation
+  </span>
+</button>
               {/* MOBILE MENU BUTTON */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
@@ -2189,7 +2190,7 @@ const Navbar = () => {
     setShowForm(true);
     setIsOpen(false);
   }}
-  className="w-full px-4 py-3 rounded-2xl bg-white bg-gradient-to-r from-[#3b71ca] to-[#00b4ed] bg-clip-text text-transparent border border-cyan-100/50 font-bold hover:bg-cyan-50/40 transition-colors duration-300 shadow-sm"
+  className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#e36414]/10 border border-[#e36414]/20 text-[#e36414] text-xs font-black uppercase tracking-[0.2em] mb-8"
 >
   Get Quotation
 </button>
