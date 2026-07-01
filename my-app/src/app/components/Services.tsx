@@ -202,7 +202,7 @@ const Services = () => {
               Comprehensive IT infrastructure and support services designed for growth.
             </p>
           </div>
-          <Link href="/all-services" className="bg-gradient-to-tr from-[#9e2a2b] via-[#e36414] to-[#fb8b24] bg-clip-text text-transparent font-bold flex items-center gap-2 hover:underline">
+          <Link href="/#all-services" className="bg-gradient-to-tr from-[#9e2a2b] via-[#e36414] to-[#fb8b24] bg-clip-text text-transparent font-bold flex items-center gap-2 hover:underline">
             View All Services <ArrowUpRight size={20} />
           </Link>
         </div>
